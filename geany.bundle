@@ -18,7 +18,7 @@
          app. If you leave out the path, the current directory is
          used. Note the usage of an environment variable here again.
     -->
-    <destination overwrite="yes">${env:HOME}/Desktop</destination>
+    <destination overwrite="yes">${project}</destination>
 
     <image>
       <!-- Not implemented yet (DMG image). -->
@@ -48,9 +48,9 @@
        this bundle file is located. The application name and bundle
        identifier are taken from the plist file.
   -->
-  <plist>${project}/Info-gtk-demo.plist</plist>
+  <plist>${project}/Info.plist</plist>
 
-  <main-binary>${prefix}/bin/gtk-demo</main-binary>
+  <main-binary>${prefix}/bin/geany</main-binary>
 
   <!-- Copy in GTK+ modules.  Note the ${gtkdir} macro, which expands
        to the correct library subdirectory for the specified gtk
@@ -80,12 +80,20 @@
   </binary>
 
    <binary>
-    ${prefix}/lib/pango/${pkg:pango:pango_module_version}/modules/
+    ${prefix}/lib/pango/${pkg:pango:pango_module_version}/modules/*.so
   </binary>
 
+<!-- Doesn't exist -->
+<!--
   <data>
     ${prefix}/etc/pango/
   </data>
+-->
+
+  <!-- Geany's plugins -->
+  <binary>
+    ${prefix}/lib/geany/*.so
+  </binary>
 
  <!-- Translation filenames, one for each program or library that you
        want to copy in to the bundle. The "dest" attribute is
@@ -102,30 +110,55 @@
        "dest" property. The destination must then start with the macro
        "${bundle}", which refers to the bundle root directory.
   -->
-  <!-- data>
-    ${prefix}/share/gtk-demo
-  </data -->
+  
+  <!-- Geany's data files; glade, fildefs, default tags, etc. -->
+  <data dest="${bundle}/Contents/Resources/share/geany">
+    ${prefix}/share/geany
+  </data>
+  <!-- Geany plugin's data files -->
+  <data dest="${bundle}/Contents/Resources/share/geany-plugins">
+    ${prefix}/share/geany-plugins
+  </data>
+  <!-- Geany documentation -->
+  <data dest="${bundle}/Contents/Resources/share/doc/geany">
+    ${prefix}/share/doc/geany
+  </data>
+  <!-- Geany plugin documentation -->
+  <data dest="${bundle}/Contents/Resources/share/doc/geany-plugins">
+    ${prefix}/share/doc/geany-plugins
+  </data>
 
   <!-- Copy in the themes data. You may want to trim this to save space
        in your bundle. -->
-  <data>
-    ${prefix}/share/themes
+
+  <!-- This theme contains the right key mappings for OS X -->
+  <data dest="${bundle}/Contents/Resources/share/themes/Mac">
+    ${prefix}/share/themes/Mac
   </data>
 
   <!-- Copy icons. Note that the .icns file is an Apple format which
        contains up to 4 sizes of icon. You can use
        /Developer/Applications/Utilities/Icon Composer.app to import
-       artwork and create the file. >
+       artwork and create the file. -->
   <data dest="${bundle}/Contents/Resources">
-    ${project}/Giggle.icns
-  </data -->
+    ${project}/Geany.icns
+  </data>
 
   <!-- This is where theme commands go. You can copy them in from your
        theme of choice if they provide and example, or you can just
        change the source path. -->
 
+  <!-- Main gtkrc -->
   <data dest="${bundle}/Contents/Resources/etc/${gtkdir}/gtkrc">
     ${project}/gtkrc
+  </data>
+  <!-- The theme -->
+  <data dest="${bundle}/Contents/Resources/etc/${gtkdir}/gtkrc.theme">
+    ${project}/gtkrc.theme
+  </data>
+  <!-- Custom (better looking) close button -->
+  <data dest="${bundle}/Contents/Resources/etc/${gtkdir}/close.png">
+    ${project}/close.png
   </data>
 
   <!-- Icon themes to copy. The "icons" property can be either of
@@ -136,9 +169,9 @@
        icon names. To be safe, you should use "all". "none" is useful
        if you want just the index.theme file but no icons, mostly
        needed for the "hicolor" base theme.
-  >
-  <icon-theme icons="auto">
-    Tango
-  </icon-theme -->
+  -->
+  <icon-theme icons="all">
+    Faience
+  </icon-theme>
 
 </app-bundle>
