@@ -1,0 +1,17 @@
+geany-osx contains parts from other projects which are licensed under
+their original licenses:
+
+Faience icon theme:
+	GPLv3
+	http://tiheum.deviantart.com/art/Faience-icon-theme-255099649
+
+Faenza-Cupertino icon theme:
+	GPL (version not specified)
+	http://gnome-look.org/content/show.php/Faenza-Cupertino?content=129008
+
+Greybird GTK2 theme:
+	dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later
+	https://github.com/shimmerproject/Greybird
+
+The rest of the geany-osx project (scripts, configuration files, etc.):
+	public domain
