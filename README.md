@@ -102,10 +102,8 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	```
 
 	to start jhbuild shell. 
-    
-    ** The rest of this HOWTO assumes you are running
-	from within the jhbuild shell! **
 
+	**The rest of this HOWTO assumes you are running from within the jhbuild shell! **
 
 Geany Installation
 ------------------
@@ -144,14 +142,13 @@ Geany Installation
 	./waf configure --enable-mac-integration
 	./waf
 	./waf install
-
 	```
 
-5.	Get Geany themes from
+5.	To bundle all available Geany themes, get them from
 
 	<https://github.com/codebrainz/geany-themes.git>
 
-	and copy the colorschemes directory under `$PREFIX/share/geany`
+	and copy the colorschemes directory under `$PREFIX/share/geany`.
 
 Bundling
 --------
