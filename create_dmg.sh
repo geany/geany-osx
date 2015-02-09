@@ -1,18 +1,18 @@
 #!/bin/sh
 
-VERSION="1.25git"
+VERSION="1.25nightly"
 
 NAME="Geany"
 ICONNAME="Geany.icns"
 VOLNAME="${NAME} ${VERSION}"
-DMGNAME="${NAME}-${VERSION}.dmg"
+DMGNAME="geany-${VERSION}_osx.dmg"
 APPNAME="${NAME}.app"
 TMPDIR="tmp-out"
 
 mkdir "$TMPDIR"
 cp -r "$APPNAME" "$TMPDIR"
 
-test -f $DMGNAME && rm $DMGNAME
+test -f "$DMGNAME" && rm "$DMGNAME"
 create-dmg \
 --volname "$VOLNAME" \
 --volicon "$ICONNAME" \
