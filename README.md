@@ -103,7 +103,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 
 	to start jhbuild shell. 
 
-	**The rest of this HOWTO assumes you are running from within the jhbuild shell! **
+	**The rest of this HOWTO assumes you are running from within the jhbuild shell!**
 
 Geany Installation
 ------------------
