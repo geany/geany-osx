@@ -62,7 +62,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	jhbuild will not interfere with some other command-line tools installed
 	on your system).
 
-2.	Get gtk-osx-build-setup.sh from
+2.	Get `gtk-osx-build-setup.sh` from
 
 	<https://git.gnome.org/browse/gtk-osx/plain/gtk-osx-build-setup.sh>
 
@@ -76,7 +76,10 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 
 	to set path to jhbuild installed in the previous step.
 
-4.	Install GTK2 and all its dependencies using the following commands:
+4.	By default, jhbuild compiles without optimization flags. To enable
+	optimization, add `setup_release()` at the end of `~/.jhbuildrc-custom`.
+
+5.	Install GTK 2 and all its dependencies using the following commands:
 
 	```
 	jhbuild bootstrap
@@ -84,7 +87,14 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	jhbuild build meta-gtk-osx-core 
 	```
 
-5.	Install the murrine engine needed by the used theme:
+	Instead of meta-gtk-osx-core (GTK 2) you can also use `meta-gtk-osx-gtk3` to
+	install GTK 3. Note that both GTK 2 and GTK 3 cannot be installed at the 
+	same time. Also note that there seem to be various problems with the OS X 
+	support in GTK 3; for this reason I have not spent more time with the GTK 3 
+	backend so there is no GTK3-specific theme or bundling support at this 
+	moment.
+
+6.	Install the murrine engine needed by the used GTK 2 theme:
 
 	```
 	jhbuild build murrine-engine
@@ -95,7 +105,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	GTK_LIBS in it and add `-lpixman-1` to the end of the list. Exit shell 
 	(by calling `exit`) and rerun phase build with `[1]`.
 
-6.	Run
+7.	Run
 
 	```
 	jhbuild shell
@@ -131,18 +141,21 @@ Geany Installation
 4.	Configure, make, install Geany using either
 
 	```
-	./autogen.sh --enable-mac-integration
-	make
-	make install
+	./waf configure --enable-mac-integration
+	./waf
+	./waf install
 	```
 
 	or
 
 	```
-	./waf configure --enable-mac-integration
-	./waf
-	./waf install
+	./autogen.sh --prefix=$PREFIX --enable-mac-integration
+	make
+	make install
 	```
+	
+	If you are building against GTK 3, add the `--enable-gtk3` parameter
+	to the configure phase.
 
 5.	To bundle all available Geany themes, get them from
 
@@ -159,8 +172,7 @@ Bundling
 	cp -r Faience $PREFIX/share/icons
 	```
 
-2.	Replace Geany color icons by grey icons from the Faience theme by
-calling
+2.	Replace Geany color icons by grey icons from the Faience theme by calling
 
 	```
 	./replace_icons.sh
@@ -229,28 +241,23 @@ have to be performed during normal bundle/installer creation:
 
 VTE
 ---
-The VTE terminal does not work. While it loads fine in Geany, only black
-window is shown without any possibility of user interaction. This seems
-to be an issue in VTE itself because neither the demo terminal application
-from VTE works.
+The VTE terminal does not work with GTK 2 (seems to work fine with GTK 3). 
+While it loads in Geany, only black window is shown without any possibility 
+of user interaction. This seems to be an issue in VTE itself or GTK 2
+because neither the demo terminal application from VTE works.
 
-In case it is ever fixed, here is the build process for reference.
-Get VTE from
+In case it is ever fixed or when building against GTK 3, here is the build 
+process for reference. Get VTE from
 
-<http://ftp.gnome.org/pub/GNOME/sources/vte/0.28/>
+<http://ftp.gnome.org/pub/GNOME/sources/vte/>
 
-configure, make and install it
+For GTK 2 use the 0.28.x release, for GTK 3 any higher release. Configure, 
+make and install it using:
 
 ```
 ./configure --prefix=$PREFIX --disable-Bsymbolic
 make
 make install
-```
-
-and start Geany using
-
-```
-geany --vte-lib=$PREFIX/lib/libvte.dylib
 ```
 
 ---
