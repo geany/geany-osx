@@ -29,7 +29,7 @@ A brief description of the contents of the project directory:
 *	*Geany.icns*: OS X Geany icon file.
 
 ### Scripts
-*	*launcher.sh*: Launcher script from the gtk-mac-bundler project setting
+*	*launcher.sh*: launcher script from the gtk-mac-bundler project setting
 	all the necessary environment variables.
 *	*replace_icons.sh*: script replacing the color icons distributed together
 	with Geany with grey icons from the Faience theme.
@@ -38,6 +38,8 @@ A brief description of the contents of the project directory:
 	file.
 *	*create_dmg.sh*: script calling create-dmg to create the dmg installer
 	image. 
+*	*01-vte_fix.diff, 02-vte_relpath.diff*: patches fixing VTE under OS X
+	and enabling VTE bundling. 
 
 General Instructions
 --------------------
@@ -126,11 +128,11 @@ Geany Installation
 	<http://docutils.sourceforge.net>
 
 	and install using
-    
+
 	```
 	python setup.py install --prefix=$PREFIX
 	```
-    
+
 3.	Docutils will fail if you do not set the following environment variables:
 
 	```
@@ -162,6 +164,40 @@ Geany Installation
 	<https://github.com/codebrainz/geany-themes.git>
 
 	and copy the colorschemes directory under `$PREFIX/share/geany`.
+
+VTE (Virtual Terminal)
+----------------------
+1.	Download VTE from
+
+	<http://ftp.gnome.org/pub/GNOME/sources/vte/>
+
+	and extract it. For GTK 2 use the 0.28.2 release, for GTK 3 any higher 
+	release.
+
+2.	Unfortunately, VTE 0.28.2 does not work out of the box and needs to be
+	patched to work on OS X. Copy the patch 01-vte_fix.diff to the VTE
+	directory and apply it using:
+
+	```
+	patch -p1 <01-vte_fix.diff
+	```
+
+3.	If you plan to create a bundle, apply also the second patch after
+	copying it to the VTE directory:
+
+	```
+	patch -p1 <02-vte_relpath.diff
+	```
+
+	Do not apply the patch if you are not creating a bundle.
+	
+4.	Configure, make and install VTE using
+
+	```
+	./configure --prefix=$PREFIX --disable-Bsymbolic
+	make
+	make install
+	```
 
 Bundling
 --------
@@ -215,7 +251,7 @@ Distribution
 
 2.	Create the dmg installation image by calling
 	
-    ```
+	```
 	./create_dmg.sh
 	```
 
@@ -238,27 +274,6 @@ have to be performed during normal bundle/installer creation:
 	```
 	iconutil -c icns ./iconbuilder.iconset
 	```
-
-VTE
----
-The VTE terminal does not work with GTK 2 (seems to work fine with GTK 3). 
-While it loads in Geany, only black window is shown without any possibility 
-of user interaction. This seems to be an issue in VTE itself or GTK 2
-because neither the demo terminal application from VTE works.
-
-In case it is ever fixed or when building against GTK 3, here is the build 
-process for reference. Get VTE from
-
-<http://ftp.gnome.org/pub/GNOME/sources/vte/>
-
-For GTK 2 use the 0.28.x release, for GTK 3 any higher release. Configure, 
-make and install it using:
-
-```
-./configure --prefix=$PREFIX --disable-Bsymbolic
-make
-make install
-```
 
 ---
 

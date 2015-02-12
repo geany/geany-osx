@@ -83,6 +83,14 @@
     ${prefix}/lib/pango/${pkg:pango:pango_module_version}/modules/*.so
   </binary>
 
+  <!-- VTE library -->
+  <binary>
+    ${prefix}/lib/libvte*.dylib
+  </binary>
+  <binary  dest="${bundle}/Contents/Resources/libexec/gnome-pty-helper">
+    ${prefix}/libexec/gnome-pty-helper
+  </binary>
+
 <!-- Doesn't exist -->
 <!--
   <data>
@@ -126,6 +134,10 @@
   <!-- Geany plugin documentation -->
   <data dest="${bundle}/Contents/Resources/share/doc/geany-plugins">
     ${prefix}/share/doc/geany-plugins
+  </data>
+  <!-- VTE config -->
+  <data dest="${bundle}/Contents/Resources/share/vte">
+    ${prefix}/share/vte
   </data>
 
   <!-- Copy in the themes data. You may want to trim this to save space
