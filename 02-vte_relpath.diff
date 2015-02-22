@@ -1,4 +1,4 @@
-From a28e4e7424a5632b1e1c368f2ec4a0b00d7eadc5 Mon Sep 17 00:00:00 2001
+From ca71e8c8c98ffa893cd53b661b4aec7e6de18079 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
 Date: Thu, 12 Feb 2015 00:25:29 +0100
 Subject: [PATCH] Make VTE independent of installation path when bundling
@@ -8,8 +8,8 @@ the resources directory - use this path to avoid absolute paths
 in the source.
 ---
  src/pty.c |  7 ++++++-
- src/vte.c | 12 ++++++++++--
- 2 files changed, 16 insertions(+), 3 deletions(-)
+ src/vte.c | 16 +++++++++++-----
+ 2 files changed, 17 insertions(+), 6 deletions(-)
 
 diff --git a/src/pty.c b/src/pty.c
 index a4c8c07..c49e6b6 100644
@@ -31,22 +31,26 @@ index a4c8c07..c49e6b6 100644
  		_exit(1);
  	}
 diff --git a/src/vte.c b/src/vte.c
-index 18484a5..8b90e74 100644
+index 18484a5..83d3bff 100644
 --- a/src/vte.c
 +++ b/src/vte.c
-@@ -8272,7 +8272,10 @@ vte_terminal_set_termcap(VteTerminal *terminal, const char *path,
+@@ -8272,10 +8272,11 @@ vte_terminal_set_termcap(VteTerminal *terminal, const char *path,
  	char *wpath;
  
  	if (path == NULL) {
 -		wpath = g_build_filename(TERMCAPDIR,
+-					 terminal->pvt->emulation ?
+-					 terminal->pvt->emulation :
+-					 vte_terminal_get_default_emulation(terminal),
 +		wpath = g_build_filename(g_getenv("GTK_PATH"),
 +					 "share",
 +					 "vte",
-+					 "termcap",
- 					 terminal->pvt->emulation ?
- 					 terminal->pvt->emulation :
- 					 vte_terminal_get_default_emulation(terminal),
-@@ -11720,7 +11723,12 @@ vte_terminal_class_init(VteTerminalClass *klass)
++					 "termcap-0.0",
++					 "xterm",
+ 					 NULL);
+ 		if (g_stat(wpath, &st) != 0) {
+ 			g_free(wpath);
+@@ -11720,7 +11721,12 @@ vte_terminal_class_init(VteTerminalClass *klass)
  	}
  #endif
  
