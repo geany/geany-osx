@@ -139,6 +139,10 @@
   <data dest="${bundle}/Contents/Resources/share/vte">
     ${prefix}/share/vte
   </data>
+  <!-- mime data -->
+  <data dest="${bundle}/Contents/Resources/share/mime">
+    ${prefix}/share/mime
+  </data>
 
   <!-- Copy in the themes data. You may want to trim this to save space
        in your bundle. -->
