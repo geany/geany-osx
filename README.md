@@ -147,15 +147,7 @@ Bundling
 
 	from within the geany-osx directory.
 
-4.	Get gtk-mac-bundler and install it:
-
-	```
-	git clone git://git.gnome.org/gtk-mac-bundler
-	cd gtk-mac-bundler
-	make install
-	```
-
-5.	Create the app bundle by calling
+4.	Create the app bundle by calling
 
 	```
 	gtk-mac-bundler geany.bundle
