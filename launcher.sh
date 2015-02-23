@@ -39,7 +39,7 @@ export GDK_PIXBUF_MODULE_FILE="$bundle_lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
 export PANGO_LIBDIR="$bundle_lib"
 export PANGO_SYSCONFDIR="$bundle_etc"
 
-APP=name
+APP=$name
 I18NDIR="$bundle_data/locale"
 # Set the locale-related variables appropriately:
 unset LANG LC_MESSAGES LC_MONETARY LC_COLLATE
