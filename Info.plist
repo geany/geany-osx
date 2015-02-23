@@ -13,12 +13,14 @@
 
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
-	<key>CFBundleExecutable</key>
+	<key>CFBundleName</key>
 	<string>Geany</string>
+	<key>CFBundleExecutable</key>
+	<string>geany</string>
 	<key>CFBundleIconFile</key>
 	<string>Geany.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.geany.Geany</string>
+	<string>org.geany.geany</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
