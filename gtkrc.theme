@@ -512,7 +512,7 @@ style "spin" = "combo"
 {
 	engine "murrine"
 	{
-		border_shades 		= {0.7, 0.8}
+		border_shades 		= {1.0, 1.0}
 	}
 }
 
@@ -559,7 +559,7 @@ style "radiocheck"
 
   	engine "murrine" 
 	{
-		border_shades		= { 0.9, 0.8 }
+		border_shades		= { 1.0, 1.0 }
 		contrast		= 0.8
 		lightborder_shade	= 1.0
 	}
