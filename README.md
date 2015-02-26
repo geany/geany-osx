@@ -4,6 +4,12 @@ Geany OS X is a project that contains all the necessary configuration
 files, themes, scripts and instructions to create the Geany app bundle and 
 a dmg installer image for OS X.
 
+Binaries
+--------
+Nightly snapshot is available at
+
+<http://download.geany.org/snapshots/geany-1.25nightly_osx.dmg>
+
 Files and Directories
 ---------------------
 A brief description of the contents of the project directory:
