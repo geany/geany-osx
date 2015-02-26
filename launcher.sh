@@ -39,6 +39,9 @@ export GDK_PIXBUF_MODULE_FILE="$bundle_lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
 export PANGO_LIBDIR="$bundle_lib"
 export PANGO_SYSCONFDIR="$bundle_etc"
 
+test_locale = "no"
+if test "x$test_locale" == "xyes"; then 
+
 APP=$name
 I18NDIR="$bundle_data/locale"
 # Set the locale-related variables appropriately:
@@ -154,6 +157,13 @@ fi
 export LC_ALL=$LC_MESSAGES
 
 unset APPLELOCALE FILES LOC
+
+#test_locale != yes
+else
+  export LANG="en_US"
+  export LC_MESSAGES="en_US"
+  export LC_ALL="en_US.UTF-8"
+fi
 
 if test -f "$bundle_lib/charset.alias"; then
     export CHARSETALIASDIR="$bundle_lib"
