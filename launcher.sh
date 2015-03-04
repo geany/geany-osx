@@ -39,7 +39,7 @@ export GDK_PIXBUF_MODULE_FILE="$bundle_lib/gdk-pixbuf-2.0/2.10.0/loaders.cache"
 export PANGO_LIBDIR="$bundle_lib"
 export PANGO_SYSCONFDIR="$bundle_etc"
 
-test_locale = "no"
+test_locale="no"
 if test "x$test_locale" == "xyes"; then 
 
 APP=$name
