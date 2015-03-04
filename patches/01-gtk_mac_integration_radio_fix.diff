@@ -1,0 +1,60 @@
+From 71743a251dd0ba89bf39ee3d4c57a7c99817039d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Mon, 16 Feb 2015 16:27:12 +0100
+Subject: [PATCH] Connect the "toggled" signal of GtkRadioMenuItem to update
+ radio menu items automatically
+
+The "toggled" signal is emitted both for the item which receives
+the check, but also for the item which loses it which is ideal
+for the osx menu bar update which doesn't know which items
+are in the mutually exclusive radio group.
+---
+ src/cocoa_menu_item.c | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+
+diff --git a/src/cocoa_menu_item.c b/src/cocoa_menu_item.c
+index dd46586..aeb0697 100644
+--- a/src/cocoa_menu_item.c
++++ b/src/cocoa_menu_item.c
+@@ -416,6 +416,13 @@ cocoa_menu_item_notify (GObject        *object,
+ }
+ 
+ static void
++cocoa_radio_menu_item_toggled (GObject        *object,
++                               _GNSMenuItem *cocoa_item)
++{
++  cocoa_menu_item_update_checked (cocoa_item, GTK_WIDGET (object));
++}
++
++static void
+ cocoa_menu_item_connect (GtkWidget*   menu_item,
+                          _GNSMenuItem* cocoa_item,
+                          GtkWidget     *label)
+@@ -449,6 +456,24 @@ cocoa_menu_item_connect (GtkWidget*   menu_item,
+                     G_CALLBACK (cocoa_menu_item_notify),
+                     cocoa_item);
+ 
++  if (GTK_IS_RADIO_MENU_ITEM (menu_item))
++    {
++      if (old_item)
++        {
++          GSignalMatchType mask = G_SIGNAL_MATCH_ID | G_SIGNAL_MATCH_DATA;
++          guint notify_sig = g_signal_lookup ("toggled", GTK_TYPE_RADIO_MENU_ITEM);
++          if (! g_signal_handlers_disconnect_matched (G_OBJECT (menu_item),
++              mask, notify_sig,
++              (GQuark)0, NULL, NULL,
++              old_item))
++            g_print ("Failed to disconnect old toggleds signal for %s\\n",
++                     gtk_widget_get_name (menu_item));
++        }
++      g_signal_connect (menu_item, "toggled",
++                        G_CALLBACK (cocoa_radio_menu_item_toggled),
++                        cocoa_item);
++    }
++
+   if (label)
+     g_signal_connect_swapped (label, "notify::label",
+                               G_CALLBACK (cocoa_menu_item_notify_label),
+-- 
+2.2.1
+
