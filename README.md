@@ -134,7 +134,7 @@ Bundling
 --------
 1.	To bundle all available Geany themes, get them from
 
-	<https://github.com/codebrainz/geany-themes.git>
+	<https://github.com/geany/geany-themes>
 
 	and copy the colorschemes directory under `$PREFIX/share/geany`.
 
