@@ -127,8 +127,8 @@ Geany Installation
 	jhbuild -m geany.modules build geany-bundle
 	```
 
-	There are other useful module installation options e.g. if you plan to develop
-	Geany - check the geany.modules file for more options.
+	There are other useful module installation options - check the geany.modules
+	file for more options.
 
 Bundling
 --------

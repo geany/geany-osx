@@ -25,26 +25,14 @@
   </distutils>
 
   <!-- The last version which works with GTK 2 -->
-  <autotools id="vte28-devel"
+  <autotools id="vte28"
              autogenargs="--disable-Bsymbolic" 
              autogen-sh="configure">
     <branch module="vte/0.28/vte-0.28.2.tar.xz" 
-            checkoutdir="vte-0.28.2-devel"
             version="0.28.2">
       <!-- Fix for draw -->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-vte_fix.diff" strip="1" />
-    </branch>
-  </autotools>
-
-  <autotools id="vte28-bundle"
-             autogenargs="--disable-Bsymbolic" 
-             autogen-sh="configure">
-    <branch module="vte/0.28/vte-0.28.2.tar.xz" 
-            checkoutdir="vte-0.28.2-bundle"
-            version="0.28.2">
-      <!-- Fix for draw -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-vte_fix.diff" strip="1" />
-      <!-- Make paths relative to bundle - won't work outside bundle -->
+      <!-- Make paths relative to bundle (fallback to system paths if not found) -->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-vte_relpath.diff" strip="1" />
     </branch>
   </autotools>
@@ -85,8 +73,9 @@
             module="gtk-mac-bundler"/>
   </autotools>
 
-  <metamodule id="geany-deps-common">
+  <metamodule id="geany-deps">
     <dependencies>
+      <dep package="vte28" />
       <dep package="docutils" />
       <dep package="murrine-engine" />
       <dep package="gtk-mac-bundler" />
@@ -97,22 +86,6 @@
     </dependencies>
   </metamodule>
 
-  <!-- All Geany dependencies with VTE working outside bundle -->
-  <metamodule id="geany-deps-devel">
-    <dependencies>
-      <dep package="vte28-devel" />
-      <dep package="geany-deps-common" />
-    </dependencies>
-  </metamodule>
-
-  <!-- All Geany dependencies with VTE working inside bundle -->
-  <metamodule id="geany-deps-bundle">
-    <dependencies>
-      <dep package="vte28-bundle" />
-      <dep package="geany-deps-common" />
-    </dependencies>
-  </metamodule>
-
   <!-- Geany with bundling dependencies -->
   <autotools id="geany"
              autogenargs="--enable-mac-integration">
@@ -120,7 +93,7 @@
             module="geany/geany.git"    
             revision="master" />
     <dependencies>
-      <dep package="geany-deps-bundle" />
+      <dep package="geany-deps" />
     </dependencies>
   </autotools>
 

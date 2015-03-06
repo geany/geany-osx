@@ -1,4 +1,4 @@
-From ca71e8c8c98ffa893cd53b661b4aec7e6de18079 Mon Sep 17 00:00:00 2001
+From 47d939acec1a35f89773a6a727ae7b0cb069445f Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
 Date: Thu, 12 Feb 2015 00:25:29 +0100
 Subject: [PATCH] Make VTE independent of installation path when bundling
@@ -7,34 +7,39 @@ The wrapper shell script defines the GTK_PATH to point to
 the resources directory - use this path to avoid absolute paths
 in the source.
 ---
- src/pty.c |  7 ++++++-
- src/vte.c | 16 +++++++++++-----
- 2 files changed, 17 insertions(+), 6 deletions(-)
+ src/pty.c | 13 +++++++++++--
+ src/vte.c | 30 +++++++++++++++++++++++++-----
+ 2 files changed, 36 insertions(+), 7 deletions(-)
 
 diff --git a/src/pty.c b/src/pty.c
-index a4c8c07..c49e6b6 100644
+index a4c8c07..61c09ff 100644
 --- a/src/pty.c
 +++ b/src/pty.c
-@@ -1181,8 +1181,13 @@ _vte_pty_start_helper(GError **error)
+@@ -1181,8 +1181,17 @@ _vte_pty_start_helper(GError **error)
  		close(tunnel);
  		close(_vte_pty_helper_tunnel);
  		/* Exec our helper. */
 -		execl(LIBEXECDIR "/gnome-pty-helper",
+-		      "gnome-pty-helper", NULL);
 +		gchar *path = g_build_filename(g_getenv("GTK_PATH"),
 +					 "libexec",
 +					 "gnome-pty-helper",
 +					 NULL);
-+		execl(path,
- 		      "gnome-pty-helper", NULL);
++		if (!g_file_test(path, G_FILE_TEST_EXISTS))
++		{
++			g_free(path);
++			path = g_strdup(LIBEXECDIR "/gnome-pty-helper");
++		}
++		execl(path, "gnome-pty-helper", NULL);
 +		g_free(path);
  		/* Bail. */
  		_exit(1);
  	}
 diff --git a/src/vte.c b/src/vte.c
-index 18484a5..83d3bff 100644
+index 18484a5..9b2ce23 100644
 --- a/src/vte.c
 +++ b/src/vte.c
-@@ -8272,10 +8272,11 @@ vte_terminal_set_termcap(VteTerminal *terminal, const char *path,
+@@ -8272,11 +8272,21 @@ vte_terminal_set_termcap(VteTerminal *terminal, const char *path,
  	char *wpath;
  
  	if (path == NULL) {
@@ -48,9 +53,19 @@ index 18484a5..83d3bff 100644
 +					 "termcap-0.0",
 +					 "xterm",
  					 NULL);
++		if (!g_file_test(wpath, G_FILE_TEST_EXISTS))
++		{
++			g_free(wpath);
++			wpath = g_build_filename(TERMCAPDIR,
++						 terminal->pvt->emulation ?
++						 terminal->pvt->emulation :
++						 vte_terminal_get_default_emulation(terminal),
++						 NULL);
++		}
  		if (g_stat(wpath, &st) != 0) {
  			g_free(wpath);
-@@ -11720,7 +11721,12 @@ vte_terminal_class_init(VteTerminalClass *klass)
+ 			wpath = g_strdup("/etc/termcap");
+@@ -11720,7 +11730,17 @@ vte_terminal_class_init(VteTerminalClass *klass)
  	}
  #endif
  
@@ -59,6 +74,11 @@ index 18484a5..83d3bff 100644
 +				 "share",
 +				 "locale",
 +				 NULL);
++	if (!g_file_test(localedir, G_FILE_TEST_IS_DIR))
++	{
++		g_free(localedir);
++		localedir = g_strdup(LOCALEDIR);
++	}
 +	bindtextdomain(GETTEXT_PACKAGE, localedir);
 +	g_free(localedir);
  #ifdef HAVE_DECL_BIND_TEXTDOMAIN_CODESET
