@@ -79,7 +79,6 @@
       <dep package="docutils" />
       <dep package="murrine-engine" />
       <dep package="gtk-mac-bundler" />
-      <dep package="libgit2" />
       <dep package="gtk-mac-integration-fixed" />
       <!-- mime information for g_content_type_guess() -->
       <dep package="shared-mime-info" />
@@ -104,6 +103,8 @@
             revision="master" />
     <dependencies>
       <dep package="geany" />
+      <dep package="vala" />
+      <dep package="libgit2" />
     </dependencies>
   </autotools>
 
