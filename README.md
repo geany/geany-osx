@@ -102,16 +102,6 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	backend so there is no GTK3-specific theme or bundling support at this 
 	moment.
 
-7.	Run
-
-	```
-	jhbuild shell
-	```
-
-	to start jhbuild shell. 
-
-	**The rest of this HOWTO assumes you are running from within the jhbuild shell!**
-
 Geany Installation
 ------------------
 1.	Docutils will fail if you do not set the following environment variables:
@@ -132,20 +122,30 @@ Geany Installation
 
 Bundling
 --------
-1.	To bundle all available Geany themes, get them from
+1.	Run
+
+	```
+	jhbuild shell
+	```
+
+	to start jhbuild shell. 
+
+	*The rest of this section assumes you are running from within the jhbuild shell.*
+
+2.	To bundle all available Geany themes, get them from
 
 	<https://github.com/geany/geany-themes>
 
 	and copy the colorschemes directory under `$PREFIX/share/geany`.
 
-2.	Go to the geany-osx directory and copy the Faience icon theme to the 
+3.	Go to the geany-osx directory and copy the Faience icon theme to the 
 	gtk icons directory:
 
 	```
 	cp -r Faience $PREFIX/share/icons
 	```
 
-3.	Replace Geany color icons by grey icons from the Faience theme by calling
+4.	Replace Geany color icons by grey icons from the Faience theme by calling
 
 	```
 	./replace_icons.sh
@@ -153,7 +153,17 @@ Bundling
 
 	from within the geany-osx directory.
 
-4.	Create the app bundle by calling
+5.	Optionally if you have a development account at Apple and want to sign the
+	resulting bundle so it can be started without warning dialogs, use
+
+	```
+	export APPLICATION_CERT="your certificate name"
+	```
+
+	(the certificate name is typically your name or your company's name). The
+	certificate should be installed in your login keychain.
+
+6.	Create the app bundle by calling
 
 	```
 	gtk-mac-bundler geany.bundle
