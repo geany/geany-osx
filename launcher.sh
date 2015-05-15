@@ -10,7 +10,7 @@ else
     EXEC=exec
 fi
 
-ORIG_DIR = `pwd`
+ORIG_DIR=`pwd`
 
 # simulate readlink -f which isn't present on OS X
 TARGET_FILE=$0
