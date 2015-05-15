@@ -10,8 +10,24 @@ else
     EXEC=exec
 fi
 
-name=`basename "$0"`
-tmp=`readlink "$0"`
+ORIG_DIR = `pwd`
+
+# simulate readlink -f which isn't present on OS X
+TARGET_FILE=$0
+cd `dirname $TARGET_FILE`
+TARGET_FILE=`basename $TARGET_FILE`
+while [ -L "$TARGET_FILE" ]
+do
+    TARGET_FILE=`readlink $TARGET_FILE`
+    cd `dirname $TARGET_FILE`
+    TARGET_FILE=`basename $TARGET_FILE`
+done
+PHYS_DIR=`pwd -P`
+
+cd "$ORIG_DIR"
+
+tmp=$PHYS_DIR/$TARGET_FILE
+name=`basename "$tmp"`
 tmp=`dirname "$tmp"`
 tmp=`dirname "$tmp"`
 bundle=`dirname "$tmp"`
