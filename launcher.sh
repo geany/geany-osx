@@ -11,7 +11,7 @@ else
 fi
 
 name=`basename "$0"`
-tmp="$0"
+tmp=`readlink "$0"`
 tmp=`dirname "$tmp"`
 tmp=`dirname "$tmp"`
 bundle=`dirname "$tmp"`
