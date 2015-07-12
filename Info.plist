@@ -259,6 +259,7 @@
 			<array>
 				<string>c</string>
 				<string>h</string>
+				<string>xpm</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -709,6 +710,20 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>JSON Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>json</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>LaTeX Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -1148,6 +1163,20 @@
 			<array>
 				<string>yaml</string>
 				<string>yml</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Zephir Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>zep</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>

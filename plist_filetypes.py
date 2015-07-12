@@ -11,7 +11,7 @@ Asciidoc=*.asciidoc;
 ASM=*.asm;
 Batch=*.bat;*.cmd;*.nt;
 CAML=*.ml;*.mli;
-C=*.c;*.h;
+C=*.c;*.h;*.xpm;
 C++=*.cpp;*.cxx;*.c++;*.cc;*.h;*.hpp;*.hxx;*.h++;*.hh;*.C;*.H;
 CUDA=*.cu;*.cuh;*.h;
 C#=*.cs;
@@ -39,6 +39,7 @@ Haxe=*.hx;
 HTML=*.htm;*.html;*.shtml;*.hta;*.htd;*.htt;*.cfm;*.tpl;
 Java=*.java;*.jsp;
 Javascript=*.js;
+JSON=*.json;
 LaTeX=*.tex;*.sty;*.idx;*.ltx;*.latex;*.aux;*.bib;
 Lisp=*.lisp;
 Lua=*.lua;
@@ -58,7 +59,7 @@ R=*.R;*.r;
 Rust=*.rs;
 Ruby=*.rb;*.rhtml;*.ruby;*.gemspec;Gemfile;rakefile;Rakefile;
 Scala=*.scala;*.scl;
-Sh=*.sh;configure;configure.in;configure.in.in;configure.ac;*.ksh;*.mksh;*.zsh;*.ash;*.bash;*.m4;PKGBUILD;*profile;
+Sh=*.sh;configure;configure.in;configure.in.in;configure.ac;*.ksh;*.mksh;*.zsh;*.ash;*.bash;.bashrc;bash.bashrc;.bash_*;bash_*;*.m4;PKGBUILD;*profile;
 SQL=*.sql;
 Tcl=*.tcl;*.tk;*.wish;
 Txt2tags=*.t2t;
@@ -67,6 +68,7 @@ Verilog=*.v;
 VHDL=*.vhd;*.vhdl;
 XML=*.xml;*.sgml;*.xsl;*.xslt;*.xsd;*.xhtml;*.xul;*.dtd;*.xtpl;
 YAML=*.yaml;*.yml;
+Zephir=*.zep;
 '''
 
 
