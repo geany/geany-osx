@@ -6,9 +6,9 @@ a dmg installer image for OS X.
 
 Binaries
 --------
-Nightly snapshot is available at
+The OS X binaries can be downloaded from the Geany Releases page:
 
-<http://download.geany.org/snapshots/geany-1.25nightly_osx.dmg>
+<http://www.geany.org/Download/Releases>
 
 Files and Directories
 ---------------------
@@ -204,6 +204,10 @@ have to be performed during normal bundle/installer creation:
 	```
 	iconutil -c icns ./iconbuilder.iconset
 	```
+
+*	Before the release update the Geany version and copyright years inside
+	info.plist and create_dmg.sh. Dependencies inside the geany.modules
+	can also be updated to newer versions. 
 
 ---
 
