@@ -96,15 +96,24 @@
     </dependencies>
   </autotools>
 
-  <!-- Geany-plugins with bundling dependencies -->
+  <!-- Geany-plugins dependencies -->
+  <metamodule id="geany-plugins-deps">
+    <dependencies>
+      <dep package="vala" />
+      <dep package="libgit2" />
+      <dep package="enchant" />
+      <!-- <dep package="gtkspell" /> -->
+    </dependencies>
+  </metamodule>
+
+  <!-- Geany-plugins -->
   <autotools id="geany-plugins">
     <branch repo="github.com"
             module="geany/geany-plugins.git"
             revision="master" />
     <dependencies>
       <dep package="geany" />
-      <dep package="vala" />
-      <dep package="libgit2" />
+      <dep package="geany-plugins-deps" />
     </dependencies>
   </autotools>
 
