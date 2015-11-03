@@ -111,7 +111,6 @@
        want to copy in to the bundle. The "dest" attribute is
        optional, as usual. Bundler will find all translations of that
        library/program under the indicated directory and copy them.-->
-  <!--
   <translations name="vte-0.0">
     ${prefix}/share/locale
   </translations>
@@ -124,7 +123,6 @@
   <translations name="geany-plugins">
     ${prefix}/share/locale
   </translations>
-  -->
 
 
   <!-- Data to copy in, usually Glade/UI files, images, sounds files
