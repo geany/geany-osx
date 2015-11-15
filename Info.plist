@@ -198,6 +198,7 @@
 			<string>Asciidoc Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>adoc</string>
 				<string>asciidoc</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
@@ -1140,6 +1141,8 @@
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>dtd</string>
+				<string>mathml</string>
+				<string>mml</string>
 				<string>sgml</string>
 				<string>xhtml</string>
 				<string>xml</string>
