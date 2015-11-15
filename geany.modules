@@ -136,7 +136,7 @@
             module="geany-plugins/geany-plugins-1.26.tar.bz2" 
             version="1.26"/>
     <dependencies>
-      <dep package="geany" />
+      <dep package="geany-release" />
       <dep package="geany-plugins-deps" />
     </dependencies>
   </autotools>
