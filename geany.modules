@@ -14,6 +14,8 @@
               href="git://git.gnome.org/"/>
   <repository type="tarball" name="download.github.com"
               href="https://github.com/"/>
+  <repository type="tarball" name="download.geany.org"
+              href="http://download.geany.org/"/>
 
   <include href="http://git.gnome.org/browse/gtk-osx/plain/modulesets-stable/gtk-osx.modules" />
 
@@ -85,12 +87,23 @@
     </dependencies>
   </metamodule>
 
-  <!-- Geany with bundling dependencies -->
+  <!-- Geany -->
   <autotools id="geany"
              autogenargs="--enable-mac-integration">
     <branch repo="github.com"
             module="geany/geany.git"    
             revision="master" />
+    <dependencies>
+      <dep package="geany-deps" />
+    </dependencies>
+  </autotools>
+
+  <!-- Geany tarball release -->
+  <autotools id="geany-release"
+             autogenargs="--enable-mac-integration">
+    <branch repo="download.geany.org"
+            module="geany-1.26.tar.bz2" 
+            version="1.26"/>
     <dependencies>
       <dep package="geany-deps" />
     </dependencies>
@@ -117,11 +130,30 @@
     </dependencies>
   </autotools>
 
+  <!-- Geany-plugins tarball release -->
+  <autotools id="geany-plugins-release">
+    <branch repo="download.geany.org"
+            module="geany-plugins/geany-plugins-1.26.tar.bz2" 
+            version="1.26"/>
+    <dependencies>
+      <dep package="geany" />
+      <dep package="geany-plugins-deps" />
+    </dependencies>
+  </autotools>
+
   <!-- Build everything necessary for Geany bundle -->
   <metamodule id="geany-bundle">
     <dependencies>
       <dep package="geany" />
       <dep package="geany-plugins" />
+    </dependencies>
+  </metamodule>
+
+  <!-- Build everything necessary for Geany bundle from release tarballs -->
+  <metamodule id="geany-bundle-release">
+    <dependencies>
+      <dep package="geany-release" />
+      <dep package="geany-plugins-release" />
     </dependencies>
   </metamodule>
 

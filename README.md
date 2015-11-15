@@ -111,11 +111,19 @@ Geany Installation
 	export LANG=en_US.UTF-8
 	```
 
-2.	Inside the geany-osx directory run
+2.	Inside the geany-osx directory run either 
+
+	```
+	jhbuild -m geany.modules build geany-bundle-release
+	```
+
+	or
 
 	```
 	jhbuild -m geany.modules build geany-bundle
 	```
+
+	to build Geany either from release tarballs or git master.
 
 	There are other useful module installation options - check the geany.modules
 	file for more options.
@@ -206,8 +214,9 @@ have to be performed during normal bundle/installer creation:
 	```
 
 *	Before the release update the Geany version and copyright years inside
-	info.plist and create_dmg.sh. Dependencies inside the geany.modules
-	can also be updated to newer versions. 
+	Info.plist and create_dmg.sh. Also update the `-release` targets in
+	geany.modules file to point to the new release. Dependencies inside
+	geany.modules can also be updated to newer versions.
 
 ---
 
