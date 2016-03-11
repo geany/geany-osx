@@ -213,7 +213,9 @@
 			<string>ASM Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>a51</string>
 				<string>asm</string>
+				<string>asm51</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -285,6 +287,22 @@
 				<string>hh</string>
 				<string>hpp</string>
 				<string>hxx</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Clojure Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>clj</string>
+				<string>cljc</string>
+				<string>cljs</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -794,7 +812,12 @@
 				<string>markdown</string>
 				<string>md</string>
 				<string>mdml</string>
+				<string>mdown</string>
+				<string>mdtext</string>
+				<string>mdtxt</string>
+				<string>mdwn</string>
 				<string>mkd</string>
+				<string>mkdn</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
