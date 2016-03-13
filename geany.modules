@@ -50,9 +50,9 @@
   <cmake id="libgit2"
          cmakeargs="-DTHREADSAFE:BOOL=1">
     <branch repo="download.github.com" 
-            module="libgit2/libgit2/archive/v0.23.3.tar.gz"
-            checkoutdir="libgit2-0.23.3"
-            version="0.23.3"/>
+            module="libgit2/libgit2/archive/v0.24.0.tar.gz"
+            checkoutdir="libgit2-0.24.0"
+            version="0.24.0"/>
   </cmake>
 
   <!-- The mac integration library with a fix for radio menu items -->
@@ -102,8 +102,8 @@
   <autotools id="geany-release"
              autogenargs="--enable-mac-integration">
     <branch repo="download.geany.org"
-            module="geany-1.26.tar.bz2" 
-            version="1.26"/>
+            module="geany-1.27.tar.bz2" 
+            version="1.27"/>
     <dependencies>
       <dep package="geany-deps" />
     </dependencies>
@@ -133,8 +133,8 @@
   <!-- Geany-plugins tarball release -->
   <autotools id="geany-plugins-release">
     <branch repo="download.geany.org"
-            module="geany-plugins/geany-plugins-1.26.tar.bz2" 
-            version="1.26"/>
+            module="geany-plugins/geany-plugins-1.27.tar.bz2" 
+            version="1.27"/>
     <dependencies>
       <dep package="geany-release" />
       <dep package="geany-plugins-deps" />
