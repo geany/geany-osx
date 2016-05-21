@@ -79,7 +79,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 3.	Run
 
 	```
-	export PATH=$PATH:"~/.local/bin"
+	export PATH=$PATH:"$HOME/.local/bin"
 	```
 
 	to set path to jhbuild installed in the previous step.
