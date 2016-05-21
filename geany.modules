@@ -33,9 +33,22 @@
     <branch module="vte/0.28/vte-0.28.2.tar.xz" 
             version="0.28.2">
       <!-- Fix for draw -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-vte_fix.diff" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-vte_0.28_fix.diff" strip="1" />
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-vte_relpath.diff" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-vte_0.28_relpath.diff" strip="1" />
+    </branch>
+  </autotools>
+
+  <!-- The last version supported by Geany for GTK 3 -->
+  <autotools id="vte34"
+             autogenargs="--disable-Bsymbolic" 
+             autogen-sh="configure">
+    <branch module="vte/0.34/vte-0.34.9.tar.xz" 
+            version="0.34.9">
+      <!-- Don't use O_NOATIME -->
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_0.34_noatime.diff" strip="1" />
+      <!-- Make paths relative to bundle (fallback to system paths if not found) -->
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/04-vte_0.34_relpath.diff" strip="1" />
     </branch>
   </autotools>
 
@@ -87,6 +100,17 @@
     </dependencies>
   </metamodule>
 
+  <metamodule id="geany-deps-gtk3">
+    <dependencies>
+      <dep package="vte34" />
+      <dep package="docutils" />
+      <dep package="gtk-mac-bundler" />
+      <dep package="gtk-mac-integration-fixed" />
+      <!-- mime information for g_content_type_guess() -->
+      <dep package="shared-mime-info" />
+    </dependencies>
+  </metamodule>
+
   <!-- Geany -->
   <autotools id="geany"
              autogenargs="--enable-mac-integration">
@@ -98,6 +122,17 @@
     </dependencies>
   </autotools>
 
+  <!-- Geany GTK 3-->
+  <autotools id="geany-gtk3"
+             autogenargs="--enable-mac-integration --enable-gtk3">
+    <branch repo="github.com"
+            module="geany/geany.git"    
+            revision="master" />
+    <dependencies>
+      <dep package="geany-deps-gtk3" />
+    </dependencies>
+  </autotools>
+
   <!-- Geany tarball release -->
   <autotools id="geany-release"
              autogenargs="--enable-mac-integration">
@@ -106,6 +141,17 @@
             version="1.27"/>
     <dependencies>
       <dep package="geany-deps" />
+    </dependencies>
+  </autotools>
+
+  <!-- Geany tarball release GTK 3 -->
+  <autotools id="geany-release-gtk3"
+             autogenargs="--enable-mac-integration --enable-gtk3">
+    <branch repo="download.geany.org"
+            module="geany-1.27.tar.bz2" 
+            version="1.27"/>
+    <dependencies>
+      <dep package="geany-deps-gtk3" />
     </dependencies>
   </autotools>
 
@@ -130,6 +176,17 @@
     </dependencies>
   </autotools>
 
+  <!-- Geany-plugins GTK 3 -->
+  <autotools id="geany-plugins-gtk3">
+    <branch repo="github.com"
+            module="geany/geany-plugins.git"
+            revision="master" />
+    <dependencies>
+      <dep package="geany-gtk3" />
+      <dep package="geany-plugins-deps" />
+    </dependencies>
+  </autotools>
+
   <!-- Geany-plugins tarball release -->
   <autotools id="geany-plugins-release">
     <branch repo="download.geany.org"
@@ -137,6 +194,17 @@
             version="1.27"/>
     <dependencies>
       <dep package="geany-release" />
+      <dep package="geany-plugins-deps" />
+    </dependencies>
+  </autotools>
+
+  <!-- Geany-plugins tarball release GTK 3 -->
+  <autotools id="geany-plugins-release-gtk3">
+    <branch repo="download.geany.org"
+            module="geany-plugins/geany-plugins-1.27.tar.bz2" 
+            version="1.27"/>
+    <dependencies>
+      <dep package="geany-release-gtk3" />
       <dep package="geany-plugins-deps" />
     </dependencies>
   </autotools>
@@ -149,11 +217,27 @@
     </dependencies>
   </metamodule>
 
+  <!-- Build everything necessary for Geany bundle GTK 3 -->
+  <metamodule id="geany-bundle-gtk3">
+    <dependencies>
+      <dep package="geany-gtk3" />
+      <dep package="geany-plugins-gtk3" />
+    </dependencies>
+  </metamodule>
+
   <!-- Build everything necessary for Geany bundle from release tarballs -->
   <metamodule id="geany-bundle-release">
     <dependencies>
       <dep package="geany-release" />
       <dep package="geany-plugins-release" />
+    </dependencies>
+  </metamodule>
+
+  <!-- Build everything necessary for Geany bundle from release tarballs GTK 3 -->
+  <metamodule id="geany-bundle-release-gtk3">
+    <dependencies>
+      <dep package="geany-release-gtk3" />
+      <dep package="geany-plugins-release-gtk3" />
     </dependencies>
   </metamodule>
 

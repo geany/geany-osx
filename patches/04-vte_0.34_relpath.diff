@@ -1,0 +1,63 @@
+From b6b98bc5860f7c02f77d9584e00681089af67485 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Sat, 21 May 2016 20:42:30 +0200
+Subject: [PATCH] Make VTE independent of installation path when bundling
+
+The wrapper shell script defines the GTK_PATH to point to
+the resources directory - use this path to avoid absolute paths
+in the source.
+---
+ src/pty.c | 13 +++++++++++--
+ src/vte.c | 12 +++++++++++-
+ 2 files changed, 22 insertions(+), 3 deletions(-)
+
+diff --git a/src/pty.c b/src/pty.c
+index 5c6afd5..f9d9c36 100644
+--- a/src/pty.c
++++ b/src/pty.c
+@@ -1265,8 +1265,17 @@ _vte_pty_start_helper(GError **error)
+ 		close(tunnel);
+ 		close(_vte_pty_helper_tunnel);
+ 		/* Exec our helper. */
+-		execl(LIBEXECDIR "/gnome-pty-helper",
+-		      "gnome-pty-helper", NULL);
++		gchar *path = g_build_filename(g_getenv("GTK_PATH"),
++					 "libexec",
++					 "gnome-pty-helper",
++					 NULL);
++		if (!g_file_test(path, G_FILE_TEST_EXISTS))
++		{
++			g_free(path);
++			path = g_strdup(LIBEXECDIR "/gnome-pty-helper");
++		}
++		execl(path, "gnome-pty-helper", NULL);
++		g_free(path);
+ 		/* Bail. */
+ 		_exit(1);
+ 	}
+diff --git a/src/vte.c b/src/vte.c
+index 3227b07..b2b2e4e 100644
+--- a/src/vte.c
++++ b/src/vte.c
+@@ -11761,7 +11761,17 @@ vte_terminal_class_init(VteTerminalClass *klass)
+ 	}
+ #endif
+ 
+-	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
++	gchar *localedir = g_build_filename(g_getenv("GTK_PATH"),
++				 "share",
++				 "locale",
++				 NULL);
++	if (!g_file_test(localedir, G_FILE_TEST_IS_DIR))
++	{
++		g_free(localedir);
++		localedir = g_strdup(LOCALEDIR);
++	}
++	bindtextdomain(GETTEXT_PACKAGE, localedir);
++	g_free(localedir);
+ #ifdef HAVE_DECL_BIND_TEXTDOMAIN_CODESET
+ 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+ #endif
+-- 
+2.8.1
+
