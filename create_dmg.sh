@@ -26,3 +26,8 @@ create-dmg \
 "$TMPDIR"
 
 rm -rf "${TMPDIR}"
+
+if [ -n "$APPLICATION_CERT" ]
+then
+	codesign -s "$APPLICATION_CERT" "$DMGNAME"
+fi

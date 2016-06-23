@@ -193,7 +193,8 @@ Distribution
 	./create_dmg.sh
 	```
 
-	from within the geany-osx directory.
+	from within the geany-osx directory. If the APPLICATION_CERT variable is
+	defined, the image gets signed by the specified certificate.
 
 Maintenance
 -----------
