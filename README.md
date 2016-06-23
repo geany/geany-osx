@@ -1,12 +1,12 @@
-Geany OS X
-==========
-Geany OS X is a project that contains all the necessary configuration
+Geany for macOS
+===============
+Geany for macOS is a project that contains all the necessary configuration
 files, themes, scripts and instructions to create the Geany app bundle and 
-a dmg installer image for OS X.
+a dmg installer image for macOS.
 
 Binaries
 --------
-The OS X binaries can be downloaded from the Geany Releases page:
+The macOS binaries can be downloaded from the Geany Releases page:
 
 <http://www.geany.org/Download/Releases>
 
@@ -21,20 +21,20 @@ A brief description of the contents of the project directory:
 *	*iconbuilder.iconset*: contains source icons for the Geany.icns
 	file. Not needed for normal build, present just in case the icns file
 	needs to be recreated for some reason.
-*	*patches*: patches fixing VTE under OS X and enabling VTE bundling. 
+*	*patches*: patches fixing VTE under macOS and enabling VTE bundling. 
 
 ### Configuration files
 *	*geany.modules*: JHBuild modules file with Geany dependencies.
 *	*geany.bundle*: configuration file describing the contents of the
 	app bundle.
-*	*Info.plist*: OS X application configuration file containing some basic
+*	*Info.plist*: macOS application configuration file containing some basic
 	information such as application name, version, etc. but also additional
 	configuration including file types the application can open.
 *	*gtkrc.theme, close.png*: GTK theme based on the Greybird theme and 
-	modified to match the OS X Yosemite theme better.
+	modified to match the macOS theme better.
 *	*gtkrc*: GTK configuration file including the theme file and changing
 	some Geany gtkrc settings.
-*	*Geany.icns*: OS X Geany icon file.
+*	*Geany.icns*: macOS Geany icon file.
 
 ### Scripts
 *	*launcher.sh*: launcher script from the gtk-mac-bundler project setting
@@ -49,7 +49,7 @@ A brief description of the contents of the project directory:
 
 General Instructions
 --------------------
-For more general instructions about building and bundling OS X applications
+For more general instructions about building and bundling macOS applications
 please visit
 
 <https://wiki.gnome.org/Projects/GTK%2B/OSX/>
@@ -59,8 +59,8 @@ building and bundling Geany.
 
 Prerequisities
 --------------
-*	OS X 10.7 or later (tested with OS X 10.10)
-*	Xcode and command-line tools (tested with Xcode 6.1.1)
+*	OS X 10.7 or later
+*	Xcode and command-line tools
 
 JHBuild Installation
 --------------------
@@ -97,7 +97,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 
 	Instead of meta-gtk-osx-core (GTK 2) you can also use `meta-gtk-osx-gtk3` to
 	install GTK 3. Note that both GTK 2 and GTK 3 cannot be installed at the 
-	same time. Also note that there seem to be various problems with the OS X 
+	same time. Also note that there seem to be various problems with the macOS 
 	support in GTK 3; for this reason I have not spent more time with the GTK 3 
 	backend so there is no GTK3-specific theme or bundling support at this 
 	moment.
@@ -220,4 +220,4 @@ have to be performed during normal bundle/installer creation:
 
 ---
 
-Jiri Techet, 2015
+Jiri Techet, 2016
