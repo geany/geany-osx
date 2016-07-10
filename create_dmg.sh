@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="1.27"
+VERSION="1.28"
 
 NAME="Geany"
 ICONNAME="Geany.icns"
