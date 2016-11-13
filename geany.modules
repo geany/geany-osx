@@ -63,9 +63,9 @@
   <cmake id="libgit2"
          cmakeargs="-DTHREADSAFE:BOOL=1">
     <branch repo="download.github.com" 
-            module="libgit2/libgit2/archive/v0.24.0.tar.gz"
-            checkoutdir="libgit2-0.24.0"
-            version="0.24.0"/>
+            module="libgit2/libgit2/archive/v0.24.3.tar.gz"
+            checkoutdir="libgit2-0.24.3"
+            version="0.24.3"/>
   </cmake>
 
   <!-- The mac integration library with a fix for radio menu items -->
@@ -137,8 +137,8 @@
   <autotools id="geany-release"
              autogenargs="--enable-mac-integration">
     <branch repo="download.geany.org"
-            module="geany-1.28.tar.bz2" 
-            version="1.28"/>
+            module="geany-1.29.tar.bz2" 
+            version="1.29"/>
     <dependencies>
       <dep package="geany-deps" />
     </dependencies>
@@ -148,8 +148,8 @@
   <autotools id="geany-release-gtk3"
              autogenargs="--enable-mac-integration --enable-gtk3">
     <branch repo="download.geany.org"
-            module="geany-1.28.tar.bz2" 
-            version="1.28"/>
+            module="geany-1.29.tar.bz2" 
+            version="1.29"/>
     <dependencies>
       <dep package="geany-deps-gtk3" />
     </dependencies>
@@ -190,8 +190,8 @@
   <!-- Geany-plugins tarball release -->
   <autotools id="geany-plugins-release">
     <branch repo="download.geany.org"
-            module="geany-plugins/geany-plugins-1.28.tar.bz2" 
-            version="1.28"/>
+            module="geany-plugins/geany-plugins-1.29.tar.bz2" 
+            version="1.29"/>
     <dependencies>
       <dep package="geany-release" />
       <dep package="geany-plugins-deps" />
@@ -201,8 +201,8 @@
   <!-- Geany-plugins tarball release GTK 3 -->
   <autotools id="geany-plugins-release-gtk3">
     <branch repo="download.geany.org"
-            module="geany-plugins/geany-plugins-1.28.tar.bz2" 
-            version="1.28"/>
+            module="geany-plugins/geany-plugins-1.29.tar.bz2" 
+            version="1.29"/>
     <dependencies>
       <dep package="geany-release-gtk3" />
       <dep package="geany-plugins-deps" />

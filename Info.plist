@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleShortVersionString</key>
-	<string>1.28</string>
+	<string>1.29</string>
 	<key>CFBundleVersion</key>
-	<string>1.28</string>
+	<string>1.29</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.28 (C) 2016 The Geany Team, http://www.geany.org</string>
+	<string>1.29 (C) 2016 The Geany Team, http://www.geany.org</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright 2016 The Geany Team, GNU General Public License</string>
 
@@ -1088,6 +1088,7 @@
 			<string>Tcl Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>exp</string>
 				<string>tcl</string>
 				<string>tk</string>
 				<string>wish</string>
