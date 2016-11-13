@@ -168,8 +168,10 @@ Bundling
 	export APPLICATION_CERT="your certificate name"
 	```
 
-	(the certificate name is typically your name or your company's name). The
-	certificate should be installed in your login keychain.
+	The certificate should be installed in your login keychain. You can get the
+	certificate name by running `security find-identity -p codesigning` and
+	checking  for "Developer ID Application" - the name that follows it is the
+	certificate name.
 
 6.	Create the app bundle by calling
 
