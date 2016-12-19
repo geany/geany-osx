@@ -59,7 +59,7 @@ building and bundling Geany.
 
 Prerequisities
 --------------
-*	OS X 10.7 or later
+*	OS X
 *	Xcode and command-line tools
 
 JHBuild Installation
@@ -84,10 +84,18 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 
 	to set path to jhbuild installed in the previous step.
 
-4.	By default, jhbuild compiles without optimization flags. To enable
+4.	Update the `setup_sdk()` call in `~/.jhbuildrc-custom` to something like
+
+	```
+	setup_sdk(target="10.6", sdk_version="native", architectures=["x86_64"])
+	```
+
+	so the build creates a 64-bit binary that works on OS X 10.6 and later.
+
+5.	By default, jhbuild compiles without optimization flags. To enable
 	optimization, add `setup_release()` at the end of `~/.jhbuildrc-custom`.
 
-5.	Install GTK 2 and all its dependencies using the following commands:
+6.	Install GTK 2 and all its dependencies using the following commands:
 
 	```
 	jhbuild bootstrap
