@@ -169,25 +169,32 @@ Bundling
 
 	from within the geany-osx directory.
 
-5.	Optionally if you have a development account at Apple and want to sign the
-	resulting bundle so it can be started without warning dialogs, use
-
-	```
-	export APPLICATION_CERT="your certificate name"
-	```
-
-	The certificate should be installed in your login keychain. You can get the
-	certificate name by running `security find-identity -p codesigning` and
-	checking  for "Developer ID Application" - the name that follows it is the
-	certificate name.
-
-6.	Create the app bundle by calling
+5.	Create the app bundle by calling
 
 	```
 	gtk-mac-bundler geany.bundle
 	```
 
 	from within the geany-osx directory.
+
+6.	Optionally if you have a development account at Apple and want to sign the
+	resulting bundle so it can be started without warning dialogs, use
+
+	```
+	export SIGN_CERTIFICATE="your certificate name"
+	```
+
+	The certificate should be installed in your login keychain. You can get the
+	certificate name by running `security find-identity -p codesigning` and
+	checking  for "Developer ID Application" - the whole name in apostrophes is
+	the certificate name.
+
+	Then run
+
+	```
+	codesign -s $SIGN_CERTIFICATE --deep --force ./Geany.app
+	```
+
 
 Distribution
 ------------
@@ -203,7 +210,7 @@ Distribution
 	./create_dmg.sh
 	```
 
-	from within the geany-osx directory. If the APPLICATION_CERT variable is
+	from within the geany-osx directory. If the SIGN_CERTIFICATE variable is
 	defined, the image gets signed by the specified certificate.
 
 Maintenance

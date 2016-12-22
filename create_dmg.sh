@@ -29,5 +29,5 @@ rm -rf "${TMPDIR}"
 
 if [ -n "$APPLICATION_CERT" ]
 then
-	codesign -s "$APPLICATION_CERT" "$DMGNAME"
+	codesign -s "$SIGN_CERTIFICATE" "$DMGNAME"
 fi
