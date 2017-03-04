@@ -236,4 +236,4 @@ have to be performed during normal bundle/installer creation:
 
 ---
 
-Jiri Techet, 2016
+Jiri Techet, 2017
