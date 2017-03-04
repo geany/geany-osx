@@ -190,7 +190,7 @@ Bundling
 	Then run
 
 	```
-	codesign -s $SIGN_CERTIFICATE --deep --force ./Geany.app
+	codesign -s "$SIGN_CERTIFICATE" --deep --force ./Geany.app
 	```
 
 
