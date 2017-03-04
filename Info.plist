@@ -195,6 +195,21 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>Arduino Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>ino</string>
+				<string>pde</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>Asciidoc Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>

@@ -7,6 +7,7 @@ Abaqus=*.inp;
 Abc=*.abc;*.abp;
 ActionScript=*.as;
 Ada=*.adb;*.ads;
+Arduino=*.ino;*.pde;
 Asciidoc=*.asciidoc;*.adoc;
 ASM=*.asm;*.asm51;*.a51;
 Batch=*.bat;*.cmd;*.nt;
