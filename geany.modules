@@ -55,6 +55,8 @@
     </branch>
     <dependencies>
       <dep package="gnutls" />
+      <!-- There seems to be a problem that VTE build fails when vala is not installed -->
+      <dep package="vala" />
     </dependencies>
   </autotools>
 
