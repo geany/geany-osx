@@ -1,4 +1,4 @@
-From b6b98bc5860f7c02f77d9584e00681089af67485 Mon Sep 17 00:00:00 2001
+From 090e746ef7f49ead46f4b9b5f90b99e428d908a6 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
 Date: Sat, 21 May 2016 20:42:30 +0200
 Subject: [PATCH] Make VTE independent of installation path when bundling
@@ -12,10 +12,10 @@ in the source.
  2 files changed, 22 insertions(+), 3 deletions(-)
 
 diff --git a/src/pty.c b/src/pty.c
-index 5c6afd5..f9d9c36 100644
+index 3da1bc0..669c160 100644
 --- a/src/pty.c
 +++ b/src/pty.c
-@@ -1265,8 +1265,17 @@ _vte_pty_start_helper(GError **error)
+@@ -1139,8 +1139,17 @@ _vte_pty_start_helper(GError **error)
  		close(tunnel);
  		close(_vte_pty_helper_tunnel);
  		/* Exec our helper. */
@@ -36,10 +36,10 @@ index 5c6afd5..f9d9c36 100644
  		_exit(1);
  	}
 diff --git a/src/vte.c b/src/vte.c
-index 3227b07..b2b2e4e 100644
+index 3c33e76..0134ea2 100644
 --- a/src/vte.c
 +++ b/src/vte.c
-@@ -11761,7 +11761,17 @@ vte_terminal_class_init(VteTerminalClass *klass)
+@@ -10345,7 +10345,17 @@ vte_terminal_class_init(VteTerminalClass *klass)
  	}
  #endif
  

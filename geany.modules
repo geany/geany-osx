@@ -39,17 +39,23 @@
     </branch>
   </autotools>
 
-  <!-- The last version supported by Geany for GTK 3 -->
-  <autotools id="vte34"
+  <!-- VTE 2.91 API for GTK 3: 0.40 is the last version using C - there are some
+       problems with C++ because of two C++ libraries used by Xcode - the old
+       libstdc++ and the new libc++. The new one which would work is only
+       available since OS X 10.9 but we target 10.6 at the moment. -->
+  <autotools id="vte291"
              autogenargs="--disable-Bsymbolic" 
              autogen-sh="configure">
-    <branch module="vte/0.34/vte-0.34.9.tar.xz" 
-            version="0.34.9">
-      <!-- Don't use O_NOATIME -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_0.34_noatime.diff" strip="1" />
+    <branch module="vte/0.40/vte-0.40.3.tar.xz" 
+            version="0.40.3">
+      <!-- Use BSD pty code -->
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_0.40_bsdpty.diff" strip="1" />
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/04-vte_0.34_relpath.diff" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/04-vte_0.40_relpath.diff" strip="1" />
     </branch>
+    <dependencies>
+      <dep package="gnutls" />
+    </dependencies>
   </autotools>
 
   <!-- Needed by the used theme -->
@@ -102,7 +108,7 @@
 
   <metamodule id="geany-deps-gtk3">
     <dependencies>
-      <dep package="vte34" />
+      <dep package="vte291" />
       <dep package="docutils" />
       <dep package="gtk-mac-bundler" />
       <dep package="gtk-mac-integration-fixed" />

@@ -1,0 +1,34 @@
+From 50e80f6ccb289c4d06f7f68b2bf97bfa7aff12ab Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Sat, 4 Mar 2017 21:23:10 +0100
+Subject: [PATCH] =?UTF-8?q?Don=E2=80=99t=20use=20=E2=80=9CUNIX98=20PTY?=
+ =?UTF-8?q?=E2=80=9D?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+It doesn’t work on OS X and because it’s preferred in the code over BSD
+terminal, it makes the terminal non-functional.
+---
+ src/pty.c | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/src/pty.c b/src/pty.c
+index fb8e869..3da1bc0 100644
+--- a/src/pty.c
++++ b/src/pty.c
+@@ -84,11 +84,7 @@ static pid_t _vte_pty_helper_pid = -1;
+ static int _vte_pty_helper_tunnel = -1;
+ #endif
+ 
+-#if defined(HAVE_PTSNAME_R) || defined(HAVE_PTSNAME) || defined(TIOCGPTN)
+-#define HAVE_UNIX98_PTY
+-#else
+ #undef HAVE_UNIX98_PTY
+-#endif
+ 
+ #define VTE_VERSION_NUMERIC ((VTE_MAJOR_VERSION) * 10000 + (VTE_MINOR_VERSION) * 100 + (VTE_MICRO_VERSION))
+ 
+-- 
+2.8.1
+
