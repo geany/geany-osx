@@ -195,4 +195,6 @@ if /bin/expr "x$1" : '^x-psn_' > /dev/null; then
     shift 1
 fi
 
+export GEANY_PLUGINS_SHARE_PATH="$bundle_res/share/geany-plugins"
+
 $EXEC "$bundle_contents/MacOS/$name-bin" "$@" $EXTRA_ARGS
