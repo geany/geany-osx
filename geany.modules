@@ -169,6 +169,7 @@
       <dep package="vala" />
       <dep package="libgit2" />
       <dep package="enchant" />
+      <dep package="libsoup" />
       <!-- <dep package="gtkspell" /> -->
     </dependencies>
   </metamodule>
