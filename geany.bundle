@@ -102,6 +102,11 @@
     ${prefix}/lib/enchant/*.so
   </binary>
 
+  <!-- encryption engines for SSL used by libsoup -->
+  <binary>
+    ${prefix}/lib/engines/*.dylib
+  </binary>
+
   <!-- Geany's plugins -->
   <binary>
     ${prefix}/lib/geany/*.so
