@@ -196,5 +196,6 @@ if /bin/expr "x$1" : '^x-psn_' > /dev/null; then
 fi
 
 export GEANY_PLUGINS_SHARE_PATH="$bundle_res/share/geany-plugins"
+export ENCHANT_MODULE_PATH="$bundle_lib/enchant"
 
 $EXEC "$bundle_contents/MacOS/$name-bin" "$@" $EXTRA_ARGS

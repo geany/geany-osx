@@ -97,6 +97,11 @@
     ${prefix}/libexec/gnome-pty-helper
   </binary>
 
+  <!-- libenchant modules needed by the spellchecker plugin -->
+  <binary>
+    ${prefix}/lib/enchant/*.so
+  </binary>
+
   <!-- Geany's plugins -->
   <binary>
     ${prefix}/lib/geany/*.so
