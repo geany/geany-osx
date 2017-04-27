@@ -197,5 +197,6 @@ fi
 
 export GEANY_PLUGINS_SHARE_PATH="$bundle_res/share/geany-plugins"
 export ENCHANT_MODULE_PATH="$bundle_lib/enchant"
+export GIO_MODULE_DIR="$bundle_lib/gio/modules"
 
 $EXEC "$bundle_contents/MacOS/$name-bin" "$@" $EXTRA_ARGS

@@ -102,9 +102,9 @@
     ${prefix}/lib/enchant/*.so
   </binary>
 
-  <!-- encryption engines for SSL used by libsoup -->
+  <!-- glib-networking modules used by libsoup, needed for HTTPS -->
   <binary>
-    ${prefix}/lib/engines/*.dylib
+    ${prefix}/lib/gio/modules/*.so
   </binary>
 
   <!-- Geany's plugins -->
