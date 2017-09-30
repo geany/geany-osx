@@ -100,7 +100,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 6.	Install GTK 2 and all its dependencies using the following commands:
 
 	```
-	jhbuild bootstrap && jhbuild build meta-gtk-osx-bootstrap && jhbuild build meta-gtk-osx-core 
+	jhbuild bootstrap && jhbuild build python && jhbuild build meta-gtk-osx-bootstrap && jhbuild build meta-gtk-osx-core 
 	```
 
 	Instead of meta-gtk-osx-core (GTK 2) you can also use `meta-gtk-osx-gtk3` to
