@@ -70,11 +70,17 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	jhbuild will not interfere with some other command-line tools installed
 	on your system).
 
-2.	Get `gtk-osx-build-setup.sh` from
+2.	Get `gtk-osx-build-setup.sh` by
 
-	<https://git.gnome.org/browse/gtk-osx/plain/gtk-osx-build-setup.sh>
-
-	and run it.
+	```
+	curl -o gtk-osx-build-setup.sh https://git.gnome.org/browse/gtk-osx/plain/gtk-osx-build-setup.sh
+	```
+	
+	and run it:
+	
+	```
+	sh gtk-osx-build-setup.sh
+	```
 
 3.	Run
 
@@ -115,8 +121,7 @@ Geany Installation
 1.	Docutils will fail if you do not set the following environment variables:
 
 	```
-	export LC_ALL=en_US.UTF-8
-	export LANG=en_US.UTF-8
+	export LC_ALL=en_US.UTF-8; export LANG=en_US.UTF-8
 	```
 
 2.	Inside the geany-osx directory run either 
