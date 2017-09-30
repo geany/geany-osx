@@ -121,7 +121,8 @@
 
   <!-- Geany -->
   <autotools id="geany"
-             autogenargs="--enable-mac-integration">
+             autogenargs="--enable-mac-integration"
+             makeargs='CXXFLAGS="$CXXFLAGS -stdlib=libc++ -std=c++11"'>
     <branch repo="github.com"
             module="geany/geany.git"    
             revision="master" />
@@ -132,7 +133,8 @@
 
   <!-- Geany GTK 3-->
   <autotools id="geany-gtk3"
-             autogenargs="--enable-mac-integration --enable-gtk3">
+             autogenargs="--enable-mac-integration --enable-gtk3"
+             makeargs='CXXFLAGS="$CXXFLAGS -stdlib=libc++ -std=c++11"'>
     <branch repo="github.com"
             module="geany/geany.git"    
             revision="master" />
@@ -143,7 +145,8 @@
 
   <!-- Geany tarball release -->
   <autotools id="geany-release"
-             autogenargs="--enable-mac-integration">
+             autogenargs="--enable-mac-integration"
+             makeargs='CXXFLAGS="$CXXFLAGS -stdlib=libc++ -std=c++11"'>
     <branch repo="download.geany.org"
             module="geany-1.31.tar.bz2" 
             version="1.31"/>
@@ -154,7 +157,8 @@
 
   <!-- Geany tarball release GTK 3 -->
   <autotools id="geany-release-gtk3"
-             autogenargs="--enable-mac-integration --enable-gtk3">
+             autogenargs="--enable-mac-integration --enable-gtk3"
+             makeargs='CXXFLAGS="$CXXFLAGS -stdlib=libc++ -std=c++11"'>
     <branch repo="download.geany.org"
             module="geany-1.31.tar.bz2" 
             version="1.31"/>
