@@ -91,7 +91,7 @@
 
   <!-- VTE library -->
   <binary>
-    ${prefix}/lib/libvte*.dylib
+    ${prefix}/lib/libvte.9.dylib
   </binary>
   <binary  dest="${bundle}/Contents/Resources/libexec/gnome-pty-helper">
     ${prefix}/libexec/gnome-pty-helper
