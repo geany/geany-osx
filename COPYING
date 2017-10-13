@@ -17,5 +17,9 @@ Greybird GTK2 theme:
 	dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later
 	https://github.com/shimmerproject/Greybird
 
+Arc GTK3 theme:
+	GPLv3
+	https://github.com/horst3180/arc-theme
+
 The rest of the geany-osx project (scripts, configuration files, etc.):
 	public domain
