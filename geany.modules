@@ -71,9 +71,9 @@
   <cmake id="libgit2"
          cmakeargs="-DTHREADSAFE:BOOL=1">
     <branch repo="download.github.com" 
-            module="libgit2/libgit2/archive/v0.24.3.tar.gz"
-            checkoutdir="libgit2-0.24.3"
-            version="0.24.3"/>
+            module="libgit2/libgit2/archive/v0.26.0.tar.gz"
+            checkoutdir="libgit2-0.26.0"
+            version="0.26.0"/>
   </cmake>
 
   <!-- The mac integration library with a fix for radio menu items -->
@@ -174,7 +174,6 @@
       <dep package="libgit2" />
       <dep package="enchant" />
       <dep package="libsoup" />
-      <!-- <dep package="gtkspell" /> -->
     </dependencies>
   </metamodule>
 
