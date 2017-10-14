@@ -73,9 +73,10 @@
   <binary>
     ${prefix}/lib/libvte-2.91.0.dylib
   </binary>
+  <!--
   <binary  dest="${bundle}/Contents/Resources/libexec/gnome-pty-helper">
     ${prefix}/libexec/gnome-pty-helper
-  </binary>
+  </binary>-->
 
   <!-- Geany's plugins -->
   <binary>
@@ -89,7 +90,7 @@
   <translations  name="gtk30">
     ${prefix}/share/locale
   </translations>
-  <translations name="vte-2.90">
+  <translations name="vte-2.91">
     ${prefix}/share/locale
   </translations>
   <translations name="geany">
