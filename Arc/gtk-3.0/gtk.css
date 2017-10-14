@@ -41,7 +41,7 @@
 .view text,
 iconview text,
 textview text {
-  color: #5c616c;
+  color: #202020;
   background-color: #ffffff; }
   .view:selected, iconview:selected, .view:selected:focus, iconview:selected:focus,
   .view text:selected,
@@ -1739,14 +1739,14 @@ notebook {
     notebook > header.right > tabs > tab:hover:not(:checked) {
       box-shadow: inset 1px 0 #dcdfe3; }
     notebook > header > tabs > tab {
-      color: rgba(92, 97, 108, 0.55);
+      color: rgba(92, 97, 108, 0.85);
       background-color: rgba(255, 255, 255, 0); }
       notebook > header > tabs > tab:hover:not(:checked) {
-        color: rgba(92, 97, 108, 0.775);
+        color: rgba(92, 97, 108, 0.90);
         background-color: rgba(255, 255, 255, 0.5);
         border-color: #dcdfe3; }
       notebook > header > tabs > tab:checked {
-        color: #5c616c;
+        color: #202020;
         background-color: #ffffff;
         border-color: #dcdfe3; }
       notebook > header > tabs > tab button.flat, notebook > header > tabs > tab button.sidebar-button {
