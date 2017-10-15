@@ -83,12 +83,6 @@
     ${prefix}/lib/gdk-pixbuf-2.0/${pkg:${gtk}:gtk_binary_version}/loaders/*.so
   </binary>
 
-<!-- No longer needed for pango >= 1.38
-   <binary>
-    ${prefix}/lib/pango/${pkg:pango:pango_module_version}/modules/
-  </binary>
--->
-
   <!-- VTE library -->
   <binary>
     ${prefix}/lib/libvte.9.dylib
@@ -112,7 +106,7 @@
     ${prefix}/lib/geany/*.so
   </binary>
 
- <!-- Translation filenames, one for each program or library that you
+  <!-- Translation filenames, one for each program or library that you
        want to copy in to the bundle. The "dest" attribute is
        optional, as usual. Bundler will find all translations of that
        library/program under the indicated directory and copy them.-->
@@ -136,7 +130,7 @@
        "dest" property. The destination must then start with the macro
        "${bundle}", which refers to the bundle root directory.
   -->
-  
+
   <!-- Geany's data files; glade, fildefs, default tags, etc. -->
   <data dest="${bundle}/Contents/Resources/share/geany">
     ${prefix}/share/geany
