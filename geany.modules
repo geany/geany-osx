@@ -12,6 +12,8 @@
               href="http://downloads.sourceforge.net/sourceforge/"/>
   <repository type="git" name="git.gnome.org"
               href="git://git.gnome.org/"/>
+  <repository type="tarball" name="pcre"
+              href="https://ftp.pcre.org/pub/pcre/"/>
   <repository type="tarball" name="download.github.com"
               href="https://github.com/"/>
   <repository type="tarball" name="download.geany.org"
@@ -26,6 +28,14 @@
             version="0.12"/>
   </distutils>
 
+  <!-- Needed by VTE 2.91 -->
+  <autotools id="pcre2"
+             autogenargs="--enable-jit --enable-pcre2-8">
+    <branch repo="pcre"
+            module="pcre2-10.30.tar.bz2"
+            version="10.30"/>
+  </autotools>
+
   <!-- The last version which works with GTK 2 -->
   <autotools id="vte28"
              autogenargs="--disable-Bsymbolic" 
@@ -39,24 +49,18 @@
     </branch>
   </autotools>
 
-  <!-- VTE 2.91 API for GTK 3: 0.40 is the last version using C - there are some
-       problems with C++ because of two C++ libraries used by Xcode - the old
-       libstdc++ and the new libc++. The new one which would work is only
-       available since OS X 10.9 but we target 10.6 at the moment. -->
   <autotools id="vte291"
              autogenargs="--disable-Bsymbolic" 
              autogen-sh="configure">
-    <branch module="vte/0.40/vte-0.40.3.tar.xz" 
-            version="0.40.3">
-      <!-- Use BSD pty code -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_0.40_bsdpty.diff" strip="1" />
+    <branch module="vte/0.48/vte-0.48.4.tar.xz" 
+            version="0.48.4">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/04-vte_0.40_relpath.diff" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_2.91_relpath.diff" strip="1" />
     </branch>
     <dependencies>
       <dep package="gnutls" />
-      <!-- There seems to be a problem that VTE build fails when vala is not installed -->
       <dep package="vala" />
+      <dep package="pcre2" />
     </dependencies>
   </autotools>
 

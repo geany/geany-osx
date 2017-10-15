@@ -1,0 +1,60 @@
+From 0b83d3b8c0e1fcf8e29c0d114d1bf2dc484eb163 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Sun, 15 Oct 2017 21:56:57 +0200
+Subject: [PATCH] VTE 3.91 relative path
+
+Use path relative to app bundle for gettext.
+---
+ src/app/app.cc | 12 +++++++++++-
+ src/vtegtk.cc  | 12 +++++++++++-
+ 2 files changed, 22 insertions(+), 2 deletions(-)
+
+diff --git a/src/app/app.cc b/src/app/app.cc
+index bc66cd9c..d47e673a 100644
+--- a/src/app/app.cc
++++ b/src/app/app.cc
+@@ -1903,7 +1903,17 @@ main(int argc,
+ {
+         setlocale(LC_ALL, "");
+ 
+-	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
++	gchar *localedir = g_build_filename(g_getenv("GTK_PATH"),
++				 "share",
++				 "locale",
++				 NULL);
++	if (!g_file_test(localedir, G_FILE_TEST_IS_DIR))
++	{
++		g_free(localedir);
++		localedir = g_strdup(LOCALEDIR);
++	}
++	bindtextdomain(GETTEXT_PACKAGE, localedir);
++	g_free(localedir);
+ #ifdef HAVE_DECL_BIND_TEXTDOMAIN_CODESET
+ 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+ #endif
+diff --git a/src/vtegtk.cc b/src/vtegtk.cc
+index d671957a..0ff936a6 100644
+--- a/src/vtegtk.cc
++++ b/src/vtegtk.cc
+@@ -631,7 +631,17 @@ vte_terminal_class_init(VteTerminalClass *klass)
+ 
+ 	_VTE_DEBUG_IF (VTE_DEBUG_UPDATES) gdk_window_set_debug_updates(TRUE);
+ 
+-	bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
++	gchar *localedir = g_build_filename(g_getenv("GTK_PATH"),
++				 "share",
++				 "locale",
++				 NULL);
++	if (!g_file_test(localedir, G_FILE_TEST_IS_DIR))
++	{
++		g_free(localedir);
++		localedir = g_strdup(LOCALEDIR);
++	}
++	bindtextdomain(GETTEXT_PACKAGE, localedir);
++	g_free(localedir);
+ #ifdef HAVE_DECL_BIND_TEXTDOMAIN_CODESET
+ 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+ #endif
+-- 
+2.13.5 (Apple Git-94)
+
