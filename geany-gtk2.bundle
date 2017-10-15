@@ -33,7 +33,7 @@
          not needed. If the source path is left out, the default
          script will be used.
     -->
-    <launcher-script>${project}/launcher.sh</launcher-script >
+    <launcher-script>${project}/launcher-gtk2.sh</launcher-script >
 
     <!-- Not implemented: Optional runtime, could be python or mono
          for example.

@@ -127,13 +127,13 @@ Geany Installation
 2.	Inside the geany-osx directory run either 
 
 	```
-	jhbuild -m geany.modules build geany-bundle-release
+	jhbuild -m geany.modules build geany-bundle-release-gtk2
 	```
 
 	or
 
 	```
-	jhbuild -m geany.modules build geany-bundle
+	jhbuild -m geany.modules build geany-bundle-gtk2
 	```
 
 	to build Geany either from release tarballs or git master.
@@ -177,7 +177,7 @@ Bundling
 5.	Create the app bundle by calling
 
 	```
-	gtk-mac-bundler geany.bundle
+	gtk-mac-bundler geany-gtk2.bundle
 	```
 
 	from within the geany-osx directory.
