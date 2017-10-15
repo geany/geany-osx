@@ -93,12 +93,12 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 4.	Update the `setup_sdk()` call in `~/.jhbuildrc-custom` to something like
 
 	```
-	setup_sdk(target="10.7", sdk_version="native", architectures=["x86_64"])
+	setup_sdk(target="10.9", sdk_version="native", architectures=["x86_64"])
 	```
 
 	so the build creates a 64-bit binary that works on OS X 10.7 and later.
-	OS X 10.7 is the first version which ships libc++ which is now required
-	because the Scintilla component needs C++11 support.
+	OS X 10.9 is the first version which uses libc++ by default which is
+	now required by Scintilla and VTE libraries because of C++11 support.
 
 5.	By default, jhbuild compiles without optimization flags. To enable
 	optimization, add `setup_release()` at the end of `~/.jhbuildrc-custom`.
