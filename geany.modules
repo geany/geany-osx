@@ -170,7 +170,7 @@
   </autotools>
 
   <!-- Geany-plugins dependencies GTK 2 -->
-  <metamodule id="geany-plugins-deps-gtk2">
+  <metamodule id="geany-plugins-deps">
     <dependencies>
       <dep package="vala" />
       <dep package="libgit2" />
@@ -186,7 +186,7 @@
             revision="master" />
     <dependencies>
       <dep package="geany-git-gtk2" />
-      <dep package="geany-plugins-deps-gtk2" />
+      <dep package="geany-plugins-deps" />
     </dependencies>
   </autotools>
 
@@ -197,7 +197,7 @@
             revision="master" />
     <dependencies>
       <dep package="geany-git-gtk3" />
-      <dep package="geany-plugins-deps-gtk3" />
+      <dep package="geany-plugins-deps" />
     </dependencies>
   </autotools>
 
@@ -208,7 +208,7 @@
             version="1.31"/>
     <dependencies>
       <dep package="geany-release-gtk2" />
-      <dep package="geany-plugins-deps-gtk2" />
+      <dep package="geany-plugins-deps" />
     </dependencies>
   </autotools>
 
@@ -219,7 +219,7 @@
             version="1.31"/>
     <dependencies>
       <dep package="geany-release-gtk3" />
-      <dep package="geany-plugins-deps-gtk3" />
+      <dep package="geany-plugins-deps" />
     </dependencies>
   </autotools>
 
