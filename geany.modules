@@ -52,10 +52,12 @@
   <autotools id="vte291"
              autogenargs="--disable-Bsymbolic" 
              autogen-sh="configure">
-    <branch module="vte/0.48/vte-${version}.tar.xz" 
-            version="0.48.4">
+    <branch module="vte/0.50/vte-${version}.tar.xz" 
+            version="0.50.1">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_2.91_relpath.diff" strip="1" />
+      <!-- TODO: remove once we have a version where this is fixed -->
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/0001-build-Add-strchrnul-implementation-to-fix-compilatio.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="gnutls" />
