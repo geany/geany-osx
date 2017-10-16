@@ -112,23 +112,23 @@
   -->
 
   <!-- Geany's data files; glade, fildefs, default tags, etc. -->
-  <data dest="${bundle}/Contents/Resources/share/geany">
+  <data>
     ${prefix}/share/geany
   </data>
   <!-- Geany plugin's data files -->
-  <data dest="${bundle}/Contents/Resources/share/geany-plugins">
+  <data>
     ${prefix}/share/geany-plugins
   </data>
   <!-- Geany documentation -->
-  <data dest="${bundle}/Contents/Resources/share/doc/geany">
+  <data>
     ${prefix}/share/doc/geany
   </data>
   <!-- Geany plugin documentation -->
-  <data dest="${bundle}/Contents/Resources/share/doc/geany-plugins">
+  <data>
     ${prefix}/share/doc/geany-plugins
   </data>
   <!-- mime data -->
-  <data dest="${bundle}/Contents/Resources/share/mime">
+  <data>
     ${prefix}/share/mime
   </data>
 
@@ -140,8 +140,8 @@
     ${prefix}/share/themes/Mac
   </data>
 
-  <data>
-    ${prefix}/share/themes/Arc
+  <data dest="${bundle}/Contents/Resources/share/themes/Arc">
+    ${project}/Arc
   </data>
 
   <!-- Copy icons. Note that the .icns file is an Apple format which
@@ -156,8 +156,8 @@
     ${prefix}/share/icons/hicolor
   </data>
 
-  <data>
-    ${prefix}/share/icons/Papirus
+  <data dest="${bundle}/Contents/Resources/share/icons/Papirus">
+    ${project}/Papirus
   </data>
 
 </app-bundle>
