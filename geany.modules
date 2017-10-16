@@ -75,7 +75,7 @@
 
   <!-- Used by the git-changebar plugin -->
   <cmake id="libgit2"
-         cmakeargs="-DTHREADSAFE:BOOL=1">
+         cmakeargs="-DCMAKE_INSTALL_NAME_DIR=${PREFIX}/lib">
     <branch repo="download.github.com" 
             module="libgit2/libgit2/archive/v${version}.tar.gz"
             checkoutdir="libgit2-${version}"
