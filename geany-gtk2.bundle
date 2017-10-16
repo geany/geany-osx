@@ -178,15 +178,15 @@
 
   <!-- Main gtkrc -->
   <data dest="${bundle}/Contents/Resources/etc/${gtkdir}/gtkrc">
-    ${project}/gtkrc
+    ${project}/Greybird/gtkrc
   </data>
   <!-- The theme -->
   <data dest="${bundle}/Contents/Resources/etc/${gtkdir}/gtkrc.theme">
-    ${project}/gtkrc.theme
+    ${project}/Greybird/gtkrc.theme
   </data>
   <!-- Custom (better looking) close button -->
   <data dest="${bundle}/Contents/Resources/etc/${gtkdir}/close.png">
-    ${project}/close.png
+    ${project}/Greybird/close.png
   </data>
 
   <!-- Icon themes to copy. The "icons" property can be either of

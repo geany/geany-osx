@@ -76,7 +76,6 @@
          cmakeargs="-DTHREADSAFE:BOOL=1">
     <branch repo="download.github.com" 
             module="libgit2/libgit2/archive/v0.26.0.tar.gz"
-            checkoutdir="libgit2-0.26.0"
             version="0.26.0"/>
   </cmake>
 
@@ -123,8 +122,8 @@
     </dependencies>
   </metamodule>
 
-  <!-- Geany GTK 2 -->
-  <autotools id="geany-gtk2"
+  <!-- Geany GTK 2 from git master -->
+  <autotools id="geany-git-gtk2"
              autogenargs="--enable-mac-integration">
     <branch repo="github.com"
             module="geany/geany.git"    
@@ -134,8 +133,8 @@
     </dependencies>
   </autotools>
 
-  <!-- Geany GTK 3-->
-  <autotools id="geany-gtk3"
+  <!-- Geany GTK 3 from git master -->
+  <autotools id="geany-git-gtk3"
              autogenargs="--enable-mac-integration --enable-gtk3">
     <branch repo="github.com"
             module="geany/geany.git"    
@@ -145,7 +144,7 @@
     </dependencies>
   </autotools>
 
-  <!-- Geany tarball release GTK 2 -->
+  <!-- Geany GTK 2 tarball release -->
   <autotools id="geany-release-gtk2"
              autogenargs="--enable-mac-integration">
     <branch repo="download.geany.org"
@@ -156,7 +155,7 @@
     </dependencies>
   </autotools>
 
-  <!-- Geany tarball release GTK 3 -->
+  <!-- Geany GTK 3 tarball release -->
   <autotools id="geany-release-gtk3"
              autogenargs="--enable-mac-integration --enable-gtk3">
     <branch repo="download.geany.org"
@@ -177,29 +176,29 @@
     </dependencies>
   </metamodule>
 
-  <!-- Geany-plugins GTK 2 -->
-  <autotools id="geany-plugins-gtk2">
+  <!-- Geany-plugins GTK 2 from git master -->
+  <autotools id="geany-plugins-git-gtk2">
     <branch repo="github.com"
             module="geany/geany-plugins.git"
             revision="master" />
     <dependencies>
-      <dep package="geany-gtk2" />
+      <dep package="geany-git-gtk2" />
       <dep package="geany-plugins-deps-gtk2" />
     </dependencies>
   </autotools>
 
-  <!-- Geany-plugins GTK 3 -->
-  <autotools id="geany-plugins-gtk3">
+  <!-- Geany-plugins GTK 3 from git master -->
+  <autotools id="geany-plugins-git-gtk3">
     <branch repo="github.com"
             module="geany/geany-plugins.git"
             revision="master" />
     <dependencies>
-      <dep package="geany-gtk3" />
+      <dep package="geany-git-gtk3" />
       <dep package="geany-plugins-deps-gtk3" />
     </dependencies>
   </autotools>
 
-  <!-- Geany-plugins tarball release GTK 2 -->
+  <!-- Geany-plugins GTK 2 tarball release -->
   <autotools id="geany-plugins-release-gtk2">
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-1.31.tar.bz2" 
@@ -210,7 +209,7 @@
     </dependencies>
   </autotools>
 
-  <!-- Geany-plugins tarball release GTK 3 -->
+  <!-- Geany-plugins GTK 3 tarball release -->
   <autotools id="geany-plugins-release-gtk3">
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-1.31.tar.bz2" 
@@ -221,26 +220,23 @@
     </dependencies>
   </autotools>
 
-  <!-- Build everything necessary for Geany bundle GTK 2 -->
-  <metamodule id="geany-bundle-gtk2">
+  <!-- Build everything necessary for Geany bundle from git on GTK 2 -->
+  <metamodule id="geany-bundle-git-gtk2">
     <dependencies>
-      <dep package="geany-gtk2" />
-      <dep package="geany-plugins-gtk2" />
+      <dep package="geany-plugins-git-gtk2" />
     </dependencies>
   </metamodule>
 
-  <!-- Build everything necessary for Geany bundle GTK 3 -->
-  <metamodule id="geany-bundle-gtk3">
+  <!-- Build everything necessary for Geany bundle from git on GTK 3 -->
+  <metamodule id="geany-bundle-git-gtk3">
     <dependencies>
-      <dep package="geany-gtk3" />
-      <dep package="geany-plugins-gtk3" />
+      <dep package="geany-plugins-git-gtk3" />
     </dependencies>
   </metamodule>
 
   <!-- Build everything necessary for Geany bundle from release tarballs GTK 2 -->
   <metamodule id="geany-bundle-release-gtk2">
     <dependencies>
-      <dep package="geany-release-gtk2" />
       <dep package="geany-plugins-release-gtk2" />
     </dependencies>
   </metamodule>
@@ -248,7 +244,6 @@
   <!-- Build everything necessary for Geany bundle from release tarballs GTK 3 -->
   <metamodule id="geany-bundle-release-gtk3">
     <dependencies>
-      <dep package="geany-release-gtk3" />
       <dep package="geany-plugins-release-gtk3" />
     </dependencies>
   </metamodule>

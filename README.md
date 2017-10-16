@@ -15,9 +15,14 @@ Files and Directories
 A brief description of the contents of the project directory:
 
 ### Directories
-*	*Faience*: Faience icon theme combined with Faenza-Cupertino 
+*	*Faience*: Faience GTK 2 icon theme combined with Faenza-Cupertino 
 	icon theme (for better folder icons) and with lots of unneeded icons
 	removed to save space.
+*	*Papirus*: Papirus GTK 3 icon theme with lots of unneeded icons
+	removed to save space.
+*	*Greybird*: Greybird GTK 2 theme which has been modified to look more
+	like Mac OS.
+*	*Arc*: Arc GTK 3 theme with minor text contrast adjustments.
 *	*iconbuilder.iconset*: contains source icons for the Geany.icns
 	file. Not needed for normal build, present just in case the icns file
 	needs to be recreated for some reason.
@@ -25,20 +30,16 @@ A brief description of the contents of the project directory:
 
 ### Configuration files
 *	*geany.modules*: JHBuild modules file with Geany dependencies.
-*	*geany.bundle*: configuration file describing the contents of the
-	app bundle.
+*	*geany-gtk2.bundle, geany-gtk3.bundle*: configuration files describing
+	the contents of the app bundle.
 *	*Info.plist*: Mac OS application configuration file containing some basic
 	information such as application name, version, etc. but also additional
 	configuration including file types the application can open.
-*	*gtkrc.theme, close.png*: GTK theme based on the Greybird theme and 
-	modified to match the Mac OS theme better.
-*	*gtkrc*: GTK configuration file including the theme file and changing
-	some Geany gtkrc settings.
 *	*Geany.icns*: Mac OS Geany icon file.
 
 ### Scripts
-*	*launcher.sh*: launcher script from the gtk-mac-bundler project setting
-	all the necessary environment variables.
+*	*launcher-gtk2.sh, launcher-gtk3*: launcher script from the
+	gtk-mac-bundler project setting all the necessary environment variables.
 *	*replace_icons.sh*: script replacing the color icons distributed together
 	with Geany with grey icons from the Faience theme.
 *	*plist_filetypes.py*: script generating the file type portion of the
@@ -96,25 +97,26 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	setup_sdk(target="10.9", sdk_version="native", architectures=["x86_64"])
 	```
 
-	so the build creates a 64-bit binary that works on OS X 10.7 and later.
+	so the build creates a 64-bit binary that works on OS X 10.9 and later.
 	OS X 10.9 is the first version which uses libc++ by default which is
 	now required by Scintilla and VTE libraries because of C++11 support.
 
 5.	By default, jhbuild compiles without optimization flags. To enable
 	optimization, add `setup_release()` at the end of `~/.jhbuildrc-custom`.
 
-6.	Install GTK 2 and all its dependencies using the following commands:
-
-	```
-	jhbuild bootstrap && jhbuild build python && jhbuild build meta-gtk-osx-bootstrap && jhbuild build meta-gtk-osx-core 
-	```
-
-	Instead of meta-gtk-osx-core (GTK 2) you can also use `meta-gtk-osx-gtk3` to
-	install GTK 3. Note that both GTK 2 and GTK 3 cannot be installed at the 
-	same time. Also note that there seem to be various problems with the Mac OS 
-	support in GTK 3; for this reason I have not spent more time with the GTK 3 
-	backend so there is no GTK3-specific theme or bundling support at this 
-	moment.
+6.	Install GTK and all of its dependencies by running one of the following
+	commands:
+	* **GTK 2**
+		```
+		jhbuild bootstrap && jhbuild build python && jhbuild build meta-gtk-osx-bootstrap && jhbuild build meta-gtk-osx-core 
+		```
+	* **GTK 3**
+		```
+		jhbuild bootstrap && jhbuild build python && jhbuild build meta-gtk-osx-bootstrap && jhbuild build meta-gtk-osx-gtk3 
+		```
+	This is the moment when you have to make a decision whether to build
+	Geany with GTK 2 or GTK 3 - they cannot be installed side by side.
+	At the moment GTK 2 is more stable and recommended for Geany build.
 
 Geany Installation
 ------------------
@@ -124,22 +126,28 @@ Geany Installation
 	export LC_ALL=en_US.UTF-8; export LANG=en_US.UTF-8
 	```
 
-2.	Inside the geany-osx directory run either 
-
-	```
-	jhbuild -m geany.modules build geany-bundle-release-gtk2
-	```
-
-	or
-
-	```
-	jhbuild -m geany.modules build geany-bundle-gtk2
-	```
-
-	to build Geany either from release tarballs or git master.
-
-	There are other useful module installation options - check the geany.modules
-	file for more options.
+2.	To build Geany, plugins and all of their dependencies, run one of 
+	the following commandsinside the `geany-osx` directory  depending on
+	the GTK version used and whether to use Geany sources from the latest
+	release tarball or current git master:
+	* **GTK 2**
+		* **Geany from release tarball**
+			```
+			jhbuild -m geany.modules build geany-bundle-release-gtk2
+			```
+		* **Geany from git master**
+			```
+			jhbuild -m geany.modules build geany-bundle-git-gtk2
+			```
+	* **GTK 3**
+		* **Geany from release tarball**
+			```
+			jhbuild -m geany.modules build geany-bundle-release-gtk3
+			```
+		* **Geany from git master**
+			```
+			jhbuild -m geany.modules build geany-bundle-git-gtk3
+			```
 
 Bundling
 --------
@@ -148,7 +156,6 @@ Bundling
 	```
 	jhbuild shell
 	```
-
 	to start jhbuild shell. 
 
 	*The rest of this section assumes you are running from within the jhbuild shell.*
@@ -157,32 +164,36 @@ Bundling
 
 	<https://github.com/geany/geany-themes>
 
-	and copy the colorschemes directory under `$PREFIX/share/geany`.
+	and copy the `colorschemes` directory under `$PREFIX/share/geany`.
 
-3.	Go to the geany-osx directory and copy the Faience icon theme to the 
-	gtk icons directory:
+3.	Go to the `geany-osx` directory and copy the icon theme to the GTK
+	icons directory:
+	* **GTK 2**
+		```
+		cp -r Faience $PREFIX/share/icons
+		```
+		and replace some Geany-specific icons by the icons from the theme
+		by running:
+		```
+		./replace_icons.sh
+		```
+	* **GTK 3**
+		```
+		cp -r Papirus $PREFIX/share/icons
+		```
 
-	```
-	cp -r Faience $PREFIX/share/icons
-	```
+4.	Inside the `geany-osx` directory run the following command to create
+	the app bundle.
+	* **GTK 2**
+		```
+		gtk-mac-bundler geany-gtk2.bundle
+		```
+	* **GTK 3**
+		```
+		gtk-mac-bundler geany-gtk3.bundle
+		```
 
-4.	Replace Geany color icons by grey icons from the Faience theme by calling
-
-	```
-	./replace_icons.sh
-	```
-
-	from within the geany-osx directory.
-
-5.	Create the app bundle by calling
-
-	```
-	gtk-mac-bundler geany-gtk2.bundle
-	```
-
-	from within the geany-osx directory.
-
-6.	Optionally if you have a development account at Apple and want to sign the
+5.	Optionally if you have a development account at Apple and want to sign the
 	resulting bundle so it can be started without warning dialogs, use
 
 	```
@@ -203,11 +214,11 @@ Bundling
 
 Distribution
 ------------
-1.	Get the create-dmg script from
+1.	Get the `create-dmg` script from
 
 	<https://github.com/andreyvit/create-dmg.git>
 
-	and put it to your $PATH.
+	and put it to your `$PATH`.
 
 2.	Create the dmg installation image by calling
 	
@@ -215,7 +226,7 @@ Distribution
 	./create_dmg.sh
 	```
 
-	from within the geany-osx directory. If the SIGN_CERTIFICATE variable is
+	from within the `geany-osx` directory. If the `SIGN_CERTIFICATE` variable is
 	defined, the image gets signed by the specified certificate.
 
 Maintenance
@@ -223,13 +234,13 @@ Maintenance
 This section describes some maintenance-related activities which do not
 have to be performed during normal bundle/installer creation:
 
-*	To get the Info.plist file associations in sync with 
-	filetype_extensions.conf, copy the filetype extension portion from
-	filetype_extensions.conf to the marked place in plist_filetypes.py
+*	To get the `Info.plist` file associations in sync with 
+	`filetype_extensions.conf`, copy the filetype extension portion from
+	`filetype_extensions.conf` to the marked place in `plist_filetypes.py`
 	and run the script. Copy the output of the script to the marked
-	place in Info.plist.
+	place in `Info.plist`.
 
-*	The Geany.icns icon file can be regenerated from the iconbuilder.iconset
+*	The `Geany.icns` icon file can be regenerated from the `iconbuilder.iconset`
 	directory using
 
 	```
@@ -237,9 +248,9 @@ have to be performed during normal bundle/installer creation:
 	```
 
 *	Before the release update the Geany version and copyright years inside
-	Info.plist and create_dmg.sh. Also update the `-release` targets in
-	geany.modules file to point to the new release. Dependencies inside
-	geany.modules can also be updated to newer versions.
+	`Info.plist` and `create_dmg.sh`. Also update the `-release` targets in
+	`geany.modules` file to point to the new release. Dependencies inside
+	`geany.modules` can also be updated to newer versions.
 
 ---
 
