@@ -24,7 +24,7 @@
   <!-- Needed for Geany manual -->
   <distutils id="docutils">
     <branch repo="sourceforge"
-            module="docutils/docutils-0.12.tar.gz"
+            module="docutils/docutils-${version}.tar.gz"
             version="0.12"/>
   </distutils>
 
@@ -32,7 +32,7 @@
   <autotools id="pcre2"
              autogenargs="--enable-jit --enable-pcre2-8">
     <branch repo="pcre"
-            module="pcre2-10.30.tar.bz2"
+            module="pcre2-${version}.tar.bz2"
             version="10.30"/>
   </autotools>
 
@@ -40,7 +40,7 @@
   <autotools id="vte28"
              autogenargs="--disable-Bsymbolic" 
              autogen-sh="configure">
-    <branch module="vte/0.28/vte-0.28.2.tar.xz" 
+    <branch module="vte/0.28/vte-${version}.tar.xz" 
             version="0.28.2">
       <!-- Fix for draw -->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-vte_0.28_fix.diff" strip="1" />
@@ -52,7 +52,7 @@
   <autotools id="vte291"
              autogenargs="--disable-Bsymbolic" 
              autogen-sh="configure">
-    <branch module="vte/0.48/vte-0.48.4.tar.xz" 
+    <branch module="vte/0.48/vte-${version}.tar.xz" 
             version="0.48.4">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_2.91_relpath.diff" strip="1" />
@@ -64,18 +64,19 @@
     </dependencies>
   </autotools>
 
-  <!-- Needed by the used theme -->
+  <!-- Needed by the used GTK 2 theme -->
   <autotools id="murrine-engine" 
              autogen-sh="configure">
-    <branch module="murrine/0.98/murrine-0.98.2.tar.xz" 
+    <branch module="murrine/0.98/murrine-${version}.tar.xz" 
             version="0.98.2"/>
   </autotools>
 
-  <!-- Used by the Git Changebar plugin -->
+  <!-- Used by the git-changebar plugin -->
   <cmake id="libgit2"
          cmakeargs="-DTHREADSAFE:BOOL=1">
     <branch repo="download.github.com" 
-            module="libgit2/libgit2/archive/v0.26.0.tar.gz"
+            module="libgit2/libgit2/archive/v${version}.tar.gz"
+            checkoutdir="libgit2-${version}"
             version="0.26.0"/>
   </cmake>
 
@@ -83,7 +84,7 @@
   <autotools id="gtk-mac-integration-fixed" 
              autogen-sh="configure"
              autogenargs="--disable-python">
-    <branch module="gtk-mac-integration/2.0/gtk-mac-integration-2.0.8.tar.xz"
+    <branch module="gtk-mac-integration/2.0/gtk-mac-integration-${version}.tar.xz"
             checkoutdir="gtk-mac-integration-fixed"
             version="2.0.8">
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-gtk_mac_integration_radio_fix.diff" strip="1" />
@@ -148,7 +149,7 @@
   <autotools id="geany-release-gtk2"
              autogenargs="--enable-mac-integration">
     <branch repo="download.geany.org"
-            module="geany-1.31.tar.bz2" 
+            module="geany-${version}.tar.bz2" 
             version="1.31"/>
     <dependencies>
       <dep package="geany-deps-gtk2" />
@@ -159,7 +160,7 @@
   <autotools id="geany-release-gtk3"
              autogenargs="--enable-mac-integration --enable-gtk3">
     <branch repo="download.geany.org"
-            module="geany-1.31.tar.bz2" 
+            module="geany-${version}.tar.bz2" 
             version="1.31"/>
     <dependencies>
       <dep package="geany-deps-gtk3" />
@@ -201,7 +202,7 @@
   <!-- Geany-plugins GTK 2 tarball release -->
   <autotools id="geany-plugins-release-gtk2">
     <branch repo="download.geany.org"
-            module="geany-plugins/geany-plugins-1.31.tar.bz2" 
+            module="geany-plugins/geany-plugins-${version}.tar.bz2" 
             version="1.31"/>
     <dependencies>
       <dep package="geany-release-gtk2" />
@@ -212,7 +213,7 @@
   <!-- Geany-plugins GTK 3 tarball release -->
   <autotools id="geany-plugins-release-gtk3">
     <branch repo="download.geany.org"
-            module="geany-plugins/geany-plugins-1.31.tar.bz2" 
+            module="geany-plugins/geany-plugins-${version}.tar.bz2" 
             version="1.31"/>
     <dependencies>
       <dep package="geany-release-gtk3" />
