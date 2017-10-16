@@ -43,9 +43,9 @@
     <branch module="vte/0.28/vte-${version}.tar.xz" 
             version="0.28.2">
       <!-- Fix for draw -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-vte_0.28_fix.diff" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-vte_0.28_fix.patch" strip="1" />
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-vte_0.28_relpath.diff" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-vte_0.28_relpath.patch" strip="1" />
     </branch>
   </autotools>
 
@@ -55,7 +55,7 @@
     <branch module="vte/0.50/vte-${version}.tar.xz" 
             version="0.50.1">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_2.91_relpath.diff" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_2.91_relpath.patch" strip="1" />
       <!-- TODO: remove once we have a version where this is fixed -->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/0001-build-Add-strchrnul-implementation-to-fix-compilatio.patch" strip="1" />
     </branch>
@@ -89,7 +89,7 @@
     <branch module="gtk-mac-integration/2.0/gtk-mac-integration-${version}.tar.xz"
             checkoutdir="gtk-mac-integration-fixed"
             version="2.0.8">
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-gtk_mac_integration_radio_fix.diff" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-gtk_mac_integration_radio_fix.patch" strip="1" />
     </branch>
   </autotools>  
   
