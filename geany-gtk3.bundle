@@ -144,6 +144,10 @@
     ${project}/Arc
   </data>
 
+  <data dest="${bundle}/Contents/Resources/etc/${gtkdir}/settings.ini">
+    ${project}/settings.ini
+  </data>
+
   <!-- Copy icons. Note that the .icns file is an Apple format which
        contains up to 4 sizes of icon. You can use
        /Developer/Applications/Utilities/Icon Composer.app to import
