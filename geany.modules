@@ -129,7 +129,8 @@
   <autotools id="geany-git-gtk2"
              autogenargs="--enable-mac-integration">
     <branch repo="github.com"
-            module="geany/geany.git"    
+            module="geany/geany.git"
+            checkoutdir="geany-git"
             revision="master" />
     <dependencies>
       <dep package="geany-deps-gtk2" />
@@ -140,7 +141,8 @@
   <autotools id="geany-git-gtk3"
              autogenargs="--enable-mac-integration --enable-gtk3">
     <branch repo="github.com"
-            module="geany/geany.git"    
+            module="geany/geany.git"
+            checkoutdir="geany-git"
             revision="master" />
     <dependencies>
       <dep package="geany-deps-gtk3" />
@@ -152,6 +154,7 @@
              autogenargs="--enable-mac-integration">
     <branch repo="download.geany.org"
             module="geany-${version}.tar.bz2" 
+            checkoutdir="geany-release"
             version="1.31"/>
     <dependencies>
       <dep package="geany-deps-gtk2" />
@@ -162,7 +165,8 @@
   <autotools id="geany-release-gtk3"
              autogenargs="--enable-mac-integration --enable-gtk3">
     <branch repo="download.geany.org"
-            module="geany-${version}.tar.bz2" 
+            module="geany-${version}.tar.bz2"
+            checkoutdir="geany-release"
             version="1.31"/>
     <dependencies>
       <dep package="geany-deps-gtk3" />
@@ -183,6 +187,7 @@
   <autotools id="geany-plugins-git-gtk2">
     <branch repo="github.com"
             module="geany/geany-plugins.git"
+            checkoutdir="geany-plugins-git"
             revision="master" />
     <dependencies>
       <dep package="geany-git-gtk2" />
@@ -194,6 +199,7 @@
   <autotools id="geany-plugins-git-gtk3">
     <branch repo="github.com"
             module="geany/geany-plugins.git"
+            checkoutdir="geany-plugins-git"
             revision="master" />
     <dependencies>
       <dep package="geany-git-gtk3" />
@@ -204,7 +210,8 @@
   <!-- Geany-plugins GTK 2 tarball release -->
   <autotools id="geany-plugins-release-gtk2">
     <branch repo="download.geany.org"
-            module="geany-plugins/geany-plugins-${version}.tar.bz2" 
+            module="geany-plugins/geany-plugins-${version}.tar.bz2"
+            checkoutdir="geany-plugins-release"
             version="1.31"/>
     <dependencies>
       <dep package="geany-release-gtk2" />
@@ -215,7 +222,8 @@
   <!-- Geany-plugins GTK 3 tarball release -->
   <autotools id="geany-plugins-release-gtk3">
     <branch repo="download.geany.org"
-            module="geany-plugins/geany-plugins-${version}.tar.bz2" 
+            module="geany-plugins/geany-plugins-${version}.tar.bz2"
+            checkoutdir="geany-plugins-release"
             version="1.31"/>
     <dependencies>
       <dep package="geany-release-gtk3" />
