@@ -172,11 +172,6 @@ Bundling
 		```
 		cp -r Faience $PREFIX/share/icons
 		```
-		and replace some Geany-specific icons by the icons from the theme
-		by running:
-		```
-		./replace_icons.sh
-		```
 	* **GTK 3**
 		```
 		cp -r Papirus $PREFIX/share/icons
