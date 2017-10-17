@@ -36,12 +36,11 @@ A brief description of the contents of the project directory:
 	information such as application name, version, etc. but also additional
 	configuration including file types the application can open.
 *	*Geany.icns*: Mac OS Geany icon file.
+*	*settings.ini*: theme configuration file for GTK 3. 
 
 ### Scripts
-*	*launcher-gtk2.sh, launcher-gtk3*: launcher script from the
+*	*launcher-gtk2.sh, launcher-gtk3.sh*: launcher script from the
 	gtk-mac-bundler project setting all the necessary environment variables.
-*	*replace_icons.sh*: script replacing the color icons distributed together
-	with Geany with grey icons from the Faience theme.
 *	*plist_filetypes.py*: script generating the file type portion of the
 	Info.plist file from Geany's filetype_extensions.conf configuration
 	file.
@@ -127,7 +126,7 @@ Geany Installation
 	```
 
 2.	To build Geany, plugins and all of their dependencies, run one of 
-	the following commandsinside the `geany-osx` directory  depending on
+	the following commands inside the `geany-osx` directory  depending on
 	the GTK version used and whether to use Geany sources from the latest
 	release tarball or current git master:
 	* **GTK 2**
