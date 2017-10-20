@@ -169,11 +169,11 @@ Bundling
 	icons directory:
 	* **GTK 2**
 		```
-		cp -r Faience $PREFIX/share/icons
+		cp -R Faience $PREFIX/share/icons
 		```
 	* **GTK 3**
 		```
-		cp -r Papirus $PREFIX/share/icons
+		cp -R Papirus $PREFIX/share/icons
 		```
 
 4.	Inside the `geany-osx` directory run the following command to create
