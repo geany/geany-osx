@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleShortVersionString</key>
-	<string>1.31</string>
+	<string>1.32</string>
 	<key>CFBundleVersion</key>
-	<string>1.31</string>
+	<string>1.32</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.31 (C) 2017 The Geany Team, http://www.geany.org</string>
+	<string>1.32 (C) 2017 The Geany Team, http://www.geany.org</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright 2017 The Geany Team, GNU General Public License</string>
 
@@ -228,9 +228,12 @@
 			<string>ASM Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>S</string>
 				<string>a51</string>
 				<string>asm</string>
 				<string>asm51</string>
+				<string>s</string>
+				<string>sx</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
