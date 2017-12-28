@@ -55,7 +55,11 @@ if [ `uname -r | cut -d . -f 1` -ge 10 ]; then
     export GTK_IM_MODULE_FILE="$bundle_etc/gtk-3.0/gtk.immodules"
 fi
 
-if test -e ~/.config/geany/use_locale; then 
+if test -e ~/.config/geany/ignore_locale; then
+    export LANG="en_US"
+    export LC_MESSAGES="en_US"
+    export LC_ALL="en_US.UTF-8"
+else
 
 APP=$name
 I18NDIR="$bundle_data/locale"
@@ -173,12 +177,7 @@ export LC_ALL=$LC_MESSAGES
 
 unset APPLELOCALE FILES LOC
 
-#~/.config/geany/use_locale doesn't exist
-else
-  export LANG="en_US"
-  export LC_MESSAGES="en_US"
-  export LC_ALL="en_US.UTF-8"
-fi
+fi #ignore_locale
 
 if test -f "$bundle_lib/charset.alias"; then
     export CHARSETALIASDIR="$bundle_lib"
