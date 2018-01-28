@@ -107,11 +107,11 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	commands:
 	* **GTK 2**
 		```
-		jhbuild bootstrap && jhbuild build python && jhbuild build meta-gtk-osx-bootstrap && jhbuild build meta-gtk-osx-core 
+		jhbuild bootstrap && jhbuild build python meta-gtk-osx-bootstrap meta-gtk-osx-core 
 		```
 	* **GTK 3**
 		```
-		jhbuild bootstrap && jhbuild build python && jhbuild build meta-gtk-osx-bootstrap && jhbuild build meta-gtk-osx-gtk3 
+		jhbuild bootstrap && jhbuild build python meta-gtk-osx-bootstrap meta-gtk-osx-gtk3 
 		```
 	This is the moment when you have to make a decision whether to build
 	Geany with GTK 2 or GTK 3 - they cannot be installed side by side.
