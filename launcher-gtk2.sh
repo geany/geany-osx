@@ -87,7 +87,7 @@ if test "$APPLELANGUAGES"; then
 	fi
 	#OK, now test for just the first two letters:
         if test -f "$I18NDIR/${L:0:2}/LC_MESSAGES/$APP.mo"; then
-	    export LANG=${L:0:2}
+	    export LANG=$L
 	    break
 	fi
 	#Same thing, but checking for any english variant.
@@ -98,6 +98,10 @@ if test "$APPLELANGUAGES"; then
     done  
 fi
 unset APPLELANGUAGES L
+
+if test -n ${LANG}; then
+    export LANG="${LANG}.UTF-8"
+fi
 
 # If we didn't get a language from the language list, try the Collation preference, in case it's the only setting that exists.
 APPLECOLLATION=`defaults read .GlobalPreferences AppleCollationOrder`
