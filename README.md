@@ -248,4 +248,4 @@ have to be performed during normal bundle/installer creation:
 
 ---
 
-Jiri Techet, 2017
+Jiri Techet, 2018
