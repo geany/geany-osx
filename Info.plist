@@ -41,7 +41,7 @@
 			<key>UTTypeIdentifier</key>
 			<string>org.geany.geany</string>
 			<key>UTTypeReferenceURL</key>
-			<string>http://www.geany.org/</string>
+			<string>https://www.geany.org/</string>
 			<key>UTTypeDescription</key>
 			<string>Geany project</string>
 			<key>UTTypeIconFile</key>

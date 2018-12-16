@@ -8,7 +8,7 @@ Binaries
 --------
 The Mac OS binaries can be downloaded from the Geany Releases page:
 
-<http://www.geany.org/Download/Releases>
+<https://www.geany.org/Download/Releases>
 
 Files and Directories
 ---------------------
@@ -73,7 +73,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 2.	Get `gtk-osx-build-setup.sh` by
 
 	```
-	curl -o gtk-osx-build-setup.sh https://git.gnome.org/browse/gtk-osx/plain/gtk-osx-build-setup.sh
+	curl -L -o gtk-osx-build-setup.sh https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/gtk-osx-build-setup.sh
 	```
 	
 	and run it:

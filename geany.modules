@@ -3,23 +3,23 @@
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
   <repository type="tarball" name="ftp.gnome.org" default="yes"
-              href="http://ftp.gnome.org/pub/GNOME/sources/"/>
+              href="https://ftp.gnome.org/pub/GNOME/sources/"/>
   <repository type="tarball" name="ftp.gnu.org"
-              href="http://ftp.gnu.org/gnu/"/>
+              href="https://ftp.gnu.org/gnu/"/>
   <repository type="git" name="github.com"
               href="git://github.com/"/>
   <repository type="tarball" name="sourceforge"
-              href="http://downloads.sourceforge.net/sourceforge/"/>
-  <repository type="git" name="git.gnome.org"
-              href="git://git.gnome.org/"/>
+              href="https://downloads.sourceforge.net/sourceforge/"/>
+  <repository type="git" name="gitlab.gnome.org"
+              href="https://gitlab.gnome.org/GNOME/"/>
   <repository type="tarball" name="pcre"
               href="https://ftp.pcre.org/pub/pcre/"/>
   <repository type="tarball" name="download.github.com"
               href="https://github.com/"/>
   <repository type="tarball" name="download.geany.org"
-              href="http://download.geany.org/"/>
+              href="https://download.geany.org/"/>
 
-  <include href="http://git.gnome.org/browse/gtk-osx/plain/modulesets-stable/gtk-osx.modules" />
+  <include href="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/modulesets-stable/gtk-osx.modules" />
 
   <!-- Needed for Geany manual -->
   <distutils id="docutils">
@@ -98,7 +98,7 @@
              skip-autogen="true"
              skip-install="true"
              makeargs="install">  <!-- all we need to do is 'make install' -->
-    <branch repo="git.gnome.org"
+    <branch repo="gitlab.gnome.org"
             module="gtk-mac-bundler"/>
   </autotools>
 
