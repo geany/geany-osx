@@ -154,8 +154,8 @@
              autogenargs="--enable-mac-integration">
     <branch repo="download.geany.org"
             module="geany-${version}.tar.bz2" 
-            checkoutdir="geany-release"
-            version="1.34"/>
+            checkoutdir="geany-${version}"
+            version="1.34.1"/>
     <dependencies>
       <dep package="geany-deps-gtk2" />
     </dependencies>
@@ -166,8 +166,8 @@
              autogenargs="--enable-mac-integration --enable-gtk3">
     <branch repo="download.geany.org"
             module="geany-${version}.tar.bz2"
-            checkoutdir="geany-release"
-            version="1.34"/>
+            checkoutdir="geany-${version}"
+            version="1.34.1"/>
     <dependencies>
       <dep package="geany-deps-gtk3" />
     </dependencies>
@@ -211,7 +211,7 @@
   <autotools id="geany-plugins-release-gtk2">
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-${version}.tar.bz2"
-            checkoutdir="geany-plugins-release"
+            checkoutdir="geany-plugins-${version}"
             version="1.34"/>
     <dependencies>
       <dep package="geany-release-gtk2" />
@@ -223,7 +223,7 @@
   <autotools id="geany-plugins-release-gtk3">
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-${version}.tar.bz2"
-            checkoutdir="geany-plugins-release"
+            checkoutdir="geany-plugins-${version}"
             version="1.34"/>
     <dependencies>
       <dep package="geany-release-gtk3" />
