@@ -27,7 +27,7 @@ create-dmg \
 
 rm -rf "${TMPDIR}"
 
-if [ -n "$APPLICATION_CERT" ]
+if [ -n "$SIGN_CERTIFICATE" ]
 then
-	codesign -s "$SIGN_CERTIFICATE" "$DMGNAME"
+	codesign -s "$SIGN_CERTIFICATE" --options runtime "$DMGNAME"
 fi

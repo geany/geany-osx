@@ -199,10 +199,10 @@ Bundling
 	checking  for "Developer ID Application" - the whole name in apostrophes is
 	the certificate name.
 
-	Then run
+	Then, run
 
 	```
-	codesign -s "$SIGN_CERTIFICATE" --deep --force ./Geany.app
+	./sign.sh
 	```
 
 
@@ -222,6 +222,17 @@ Distribution
 
 	from within the `geany-osx` directory. If the `SIGN_CERTIFICATE` variable is
 	defined, the image gets signed by the specified certificate.
+
+3.	Optionally, to get the image notarized by
+	[Apple notary service](https://developer.apple.com/documentation/security/notarizing_your_app_before_distribution),
+	run
+	```
+	./notarize.sh <dmg_file> <apple_id> <pwd_file>
+	```
+	where `<dmg_file>` is the dmg file generated above, `<apple_id>` is
+	the Apple ID used for your developer account, and `<pwd_file>` is
+	a file containing an [app-specific password](https://support.apple.com/en-us/HT204397)
+	generated for your Apple ID.
 
 Maintenance
 -----------
