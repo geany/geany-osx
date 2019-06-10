@@ -70,22 +70,22 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	jhbuild will not interfere with some other command-line tools installed
 	on your system).
 
-2.	Get `gtk-osx-build-setup.sh` by
+2.	Get `gtk-osx-setup.sh` by
 
 	```
-	curl -L -o gtk-osx-build-setup.sh https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/gtk-osx-build-setup.sh
+	curl -L -o gtk-osx-setup.sh https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/gtk-osx-setup.sh
 	```
 	
 	and run it:
 	
 	```
-	sh gtk-osx-build-setup.sh
+	sh gtk-osx-setup.sh
 	```
 
 3.	Run
 
 	```
-	export PATH=$PATH:"$HOME/.local/bin"
+	export PATH=$PATH:"$HOME/.new_local/bin"
 	```
 
 	to set path to jhbuild installed in the previous step.
@@ -107,11 +107,11 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	commands:
 	* **GTK 2**
 		```
-		jhbuild bootstrap && jhbuild build python meta-gtk-osx-bootstrap meta-gtk-osx-freetype meta-gtk-osx-core 
+		jhbuild bootstrap-gtk-osx && jhbuild build python python3 meta-gtk-osx-bootstrap meta-gtk-osx-core
 		```
 	* **GTK 3**
 		```
-		jhbuild bootstrap && jhbuild build python meta-gtk-osx-bootstrap meta-gtk-osx-freetype meta-gtk-osx-gtk3 
+		jhbuild bootstrap-gtk-osx && jhbuild build python python3 meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 		```
 	This is the moment when you have to make a decision whether to build
 	Geany with GTK 2 or GTK 3 - they cannot be installed side by side.
@@ -132,20 +132,20 @@ Geany Installation
 	* **GTK 2**
 		* **Geany from release tarball**
 			```
-			jhbuild -m geany.modules build geany-bundle-release-gtk2
+			jhbuild -m `pwd`/geany.modules build geany-bundle-release-gtk2
 			```
 		* **Geany from git master**
 			```
-			jhbuild -m geany.modules build geany-bundle-git-gtk2
+			jhbuild -m `pwd`/geany.modules build geany-bundle-git-gtk2
 			```
 	* **GTK 3**
 		* **Geany from release tarball**
 			```
-			jhbuild -m geany.modules build geany-bundle-release-gtk3
+			jhbuild -m `pwd`/geany.modules build geany-bundle-release-gtk3
 			```
 		* **Geany from git master**
 			```
-			jhbuild -m geany.modules build geany-bundle-git-gtk3
+			jhbuild -m `pwd`/geany.modules build geany-bundle-git-gtk3
 			```
 
 Bundling
