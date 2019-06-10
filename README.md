@@ -227,11 +227,11 @@ Distribution
 	[Apple notary service](https://developer.apple.com/documentation/security/notarizing_your_app_before_distribution),
 	run
 	```
-	./notarize.sh <dmg_file> <apple_id> <pwd_file>
+	./notarize.sh <dmg_file> <apple_id>
 	```
-	where `<dmg_file>` is the dmg file generated above, `<apple_id>` is
-	the Apple ID used for your developer account, and `<pwd_file>` is
-	a file containing an [app-specific password](https://support.apple.com/en-us/HT204397)
+	where `<dmg_file>` is the dmg file generated above and `<apple_id>`
+	is the Apple ID used for your developer account. The script then
+	prompts for an [app-specific password](https://support.apple.com/en-us/HT204397)
 	generated for your Apple ID.
 
 Maintenance

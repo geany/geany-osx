@@ -5,9 +5,14 @@
 
 DMGFILE="${1}"
 APPLEID="${2}"
-# file containing app-specific password, see https://support.apple.com/en-us/HT204397
-PASSWORD=`cat ${3}`
 BUNDLEID="org.geany.geany"
+
+# App-specific password, see https://support.apple.com/en-us/HT204397
+stty -echo
+printf "Password: "
+read PASSWORD
+stty echo
+printf "\n"
 
 echo "Uploading disk image for notarization. This can take a while.";
 xcrun altool --notarize-app -f "${DMGFILE}" --primary-bundle-id "${BUNDLEID}" -u "${APPLEID}" -p "${PASSWORD}" > ${TMPDIR}notarize_output 2>&1 || { cat ${TMPDIR}notarize_output; rm -f ${TMPDIR}notarize_output; exit $?; };
