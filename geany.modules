@@ -49,19 +49,17 @@
     </branch>
   </autotools>
 
+  <!-- disable vala for now, there seems to be some problem -->
   <autotools id="vte291"
-             autogenargs="--disable-Bsymbolic" 
+             autogenargs="--disable-Bsymbolic --without-gnutls --enable-vala=no" 
              autogen-sh="configure">
-    <branch module="vte/0.50/vte-${version}.tar.xz" 
-            version="0.50.1">
+    <branch module="vte/0.56/vte-${version}.tar.xz" 
+            version="0.56.3">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_2.91_relpath.patch" strip="1" />
-      <!-- TODO: remove once we have a version where this is fixed -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/0001-build-Add-strchrnul-implementation-to-fix-compilatio.patch" strip="1" />
     </branch>
     <dependencies>
-      <dep package="gnutls" />
-      <dep package="vala" />
+      <!-- <dep package="vala" /> -->
       <dep package="pcre2" />
     </dependencies>
   </autotools>
@@ -179,7 +177,6 @@
       <dep package="vala" />
       <dep package="libgit2" />
       <dep package="enchant" />
-      <dep package="libsoup" />
     </dependencies>
   </metamodule>
 
