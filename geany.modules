@@ -97,6 +97,7 @@
   <autotools id="gtk-mac-bundler" 
              skip-autogen="true"
              skip-install="true"
+             supports-non-srcdir-builds="no"
              makeargs="install">  <!-- all we need to do is 'make install' -->
     <branch repo="gitlab.gnome.org"
             module="gtk-mac-bundler"/>
