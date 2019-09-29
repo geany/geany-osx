@@ -76,11 +76,6 @@
     ${prefix}/lib/enchant/*.so
   </binary>
 
-  <!-- glib-networking modules used by libsoup, needed for HTTPS -->
-  <binary>
-    ${prefix}/lib/gio/modules/*.so
-  </binary>
-
   <!-- Geany's plugins -->
   <binary>
     ${prefix}/lib/geany/*.so
