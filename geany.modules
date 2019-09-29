@@ -18,14 +18,16 @@
               href="https://github.com/"/>
   <repository type="tarball" name="download.geany.org"
               href="https://download.geany.org/"/>
+  <repository type="tarball" name="files.pythonhosted.org"
+              href="https://files.pythonhosted.org/"/>
 
   <include href="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/modulesets-stable/gtk-osx.modules" />
 
   <!-- Needed for Geany manual -->
   <distutils id="docutils">
-    <branch repo="sourceforge"
-            module="docutils/docutils-${version}.tar.gz"
-            version="0.12"/>
+    <branch repo="files.pythonhosted.org"
+            module="packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-${version}.tar.gz"
+            version="0.15.2"/>
   </distutils>
 
   <!-- Needed by VTE 2.91 -->
@@ -33,7 +35,7 @@
              autogenargs="--enable-jit --enable-pcre2-8">
     <branch repo="pcre"
             module="pcre2-${version}.tar.bz2"
-            version="10.30"/>
+            version="10.33"/>
   </autotools>
 
   <!-- The last version which works with GTK 2 -->
@@ -77,7 +79,7 @@
     <branch repo="download.github.com" 
             module="libgit2/libgit2/archive/v${version}.tar.gz"
             checkoutdir="libgit2-${version}"
-            version="0.27.7"/>
+            version="0.28.3"/>
   </cmake>
 
   <!-- The mac integration library with a fix for radio menu items -->
