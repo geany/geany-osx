@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleShortVersionString</key>
-	<string>1.35</string>
+	<string>1.36</string>
 	<key>CFBundleVersion</key>
-	<string>1.35</string>
+	<string>1.36</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.35 (C) 2019 The Geany Team, https://www.geany.org</string>
+	<string>1.36 (C) 2019 The Geany Team, https://www.geany.org</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright 2019 The Geany Team, GNU General Public License</string>
 

@@ -156,7 +156,7 @@
     <branch repo="download.geany.org"
             module="geany-${version}.tar.bz2" 
             checkoutdir="geany-${version}"
-            version="1.35"/>
+            version="1.36"/>
     <dependencies>
       <dep package="geany-deps-gtk2" />
     </dependencies>
@@ -168,7 +168,7 @@
     <branch repo="download.geany.org"
             module="geany-${version}.tar.bz2"
             checkoutdir="geany-${version}"
-            version="1.35"/>
+            version="1.36"/>
     <dependencies>
       <dep package="geany-deps-gtk3" />
     </dependencies>
@@ -212,7 +212,7 @@
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-${version}.tar.bz2"
             checkoutdir="geany-plugins-${version}"
-            version="1.35"/>
+            version="1.36"/>
     <dependencies>
       <dep package="geany-release-gtk2" />
       <dep package="geany-plugins-deps" />
@@ -224,7 +224,7 @@
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-${version}.tar.bz2"
             checkoutdir="geany-plugins-${version}"
-            version="1.35"/>
+            version="1.36"/>
     <dependencies>
       <dep package="geany-release-gtk3" />
       <dep package="geany-plugins-deps" />
