@@ -7,5 +7,5 @@ export -f sign
 
 sign "./Geany.app/Contents/MacOS/geany-bin"
 sign "./Geany.app/Contents/Resources/libexec/gnome-pty-helper"
-find . -name "*.dylib" -o -name "*.so" -exec sh -c 'sign "$0"' {} \;
+find ./Geany.app \( -name "*.dylib" -or -name "*.so" \) -exec sh -c 'sign "$0"' {} \;
 sign "./Geany.app"
