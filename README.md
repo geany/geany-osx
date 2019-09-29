@@ -107,11 +107,11 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	commands:
 	* **GTK 2**
 		```
-		jhbuild bootstrap-gtk-osx && jhbuild build python python3 meta-gtk-osx-bootstrap meta-gtk-osx-core
+		jhbuild bootstrap-gtk-osx && jhbuild build python3 meta-gtk-osx-freetype meta-gtk-osx-bootstrap meta-gtk-osx-core
 		```
 	* **GTK 3**
 		```
-		jhbuild bootstrap-gtk-osx && jhbuild build python python3 meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
+		jhbuild bootstrap-gtk-osx && jhbuild build python3 meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 		```
 	This is the moment when you have to make a decision whether to build
 	Geany with GTK 2 or GTK 3 - they cannot be installed side by side.
@@ -122,7 +122,7 @@ Geany Installation
 1.	Docutils will fail if you do not set the following environment variables:
 
 	```
-	export LC_ALL=en_US.UTF-8; export LANG=en_US.UTF-8
+	export LC_ALL=en_US.UTF-8; export LANG=en_US.UTF-8; export PYTHON=python3
 	```
 
 2.	To build Geany, plugins and all of their dependencies, run one of 
@@ -180,11 +180,11 @@ Bundling
 	the app bundle.
 	* **GTK 2**
 		```
-		gtk-mac-bundler geany-gtk2.bundle
+		~/.local/bin/gtk-mac-bundler geany-gtk2.bundle
 		```
 	* **GTK 3**
 		```
-		gtk-mac-bundler geany-gtk3.bundle
+		~/.local/bin/gtk-mac-bundler geany-gtk3.bundle
 		```
 
 5.	Optionally if you have a development account at Apple and want to sign the
@@ -256,6 +256,13 @@ have to be performed during normal bundle/installer creation:
 	`Info.plist` and `create_dmg.sh`. Also update the `-release` targets in
 	`geany.modules` file to point to the new release. Dependencies inside
 	`geany.modules` can also be updated to newer versions.
+	
+*	To make sure nothing is left from the previous build when making a
+	new release, run
+
+	```
+	rm -rf .new_local Source gtk .cache/jhbuild
+	```
 
 ---
 
