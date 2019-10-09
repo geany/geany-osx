@@ -119,6 +119,7 @@
     <dependencies>
       <dep package="vte291" />
       <dep package="docutils" />
+      <dep package="meta-gtk-osx-gtk3-core-themes" />
       <dep package="gtk-mac-bundler" />
       <dep package="gtk-mac-integration-fixed" />
       <!-- mime information for g_content_type_guess() -->
