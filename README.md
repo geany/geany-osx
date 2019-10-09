@@ -22,7 +22,7 @@ A brief description of the contents of the project directory:
 	removed to save space.
 *	*Greybird*: Greybird GTK 2 theme which has been modified to look more
 	like Mac OS.
-*	*Arc*: Arc GTK 3 theme with minor text contrast adjustments.
+*	*Sierra-light-solid*: Sierra GTK 3 Theme
 *	*iconbuilder.iconset*: contains source icons for the Geany.icns
 	file. Not needed for normal build, present just in case the icns file
 	needs to be recreated for some reason.

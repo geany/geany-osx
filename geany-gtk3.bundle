@@ -135,8 +135,8 @@
     ${prefix}/share/themes/Mac
   </data>
 
-  <data dest="${bundle}/Contents/Resources/share/themes/Arc">
-    ${project}/Arc
+  <data dest="${bundle}/Contents/Resources/share/themes/Sierra-light-solid">
+    ${project}/Sierra-light-solid
   </data>
 
   <data dest="${bundle}/Contents/Resources/etc/${gtkdir}/settings.ini">
