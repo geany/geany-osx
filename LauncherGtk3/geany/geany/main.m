@@ -1,6 +1,48 @@
 #import <Foundation/Foundation.h>
 
 
+NSString *get_locale(NSString *bundle_data)
+{
+    NSString *fallback = @"en_US.UTF-8";
+    
+    BOOL ignore_locale = [[NSFileManager defaultManager] fileExistsAtPath: [@"~/.config/geany/ignore_locale" stringByExpandingTildeInPath]];
+    if (ignore_locale)
+    {
+        return fallback;
+    }
+    
+    NSArray<NSString *> *langs = [NSLocale preferredLanguages];
+    for (NSString *lng in langs)
+    {
+        BOOL found = NO;
+        NSString *lang;
+        NSArray<NSString *> *comps = [lng componentsSeparatedByString:@"-"];
+        if (comps.count > 1)
+        {
+            lang = [NSString stringWithFormat:@"%@_%@", comps[0], comps[1]];
+            NSString *path = [NSString stringWithFormat:@"%@/locale/%@", bundle_data, lang];
+            found = [[NSFileManager defaultManager] fileExistsAtPath:path];
+        }
+        if (!found && comps.count > 0)
+        {
+            NSString *lng = comps[0];
+            NSString *path = [NSString stringWithFormat:@"%@/locale/%@", bundle_data, lng];
+            found = [[NSFileManager defaultManager] fileExistsAtPath:path];
+            if (found && comps.count == 1)
+            {
+                lang = lng;
+            }
+        }
+        if (found)
+        {
+            return [lang stringByAppendingString:@".UTF-8"];
+        }
+    }
+
+    return fallback;
+}
+
+
 int run_geany()
 {
     NSString *bundle_dir = [[NSBundle mainBundle] bundlePath];
@@ -8,16 +50,10 @@ int run_geany()
     NSString *bundle_contents = [bundle_dir stringByAppendingPathComponent: @"Contents"];
     NSString *bundle_res = [bundle_contents stringByAppendingPathComponent: @"Resources"];
     NSString *bundle_lib = [bundle_res stringByAppendingPathComponent: @"lib"];
-    //NSString *bundle_bin = [bundle_res stringByAppendingPathComponent: @"bin"];
     NSString *bundle_data = [bundle_res stringByAppendingPathComponent: @"share"];
     NSString *bundle_etc = [bundle_res stringByAppendingPathComponent: @"etc"];
 
-    NSString *lang = @"en_US.UTF-8";
-    bool ignore_locale = [[NSFileManager defaultManager] fileExistsAtPath: [@"~/.config/geany/ignore_locale" stringByExpandingTildeInPath]];
-    if (!ignore_locale)
-    {
-        lang = [[[NSLocale currentLocale] localeIdentifier] stringByAppendingString:@".UTF-8"];
-    }
+    NSString *lang = get_locale(bundle_data);
 
     //set environment variables
     //see https://developer.gnome.org/gtk3/stable/gtk-running.html
