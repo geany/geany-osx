@@ -52,7 +52,7 @@ General Instructions
 For more general instructions about building and bundling Mac OS applications
 please visit
 
-<https://wiki.gnome.org/Projects/GTK%2B/OSX/>
+<https://gitlab.gnome.org/GNOME/gtk-osx/>
 
 The HOWTO below contains just the portions necessary/relevant for
 building and bundling Geany.
@@ -107,15 +107,14 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	commands:
 	* **GTK 2**
 		```
-		jhbuild bootstrap-gtk-osx && jhbuild build python3 meta-gtk-osx-freetype meta-gtk-osx-bootstrap meta-gtk-osx-core
+		jhbuild bootstrap-gtk-osx && jhbuild build meta-gtk-osx-freetype meta-gtk-osx-bootstrap meta-gtk-osx-core
 		```
 	* **GTK 3**
 		```
-		jhbuild bootstrap-gtk-osx && jhbuild build python3 meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
+		jhbuild bootstrap-gtk-osx && jhbuild build meta-gtk-osx-freetype meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 		```
 	This is the moment when you have to make a decision whether to build
 	Geany with GTK 2 or GTK 3 - they cannot be installed side by side.
-	At the moment GTK 2 is more stable and recommended for Geany build.
 
 Geany Installation
 ------------------
@@ -150,7 +149,11 @@ Geany Installation
 
 Bundling
 --------
-1.	Run
+1.  To build the GTK3 binary launcher, run
+	```
+	xcodebuild -project LauncherGtk3/geany/geany.xcodeproj
+	```
+2.	Run
 
 	```
 	jhbuild shell
@@ -159,13 +162,13 @@ Bundling
 
 	*The rest of this section assumes you are running from within the jhbuild shell.*
 
-2.	To bundle all available Geany themes, get them from
+3.	To bundle all available Geany themes, get them from
 
 	<https://github.com/geany/geany-themes>
 
 	and copy the `colorschemes` directory under `$PREFIX/share/geany`.
 
-3.	Go to the `geany-osx` directory and copy the icon theme to the GTK
+4.	Go to the `geany-osx` directory and copy the icon theme to the GTK
 	icons directory:
 	* **GTK 2**
 		```
@@ -176,7 +179,7 @@ Bundling
 		cp -R Papirus $PREFIX/share/icons
 		```
 
-4.	Inside the `geany-osx` directory run the following command to create
+5.	Inside the `geany-osx` directory run the following command to create
 	the app bundle.
 	* **GTK 2**
 		```
@@ -187,7 +190,7 @@ Bundling
 		~/.local/bin/gtk-mac-bundler geany-gtk3.bundle
 		```
 
-5.	Optionally if you have a development account at Apple and want to sign the
+6.	Optionally if you have a development account at Apple and want to sign the
 	resulting bundle so it can be started without warning dialogs, use
 
 	```
