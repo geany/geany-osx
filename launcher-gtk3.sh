@@ -44,7 +44,7 @@ export GTK_DATA_PREFIX="$bundle_res"
 export GTK_EXE_PREFIX="$bundle_res"
 export GTK_PATH="$bundle_res"
 
-export GTK_THEME="Sierra-light-solid"
+export GTK_THEME="Mojave-light-solid"
 
 # PANGO_* is no longer needed for pango >= 1.38
 export PANGO_RC_FILE="$bundle_etc/pango/pangorc"

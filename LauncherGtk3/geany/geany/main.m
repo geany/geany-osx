@@ -70,7 +70,7 @@ int run_geany()
         
         //for some reason GTK doesn't find settings.ini file inside $XDG_CONFIG_DIRS
         //even though it should, so specify manually
-        @"GTK_THEME": @"Sierra-light-solid",
+        @"GTK_THEME": @"Mojave-light-solid",
 
         //Locale variables
         @"LANG": lang,

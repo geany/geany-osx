@@ -9,17 +9,13 @@ Papirus icon theme:
 	LGPLv3
 	https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 
-Faenza-Cupertino icon theme:
-	GPL (version not specified)
-	https://gnome-look.org/content/show.php/Faenza-Cupertino?content=129008
-
 Greybird GTK2 theme:
 	dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later
 	https://github.com/shimmerproject/Greybird
 
-Sierra GTK3 Theme:
+Mojave GTK3 Theme:
 	GPLv2
-	https://github.com/vinceliuice/Sierra-gtk-theme
+	https://github.com/vinceliuice/Mojave-gtk-theme
 
 The rest of the geany-osx project (scripts, configuration files, etc.):
 	public domain

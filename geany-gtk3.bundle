@@ -138,8 +138,8 @@
     ${prefix}/share/themes/Mac
   </data>
 
-  <data dest="${bundle}/Contents/Resources/share/themes/Sierra-light-solid">
-    ${project}/Sierra-light-solid
+  <data dest="${bundle}/Contents/Resources/share/themes/Mojave-light-solid">
+    ${project}/Mojave-light-solid
   </data>
 
   <data dest="${bundle}/Contents/Resources/etc/${gtkdir}/settings.ini">
