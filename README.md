@@ -22,11 +22,13 @@ A brief description of the contents of the project directory:
 	removed to save space.
 *	*Greybird*: Greybird GTK 2 theme which has been modified to look more
 	like Mac OS.
-*	*Sierra-light-solid*: Sierra GTK 3 Theme
+*	*Mojave-light-solid*: Mojave GTK 3 Theme
 *	*iconbuilder.iconset*: contains source icons for the Geany.icns
 	file. Not needed for normal build, present just in case the icns file
 	needs to be recreated for some reason.
-*	*patches*: patches fixing VTE under Mac OS and enabling VTE bundling. 
+*	*patches*: patches fixing VTE under Mac OS and enabling VTE bundling.
+*	*LauncherGtk3*: A binary launcher which is used to set up environment
+	variables to run Geany.
 
 ### Configuration files
 *	*geany.modules*: JHBuild modules file with Geany dependencies.
