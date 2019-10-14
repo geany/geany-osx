@@ -68,10 +68,6 @@ int run_geany()
         @"GTK_IM_MODULE_FILE": [bundle_etc stringByAppendingPathComponent: @"gtk-3.0/gtk.immodules"],
         @"GDK_PIXBUF_MODULE_FILE": [bundle_lib stringByAppendingPathComponent: @"gdk-pixbuf-2.0/2.10.0/loaders.cache"],
         
-        //for some reason GTK doesn't find settings.ini file inside $XDG_CONFIG_DIRS
-        //even though it should, so specify manually
-        @"GTK_THEME": @"Mojave-light-solid",
-
         //Locale variables
         @"LANG": lang,
         @"LC_MESSAGES": lang,
