@@ -52,16 +52,12 @@
   </autotools>
 
   <meson id="vte291" mesonargs="-Dgnutls=false -Dvapi=false -D_b_symbolic_functions=false">
-	<!-- TODO: use some official release once it contains the _b_symbolic_functions config option
     <branch module="vte/0.58/vte-${version}.tar.xz" 
             version="0.58.2">
-      -->
-    <branch repo="gitlab.gnome.org"
-		module="vte.git"
-		branch="master"
-		tag="347f7dd9b1c11244156bfb593866306c735cb06a">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_2.91_relpath.patch" strip="1" />
+      <!-- allow -D_b_symbolic_functions=false - TODO: remove once upstream -->
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/04-vte_2.91_bsymbolic.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="pcre2" />
