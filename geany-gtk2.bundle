@@ -184,17 +184,11 @@
     ${project}/Greybird/close.png
   </data>
 
-  <!-- Icon themes to copy. The "icons" property can be either of
-       "auto", "all", or "none". All or none should be
-       self-explanatory, while auto means that the script will try to
-       figure out which icons are needed. This is done by getting all
-       the strings from all copied binaries, and matching them against
-       icon names. To be safe, you should use "all". "none" is useful
-       if you want just the index.theme file but no icons, mostly
-       needed for the "hicolor" base theme.
+  <!-- gtk-mac-bundler doesn't copy symlinks of icon themes so let's
+       just do the copy manually after the bundle is created
+  <data dest="${bundle}/Contents/Resources/share/icons/Faience">
+    ${project}/Faience
+  </data>
   -->
-  <icon-theme icons="all">
-    Faience
-  </icon-theme>
 
 </app-bundle>

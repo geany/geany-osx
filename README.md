@@ -170,18 +170,7 @@ Bundling
 
 	and copy the `colorschemes` directory under `$PREFIX/share/geany`.
 
-4.	Go to the `geany-osx` directory and copy the icon theme to the GTK
-	icons directory:
-	* **GTK 2**
-		```
-		cp -R Faience $PREFIX/share/icons
-		```
-	* **GTK 3**
-		```
-		cp -R Papirus $PREFIX/share/icons
-		```
-
-5.	Inside the `geany-osx` directory run the following command to create
+4.	Inside the `geany-osx` directory run the following command to create
 	the app bundle.
 	* **GTK 2**
 		```
@@ -190,6 +179,16 @@ Bundling
 	* **GTK 3**
 		```
 		~/.local/bin/gtk-mac-bundler geany-gtk3.bundle
+		```
+
+5.	Go to the `geany-osx` directory and copy the icon theme to the bundle:
+	* **GTK 2**
+		```
+		cp -R Faience ./Geany.app/Contents/Resources/share/icons
+		```
+	* **GTK 3**
+		```
+		cp -R Papirus Papirus-Dark ./Geany.app/Contents/Resources/share/icons
 		```
 
 6.	Optionally if you have a development account at Apple and want to sign the

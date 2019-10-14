@@ -158,8 +158,14 @@
     ${prefix}/share/icons/hicolor
   </data>
 
+  <!-- gtk-mac-bundler doesn't copy symlinks of icon themes so let's
+       just do the copy manually after the bundle is created
   <data dest="${bundle}/Contents/Resources/share/icons/Papirus">
     ${project}/Papirus
   </data>
+  <data dest="${bundle}/Contents/Resources/share/icons/Papirus-Dark">
+    ${project}/Papirus-Dark
+  </data>
+  -->
 
 </app-bundle>
