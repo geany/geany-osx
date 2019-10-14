@@ -10,7 +10,7 @@ APPNAME="${NAME}.app"
 TMPDIR="tmp-out"
 
 mkdir "$TMPDIR"
-cp -r "$APPNAME" "$TMPDIR"
+cp -R "$APPNAME" "$TMPDIR"
 
 test -f "$DMGNAME" && rm "$DMGNAME"
 create-dmg \
