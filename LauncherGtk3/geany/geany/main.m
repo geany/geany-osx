@@ -1,40 +1,34 @@
 #import <Foundation/Foundation.h>
 
+#define MAX_ARR_SIZE 100
 
-NSString *get_locale(NSString *bundle_data)
-{
+static NSString *get_locale(NSString *bundle_data) {
     NSString *fallback = @"en_US.UTF-8";
     
     BOOL ignore_locale = [[NSFileManager defaultManager] fileExistsAtPath: [@"~/.config/geany/ignore_locale" stringByExpandingTildeInPath]];
-    if (ignore_locale)
-    {
+    if (ignore_locale) {
         return fallback;
     }
     
     NSArray<NSString *> *langs = [NSLocale preferredLanguages];
-    for (NSString *lng in langs)
-    {
+    for (NSString *lng in langs) {
         BOOL found = NO;
         NSString *lang;
         NSArray<NSString *> *comps = [lng componentsSeparatedByString:@"-"];
-        if (comps.count > 1)
-        {
+        if (comps.count > 1) {
             lang = [NSString stringWithFormat:@"%@_%@", comps[0], comps[1]];
             NSString *path = [NSString stringWithFormat:@"%@/locale/%@", bundle_data, lang];
             found = [[NSFileManager defaultManager] fileExistsAtPath:path];
         }
-        if (!found && comps.count > 0)
-        {
+        if (!found && comps.count > 0) {
             NSString *lng = comps[0];
             NSString *path = [NSString stringWithFormat:@"%@/locale/%@", bundle_data, lng];
             found = [[NSFileManager defaultManager] fileExistsAtPath:path];
-            if (found && comps.count == 1)
-            {
+            if (found && comps.count == 1) {
                 lang = lng;
             }
         }
-        if (found)
-        {
+        if (found) {
             return [lang stringByAppendingString:@".UTF-8"];
         }
     }
@@ -43,8 +37,34 @@ NSString *get_locale(NSString *bundle_data)
 }
 
 
-int run_geany()
-{
+static void fill_env_array(const char *arr[], NSDictionary<NSString *, NSString *> *dict) {
+    int i = 0;
+    for (NSString *key in dict) {
+        NSString *var = [NSString stringWithFormat:@"%@=%@", key, dict[key]];
+        arr[i] = [var UTF8String];
+        i++;
+        if (i == MAX_ARR_SIZE - 1) {
+            break;
+        }
+    }
+    arr[i] = NULL;
+}
+
+
+static void fill_argv_array(const char *arr[], NSArray<NSString *> *array) {
+    int i = 0;
+    for (NSString *value in array) {
+        arr[i] = [value UTF8String];
+        i++;
+        if (i == MAX_ARR_SIZE - 1) {
+            break;
+        }
+    }
+    arr[i] = NULL;
+}
+
+
+static void run_geany() {
     NSString *bundle_dir = [[NSBundle mainBundle] bundlePath];
     
     NSString *bundle_contents = [bundle_dir stringByAppendingPathComponent: @"Contents"];
@@ -86,40 +106,38 @@ int run_geany()
     NSArray<NSString *> *argv = NSProcessInfo.processInfo.arguments;
     NSString *binary = [argv[0] stringByAppendingString:@"-bin"];
     NSMutableArray<NSString *> *args = [argv mutableCopy];
-    [args removeObjectAtIndex: 0];
     
-    if (args.count > 0 && [args[0] hasPrefix:@"-psn_"])
-    {
-        [args removeObjectAtIndex: 0];
+    if (args.count > 1 && [args[1] hasPrefix:@"-psn_"]) {
+        [args removeObjectAtIndex: 1];
     }
 
     [args addObject:[NSString stringWithFormat:@"--vte-lib=%@/libvte-2.91.0.dylib", bundle_lib]];
     
     //debugging
     NSString *verbose_param = @"--osx-verbose";
-    if ([args containsObject: verbose_param])
-    {
+    if ([args containsObject: verbose_param]) {
         [args removeObject:verbose_param];
         NSLog(@"env: %@", env);
-        NSLog(@"args: %@", args);
-        NSLog(@"binary: %@", binary);
+        NSLog(@"argv: %@", args);
+        NSLog(@"executable: %@", binary);
     }
     
-    //run Geany binary
-    NSTask *task = [[NSTask alloc] init];
-    task.launchPath = binary;
-    task.environment = env;
-    task.arguments = args;
-    [task launch];
-    [task waitUntilExit];
+    const char *envp[MAX_ARR_SIZE];
+    fill_env_array(envp, env);
 
-    return task.terminationStatus;
+    const char *argp[MAX_ARR_SIZE];
+    fill_argv_array(argp, args);
+
+    execve([binary UTF8String], (char * const *)argp, (char * const *)envp);
+    
+    //should never reach this
+    NSLog(@"execve() failed");
 }
 
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        return run_geany();
+        run_geany();
     }
-    return 0;
+    return 1;
 }
