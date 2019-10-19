@@ -212,7 +212,7 @@ index a5f6e9dfd..1a46fb20c 100644
 +		/* run as a login shell as the macOS terminal app does this and users
 +		 * typically update their login shell configuration file */
 +		if (strstr(shell, "-l") == NULL)
-+			SETPTR(vc->shell, g_strconcat(shell, " -l", NULL);
++			SETPTR(vc->shell, g_strconcat(shell, " -l", NULL));
 +#endif
  		vc->font = utils_get_setting_string(config, "VTE", "font", GEANY_DEFAULT_FONT_EDITOR);
  		vc->scroll_on_key = utils_get_setting_boolean(config, "VTE", "scroll_on_key", TRUE);
