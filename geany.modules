@@ -167,7 +167,10 @@
     <branch repo="download.geany.org"
             module="geany-${version}.tar.bz2"
             checkoutdir="geany-${version}"
-            version="1.36"/>
+            version="1.36">
+      <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-geany_config_shell.patch" strip="1" />
+    </branch>
     <dependencies>
       <dep package="geany-deps-gtk3" />
     </dependencies>
