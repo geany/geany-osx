@@ -1,4 +1,4 @@
-From e69a91be45c1b92ff4b75f28bb2515507cc72c7e Mon Sep 17 00:00:00 2001
+From 7ae8e240bb29d300d8343ad0166405cde76d3ec9 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Ji=C5=99=C3=AD=20Techet?= <techet@gmail.com>
 Date: Wed, 16 Oct 2019 13:21:45 -0700
 Subject: [PATCH] Make the shell used by Geany to run various commands
@@ -19,8 +19,6 @@ The affected places where we used hard-coded /bin/sh are:
 
 On macOS, the shell defaults to /bin/bash, on other systems to /bin/sh.
 
-----
-
 Use /bin/sh in some cases
 
 1. Use /bin/sh as the default value of the terminal command - it's
@@ -31,8 +29,6 @@ and this way we can be sure it's run using compatible shell.
 
 Also remove the shebang at the beginning of the launch script - we never
 run it directory, only as a paramter of a shell command so it's useless.
-
-----
 
 Make sure we run a shell as a login shell on macOS
 
@@ -45,14 +41,14 @@ loaded.
 All the shels supported by Geany have the -l option.
 ---
  data/geany.glade | 44 +++++++++++++++++++++++++++++++++++++++++++-
- src/build.c      | 20 +++++++++++++++-----
+ src/build.c      | 26 ++++++++++++++++++++------
  src/keyfile.c    | 22 ++++++++++++++--------
  src/prefs.c      | 13 ++++++++++++-
  src/prefs.h      | 10 ++++++++++
  src/printing.c   | 11 +++++++++--
  src/utils.c      | 10 ++++++++++
  src/utils.h      |  2 ++
- 8 files changed, 115 insertions(+), 17 deletions(-)
+ 8 files changed, 120 insertions(+), 18 deletions(-)
 
 diff --git a/data/geany.glade b/data/geany.glade
 index 3864a0ad1..5fef5c4b0 100644
@@ -127,7 +123,7 @@ index 3864a0ad1..5fef5c4b0 100644
                                <packing>
                                  <property name="expand">False</property>
 diff --git a/src/build.c b/src/build.c
-index 4c9f4ebb2..06346c465 100644
+index 4c9f4ebb2..aa811fc60 100644
 --- a/src/build.c
 +++ b/src/build.c
 @@ -772,7 +772,13 @@ static gchar *build_replace_placeholder(const GeanyDocument *doc, const gchar *s
@@ -145,7 +141,21 @@ index 4c9f4ebb2..06346c465 100644
  	gchar *working_dir;
  	gchar *utf8_working_dir;
  	gchar *cmd_string;
-@@ -1160,10 +1166,14 @@ static gchar *build_create_shellscript(const gchar *working_dir, const gchar *cm
+@@ -799,8 +805,12 @@ static void build_spawn_cmd(GeanyDocument *doc, const gchar *cmd, const gchar *d
+ 
+ #ifdef G_OS_UNIX
+ 	cmd_string = utils_get_locale_from_utf8(cmd);
+-	argv[2] = cmd_string;
+ 	cmd = NULL;  /* under Unix, use argv to start cmd via sh for compatibility */
++# ifdef __APPLE__
++	argv[3] = cmd_string;  /* because of the extra -l argument */
++# else
++	argv[2] = cmd_string;
++# endif
+ #else
+ 	/* Expand environment variables like %blah%. */
+ 	cmd_string = win32_expand_environment_variables(cmd);
+@@ -1160,10 +1170,14 @@ static gchar *build_create_shellscript(const gchar *working_dir, const gchar *cm
  
  	escaped_dir = g_shell_quote(working_dir);
  	str = g_strdup_printf(
@@ -165,7 +175,7 @@ index 4c9f4ebb2..06346c465 100644
  
  	if (!g_file_set_contents(fname, str, -1, error))
 diff --git a/src/keyfile.c b/src/keyfile.c
-index a5f6e9dfd..1a46fb20c 100644
+index a5f6e9dfd..09b0f7414 100644
 --- a/src/keyfile.c
 +++ b/src/keyfile.c
 @@ -98,6 +98,11 @@
