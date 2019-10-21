@@ -1,4 +1,10 @@
+/*
+ can also be compiled using
+ clang -fobjc-arc $OBJCFLAGS $LDFLAGS -framework Foundation -framework Cocoa LauncherGtk3/geany/geany/main.m -o geany
+ */
+
 #import <Foundation/Foundation.h>
+#include <dlfcn.h>
 
 #define MAX_ARR_SIZE 100
 
@@ -37,21 +43,14 @@ static NSString *get_locale(NSString *bundle_data) {
 }
 
 
-static void fill_env_array(const char *arr[], NSDictionary<NSString *, NSString *> *dict) {
-    int i = 0;
+static void export_env_array(NSDictionary<NSString *, NSString *> *dict) {
     for (NSString *key in dict) {
-        NSString *var = [NSString stringWithFormat:@"%@=%@", key, dict[key]];
-        arr[i] = [var UTF8String];
-        i++;
-        if (i == MAX_ARR_SIZE - 1) {
-            break;
-        }
+        setenv([key UTF8String], [dict[key] UTF8String], 1);
     }
-    arr[i] = NULL;
 }
 
 
-static void fill_argv_array(const char *arr[], NSArray<NSString *> *array) {
+static int fill_argv_array(const char *arr[], NSArray<NSString *> *array) {
     int i = 0;
     for (NSString *value in array) {
         arr[i] = [value UTF8String];
@@ -61,10 +60,11 @@ static void fill_argv_array(const char *arr[], NSArray<NSString *> *array) {
         }
     }
     arr[i] = NULL;
+    return i;
 }
 
 
-static void run_geany() {
+static int run_geany() {
     NSString *bundle_dir = [[NSBundle mainBundle] bundlePath];
     
     NSString *bundle_contents = [bundle_dir stringByAppendingPathComponent: @"Contents"];
@@ -77,8 +77,7 @@ static void run_geany() {
 
     //set environment variables
     //see https://developer.gnome.org/gtk3/stable/gtk-running.html
-    NSMutableDictionary<NSString *, NSString *> *env = [[[NSProcessInfo processInfo] environment] mutableCopy];
-    NSDictionary<NSString *, NSString *> *env2 = @{
+    NSDictionary<NSString *, NSString *> *env = @{
         @"XDG_CONFIG_DIRS": bundle_etc,
         @"XDG_DATA_DIRS": bundle_data,
 
@@ -100,12 +99,9 @@ static void run_geany() {
         @"ENCHANT_MODULE_PATH": [bundle_lib stringByAppendingPathComponent: @"enchant"],
         @"GIO_MODULE_DIR": [bundle_lib stringByAppendingPathComponent: @"gio/modules"],
     };
-    [env addEntriesFromDictionary: env2];
     
     //set binary name and command line arguments
-    NSArray<NSString *> *argv = NSProcessInfo.processInfo.arguments;
-    NSString *binary = [argv[0] stringByAppendingString:@"-bin"];
-    NSMutableArray<NSString *> *args = [argv mutableCopy];
+    NSMutableArray<NSString *> *args = [NSProcessInfo.processInfo.arguments mutableCopy];
     
     if (args.count > 1 && [args[1] hasPrefix:@"-psn_"]) {
         [args removeObjectAtIndex: 1];
@@ -119,25 +115,40 @@ static void run_geany() {
         [args removeObject:verbose_param];
         NSLog(@"env: %@", env);
         NSLog(@"argv: %@", args);
-        NSLog(@"executable: %@", binary);
     }
     
-    const char *envp[MAX_ARR_SIZE];
-    fill_env_array(envp, env);
+    export_env_array(env);
 
-    const char *argp[MAX_ARR_SIZE];
-    fill_argv_array(argp, args);
-
-    execve([binary UTF8String], (char * const *)argp, (char * const *)envp);
+    const char *argv[MAX_ARR_SIZE];
+    int argc = fill_argv_array(argv, args);
     
-    //should never reach this
-    NSLog(@"execve() failed");
+    /*
+     We need to load libgeany dynamically - if we loaded it statically, it would have
+     been loaded by now already and the environment variables above would be set
+     too late (apparently they are read already when some of the libraries are loading)
+     */
+    int ret = 1;
+    void *lib_handle = dlopen([[bundle_lib stringByAppendingPathComponent:@"libgeany.0.dylib"] UTF8String], RTLD_LAZY|RTLD_GLOBAL);
+    if (lib_handle) {
+        int (*main_lib)(int, char**) = dlsym(lib_handle, "main_lib");
+        if (main_lib) {
+            ret = main_lib(argc, (char **)argv);
+        }
+        else {
+            NSLog(@"dlsym() failed");
+        }
+        dlclose(lib_handle);
+    }
+    else {
+        NSLog(@"dlopen() failed");
+    }
+    
+    return ret;
 }
 
 
-int main(int argc, const char * argv[]) {
+int main(int argc, const char *argv[]) {
     @autoreleasepool {
-        run_geany();
+        return run_geany();
     }
-    return 1;
 }
