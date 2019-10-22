@@ -8,7 +8,7 @@
 #include <dlfcn.h>
 #include <limits.h>
 
-static NSString *get_locale(NSString *bundle_data) {
+static NSString *get_locale(NSString *bundle_share) {
     NSString *fallback = @"en_US.UTF-8";
     
     BOOL ignore_locale = [[NSFileManager defaultManager] fileExistsAtPath: [@"~/.config/geany/ignore_locale" stringByExpandingTildeInPath]];
@@ -23,12 +23,12 @@ static NSString *get_locale(NSString *bundle_data) {
         NSArray<NSString *> *comps = [lng componentsSeparatedByString:@"-"];
         if (comps.count > 1) {
             lang = [NSString stringWithFormat:@"%@_%@", [comps[0] lowercaseString], [comps[1] uppercaseString]];
-            NSString *path = [NSString stringWithFormat:@"%@/locale/%@", bundle_data, lang];
+            NSString *path = [NSString stringWithFormat:@"%@/locale/%@", bundle_share, lang];
             found = [[NSFileManager defaultManager] fileExistsAtPath:path];
         }
         if (!found && comps.count > 0) {
             NSString *lng = [comps[0] lowercaseString];
-            NSString *path = [NSString stringWithFormat:@"%@/locale/%@", bundle_data, lng];
+            NSString *path = [NSString stringWithFormat:@"%@/locale/%@", bundle_share, lng];
             found = [[NSFileManager defaultManager] fileExistsAtPath:path];
             if (found && comps.count == 1) {
                 lang = lng;
@@ -68,22 +68,24 @@ static int run_geany() {
     NSString *bundle_dir = [[NSBundle mainBundle] bundlePath];
     
     NSString *bundle_contents = [bundle_dir stringByAppendingPathComponent: @"Contents"];
-    NSString *bundle_res = [bundle_contents stringByAppendingPathComponent: @"Resources"];
-    NSString *bundle_lib = [bundle_res stringByAppendingPathComponent: @"lib"];
-    NSString *bundle_data = [bundle_res stringByAppendingPathComponent: @"share"];
-    NSString *bundle_etc = [bundle_res stringByAppendingPathComponent: @"etc"];
+    NSString *bundle_resources = [bundle_contents stringByAppendingPathComponent: @"Resources"];
+    NSString *bundle_lib = [bundle_resources stringByAppendingPathComponent: @"lib"];
+    NSString *bundle_share = [bundle_resources stringByAppendingPathComponent: @"share"];
+    NSString *bundle_etc = [bundle_resources stringByAppendingPathComponent: @"etc"];
 
-    NSString *lang = get_locale(bundle_data);
+    NSString *lang = get_locale(bundle_share);
 
     //set environment variables
     //see https://developer.gnome.org/gtk3/stable/gtk-running.html
     NSDictionary<NSString *, NSString *> *env = @{
         @"XDG_CONFIG_DIRS": bundle_etc,
-        @"XDG_DATA_DIRS": bundle_data,
+        @"XDG_DATA_DIRS": bundle_share,
 
-        @"GTK_PATH": bundle_res,
-        @"GTK_EXE_PREFIX": bundle_res,
-        @"GTK_DATA_PREFIX": bundle_res,
+        @"GIO_MODULE_DIR": [bundle_lib stringByAppendingPathComponent: @"gio/modules"],
+
+        @"GTK_PATH": bundle_resources,
+        @"GTK_EXE_PREFIX": bundle_resources,
+        @"GTK_DATA_PREFIX": bundle_resources,
         @"GTK_IM_MODULE_FILE": [bundle_etc stringByAppendingPathComponent: @"gtk-3.0/gtk.immodules"],
         @"GDK_PIXBUF_MODULE_FILE": [bundle_lib stringByAppendingPathComponent: @"gdk-pixbuf-2.0/2.10.0/loaders.cache"],
         
@@ -95,9 +97,8 @@ static int run_geany() {
         @"LC_ALL": lang,
         
         //Geany variables
-        @"GEANY_PLUGINS_SHARE_PATH": [bundle_data stringByAppendingPathComponent: @"geany-plugins"],
+        @"GEANY_PLUGINS_SHARE_PATH": [bundle_share stringByAppendingPathComponent: @"geany-plugins"],
         @"ENCHANT_MODULE_PATH": [bundle_lib stringByAppendingPathComponent: @"enchant"],
-        @"GIO_MODULE_DIR": [bundle_lib stringByAppendingPathComponent: @"gio/modules"],
     };
     
     //set binary name and command line arguments
