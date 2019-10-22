@@ -22,12 +22,12 @@ static NSString *get_locale(NSString *bundle_data) {
         NSString *lang;
         NSArray<NSString *> *comps = [lng componentsSeparatedByString:@"-"];
         if (comps.count > 1) {
-            lang = [NSString stringWithFormat:@"%@_%@", comps[0], comps[1]];
+            lang = [NSString stringWithFormat:@"%@_%@", [comps[0] lowercaseString], [comps[1] uppercaseString]];
             NSString *path = [NSString stringWithFormat:@"%@/locale/%@", bundle_data, lang];
             found = [[NSFileManager defaultManager] fileExistsAtPath:path];
         }
         if (!found && comps.count > 0) {
-            NSString *lng = comps[0];
+            NSString *lng = [comps[0] lowercaseString];
             NSString *path = [NSString stringWithFormat:@"%@/locale/%@", bundle_data, lng];
             found = [[NSFileManager defaultManager] fileExistsAtPath:path];
             if (found && comps.count == 1) {
