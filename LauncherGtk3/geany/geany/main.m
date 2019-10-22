@@ -4,9 +4,9 @@
  */
 
 #import <Foundation/Foundation.h>
-#include <dlfcn.h>
 
-#define MAX_ARR_SIZE 100
+#include <dlfcn.h>
+#include <limits.h>
 
 static NSString *get_locale(NSString *bundle_data) {
     NSString *fallback = @"en_US.UTF-8";
@@ -55,7 +55,7 @@ static int fill_argv_array(const char *arr[], NSArray<NSString *> *array) {
     for (NSString *value in array) {
         arr[i] = [value UTF8String];
         i++;
-        if (i == MAX_ARR_SIZE - 1) {
+        if (i == ARG_MAX - 1) {
             break;
         }
     }
@@ -95,7 +95,7 @@ static int run_geany() {
         @"LC_ALL": lang,
         
         //Geany variables
-        @"GEANY_PLUGINS_SHARE_PATH": [bundle_res stringByAppendingPathComponent: @"share/geany-plugins"],
+        @"GEANY_PLUGINS_SHARE_PATH": [bundle_data stringByAppendingPathComponent: @"geany-plugins"],
         @"ENCHANT_MODULE_PATH": [bundle_lib stringByAppendingPathComponent: @"enchant"],
         @"GIO_MODULE_DIR": [bundle_lib stringByAppendingPathComponent: @"gio/modules"],
     };
@@ -119,7 +119,7 @@ static int run_geany() {
     
     export_env_array(env);
 
-    const char *argv[MAX_ARR_SIZE];
+    const char *argv[ARG_MAX];
     int argc = fill_argv_array(argv, args);
     
     /*
