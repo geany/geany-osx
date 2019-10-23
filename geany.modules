@@ -198,10 +198,12 @@
   </autotools>
 
   <!-- Geany-plugins GTK 3 from git master -->
+  <!-- TODO: remove supports-non-srcdir-builds when fixed -->
   <autotools id="geany-plugins-git-gtk3">
     <branch repo="github.com"
             module="geany/geany-plugins.git"
             checkoutdir="geany-plugins-git"
+            supports-non-srcdir-builds="no"
             revision="master" />
     <dependencies>
       <dep package="geany-git-gtk3" />
@@ -222,10 +224,12 @@
   </autotools>
 
   <!-- Geany-plugins GTK 3 tarball release -->
+  <!-- TODO: remove supports-non-srcdir-builds when fixed -->
   <autotools id="geany-plugins-release-gtk3">
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-${version}.tar.bz2"
             checkoutdir="geany-plugins-${version}"
+            supports-non-srcdir-builds="no"
             version="1.36"/>
     <dependencies>
       <dep package="geany-release-gtk3" />
