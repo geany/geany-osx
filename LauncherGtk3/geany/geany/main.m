@@ -67,8 +67,7 @@ static int fill_argv_array(const char *arr[], NSArray<NSString *> *array) {
 static int run_geany() {
     NSString *bundle_dir = [[NSBundle mainBundle] bundlePath];
     
-    NSString *bundle_contents = [bundle_dir stringByAppendingPathComponent: @"Contents"];
-    NSString *bundle_resources = [bundle_contents stringByAppendingPathComponent: @"Resources"];
+    NSString *bundle_resources = [bundle_dir stringByAppendingPathComponent: @"Contents/Resources"];
     NSString *bundle_lib = [bundle_resources stringByAppendingPathComponent: @"lib"];
     NSString *bundle_share = [bundle_resources stringByAppendingPathComponent: @"share"];
     NSString *bundle_etc = [bundle_resources stringByAppendingPathComponent: @"etc"];
@@ -86,18 +85,19 @@ static int run_geany() {
         @"GTK_PATH": bundle_resources,
         @"GTK_EXE_PREFIX": bundle_resources,
         @"GTK_DATA_PREFIX": bundle_resources,
-        @"GTK_IM_MODULE_FILE": [bundle_etc stringByAppendingPathComponent: @"gtk-3.0/gtk.immodules"],
+        @"GTK_IM_MODULE_FILE": [bundle_lib stringByAppendingPathComponent: @"gtk-3.0/3.0.0/immodules.cache"],
         @"GDK_PIXBUF_MODULE_FILE": [bundle_lib stringByAppendingPathComponent: @"gdk-pixbuf-2.0/2.10.0/loaders.cache"],
         
-        //Locale variables
         @"LANG": lang,
         @"LC_MESSAGES": lang,
         @"LC_MONETARY": lang,
         @"LC_COLLATE": lang,
         @"LC_ALL": lang,
         
-        //Geany variables
+        //TODO: replace with XDG_DATA_DIRS in Geany
         @"GEANY_PLUGINS_SHARE_PATH": [bundle_share stringByAppendingPathComponent: @"geany-plugins"],
+        
+        //patched in https://gitlab.gnome.org/GNOME/gtk-osx/blob/master/patches/enchant-env.patch
         @"ENCHANT_MODULE_PATH": [bundle_lib stringByAppendingPathComponent: @"enchant"],
     };
     
@@ -141,7 +141,7 @@ static int run_geany() {
         dlclose(lib_handle);
     }
     else {
-        NSLog(@"dlopen() failed");
+        NSLog(@"dlopen() failed (possibly unsigned libgeany.0.dylib)");
     }
     
     return ret;
