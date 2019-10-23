@@ -85,6 +85,7 @@ static int run_geany() {
         @"GTK_PATH": bundle_resources,
         @"GTK_EXE_PREFIX": bundle_resources,
         @"GTK_DATA_PREFIX": bundle_resources,
+        @"GTK_IM_MODULE": @"quartz",
         @"GTK_IM_MODULE_FILE": [bundle_lib stringByAppendingPathComponent: @"gtk-3.0/3.0.0/immodules.cache"],
         @"GDK_PIXBUF_MODULE_FILE": [bundle_lib stringByAppendingPathComponent: @"gdk-pixbuf-2.0/2.10.0/loaders.cache"],
         
