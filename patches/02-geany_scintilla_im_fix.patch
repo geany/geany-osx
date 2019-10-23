@@ -1,0 +1,38 @@
+# HG changeset patch
+# User Jiří Techet <techet@gmail.com>
+# Date 1571822802 -7200
+#      Wed Oct 23 11:26:42 2019 +0200
+# Node ID 46e1cd396ba57332ec81628c7365bfc91ed207e1
+# Parent  4f8c3b19095af4f0d333f1b6aa1ff1e3a69d9f4c
+Call SetCandidateWindowPos() inside PreeditChanged()
+
+On macOS it is possible to long-press a key to get a popup offering to
+select characters with additional accents. This popup should appear
+at the position of the caret. Scintilla however only sets the
+caret position using gtk_im_context_set_cursor_location() for some
+input methods (which exclude im-quartz) so the caret position isn't
+set correctly and macOS always displays the popup at the very bottom
+of the screen.
+
+Moving SetCandidateWindowPos() into PreeditChanged() seems to fix
+the problem.
+
+diff --git a/scintilla/gtk/ScintillaGTK.cxx b/scintilla/gtk/ScintillaGTK.cxx
+--- a/scintilla/gtk/ScintillaGTK.cxx
++++ b/scintilla/gtk/ScintillaGTK.cxx
+@@ -2442,7 +2442,6 @@
+ 		}
+ 
+ 		EnsureCaretVisible();
+-		SetCandidateWindowPos();
+ 		ShowCaretAtCurrentPosition();
+ 	} catch (...) {
+ 		errorStatus = SC_STATUS_FAILURE;
+@@ -2487,6 +2486,7 @@
+ 	} else {
+ 		sciThis->PreeditChangedWindowedThis();
+ 	}
++	sciThis->SetCandidateWindowPos();
+ }
+ 
+ void ScintillaGTK::StyleSetText(GtkWidget *widget, GtkStyle *, void *) {
