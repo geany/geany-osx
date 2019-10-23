@@ -144,8 +144,13 @@
   <data>
     ${prefix}/share/mime
   </data>
+  <!-- glib schemas -->
   <data>
     ${prefix}/share/glib-2.0/schemas
+  </data>
+  <!-- enchant config -->
+  <data>
+    ${prefix}/share/enchant
   </data>
 
   <!-- Copy in the themes data. You may want to trim this to save space
