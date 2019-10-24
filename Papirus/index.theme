@@ -21,7 +21,7 @@ DialogDefault=24
 DialogSizes=16,24
 
 # Directory list
-Directories=16x16/actions,16x16/apps,16x16/categories,16x16/devices,16x16/emblems,16x16/emotes,16x16/mimetypes,16x16/places,16x16/status,16x16@2x/actions,16x16@2x/apps,16x16@2x/categories,16x16@2x/devices,16x16@2x/emblems,16x16@2x/emotes,16x16@2x/mimetypes,16x16@2x/places,16x16@2x/status,24x24/actions,24x24/animations,24x24/apps,24x24/categories,24x24/devices,24x24/emblems,24x24/emotes,24x24/status,24x24@2x/actions,24x24@2x/animations,24x24@2x/apps,24x24@2x/categories,24x24@2x/devices,24x24@2x/emblems,24x24@2x/emotes,24x24@2x/status,symbolic/actions,symbolic/apps,symbolic/categories,symbolic/devices,symbolic/emblems,symbolic/emotes,symbolic/mimetypes,symbolic/places,symbolic/status
+Directories=16x16/actions,16x16/apps,16x16/categories,16x16/devices,16x16/emblems,16x16/emotes,16x16/mimetypes,16x16/places,16x16/status,16x16@2x/actions,16x16@2x/apps,16x16@2x/categories,16x16@2x/devices,16x16@2x/emblems,16x16@2x/emotes,16x16@2x/mimetypes,16x16@2x/places,16x16@2x/status,24x24/actions,24x24/animations,24x24/apps,24x24/categories,24x24/devices,24x24/emblems,24x24/emotes,24x24/status,24x24@2x/actions,24x24@2x/animations,24x24@2x/apps,24x24@2x/categories,24x24@2x/devices,24x24@2x/emblems,24x24@2x/emotes,24x24@2x/status,symbolic/actions,symbolic/apps,symbolic/categories,symbolic/devices,symbolic/emblems,symbolic/emotes,symbolic/mimetypes,symbolic/places
 
 [16x16/actions]
 Context=Actions
@@ -261,13 +261,6 @@ Type=Scalable
 
 [symbolic/places]
 Context=Places
-Size=16
-MinSize=16
-MaxSize=512
-Type=Scalable
-
-[symbolic/status]
-Context=Status
 Size=16
 MinSize=16
 MaxSize=512
