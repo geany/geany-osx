@@ -8,12 +8,122 @@
 #include <dlfcn.h>
 #include <limits.h>
 
-static NSString *get_locale(NSString *bundle_share) {
-    NSString *fallback = @"en_US.UTF-8";
+#define GEANY_CONFIG_DIR [@"~/.config/geany" stringByExpandingTildeInPath]
+#define CONFIG_FILE [GEANY_CONFIG_DIR stringByAppendingPathComponent: @"geany_mac.conf"]
+
+#define THEME_KEY @"theme"
+#define LOCALE_KEY @"locale"
+#define IM_MODULE_KEY @"im_module"
+
+
+@interface ConfigValue : NSObject
+
+@property (nonatomic, copy) NSString *value;
+@property (nonatomic, copy) NSString *desc;
+@property (nonatomic, assign) BOOL present;
+
++ (ConfigValue *) valueWithDefault:(NSString *)deflt comment:(NSString *)comment;
+
+@end
+
+@implementation ConfigValue
+
++ valueWithDefault:(NSString *)deflt comment:(NSString *)comment {
+    ConfigValue *val = [[ConfigValue alloc] init];
+    val.value = deflt;
+    val.desc = comment;
+    val.present = NO;
+    return val;
+}
+
+@end
+
+
+NSDictionary<NSString *, ConfigValue *> *config = nil;
+
+
+static void read_config() {
+    NSString *file = [NSString stringWithContentsOfFile:CONFIG_FILE encoding:NSUTF8StringEncoding error:nil];
+    if (file == nil) {
+        return;
+    }
+    NSArray<NSString *> *lines = [file componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
+    for (NSString *line in lines) {
+        NSString *trimmed = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        NSArray<NSString *> *key_value = [trimmed componentsSeparatedByString: @"="];
+        if (key_value.count != 2) {
+            continue;
+        }
+        NSString *key = [key_value[0] lowercaseString];
+        if (config[key] != nil) {
+            config[key].value = key_value[1];
+            config[key].present = YES;
+        }
+    }
+}
+
+
+static BOOL write_to_file(NSString *content, NSString *path) {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager createDirectoryAtPath:[path stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+    NSError *err = nil;
+    BOOL success = [content writeToFile:path atomically:NO encoding:NSUTF8StringEncoding
+                 error:&err];
+    if (!success) {
+        NSLog(@"Failed to write config file into %@: %@", path, err.localizedDescription);
+    }
+    return success;
+}
+
+
+static void write_config_if_needed() {
+    BOOL update_config = NO;
+    for (NSString *key in config) {
+        if (!config[key].present) {
+            update_config = YES;
+            break;
+        }
+    }
+    if (!update_config) {
+        return;
+    }
     
-    BOOL ignore_locale = [[NSFileManager defaultManager] fileExistsAtPath: [@"~/.config/geany/ignore_locale" stringByExpandingTildeInPath]];
-    if (ignore_locale) {
-        return fallback;
+    NSMutableString *configFile = [[NSMutableString alloc] init];
+    [configFile appendString:@"[Settings]\n"];
+    for (NSString *key in config) {
+        [configFile appendFormat:@"# %@\n", config[key].desc];
+        [configFile appendFormat:@"%@=%@\n", key, config[key].value];
+    }
+
+    write_to_file(configFile, CONFIG_FILE);
+}
+
+
+static BOOL write_gtk_config() {
+    BOOL light = YES;
+    NSString *theme = config[THEME_KEY].value;
+    if ([theme isEqualToString:@"1"]) {
+        light = YES;
+    }
+    else if ([theme isEqualToString:@"2"]) {
+        light = NO;
+    }
+    else {
+        NSString *val = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
+        if (val != nil) {
+            light = [[val lowercaseString] isEqualToString:@"light"];
+        }
+    }
+
+    NSString *gtk_config = [NSString stringWithFormat: @"[Settings]\ngtk-application-prefer-dark-theme=%@\ngtk-icon-theme-name=%@\n", light ? @"0" : @"1", light ? @"Papirus" : @"Papirus-Dark"];
+    
+    return write_to_file(gtk_config, [GEANY_CONFIG_DIR stringByAppendingPathComponent: @"gtk-3.0/settings.ini"]);
+}
+
+
+static NSString *get_locale(NSString *bundle_share) {
+    if (config[LOCALE_KEY].value.length > 0) {
+        return config[LOCALE_KEY].value;
     }
     
     NSArray<NSString *> *langs = [NSLocale preferredLanguages];
@@ -39,7 +149,7 @@ static NSString *get_locale(NSString *bundle_share) {
         }
     }
 
-    return fallback;
+    return @"en_US.UTF-8";
 }
 
 
@@ -65,8 +175,17 @@ static int fill_argv_array(const char *arr[], NSArray<NSString *> *array) {
 
 
 static int run_geany() {
-    NSString *bundle_dir = [[NSBundle mainBundle] bundlePath];
+    config = @{
+        THEME_KEY: [ConfigValue valueWithDefault:@"0" comment:@"0: automatic selection based on system settings (requires Geany restart when changed); 1: light; 2: dark"],
+        LOCALE_KEY: [ConfigValue valueWithDefault:@"" comment:@"no value: autodetect; locale string: locale to be used (e.g. en_US.UTF-8)"],
+        IM_MODULE_KEY: [ConfigValue valueWithDefault:@"" comment:@"no value: don't use any IM module; module name: use the specified module, e.g. quartz for native macOS behavior (slightly buggy so not enabled by default), for complete list of modules see Geany.app/Contents/Resources/lib/gtk-3.0/3.0.0/immodules, use without the 'im-' prefix"],
+    };
+
+    read_config();
+    write_config_if_needed();
+    BOOL have_gtk_config = write_gtk_config();
     
+    NSString *bundle_dir = [[NSBundle mainBundle] bundlePath];
     NSString *bundle_resources = [bundle_dir stringByAppendingPathComponent: @"Contents/Resources"];
     NSString *bundle_lib = [bundle_resources stringByAppendingPathComponent: @"lib"];
     NSString *bundle_share = [bundle_resources stringByAppendingPathComponent: @"share"];
@@ -76,8 +195,8 @@ static int run_geany() {
 
     //set environment variables
     //see https://developer.gnome.org/gtk3/stable/gtk-running.html
-    NSDictionary<NSString *, NSString *> *env = @{
-        @"XDG_CONFIG_DIRS": bundle_etc,
+    NSMutableDictionary<NSString *, NSString *> *env = [@{
+        @"XDG_CONFIG_DIRS": have_gtk_config ? GEANY_CONFIG_DIR : bundle_etc,
         @"XDG_DATA_DIRS": bundle_share,
 
         @"GIO_MODULE_DIR": [bundle_lib stringByAppendingPathComponent: @"gio/modules"],
@@ -85,8 +204,6 @@ static int run_geany() {
         @"GTK_PATH": bundle_resources,
         @"GTK_EXE_PREFIX": bundle_resources,
         @"GTK_DATA_PREFIX": bundle_resources,
-        @"GTK_IM_MODULE": @"quartz",
-        @"GTK_IM_MODULE_FILE": [bundle_lib stringByAppendingPathComponent: @"gtk-3.0/3.0.0/immodules.cache"],
         @"GDK_PIXBUF_MODULE_FILE": [bundle_lib stringByAppendingPathComponent: @"gdk-pixbuf-2.0/2.10.0/loaders.cache"],
         
         @"LANG": lang,
@@ -100,7 +217,16 @@ static int run_geany() {
         
         //patched in https://gitlab.gnome.org/GNOME/gtk-osx/blob/master/patches/enchant-env.patch
         @"ENCHANT_MODULE_PATH": [bundle_lib stringByAppendingPathComponent: @"enchant"],
-    };
+    } mutableCopy];
+    
+    if (config[IM_MODULE_KEY].value.length > 0) {
+        env[@"GTK_IM_MODULE"] = config[IM_MODULE_KEY].value;
+        env[@"GTK_IM_MODULE_FILE"] = [bundle_lib stringByAppendingPathComponent: @"gtk-3.0/3.0.0/immodules.cache"];
+    }
+    else {
+        //point to an invalid path so no IM module is loaded
+        env[@"GTK_IM_MODULE_FILE"] = [bundle_lib stringByAppendingPathComponent: @"gtk-3.0/3.0.0/immodules.cache1"];
+    }
     
     //set binary name and command line arguments
     NSMutableArray<NSString *> *args = [NSProcessInfo.processInfo.arguments mutableCopy];
