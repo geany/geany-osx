@@ -77,6 +77,8 @@ static BOOL write_to_file(NSString *content, NSString *path) {
 
 
 static void write_config_if_needed() {
+    /* Rewrite config file if some configuration option isn't present. This way we can let
+       users know about new config options possibly introduced in the future. */
     BOOL update_config = NO;
     for (NSString *key in config) {
         if (!config[key].present) {
@@ -176,9 +178,9 @@ static int fill_argv_array(const char *arr[], NSArray<NSString *> *array) {
 
 static int run_geany() {
     config = @{
-        THEME_KEY: [ConfigValue valueWithDefault:@"0" comment:@"0: automatic selection based on system settings (requires Geany restart when changed); 1: light; 2: dark"],
+        THEME_KEY: [ConfigValue valueWithDefault:@"0" comment:@"0: automatic selection based on system settings (requires Geany restart when changed, macOS 10.14+); 1: light; 2: dark; make sure there's no ~/.config/gtk-3.0/settings.ini file, otherwise it overrides the settings made here"],
         LOCALE_KEY: [ConfigValue valueWithDefault:@"" comment:@"no value: autodetect; locale string: locale to be used (e.g. en_US.UTF-8)"],
-        IM_MODULE_KEY: [ConfigValue valueWithDefault:@"" comment:@"no value: don't use any IM module; module name: use the specified module, e.g. quartz for native macOS behavior (slightly buggy so not enabled by default), for complete list of modules see Geany.app/Contents/Resources/lib/gtk-3.0/3.0.0/immodules, use without the 'im-' prefix"],
+        IM_MODULE_KEY: [ConfigValue valueWithDefault:@"" comment:@"no value: don't use any IM module; module name: use the specified module, e.g. 'quartz' for native macOS behavior (slightly buggy so not enabled by default), for complete list of modules see Geany.app/Contents/Resources/lib/gtk-3.0/3.0.0/immodules, use without the 'im-' prefix"],
     };
 
     read_config();
@@ -196,7 +198,7 @@ static int run_geany() {
     //set environment variables
     //see https://developer.gnome.org/gtk3/stable/gtk-running.html
     NSMutableDictionary<NSString *, NSString *> *env = [@{
-        @"XDG_CONFIG_DIRS": have_gtk_config ? GEANY_CONFIG_DIR : bundle_etc,
+        @"XDG_CONFIG_DIRS": have_gtk_config ? GEANY_CONFIG_DIR : bundle_etc,  /* used to locate gtk settings.ini */
         @"XDG_DATA_DIRS": bundle_share,
 
         @"GIO_MODULE_DIR": [bundle_lib stringByAppendingPathComponent: @"gio/modules"],
