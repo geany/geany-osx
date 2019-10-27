@@ -33,6 +33,10 @@
   -gtk-outline-radius: 5px;
 }
 
+label:disabled {
+  color: rgba(36, 36, 36, 0.55);
+}
+
 headerbar .linked:not(.vertical) > button, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
 headerbar .linked:not(.vertical).path-bar > button, .nemo-window .primary-toolbar .linked.raised > button, .nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button.image-button {
   outline-color: alpha(currentColor,0.3);
