@@ -117,8 +117,13 @@ static BOOL write_gtk_config() {
         }
     }
 
-    NSString *gtk_config = [NSString stringWithFormat: @"[Settings]\ngtk-application-prefer-dark-theme=%@\ngtk-icon-theme-name=%@\n", light ? @"0" : @"1", light ? @"Papirus" : @"Papirus-Dark"];
-    
+    NSString *gtk_config = [NSString stringWithFormat: @"[Settings]\n"
+                            @"gtk-menu-images=1\n"
+                            @"gtk-application-prefer-dark-theme=%@\n"
+                            @"gtk-icon-theme-name=%@\n",
+                            light ? @"0" : @"1",
+                            light ? @"Papirus" : @"Papirus-Dark"];
+
     return write_to_file(gtk_config, [GEANY_CONFIG_DIR stringByAppendingPathComponent: @"gtk-3.0/settings.ini"]);
 }
 
