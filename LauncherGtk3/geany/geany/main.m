@@ -4,6 +4,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 #include <dlfcn.h>
 #include <limits.h>
@@ -253,6 +254,11 @@ static int run_geany() {
     }
     
     export_env_array(env);
+    
+    if (@available(macOS 10.12, *)) {
+        //to remove "show tab bar", "show all tabs" automatically added to the View menu
+        NSWindow.allowsAutomaticWindowTabbing = NO;
+    }
 
     const char *argv[ARG_MAX];
     int argc = fill_argv_array(argv, args);
