@@ -38,19 +38,6 @@
             version="10.33"/>
   </autotools>
 
-  <!-- The last version which works with GTK 2 -->
-  <autotools id="vte28"
-             autogenargs="--disable-Bsymbolic" 
-             autogen-sh="configure">
-    <branch module="vte/0.28/vte-${version}.tar.xz" 
-            version="0.28.2">
-      <!-- Fix for draw -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-vte_0.28_fix.patch" strip="1" />
-      <!-- Make paths relative to bundle (fallback to system paths if not found) -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-vte_0.28_relpath.patch" strip="1" />
-    </branch>
-  </autotools>
-
   <meson id="vte291" mesonargs="-Dgnutls=false -Dvapi=false -D_b_symbolic_functions=false">
     <branch module="vte/0.58/vte-${version}.tar.xz" 
             version="0.58.2">
@@ -63,13 +50,6 @@
       <dep package="pcre2" />
     </dependencies>
   </meson>
-
-  <!-- Needed by the used GTK 2 theme -->
-  <autotools id="murrine-engine" 
-             autogen-sh="configure">
-    <branch module="murrine/0.98/murrine-${version}.tar.xz" 
-            version="0.98.2"/>
-  </autotools>
 
   <!-- Used by the git-changebar plugin -->
   <cmake id="libgit2"
@@ -101,19 +81,7 @@
             module="gtk-mac-bundler"/>
   </autotools>
 
-  <metamodule id="geany-deps-gtk2">
-    <dependencies>
-      <dep package="vte28" />
-      <dep package="docutils" />
-      <dep package="murrine-engine" />
-      <dep package="gtk-mac-bundler" />
-      <dep package="gtk-mac-integration-fixed" />
-      <!-- mime information for g_content_type_guess() -->
-      <dep package="shared-mime-info" />
-    </dependencies>
-  </metamodule>
-
-  <metamodule id="geany-deps-gtk3">
+  <metamodule id="geany-deps">
     <dependencies>
       <dep package="vte291" />
       <dep package="docutils" />
@@ -125,44 +93,20 @@
     </dependencies>
   </metamodule>
 
-  <!-- Geany GTK 2 from git master -->
-  <autotools id="geany-git-gtk2"
-             autogenargs="--enable-mac-integration">
-    <branch repo="github.com"
-            module="geany/geany.git"
-            checkoutdir="geany-git"
-            revision="master" />
-    <dependencies>
-      <dep package="geany-deps-gtk2" />
-    </dependencies>
-  </autotools>
-
-  <!-- Geany GTK 3 from git master -->
-  <autotools id="geany-git-gtk3"
+  <!-- Geany from git master -->
+  <autotools id="geany-git"
              autogenargs="--enable-mac-integration --enable-gtk3">
     <branch repo="github.com"
             module="geany/geany.git"
             checkoutdir="geany-git"
             revision="master" />
     <dependencies>
-      <dep package="geany-deps-gtk3" />
+      <dep package="geany-deps" />
     </dependencies>
   </autotools>
 
-  <!-- Geany GTK 2 tarball release -->
-  <autotools id="geany-release-gtk2"
-             autogenargs="--enable-mac-integration">
-    <branch repo="download.geany.org"
-            module="geany-${version}.tar.bz2" 
-            checkoutdir="geany-${version}"
-            version="1.36"/>
-    <dependencies>
-      <dep package="geany-deps-gtk2" />
-    </dependencies>
-  </autotools>
-
-  <!-- Geany GTK 3 tarball release -->
-  <autotools id="geany-release-gtk3"
+  <!-- Geany tarball release -->
+  <autotools id="geany-release"
              autogenargs="--enable-mac-integration --enable-gtk3">
     <branch repo="download.geany.org"
             module="geany-${version}.tar.bz2"
@@ -174,34 +118,13 @@
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-geany_scintilla_im_fix.patch" strip="1" />
     </branch>
     <dependencies>
-      <dep package="geany-deps-gtk3" />
+      <dep package="geany-deps" />
     </dependencies>
   </autotools>
 
-  <!-- Geany-plugins dependencies GTK 2 -->
-  <metamodule id="geany-plugins-deps">
-    <dependencies>
-      <dep package="vala" />
-      <dep package="libgit2" />
-      <dep package="enchant" />
-    </dependencies>
-  </metamodule>
-
-  <!-- Geany-plugins GTK 2 from git master -->
-  <autotools id="geany-plugins-git-gtk2">
-    <branch repo="github.com"
-            module="geany/geany-plugins.git"
-            checkoutdir="geany-plugins-git"
-            revision="master" />
-    <dependencies>
-      <dep package="geany-git-gtk2" />
-      <dep package="geany-plugins-deps" />
-    </dependencies>
-  </autotools>
-
-  <!-- Geany-plugins GTK 3 from git master -->
+  <!-- Geany-plugins from git master -->
   <!-- TODO: remove supports-non-srcdir-builds when fixed -->
-  <autotools id="geany-plugins-git-gtk3"
+  <autotools id="geany-plugins-git"
              supports-non-srcdir-builds="no">
     <branch repo="github.com"
             module="geany/geany-plugins.git"
@@ -213,62 +136,36 @@
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-geany_scintilla_im_fix.patch" strip="1" />
     </branch>
     <dependencies>
-      <dep package="geany-git-gtk3" />
+      <dep package="geany-git" />
       <dep package="geany-plugins-deps" />
     </dependencies>
   </autotools>
 
-  <!-- Geany-plugins GTK 2 tarball release -->
-  <autotools id="geany-plugins-release-gtk2">
-    <branch repo="download.geany.org"
-            module="geany-plugins/geany-plugins-${version}.tar.bz2"
-            checkoutdir="geany-plugins-${version}"
-            version="1.36"/>
-    <dependencies>
-      <dep package="geany-release-gtk2" />
-      <dep package="geany-plugins-deps" />
-    </dependencies>
-  </autotools>
-
-  <!-- Geany-plugins GTK 3 tarball release -->
+  <!-- Geany-plugins tarball release -->
   <!-- TODO: remove supports-non-srcdir-builds when fixed -->
-  <autotools id="geany-plugins-release-gtk3"
+  <autotools id="geany-plugins-release"
              supports-non-srcdir-builds="no">
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-${version}.tar.bz2"
             checkoutdir="geany-plugins-${version}"
             version="1.36"/>
     <dependencies>
-      <dep package="geany-release-gtk3" />
+      <dep package="geany-release" />
       <dep package="geany-plugins-deps" />
     </dependencies>
   </autotools>
 
-  <!-- Build everything necessary for Geany bundle from git on GTK 2 -->
-  <metamodule id="geany-bundle-git-gtk2">
+  <!-- Build everything necessary for Geany bundle from git -->
+  <metamodule id="geany-bundle-git">
     <dependencies>
-      <dep package="geany-plugins-git-gtk2" />
+      <dep package="geany-plugins-git" />
     </dependencies>
   </metamodule>
 
-  <!-- Build everything necessary for Geany bundle from git on GTK 3 -->
-  <metamodule id="geany-bundle-git-gtk3">
+  <!-- Build everything necessary for Geany bundle from release tarballs -->
+  <metamodule id="geany-bundle-release">
     <dependencies>
-      <dep package="geany-plugins-git-gtk3" />
-    </dependencies>
-  </metamodule>
-
-  <!-- Build everything necessary for Geany bundle from release tarballs GTK 2 -->
-  <metamodule id="geany-bundle-release-gtk2">
-    <dependencies>
-      <dep package="geany-plugins-release-gtk2" />
-    </dependencies>
-  </metamodule>
-
-  <!-- Build everything necessary for Geany bundle from release tarballs GTK 3 -->
-  <metamodule id="geany-bundle-release-gtk3">
-    <dependencies>
-      <dep package="geany-plugins-release-gtk3" />
+      <dep package="geany-plugins-release" />
     </dependencies>
   </metamodule>
 

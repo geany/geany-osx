@@ -15,34 +15,26 @@ Files and Directories
 A brief description of the contents of the project directory:
 
 ### Directories
-*	*Faience*: Faience GTK 2 icon theme combined with Faenza-Cupertino 
-	icon theme (for better folder icons) and with lots of unneeded icons
-	removed to save space.
 *	*Papirus*: Papirus GTK 3 icon theme with lots of unneeded icons
 	removed to save space.
-*	*Greybird*: Greybird GTK 2 theme which has been modified to look more
-	like Mac OS.
 *	*Mojave-light-solid*: Mojave GTK 3 Theme
 *	*iconbuilder.iconset*: contains source icons for the Geany.icns
 	file. Not needed for normal build, present just in case the icns file
 	needs to be recreated for some reason.
-*	*patches*: patches fixing VTE under Mac OS and enabling VTE bundling.
-*	*LauncherGtk3*: A binary launcher which is used to set up environment
+*	*patches*: various patches fixing dependencies to enable bundling.
+*	*Launcher*: A binary launcher which is used to set up environment
 	variables to run Geany.
 
 ### Configuration files
 *	*geany.modules*: JHBuild modules file with Geany dependencies.
-*	*geany-gtk2.bundle, geany-gtk3.bundle*: configuration files describing
-	the contents of the app bundle.
+*	*geany.bundle*: configuration file describing the contents of the app bundle.
 *	*Info.plist*: Mac OS application configuration file containing some basic
 	information such as application name, version, etc. but also additional
 	configuration including file types the application can open.
 *	*Geany.icns*: Mac OS Geany icon file.
-*	*settings.ini*: theme configuration file for GTK 3. 
+*	*settings.ini*: default theme configuration file for GTK 3. 
 
 ### Scripts
-*	*launcher-gtk2.sh, launcher-gtk3.sh*: launcher script from the
-	gtk-mac-bundler project setting all the necessary environment variables.
 *	*plist_filetypes.py*: script generating the file type portion of the
 	Info.plist file from Geany's filetype_extensions.conf configuration
 	file.
@@ -105,55 +97,37 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 5.	By default, jhbuild compiles without optimization flags. To enable
 	optimization, add `setup_release()` at the end of `~/.jhbuildrc-custom`.
 
-6.	Install GTK and all of its dependencies by running one of the following
-	commands:
-	* **GTK 2**
-		```
-		jhbuild bootstrap-gtk-osx && jhbuild build meta-gtk-osx-freetype meta-gtk-osx-bootstrap meta-gtk-osx-core
-		```
-	* **GTK 3**
-		```
-		jhbuild bootstrap-gtk-osx && jhbuild build meta-gtk-osx-freetype meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
-		```
-	This is the moment when you have to make a decision whether to build
-	Geany with GTK 2 or GTK 3 - they cannot be installed side by side.
+6.	Install GTK and all of its dependencies by running the following
+	command:
+	```
+	jhbuild bootstrap-gtk-osx && jhbuild build meta-gtk-osx-freetype meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
+	```
 
 Geany Installation
 ------------------
 1.	Docutils will fail if you do not set the following environment variables:
-
 	```
 	export LC_ALL=en_US.UTF-8; export LANG=en_US.UTF-8; export PYTHON=python3
 	```
 
-2.	To build Geany, plugins and all of their dependencies, run one of 
+2.	To build Geany, plugins and all of their dependencies, run one of
 	the following commands inside the `geany-osx` directory  depending on
-	the GTK version used and whether to use Geany sources from the latest
-	release tarball or current git master:
-	* **GTK 2**
-		* **Geany from release tarball**
-			```
-			jhbuild -m `pwd`/geany.modules build geany-bundle-release-gtk2
-			```
-		* **Geany from git master**
-			```
-			jhbuild -m `pwd`/geany.modules build geany-bundle-git-gtk2
-			```
-	* **GTK 3**
-		* **Geany from release tarball**
-			```
-			jhbuild -m `pwd`/geany.modules build geany-bundle-release-gtk3
-			```
-		* **Geany from git master**
-			```
-			jhbuild -m `pwd`/geany.modules build geany-bundle-git-gtk3
-			```
+	whether to use Geany sources from the latest release tarball or current
+	git master:
+	* **Geany from release tarball**
+		```
+		jhbuild -m `pwd`/geany.modules build geany-bundle-release
+		```
+	* **Geany from git master**
+		```
+		jhbuild -m `pwd`/geany.modules build geany-bundle-git
+		```
 
 Bundling
 --------
-1.  To build the GTK3 binary launcher, run
+1.  To build the binary launcher, run
 	```
-	xcodebuild -project LauncherGtk3/geany/geany.xcodeproj
+	xcodebuild -project Launcher/geany/geany.xcodeproj
 	```
 2.	Run
 
@@ -172,26 +146,16 @@ Bundling
 
 4.	Inside the `geany-osx` directory run the following command to create
 	the app bundle.
-	* **GTK 2**
-		```
-		~/.local/bin/gtk-mac-bundler geany-gtk2.bundle
-		```
-	* **GTK 3**
-		```
-		~/.local/bin/gtk-mac-bundler geany-gtk3.bundle
-		```
+	```
+	~/.local/bin/gtk-mac-bundler geany.bundle
+	```
 
 5.	Go to the `geany-osx` directory and copy the icon theme to the bundle:
-	* **GTK 2**
-		```
-		cp -R Faience ./Geany.app/Contents/Resources/share/icons
-		```
-	* **GTK 3**
-		```
-		cp -R Papirus Papirus-Dark ./Geany.app/Contents/Resources/share/icons
-		```
+	```
+	cp -R Papirus Papirus-Dark ./Geany.app/Contents/Resources/share/icons
+	```
 
-6.	Optionally if you have a development account at Apple and want to sign the
+6.	Optionally, if you have a development account at Apple and want to sign the
 	resulting bundle so it can be started without warning dialogs, use
 
 	```
@@ -199,8 +163,11 @@ Bundling
 	```
 
 	The certificate should be installed in your login keychain. You can get the
-	certificate name by running `security find-identity -p codesigning` and
-	checking  for "Developer ID Application" - the whole name in apostrophes is
+	certificate name by running 
+	```
+	security find-identity -p codesigning
+	```
+	and checking for "Developer ID Application" - the whole name in apostrophes is
 	the certificate name.
 
 	Then, run
