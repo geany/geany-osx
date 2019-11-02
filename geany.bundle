@@ -33,7 +33,7 @@
          not needed. If the source path is left out, the default
          script will be used.
     -->
-    <launcher-script>${project}/LauncherGtk3/geany/build/Release/geany</launcher-script >
+    <launcher-script>${project}/Launcher/geany/build/Release/geany</launcher-script >
 
     <!-- Not implemented: Optional runtime, could be python or mono
          for example.
