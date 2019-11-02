@@ -20,14 +20,11 @@ A brief description of the contents of the project directory:
 *	*Mojave-light-solid*: Mojave GTK 3 Theme
 *	*Papirus, Papirus-Dark*: Papirus GTK 3 icon theme with lots of unneeded
 	icons removed to save space.
-*	*iconbuilder.iconset*: contains source icons for the Geany.icns
-	file. Not needed for normal build, present just in case the icns file
-	needs to be recreated for some reason.
+*	*iconbuilder.iconset*: contains source icons for the bundle.
 *	*patches*: various patches fixing dependencies to enable bundling.
 *	*utils*: various utility scripts.
 
 ### Configuration files
-*	*Geany.icns*: Mac OS Geany icon file.
 *	*Info.plist*: Mac OS application configuration file containing some basic
 	information such as application name, version, etc. but also additional
 	configuration including file types the application can open.
@@ -201,12 +198,6 @@ have to be performed during normal bundle/installer creation:
 	`filetype_extensions.conf` to the marked place in `utils/plist_filetypes.py`
 	and run the script. Copy the output of the script to the marked
 	place in `Info.plist`.
-
-*	The `Geany.icns` icon file can be regenerated from the `iconbuilder.iconset`
-	directory using
-	```
-	iconutil -c icns ./iconbuilder.iconset
-	```
 
 *	Before the release update the Geany version and copyright years inside
 	`Info.plist` and `create_dmg.sh`. Also update the `-release` targets in
