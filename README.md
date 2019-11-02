@@ -15,31 +15,32 @@ Files and Directories
 A brief description of the contents of the project directory:
 
 ### Directories
-*	*Papirus*: Papirus GTK 3 icon theme with lots of unneeded icons
-	removed to save space.
+*	*Launcher*: A binary launcher which is used to set up environment
+	variables to run Geany.
 *	*Mojave-light-solid*: Mojave GTK 3 Theme
+*	*Papirus, Papirus-Dark*: Papirus GTK 3 icon theme with lots of unneeded
+	icons removed to save space.
 *	*iconbuilder.iconset*: contains source icons for the Geany.icns
 	file. Not needed for normal build, present just in case the icns file
 	needs to be recreated for some reason.
 *	*patches*: various patches fixing dependencies to enable bundling.
-*	*Launcher*: A binary launcher which is used to set up environment
-	variables to run Geany.
+*	*utils*: various utility scripts.
 
 ### Configuration files
-*	*geany.modules*: JHBuild modules file with Geany dependencies.
-*	*geany.bundle*: configuration file describing the contents of the app bundle.
+*	*Geany.icns*: Mac OS Geany icon file.
 *	*Info.plist*: Mac OS application configuration file containing some basic
 	information such as application name, version, etc. but also additional
 	configuration including file types the application can open.
-*	*Geany.icns*: Mac OS Geany icon file.
+*	*geany.bundle*: configuration file describing the contents of the app bundle.
+*	*geany.entitlements*: runtime hardening entitlements file.
+*	*geany.modules*: JHBuild modules file with Geany dependencies.
 *	*settings.ini*: default theme configuration file for GTK 3. 
 
 ### Scripts
-*	*plist_filetypes.py*: script generating the file type portion of the
-	Info.plist file from Geany's filetype_extensions.conf configuration
-	file.
 *	*create_dmg.sh*: script calling create-dmg to create the dmg installer
 	image. 
+*	*notarize.sh*: script for notarizing the dmg using Apple notary service. 
+*	*sign.sh*: script signing the app bundle. 
 
 General Instructions
 --------------------
