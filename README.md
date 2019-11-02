@@ -1,12 +1,12 @@
-Geany for Mac OS
-================
-Geany for Mac OS is a project that contains all the necessary configuration
+Geany for macOS
+===============
+Geany for macOS is a project that contains all the necessary configuration
 files, themes, scripts and instructions to create the Geany app bundle and 
-a dmg installer image for Mac OS.
+a dmg installer image for macOS.
 
 Binaries
 --------
-The Mac OS binaries can be downloaded from the Geany Releases page:
+The macOS binaries can be downloaded from the Geany Releases page:
 
 <https://www.geany.org/Download/Releases>
 
@@ -20,12 +20,12 @@ A brief description of the contents of the project directory:
 *	*Mojave-light-solid*: Mojave GTK 3 Theme
 *	*Papirus, Papirus-Dark*: Papirus GTK 3 icon theme with lots of unneeded
 	icons removed to save space.
-*	*iconbuilder.iconset*: contains source icons for the bundle.
+*	*iconbuilder.iconset*: source Geany icons for the bundle.
 *	*patches*: various patches fixing dependencies to enable bundling.
 *	*utils*: various utility scripts.
 
 ### Configuration files
-*	*Info.plist*: Mac OS application configuration file containing some basic
+*	*Info.plist*: macOS application configuration file containing some basic
 	information such as application name, version, etc. but also additional
 	configuration including file types the application can open.
 *	*geany.bundle*: configuration file describing the contents of the app bundle.
@@ -42,7 +42,7 @@ A brief description of the contents of the project directory:
 
 General Instructions
 --------------------
-For more general instructions about building and bundling Mac OS applications
+For more general instructions about building and bundling macOS applications
 please visit
 
 <https://gitlab.gnome.org/GNOME/gtk-osx/>
@@ -52,7 +52,7 @@ building and bundling Geany.
 
 Prerequisities
 --------------
-*	OS X
+*	macOS
 *	Xcode and command-line tools
 
 JHBuild Installation
@@ -60,7 +60,7 @@ JHBuild Installation
 To create the bundle, you need to first install JHBuild and GTK as described below.
 
 1.	Create a new account for jhbuild (not necessary but this makes sure
-	jhbuild will not interfere with some other command-line tools installed
+	jhbuild does not interfere with some other command-line tools installed
 	on your system).
 
 2.	Get `gtk-osx-setup.sh` by
@@ -78,29 +78,30 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	```
 	to set path to jhbuild installed in the previous step.
 
-4.	Update the `setup_sdk()` call in `~/.jhbuildrc-custom` to something like
+4.	Add the following lines to `~/.jhbuildrc-custom`:
 	```
 	setup_sdk(target="10.9", sdk_version="native", architectures=["x86_64"])
+	setup_release()
 	```
-	so the build creates a 64-bit binary that works on OS X 10.9 and later.
-	OS X 10.9 is the first version which uses libc++ by default which is
-	now required by Scintilla and VTE libraries because of C++11 support.
+	With this settings, the build creates a 64-bit binary that works on
+	macOS 10.9 and later. macOS 10.9 is the first version which uses 
+	libc++ by default which is now required by Scintilla and VTE libraries
+	because of C++11 support. By default, jhbuild compiles without 
+	optimization flags. The `setup_release()` call enables optimizations.
 
-5.	By default, jhbuild compiles without optimization flags. To enable
-	optimization, add `setup_release()` at the end of `~/.jhbuildrc-custom`.
-
-6.	Install GTK and all of its dependencies by running the following
+5.	Install GTK and all of its dependencies by running the following
 	command:
 	```
 	jhbuild bootstrap-gtk-osx && jhbuild build meta-gtk-osx-freetype meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 	```
 
-Geany Installation
-------------------
-1.	Docutils will fail if you do not set the following environment variables:
+Geany Build
+-----------
+1.	Run
 	```
 	export LC_ALL=en_US.UTF-8; export LANG=en_US.UTF-8; export PYTHON=python3
 	```
+	(docutils fails when you do not set these variables).
 
 2.	To build Geany, plugins and all of their dependencies, run one of
 	the following commands inside the `geany-osx` directory  depending on
@@ -117,7 +118,7 @@ Geany Installation
 
 Bundling
 --------
-1.  To build the binary launcher, run
+1.  To build the launcher binary, run
 	```
 	xcodebuild -project Launcher/geany/geany.xcodeproj
 	```
@@ -142,25 +143,20 @@ Bundling
 	./bundle.sh
 	```
 
-5.	Optionally, if you have a development account at Apple and want to sign the
-	resulting bundle so it can be started without warning dialogs, use
-	```
-	export SIGN_CERTIFICATE="your certificate name"
-	```
-
-	The certificate should be installed in your login keychain. You can get the
-	certificate name by running
+5.	Optionally, if you have a development account at Apple and want to
+	sign the resulting bundle, get the list of signing identities by
 	```
 	security find-identity -p codesigning
 	```
-	and checking for "Developer ID Application" - the whole name in apostrophes is
-	the certificate name.
-
+	and use the whole string within apostrophes which contains
+	"Developer ID Application: ..." in the following command:
+	```
+	export SIGN_CERTIFICATE="Developer ID Application: ..."
+	```
 	Then, run
 	```
 	./sign.sh
 	```
-
 
 Distribution
 ------------
@@ -175,7 +171,7 @@ Distribution
 	./create_dmg.sh
 	```
 	from within the `geany-osx` directory. If the `SIGN_CERTIFICATE` variable is
-	defined, the image gets signed by the specified certificate.
+	defined (see above), the image gets signed by the specified certificate.
 
 3.	Optionally, to get the image notarized by
 	[Apple notary service](https://developer.apple.com/documentation/security/notarizing_your_app_before_distribution),
@@ -199,7 +195,7 @@ have to be performed during normal bundle/installer creation:
 	and run the script. Copy the output of the script to the marked
 	place in `Info.plist`.
 
-*	Before the release update the Geany version and copyright years inside
+*	Before the release, update the Geany version and copyright years inside
 	`Info.plist` and `create_dmg.sh`. Also update the `-release` targets in
 	`geany.modules` file to point to the new release. Dependencies inside
 	`geany.modules` can also be updated to newer versions.
