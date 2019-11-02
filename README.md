@@ -10,6 +10,14 @@ The macOS binaries can be downloaded from the Geany Releases page:
 
 <https://www.geany.org/Download/Releases>
 
+Configuration
+-------------
+In addition to standard Geany configuration, the macOS bundle creates
+its own configuration file under `~/.config/geany/geany_mac.conf` upon
+first start. In this configuration file it is for instance possible
+to override the used theme (light/dark) when autodetection based on
+system macOS theme is not desired.
+
 Files and Directories
 ---------------------
 A brief description of the contents of the project directory:
@@ -107,11 +115,11 @@ Geany Build
 	the following commands inside the `geany-osx` directory  depending on
 	whether to use Geany sources from the latest release tarball or current
 	git master:
-	* **Geany from release tarball**
+	* **tarball**
 		```
 		jhbuild -m `pwd`/geany.modules build geany-bundle-release
 		```
-	* **Geany from git master**
+	* **git master**
 		```
 		jhbuild -m `pwd`/geany.modules build geany-bundle-git
 		```
