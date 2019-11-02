@@ -212,7 +212,7 @@ have to be performed during normal bundle/installer creation:
 
 *	To get the `Info.plist` file associations in sync with 
 	`filetype_extensions.conf`, copy the filetype extension portion from
-	`filetype_extensions.conf` to the marked place in `plist_filetypes.py`
+	`filetype_extensions.conf` to the marked place in `utils/plist_filetypes.py`
 	and run the script. Copy the output of the script to the marked
 	place in `Info.plist`.
 
