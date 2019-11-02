@@ -37,6 +37,7 @@ A brief description of the contents of the project directory:
 *	*settings.ini*: default theme configuration file for GTK 3. 
 
 ### Scripts
+*	*bundle.sh*: script creating the app bundle. 
 *	*create_dmg.sh*: script calling create-dmg to create the dmg installer
 	image. 
 *	*notarize.sh*: script for notarizing the dmg using Apple notary service. 
@@ -66,31 +67,24 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	on your system).
 
 2.	Get `gtk-osx-setup.sh` by
-
 	```
 	curl -L -o gtk-osx-setup.sh https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/gtk-osx-setup.sh
 	```
-	
 	and run it:
-	
 	```
 	sh gtk-osx-setup.sh
 	```
 
 3.	Run
-
 	```
 	export PATH=$PATH:"$HOME/.new_local/bin"
 	```
-
 	to set path to jhbuild installed in the previous step.
 
 4.	Update the `setup_sdk()` call in `~/.jhbuildrc-custom` to something like
-
 	```
 	setup_sdk(target="10.9", sdk_version="native", architectures=["x86_64"])
 	```
-
 	so the build creates a 64-bit binary that works on OS X 10.9 and later.
 	OS X 10.9 is the first version which uses libc++ by default which is
 	now required by Scintilla and VTE libraries because of C++11 support.
@@ -130,8 +124,8 @@ Bundling
 	```
 	xcodebuild -project Launcher/geany/geany.xcodeproj
 	```
-2.	Run
 
+2.	Run
 	```
 	jhbuild shell
 	```
@@ -146,25 +140,19 @@ Bundling
 	and copy the `colorschemes` directory under `$PREFIX/share/geany`.
 
 4.	Inside the `geany-osx` directory run the following command to create
-	the app bundle.
+	the app bundle:
 	```
-	~/.local/bin/gtk-mac-bundler geany.bundle
-	```
-
-5.	Go to the `geany-osx` directory and copy the icon theme to the bundle:
-	```
-	cp -R Papirus Papirus-Dark ./Geany.app/Contents/Resources/share/icons
+	./bundle.sh
 	```
 
-6.	Optionally, if you have a development account at Apple and want to sign the
+5.	Optionally, if you have a development account at Apple and want to sign the
 	resulting bundle so it can be started without warning dialogs, use
-
 	```
 	export SIGN_CERTIFICATE="your certificate name"
 	```
 
 	The certificate should be installed in your login keychain. You can get the
-	certificate name by running 
+	certificate name by running
 	```
 	security find-identity -p codesigning
 	```
@@ -172,7 +160,6 @@ Bundling
 	the certificate name.
 
 	Then, run
-
 	```
 	./sign.sh
 	```
@@ -187,11 +174,9 @@ Distribution
 	and put it to your `$PATH`.
 
 2.	Create the dmg installation image by calling
-	
 	```
 	./create_dmg.sh
 	```
-
 	from within the `geany-osx` directory. If the `SIGN_CERTIFICATE` variable is
 	defined, the image gets signed by the specified certificate.
 
@@ -219,7 +204,6 @@ have to be performed during normal bundle/installer creation:
 
 *	The `Geany.icns` icon file can be regenerated from the `iconbuilder.iconset`
 	directory using
-
 	```
 	iconutil -c icns ./iconbuilder.iconset
 	```
@@ -231,7 +215,6 @@ have to be performed during normal bundle/installer creation:
 	
 *	To make sure nothing is left from the previous build when making a
 	new release, run
-
 	```
 	rm -rf .new_local Source gtk .cache/jhbuild
 	```
