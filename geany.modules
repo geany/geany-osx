@@ -99,7 +99,12 @@
     <branch repo="github.com"
             module="geany/geany.git"
             checkoutdir="geany-git"
-            revision="master" />
+            revision="master" >
+      <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-geany_config_shell.patch" strip="1" />
+      <!-- TODO: remove once merged upstream-->
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-geany_scintilla_im_fix.patch" strip="1" />
+    </branch>
     <dependencies>
       <dep package="geany-deps" />
     </dependencies>
@@ -122,6 +127,14 @@
     </dependencies>
   </autotools>
 
+  <metamodule id="geany-plugins-deps">
+    <dependencies>
+      <dep package="vala" />
+      <dep package="libgit2" />
+      <dep package="enchant" />
+    </dependencies>
+  </metamodule>
+
   <!-- Geany-plugins from git master -->
   <!-- TODO: remove supports-non-srcdir-builds when fixed -->
   <autotools id="geany-plugins-git"
@@ -129,12 +142,7 @@
     <branch repo="github.com"
             module="geany/geany-plugins.git"
             checkoutdir="geany-plugins-git"
-            revision="master" >
-      <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-geany_config_shell.patch" strip="1" />
-      <!-- TODO: remove once merged upstream-->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-geany_scintilla_im_fix.patch" strip="1" />
-    </branch>
+            revision="master" />
     <dependencies>
       <dep package="geany-git" />
       <dep package="geany-plugins-deps" />
@@ -148,7 +156,7 @@
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-${version}.tar.bz2"
             checkoutdir="geany-plugins-${version}"
-            version="1.36"/>
+            version="1.36" />
     <dependencies>
       <dep package="geany-release" />
       <dep package="geany-plugins-deps" />
