@@ -22,6 +22,7 @@ create-dmg \
 --icon $APPNAME 180 150 \
 --hide-extension "$APPNAME" \
 --app-drop-link 520 150 \
+--format UDBZ \
 "$DMGNAME" \
 "$TMPDIR"
 
