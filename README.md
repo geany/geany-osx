@@ -54,6 +54,7 @@ For more general instructions about building and bundling macOS applications
 please visit
 
 <https://gitlab.gnome.org/GNOME/gtk-osx/>
+<https://gitlab.gnome.org/GNOME/gtk-mac-bundler/>
 
 The HOWTO below contains just the portions necessary/relevant for
 building and bundling Geany.
