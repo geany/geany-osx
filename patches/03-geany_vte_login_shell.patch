@@ -1,0 +1,70 @@
+From 11ae19d0df6bf5715c1a92f9b1f5f5fe07621174 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ji=C5=99=C3=AD=20Techet?= <techet@gmail.com>
+Date: Sat, 9 Nov 2019 11:07:19 -0800
+Subject: [PATCH 2/2] Make sure any shell used in VTE is run as login shell on
+ macOS
+
+Previously we did this for bash only but we should do it for arbitrary
+shell. The -l option seems to be supported by all major shells.
+
+Previously we used to add -l to the settings value itself which probably
+isn't the cleanest way as the entry should contain path. Let's add
+it invisibly to user but make sure we don't add it when settings already
+contains -l.
+---
+ src/keyfile.c |  7 -------
+ src/vte.c     | 12 +++++++++++-
+ 2 files changed, 11 insertions(+), 8 deletions(-)
+
+diff --git a/src/keyfile.c b/src/keyfile.c
+index d4daa0b2f..92d3ac93c 100644
+--- a/src/keyfile.c
++++ b/src/keyfile.c
+@@ -891,13 +891,6 @@ static void load_dialog_prefs(GKeyFile *config)
+ 		struct passwd *pw = getpwuid(getuid());
+ 		const gchar *shell = (pw != NULL) ? pw->pw_shell : "/bin/sh";
+ 
+-#ifdef __APPLE__
+-		/* Geany is started using launchd on OS X and we don't get any environment variables
+-		 * so PS1 isn't defined. Start as a login shell to read the corresponding config files. */
+-		if (strcmp(shell, "/bin/bash") == 0)
+-			shell = "/bin/bash -l";
+-#endif
+-
+ 		vc = g_new0(VteConfig, 1);
+ 		vte_info.dir = utils_get_setting_string(config, "VTE", "last_dir", NULL);
+ 		if ((vte_info.dir == NULL || utils_str_equal(vte_info.dir, "")) && pw != NULL)
+diff --git a/src/vte.c b/src/vte.c
+index ec8c5df37..3b798de40 100644
+--- a/src/vte.c
++++ b/src/vte.c
+@@ -485,8 +485,17 @@ static void vte_commit_cb(VteTerminal *vte, gchar *arg1, guint arg2, gpointer us
+ 
+ static void vte_start(GtkWidget *widget)
+ {
++	gchar *shell = g_strdup(vc->shell);
++
++#ifdef __APPLE__
++	/* run as a login shell as macOS doesn't load any configuration when
++	 * user is logged in and this is the only way to load config files */
++	if (strstr(shell, " -l") == NULL)
++		SETPTR(shell, g_strconcat(shell, " -l", NULL));
++#endif
++
+ 	/* split the shell command line, so arguments will work too */
+-	gchar **argv = g_strsplit(vc->shell, " ", -1);
++	gchar **argv = g_strsplit(shell, " ", -1);
+ 
+ 	if (argv != NULL)
+ 	{
+@@ -513,6 +522,7 @@ static void vte_start(GtkWidget *widget)
+ 		pid = 0; /* use 0 as invalid pid */
+ 
+ 	set_clean(TRUE);
++	g_free(shell);
+ }
+ 
+ 
+-- 
+2.17.1
+

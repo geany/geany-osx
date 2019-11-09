@@ -1,73 +1,53 @@
-From 7ae8e240bb29d300d8343ad0166405cde76d3ec9 Mon Sep 17 00:00:00 2001
+From 2981b0761b343e0eb49ab36f01bf37c4acec5245 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Ji=C5=99=C3=AD=20Techet?= <techet@gmail.com>
-Date: Wed, 16 Oct 2019 13:21:45 -0700
-Subject: [PATCH] Make the shell used by Geany to run various commands
- configurable
+Date: Sat, 9 Nov 2019 10:46:39 -0800
+Subject: [PATCH 1/2] Allow configuring shell used for build commands
 
-Because each shell has its own configuration file which can contain
-different environment settings, it is useful to be able to specify
-which shell Geany should use.
+Currently there is a problem when users use a different shell than sh/bash
+and configure their environment in the config file of the given shell.
+This config file isn't loaded by Geany because Geany always uses sh
+in a non-login non-interactive way.
 
-To limit the shells to only those we know that work with Geany, this
-implementation only allows users to select from /bin/sh, /bin/bash and
-/bin/zsh. More shells can be added in the future.
+This patch tries to solve the problem by allowing users to specify the
+shell they want to use for launching build commands. In order to make
+shells load their config files, the shells are run as login non-interactive
+shells because non-login non-interactive shells like sh/bash don't load
+configuration from any files. Unfortunately csh/tcsh don't allow us to be
+run as login and use the -c option simultaneously so these shells aren't
+started as login shells.
 
-The affected places where we used hard-coded /bin/sh are:
-1. Running commands (in VTE or without, with launch script or without)
-2. Build commands
-3. Print command
+Running shells as login is absolutely necessary on macOS even for sh/bash.
+While on linux display managers typically source .profile upon login,
+this doesn't happen on macOS and the only way to get the environment loaded
+is to run shells as login.
 
-On macOS, the shell defaults to /bin/bash, on other systems to /bin/sh.
+There are some places where /bin/sh can still be used. One of them is
+the execute command. When configured to use VTE for execution, we already
+have the environment set up by the shell in VTE so we don't need to do any
+other work. When configured to use external terminal for running, the
+terminal is run as non-login interactive so it should load its
+configuration too.
 
-Use /bin/sh in some cases
+I kept the printing command to use /bin/sh because either the code used
+for the build command would have to be duplicated there or somehow
+factored-out and it doesn't seem to be worth the work for this simple
+case where only /usr/bin/lpr is called.
 
-1. Use /bin/sh as the default value of the terminal command - it's
-configurable anyway
-2. Use /bin/sh for running the launch script in VTE - the user already has
-the environment variables set using the shell he uses for the terminal
-and this way we can be sure it's run using compatible shell.
-
-Also remove the shebang at the beginning of the launch script - we never
-run it directory, only as a paramter of a shell command so it's useless.
-
-Make sure we run a shell as a login shell on macOS
-
-Unlike other unixes, macOS runs shell inside the Terminal app as a login
-shell. This means that most users put their environment variables into
-e.g. .bash_profile instead of .bashrc like linux users. So if we wouldn't
-run the shell as a login shell, user's environment variables wouldn't be
-loaded.
-
-All the shels supported by Geany have the -l option.
+This patch has been tested with the following shells:
+sh, bash, dash, ksh, zsh, csh, tcsh, fish, ion
 ---
- data/geany.glade | 44 +++++++++++++++++++++++++++++++++++++++++++-
- src/build.c      | 26 ++++++++++++++++++++------
- src/keyfile.c    | 22 ++++++++++++++--------
- src/prefs.c      | 13 ++++++++++++-
- src/prefs.h      | 10 ++++++++++
- src/printing.c   | 11 +++++++++--
- src/utils.c      | 10 ++++++++++
- src/utils.h      |  2 ++
- 8 files changed, 120 insertions(+), 18 deletions(-)
+ data/geany.glade | 59 +++++++++++++++++++++++++++++++++++++++++++++++-
+ src/build.c      | 14 ++++++++++--
+ src/keyfile.c    |  7 ++++++
+ src/prefs.c      | 10 ++++++++
+ src/prefs.h      |  1 +
+ 5 files changed, 88 insertions(+), 3 deletions(-)
 
 diff --git a/data/geany.glade b/data/geany.glade
-index 3864a0ad1..5fef5c4b0 100644
+index 3864a0ad1..79cf7c4b9 100644
 --- a/data/geany.glade
 +++ b/data/geany.glade
-@@ -724,6 +724,12 @@
-       </row>
-     </data>
-   </object>
-+  <object class="GtkListStore" id="shell_list">
-+    <columns>
-+      <!-- column-name text -->
-+      <column type="gchararray"/>
-+    </columns>
-+  </object>
-   <object class="GtkListStore" id="tab_pos_list">
-     <columns>
-       <!-- column-name item -->
-@@ -4798,10 +4804,13 @@
+@@ -4798,7 +4798,7 @@
                                <object class="GtkTable" id="table1">
                                  <property name="visible">True</property>
                                  <property name="can_focus">False</property>
@@ -76,13 +56,7 @@ index 3864a0ad1..5fef5c4b0 100644
                                  <property name="n_columns">3</property>
                                  <property name="column_spacing">6</property>
                                  <property name="row_spacing">3</property>
-+                                <child>
-+                                  <placeholder/>
-+                                </child>
-                                 <child>
-                                   <object class="GtkLabel" id="label97">
-                                     <property name="visible">True</property>
-@@ -4960,6 +4969,39 @@
+@@ -4960,6 +4960,63 @@
                                      <property name="y_options"/>
                                    </packing>
                                  </child>
@@ -92,6 +66,7 @@ index 3864a0ad1..5fef5c4b0 100644
 +                                    <property name="can_focus">False</property>
 +                                    <property name="xalign">0</property>
 +                                    <property name="label" translatable="yes">Shell:</property>
++                                    <property name="mnemonic_widget">entry_grep</property>
 +                                  </object>
 +                                  <packing>
 +                                    <property name="top_attach">3</property>
@@ -101,278 +76,179 @@ index 3864a0ad1..5fef5c4b0 100644
 +                                  </packing>
 +                                </child>
 +                                <child>
-+                                  <object class="GtkComboBox" id="combo_shell">
++                                  <object class="GtkEntry" id="entry_shell1">
 +                                    <property name="visible">True</property>
 +                                    <property name="can_focus">True</property>
-+                                    <property name="model">shell_list</property>
-+                                    <child>
-+                                      <object class="GtkCellRendererText" id="cellrenderertext6"/>
-+                                      <attributes>
-+                                        <attribute name="text">0</attribute>
-+                                      </attributes>
-+                                    </child>
++                                    <property name="tooltip_text" translatable="yes">Shell used for build commands (useful to get environment set up from the shell's config files)</property>
++                                    <property name="invisible_char">•</property>
++                                    <property name="invisible_char_set">True</property>
++                                    <property name="primary_icon_activatable">False</property>
++                                    <property name="secondary_icon_activatable">False</property>
++                                    <property name="primary_icon_sensitive">True</property>
++                                    <property name="secondary_icon_sensitive">True</property>
 +                                  </object>
 +                                  <packing>
 +                                    <property name="left_attach">1</property>
 +                                    <property name="right_attach">2</property>
 +                                    <property name="top_attach">3</property>
 +                                    <property name="bottom_attach">4</property>
++                                    <property name="y_options"/>
++                                  </packing>
++                                </child>
++                                <child>
++                                  <object class="GtkButton" id="button_shell">
++                                    <property name="visible">True</property>
++                                    <property name="can_focus">True</property>
++                                    <property name="receives_default">False</property>
++                                    <child>
++                                      <object class="GtkImage" id="image7">
++                                        <property name="visible">True</property>
++                                        <property name="can_focus">False</property>
++                                        <property name="stock">gtk-open</property>
++                                      </object>
++                                    </child>
++                                  </object>
++                                  <packing>
++                                    <property name="left_attach">2</property>
++                                    <property name="right_attach">3</property>
++                                    <property name="top_attach">3</property>
++                                    <property name="bottom_attach">4</property>
++                                    <property name="x_options">GTK_FILL</property>
++                                    <property name="y_options"/>
 +                                  </packing>
 +                                </child>
                                </object>
                                <packing>
                                  <property name="expand">False</property>
 diff --git a/src/build.c b/src/build.c
-index 4c9f4ebb2..aa811fc60 100644
+index 4c9f4ebb2..996758d80 100644
 --- a/src/build.c
 +++ b/src/build.c
-@@ -772,7 +772,13 @@ static gchar *build_replace_placeholder(const GeanyDocument *doc, const gchar *s
+@@ -772,10 +772,11 @@ static gchar *build_replace_placeholder(const GeanyDocument *doc, const gchar *s
  static void build_spawn_cmd(GeanyDocument *doc, const gchar *cmd, const gchar *dir)
  {
  	GError *error = NULL;
 -	gchar *argv[] = { "/bin/sh", "-c", NULL, NULL };
-+	gchar *argv[] = { (gchar *)utils_get_shell_path(tool_prefs.shell),
-+#ifdef __APPLE__
-+		/* run as a login shell as the macOS terminal app does this and users
-+		 * typically update their login shell configuration file */
-+		"-l",
-+#endif
-+		"-c", NULL, NULL };
++	gchar *argv[] = { tool_prefs.shell_cmd, "-l", "-c", NULL, NULL };
  	gchar *working_dir;
  	gchar *utf8_working_dir;
  	gchar *cmd_string;
-@@ -799,8 +805,12 @@ static void build_spawn_cmd(GeanyDocument *doc, const gchar *cmd, const gchar *d
++	gchar *shell = NULL;
+ 
+ 	g_return_if_fail(doc == NULL || doc->is_valid);
+ 
+@@ -799,8 +800,16 @@ static void build_spawn_cmd(GeanyDocument *doc, const gchar *cmd, const gchar *d
  
  #ifdef G_OS_UNIX
  	cmd_string = utils_get_locale_from_utf8(cmd);
 -	argv[2] = cmd_string;
  	cmd = NULL;  /* under Unix, use argv to start cmd via sh for compatibility */
-+# ifdef __APPLE__
-+	argv[3] = cmd_string;  /* because of the extra -l argument */
-+# else
-+	argv[2] = cmd_string;
-+# endif
++	shell = g_path_get_basename(tool_prefs.shell_cmd);
++	if (g_strcmp0(shell, "csh") == 0 || g_strcmp0(shell, "tcsh") == 0)
++	{
++		/* csh and tcsh don't support -l together with -c so don't use it */
++		argv[1] = "-c";
++		argv[2] = cmd_string;
++	}
++	else
++		argv[3] = cmd_string;
  #else
  	/* Expand environment variables like %blah%. */
  	cmd_string = win32_expand_environment_variables(cmd);
-@@ -1160,10 +1170,14 @@ static gchar *build_create_shellscript(const gchar *working_dir, const gchar *cm
+@@ -825,6 +834,7 @@ static void build_spawn_cmd(GeanyDocument *doc, const gchar *cmd, const gchar *d
  
- 	escaped_dir = g_shell_quote(working_dir);
- 	str = g_strdup_printf(
--		"#!/bin/sh\n\nrm $0\n\ncd %s\n\n%s\n\necho \"\n\n------------------\n(program exited with code: $?)\" \
--		\n\n%s\n", escaped_dir, cmd, (autoclose) ? "" :
--		"\necho \"Press return to continue\"\n#to be more compatible with shells like "
--			"dash\ndummy_var=\"\"\nread dummy_var");
-+		"rm $0\n\n"
-+		"cd %s\n\n"
-+		"%s\n\n"
-+		"echo \"\n\n------------------\n(program exited with code: $?)\"\n\n"
-+		"%s\n",
-+		escaped_dir, cmd, (autoclose) ? "" :
-+			"\necho \"Press return to continue\"\n#to be more compatible with shells like "
-+				"dash\ndummy_var=\"\"\nread dummy_var");
- 	g_free(escaped_dir);
+ 	g_free(working_dir);
+ 	g_free(cmd_string);
++	g_free(shell);
+ }
  
- 	if (!g_file_set_contents(fname, str, -1, error))
+ 
 diff --git a/src/keyfile.c b/src/keyfile.c
-index a5f6e9dfd..09b0f7414 100644
+index a5f6e9dfd..d4daa0b2f 100644
 --- a/src/keyfile.c
 +++ b/src/keyfile.c
-@@ -98,6 +98,11 @@
- #define GEANY_MAX_AUTOCOMPLETE_WORDS	30
- #define GEANY_MAX_SYMBOLS_UPDATE_FREQ	250
- #define GEANY_DEFAULT_FILETYPE_REGEX    "-\\*-\\s*([^\\s]+)\\s*-\\*-"
+@@ -93,6 +93,11 @@
+ #endif
+ #define GEANY_DEFAULT_TOOLS_PRINTCMD	"lpr"
+ #define GEANY_DEFAULT_TOOLS_GREP		"grep"
 +#ifdef __APPLE__
-+# define GEANY_DEFAULT_SHELL GEANY_SHELL_BASH
++# define GEANY_DEFAULT_TOOLS_SHELL "/bin/bash"
 +#else
-+# define GEANY_DEFAULT_SHELL GEANY_SHELL_SH
++# define GEANY_DEFAULT_TOOLS_SHELL "/bin/sh"
 +#endif
- 
- 
- static gchar *scribble_text = NULL;
+ #define GEANY_DEFAULT_MRU_LENGTH		10
+ #define GEANY_TOGGLE_MARK				"~ "
+ #define GEANY_MAX_AUTOCOMPLETE_WORDS	30
 @@ -523,6 +528,7 @@ static void save_dialog_prefs(GKeyFile *config)
  	g_key_file_set_string(config, "tools", "terminal_cmd", tool_prefs.term_cmd ? tool_prefs.term_cmd : "");
  	g_key_file_set_string(config, "tools", "browser_cmd", tool_prefs.browser_cmd ? tool_prefs.browser_cmd : "");
  	g_key_file_set_string(config, "tools", "grep_cmd", tool_prefs.grep_cmd ? tool_prefs.grep_cmd : "");
-+	g_key_file_set_integer(config, "tools", "shell", tool_prefs.shell);
++	g_key_file_set_string(config, "tools", "shell_cmd", tool_prefs.shell_cmd ? tool_prefs.shell_cmd : "");
  	g_key_file_set_string(config, PACKAGE, "context_action_cmd", tool_prefs.context_action_cmd);
  
  	/* build menu */
-@@ -883,14 +889,7 @@ static void load_dialog_prefs(GKeyFile *config)
- 	{
- 		StashGroup *group;
- 		struct passwd *pw = getpwuid(getuid());
--		const gchar *shell = (pw != NULL) ? pw->pw_shell : "/bin/sh";
--
--#ifdef __APPLE__
--		/* Geany is started using launchd on OS X and we don't get any environment variables
--		 * so PS1 isn't defined. Start as a login shell to read the corresponding config files. */
--		if (strcmp(shell, "/bin/bash") == 0)
--			shell = "/bin/bash -l";
--#endif
-+		const gchar *shell = (pw != NULL) ? pw->pw_shell : utils_get_shell_path(tool_prefs.shell);
- 
- 		vc = g_new0(VteConfig, 1);
- 		vte_info.dir = utils_get_setting_string(config, "VTE", "last_dir", NULL);
-@@ -902,6 +901,12 @@ static void load_dialog_prefs(GKeyFile *config)
- 			vte_info.dir = g_strdup("/");
- 
- 		vc->shell = utils_get_setting_string(config, "VTE", "shell", shell);
-+#ifdef __APPLE__
-+		/* run as a login shell as the macOS terminal app does this and users
-+		 * typically update their login shell configuration file */
-+		if (strstr(shell, "-l") == NULL)
-+			SETPTR(vc->shell, g_strconcat(shell, " -l", NULL));
-+#endif
- 		vc->font = utils_get_setting_string(config, "VTE", "font", GEANY_DEFAULT_FONT_EDITOR);
- 		vc->scroll_on_key = utils_get_setting_boolean(config, "VTE", "scroll_on_key", TRUE);
- 		vc->scroll_on_out = utils_get_setting_boolean(config, "VTE", "scroll_on_out", TRUE);
-@@ -965,6 +970,7 @@ static void load_dialog_prefs(GKeyFile *config)
+@@ -965,6 +971,7 @@ static void load_dialog_prefs(GKeyFile *config)
  	tool_prefs.term_cmd = cmd;
  	tool_prefs.browser_cmd = utils_get_setting_string(config, "tools", "browser_cmd", GEANY_DEFAULT_TOOLS_BROWSER);
  	tool_prefs.grep_cmd = utils_get_setting_string(config, "tools", "grep_cmd", GEANY_DEFAULT_TOOLS_GREP);
-+	tool_prefs.shell = utils_get_setting_integer(config, "tools", "shell", GEANY_DEFAULT_SHELL);
++	tool_prefs.shell_cmd = utils_get_setting_string(config, "tools", "shell_cmd", GEANY_DEFAULT_TOOLS_SHELL);
  
  	tool_prefs.context_action_cmd = utils_get_setting_string(config, PACKAGE, "context_action_cmd", "");
  
 diff --git a/src/prefs.c b/src/prefs.c
-index 5d1b5fc97..b2cd1ee4c 100644
+index 5d1b5fc97..f43f83619 100644
 --- a/src/prefs.c
 +++ b/src/prefs.c
-@@ -683,6 +683,9 @@ static void prefs_init_dialog(void)
+@@ -683,6 +683,8 @@ static void prefs_init_dialog(void)
  	if (tool_prefs.grep_cmd)
  		gtk_entry_set_text(GTK_ENTRY(ui_lookup_widget(ui_widgets.prefs_dialog, "entry_grep")), tool_prefs.grep_cmd);
  
-+	widget = ui_lookup_widget(ui_widgets.prefs_dialog, "combo_shell");
-+	gtk_widget_set_tooltip_text(widget, _("Shell used at various places, e.g. to run compilers, execute commands, etc."));
-+	gtk_combo_box_set_active(GTK_COMBO_BOX(widget), tool_prefs.shell);
++	if (tool_prefs.shell_cmd)
++		gtk_entry_set_text(GTK_ENTRY(ui_lookup_widget(ui_widgets.prefs_dialog, "entry_shell1")), tool_prefs.shell_cmd);
  
  	/* Template settings */
  	widget = ui_lookup_widget(ui_widgets.prefs_dialog, "entry_template_developer");
-@@ -1160,6 +1163,8 @@ on_prefs_dialog_response(GtkDialog *dialog, gint response, gpointer user_data)
+@@ -1160,6 +1162,9 @@ on_prefs_dialog_response(GtkDialog *dialog, gint response, gpointer user_data)
  		g_free(tool_prefs.grep_cmd);
  		tool_prefs.grep_cmd = g_strdup(gtk_entry_get_text(GTK_ENTRY(widget)));
  
-+		widget = ui_lookup_widget(ui_widgets.prefs_dialog, "combo_shell");
-+		tool_prefs.shell = gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
++		widget = ui_lookup_widget(ui_widgets.prefs_dialog, "entry_shell1");
++		g_free(tool_prefs.shell_cmd);
++		tool_prefs.shell_cmd = g_strdup(gtk_entry_get_text(GTK_ENTRY(widget)));
  
  		/* Template settings */
  		widget = ui_lookup_widget(ui_widgets.prefs_dialog, "entry_template_developer");
-@@ -1655,7 +1660,7 @@ void prefs_show_dialog(void)
- {
- 	if (ui_widgets.prefs_dialog == NULL)
- 	{
--		GtkListStore *eol_list;
-+		GtkListStore *eol_list, *shell_list;
- 		GtkWidget *label;
- 
- 		ui_widgets.prefs_dialog = create_prefs_dialog();
-@@ -1788,6 +1793,12 @@ void prefs_show_dialog(void)
+@@ -1727,6 +1732,7 @@ void prefs_show_dialog(void)
+ 				"entry_com_term",
+ 				"entry_browser",
+ 				"entry_grep",
++				"entry_shell1",
+ 				"entry_contextaction",
+ 				"entry_template_developer",
+ 				"entry_template_initial",
+@@ -1787,6 +1793,10 @@ void prefs_show_dialog(void)
+ 			NULL,
  			GTK_FILE_CHOOSER_ACTION_OPEN,
  			GTK_ENTRY(ui_lookup_widget(ui_widgets.prefs_dialog, "entry_grep")));
++		ui_setup_open_button_callback(ui_lookup_widget(ui_widgets.prefs_dialog, "button_shell"),
++			NULL,
++			GTK_FILE_CHOOSER_ACTION_OPEN,
++			GTK_ENTRY(ui_lookup_widget(ui_widgets.prefs_dialog, "entry_shell1")));
  
-+		/* init the shell combo box */
-+		shell_list = ui_builder_get_object("shell_list");
-+		list_store_append_text(shell_list, utils_get_shell_path(GEANY_SHELL_SH));
-+		list_store_append_text(shell_list, utils_get_shell_path(GEANY_SHELL_BASH));
-+		list_store_append_text(shell_list, utils_get_shell_path(GEANY_SHELL_ZSH));
-+
  		/* tools commands */
  		ui_setup_open_button_callback(ui_lookup_widget(ui_widgets.prefs_dialog, "button_contextaction"),
- 			NULL,
 diff --git a/src/prefs.h b/src/prefs.h
-index dcf33a502..049c04478 100644
+index dcf33a502..aedfcb0f8 100644
 --- a/src/prefs.h
 +++ b/src/prefs.h
-@@ -42,6 +42,15 @@ typedef struct GeanyPrefs
- }
- GeanyPrefs;
- 
-+/** Shell types used for running commands */
-+typedef enum
-+{
-+	GEANY_SHELL_SH = 0,	/**< /bin/sh */
-+	GEANY_SHELL_BASH,   /**< /bin/bash */
-+	GEANY_SHELL_ZSH,    /**< /bin/zsh */
-+}
-+GeanyShell;
-+
- /** Tools preferences */
- typedef struct GeanyToolPrefs
- {
-@@ -49,6 +58,7 @@ typedef struct GeanyToolPrefs
+@@ -49,6 +49,7 @@ typedef struct GeanyToolPrefs
  	gchar			*term_cmd;				/**< terminal emulator command */
  	gchar			*grep_cmd;				/**< grep command */
  	gchar			*context_action_cmd;	/**< context action command */
-+	GeanyShell		shell;					/**< shell used for running commands */
++	gchar			*shell_cmd;				/**< shell used for running commands */
  }
  GeanyToolPrefs;
  
-diff --git a/src/printing.c b/src/printing.c
-index e974c6a85..c229f45ef 100644
---- a/src/printing.c
-+++ b/src/printing.c
-@@ -41,6 +41,7 @@
- #include "support.h"
- #include "utils.h"
- #include "ui_utils.h"
-+#include "prefs.h"
- 
- #include <math.h>
- #include <time.h>
-@@ -599,10 +600,16 @@ static void print_external(GeanyDocument *doc)
- 			doc->file_name, cmdline))
- 	{
- 		GError *error = NULL;
--		/* /bin/sh -c emulates the system() call and makes complex commands possible
-+		/* $SHELL -c emulates the system() call and makes complex commands possible
- 		 * but only on non-win32 systems due to the lack of win32's shell capabilities */
- 	#ifdef G_OS_UNIX
--		gchar *argv[] = { "/bin/sh", "-c", cmdline, NULL };
-+		gchar *argv[] = { (gchar *)utils_get_shell_path(tool_prefs.shell),
-+	# ifdef __APPLE__
-+		/* run as a login shell as the macOS terminal app does this and users
-+		 * typically update their login shell configuration file */
-+			"-l",
-+	# endif
-+			"-c", cmdline, NULL };
- 
- 		if (!spawn_async(NULL, NULL, argv, NULL, NULL, &error))
- 	#else
-diff --git a/src/utils.c b/src/utils.c
-index 4e3788ad6..a1c84b6a4 100644
---- a/src/utils.c
-+++ b/src/utils.c
-@@ -400,6 +400,16 @@ const gchar *utils_get_eol_char(gint eol_mode)
- 	}
- }
- 
-+const gchar *utils_get_shell_path(gint shell_type)
-+{
-+	switch (shell_type)
-+	{
-+		case GEANY_SHELL_BASH: return "/bin/bash"; break;
-+		case GEANY_SHELL_ZSH: return "/bin/zsh"; break;
-+		default: return "/bin/sh"; break;
-+	}
-+}
-+
- 
- /* Converts line endings to @a target_eol_mode. */
- void utils_ensure_same_eol_characters(GString *string, gint target_eol_mode)
-diff --git a/src/utils.h b/src/utils.h
-index bdbe7bb27..2246a1995 100644
---- a/src/utils.h
-+++ b/src/utils.h
-@@ -245,6 +245,8 @@ const gchar *utils_get_eol_name(gint eol_mode);
- 
- const gchar *utils_get_eol_short_name(gint eol_mode);
- 
-+const gchar *utils_get_shell_path(gint shell_type);
-+
- gboolean utils_atob(const gchar *str);
- 
- void utils_tidy_path(gchar *filename);
 -- 
 2.17.1
 

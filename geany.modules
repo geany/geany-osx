@@ -102,6 +102,7 @@
             revision="master" >
       <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-geany_config_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-geany_vte_login_shell.patch" strip="1" />
       <!-- TODO: remove once merged upstream-->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-geany_scintilla_im_fix.patch" strip="1" />
     </branch>
@@ -119,6 +120,7 @@
             version="1.36">
       <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-geany_config_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-geany_vte_login_shell.patch" strip="1" />
       <!-- TODO: remove once merged upstream-->
       <patch file="https://github.com/geany/geany-osx/raw/master/patches/02-geany_scintilla_im_fix.patch" strip="1" />
     </branch>
