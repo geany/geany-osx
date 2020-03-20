@@ -29,6 +29,11 @@ A brief description of the contents of the project directory:
 *	*Papirus, Papirus-Dark*: Papirus GTK 3 icon theme with lots of unneeded
 	icons removed to save space.
 *	*iconbuilder.iconset*: source Geany icons for the bundle.
+*	*modulesets-stable*: copy of the modulesets-stable directory from
+	the [gtk-osx](https://gitlab.gnome.org/GNOME/gtk-osx/) project containing
+	dependency specifications. Since the upstram project is in a constant
+	state of flux and fails to build frequently, this allows us to make
+	a snapshot of a working configuration for our build.
 *	*patches*: various patches fixing dependencies to enable bundling.
 *	*utils*: various utility scripts.
 
@@ -99,10 +104,13 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	optimization flags. The `setup_release()` call enables optimizations.
 
 5.	Install GTK and all of its dependencies by running the following
-	command:
+	command inside the `geany-osx` directory:
 	```
-	jhbuild bootstrap-gtk-osx && jhbuild build meta-gtk-osx-freetype meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
+	jhbuild bootstrap-gtk-osx && jhbuild -m "https://raw.githubusercontent.com/geany/geany-osx/master/modulesets-stable/gtk-osx.modules" build meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 	```
+	It is possible to skip the module specification part `-m <url>`
+	in which case the upstream module specification is used instead
+	of our snapshot.
 
 Geany Build
 -----------
@@ -131,6 +139,7 @@ Bundling
 	```
 	xcodebuild -project Launcher/geany/geany.xcodeproj
 	```
+	inside the `geany-osx` directory.
 
 2.	Run
 	```
@@ -208,7 +217,11 @@ have to be performed during normal bundle/installer creation:
 	`Info.plist` and `create_dmg.sh`. Also update the `-release` targets in
 	`geany.modules` file to point to the new release. Dependencies inside
 	`geany.modules` can also be updated to newer versions.
-	
+
+*	Copy `modulesets-stable` from [gtk-osx](https://gitlab.gnome.org/GNOME/gtk-osx/)
+	into this project to get the latest dependencies (if it builds) and
+	possibly modify it (if something isn't working).
+
 *	To make sure nothing is left from the previous build when making a
 	new release, run
 	```
