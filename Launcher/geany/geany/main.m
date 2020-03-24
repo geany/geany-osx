@@ -186,7 +186,7 @@ static int run_geany() {
     config = @{
         THEME_KEY: [ConfigValue valueWithDefault:@"0" comment:@"0: automatic selection based on system settings (requires Geany restart when changed, macOS 10.14+); 1: light; 2: dark; make sure there's no ~/.config/gtk-3.0/settings.ini file, otherwise it overrides the settings made here"],
         LOCALE_KEY: [ConfigValue valueWithDefault:@"" comment:@"no value: autodetect; locale string: locale to be used (e.g. en_US.UTF-8)"],
-        IM_MODULE_KEY: [ConfigValue valueWithDefault:@"" comment:@"no value: don't use any IM module; module name: use the specified module, e.g. 'quartz' for native macOS behavior (slightly buggy so not enabled by default), for complete list of modules see Geany.app/Contents/Resources/lib/gtk-3.0/3.0.0/immodules, use without the 'im-' prefix"],
+        IM_MODULE_KEY: [ConfigValue valueWithDefault:@"quartz" comment:@"no value: don't use any IM module; module name: use the specified module, e.g. 'quartz' for native macOS behavior, for complete list of modules, see Geany.app/Contents/Resources/lib/gtk-3.0/3.0.0/immodules, use without the 'im-' prefix"],
     };
 
     read_config();
