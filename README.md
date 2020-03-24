@@ -230,4 +230,4 @@ have to be performed during normal bundle/installer creation:
 
 ---
 
-Jiri Techet, 2019
+Jiri Techet, 2020
