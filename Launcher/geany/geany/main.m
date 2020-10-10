@@ -1,6 +1,6 @@
 /*
  can also be compiled using
- clang -fobjc-arc $OBJCFLAGS $LDFLAGS -framework Foundation -framework Cocoa LauncherGtk3/geany/geany/main.m -o geany
+ clang -fobjc-arc $OBJCFLAGS $LDFLAGS -framework Foundation -framework Cocoa Launcher/geany/geany/main.m -o geany
  */
 
 #import <Foundation/Foundation.h>
