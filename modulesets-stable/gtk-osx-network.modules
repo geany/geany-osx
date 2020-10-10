@@ -6,7 +6,8 @@
               href="http://ftp.gnome.org/pub/GNOME/sources/"/>
   <repository name="openssl" type="tarball"
               href="https://www.openssl.org/source/"/>
-  <repository name="ftp.gnu.org" type="tarball" href="https://ftp.gnu.org/gnu/"/>
+  <repository name="ftp.gnu.org" type="tarball"
+              href="https://ftp.gnu.org/gnu/"/>
   <repository name="sourceforge" type="tarball"
               href="http://downloads.sourceforge.net/sourceforge/"/>
   <repository name="gnutls" type="tarball" href="https://www.gnupg.org/ftp/"/>
@@ -14,8 +15,6 @@
               href="http://downloads.webmproject.org/releases/"/>
   <repository name="webkit.org" type="tarball"
               href="http://www.webkitgtk.org/releases/"/>
-  <repository type="tarball" name="icu"
-              href="http://download.icu-project.org/files/"/>
   <repository type="tarball" name="github-tarball" href="https://github.com/"/>
 
   <!-- Builds last version of WebKitGTK that supported GTK 2.x -->
@@ -39,17 +38,17 @@
   <autotools id="openssl" autogen-sh="Configure" autogenargs="shared "
              autogen-template="%(srcdir)s/%(autogen-sh)s --prefix=%(prefix)s --openssldir=%(prefix)s/etc/ssl %(autogenargs)s"
              makeinstallargs="install_sw" supports-non-srcdir-builds="no">
-    <branch module="openssl-1.1.1c.tar.gz" version="1.1.1c" repo="openssl"
-            hash="sha256:f6fb3079ad15076154eda9413fed42877d668e7069d9b87396d0804fdb3f4c90"/>
+    <branch module="openssl-1.1.1g.tar.gz" version="1.1.1g" repo="openssl"
+            hash="sha256:ddb04774f1e32f0c49751e21b67216ac87852ceb056b75209af2443400636d46"/>
   </autotools>
 
   <!-- Rudely demands TeX to build documentation -->
-  <!-- Assembler files are missing md5-compress.asm for x86_64 -->
   <autotools id="libnettle" autogen-sh="configure"
-             autogenargs="--disable-documentation --disable-assembler">
-    <branch repo="ftp.gnu.org" version="3.3"
-            module="nettle/nettle-3.3.tar.gz">
-      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/libnettle-cc-for-build-needs-cflags.patch" strip="1"/>
+             autogenargs="--disable-documentation">
+    <branch repo="ftp.gnu.org" version="3.5.1"
+            module="nettle/nettle-3.5.1.tar.gz"
+            hash="sha256:75cca1998761b02e16f2db56da52992aef622bf55a3b45ec538bc2eedadc9419">
+      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/libnettle-cc-for-build-return.patch" strip="1"/>
     </branch>
     <dependencies>
       <dep package="gmp"/>
@@ -59,9 +58,9 @@
 
   <autotools id="libtasn1" supports-non-srcdir-builds="no"
              autogen-sh="configure">
-    <branch repo="ftp.gnu.org" version="4.12"
-            module="libtasn1/libtasn1-4.12.tar.gz"
-            hash="sha256:6753da2e621257f33f5b051cc114d417e5206a0818fe0b1ecfd6153f70934753" />
+    <branch repo="ftp.gnu.org" version="4.15.0"
+            module="libtasn1/libtasn1-4.15.0.tar.gz"
+            hash="sha256:dd77509fe8f5304deafbca654dc7f0ea57f5841f41ba530cff9a5bf71382739e" />
   </autotools>
 
   <autotools id="zlib" autogen-sh="configure" skip-autogen="never"
@@ -71,10 +70,12 @@
   </autotools>
 
   <!-- Building with p11-kit support breaks g-ir-scanner, for some weird reason. -->
-  <autotools id="gnutls" autogen-sh="configure"
+  <autotools id="gnutls" autogen-sh="autoreconf"
              autogenargs="--disable-gtk-doc-html --without-p11-kit">
-    <branch repo="gnutls" version="3.5.18"
-            module="gcrypt/gnutls/v3.5/gnutls-3.5.18.tar.xz"/>
+    <branch repo="gnutls" version="3.6.14"
+            hash="sha256:5630751adec7025b8ef955af4d141d00d252a985769f51b4059e5affa3d39d63"
+            module="gcrypt/gnutls/v3.6/gnutls-3.6.14.tar.xz">
+    </branch>
     <dependencies>
       <dep package="libunistring"/>
       <dep package="libnettle"/>
@@ -84,30 +85,30 @@
   </autotools>
 
   <autotools id="libgcrypt" autogen-sh="configure">
-    <branch repo="gnutls" version="1.7.6"
-            module="gcrypt/libgcrypt/libgcrypt-1.7.6.tar.gz"/>
+    <branch repo="gnutls" version="1.8.6"
+            hash="sha256:626aafee84af9d2ce253d2c143dc1c0902dda045780cc241f39970fc60be05bc"
+            module="gcrypt/libgcrypt/libgcrypt-1.8.6.tar.bz2"/>
   </autotools>
 
-  <autotools id="glib-networking" autogen-sh="configure"
-             autogenargs="--without-ca-certificates set_more_warnings=no">
-    <branch module="glib-networking/2.50/glib-networking-2.50.0.tar.xz"
-            hash="sha256:3f1a442f3c2a734946983532ce59ed49120319fdb10c938447c373d5e5286bee"
-            version="2.50.0"/>
+  <meson id="glib-networking" mesonargs="-Dopenssl=enabled">
+         <branch module="glib-networking/2.65/glib-networking-2.65.1.tar.xz"
+            hash="sha256:45a4a22651f0268b45c26ab4a16282f06f2995fdaf5aa8d221e535099cdd7783"
+            version="2.65.1"/>
     <dependencies>
       <dep package="gnutls"/>
       <dep package="glib"/>
     </dependencies>
-  </autotools>
+  </meson>
 
   <autotools id="libpsl" autogen-sh='configure'>
-    <branch repo="github-tarball" version="0.20.2"
-            module="rockdaboot/libpsl/releases/download/libpsl-0.20.2/libpsl-0.20.2.tar.gz" />
+    <branch repo="github-tarball" version="0.21.0"
+            hash="sha256:41bd1c75a375b85c337b59783f5deb93dbb443fb0a52d257f403df7bd653ee12"
+            module="rockdaboot/libpsl/releases/download/libpsl-0.21.0/libpsl-0.21.0.tar.gz"/>
   </autotools>
 
-  <autotools id="libsoup" autogen-sh="configure"
-             autogenargs="set_more_warnings=no --enable-introspection=no">
-    <branch module="libsoup/2.64/libsoup-2.64.2.tar.xz" version="2.64.2"
-            hash="sha256:75ddc194a5b1d6f25033bb9d355f04bfe5c03e0e1c71ed0774104457b3a786c6">
+  <meson id="libsoup" mesonargs="-Dvapi=disabled">
+    <branch module="libsoup/2.68/libsoup-2.68.4.tar.xz" version="2.68.4"
+            hash="sha256:2d50b12922cc516ab6a7c35844d42f9c8a331668bbdf139232743d82582b3294">
     </branch>
     <dependencies>
       <dep package="libpsl"/>
@@ -117,7 +118,7 @@
       <dep package="sqlite"/>
       <dep package="vala"/>
     </dependencies>
-  </autotools>
+  </meson>
 
   <autotools id="libwebp" autogen-sh="configure"  autogenargs="--enable-libwebpmux --enable-libwebpdecoder">
     <branch repo="webm" module="webp/libwebp-1.0.0.tar.gz" version="1.0.0"/>
@@ -126,8 +127,9 @@
   <autotools id="icu55" autogen-sh="source/configure"
              autogenargs="--enable-rpath"
              makeargs='CFLAGS="$CFLAGS -DU_CHARSET_IS_UTF8=1 -DU_USING_ICU_NAMESPACE=0"'>
-    <branch repo="icu" version="55.1" checkoutdir="icu"
-            module="icu4c/55.1/icu4c-55_1-src.tgz"/>
+    <branch repo="github-tarball" version="55.2" checkoutdir="icu"
+            module="unicode-org/icu/releases/download/release-55-2/icu4c-55_2-src.tgz"
+            hash="sha256:eda2aa9f9c787748a2e2d310590720ca8bcc6252adf6b4cfb03b65bef9d66759"/>
   </autotools>
 
   <!-- This is WebKitGTK 2.4.x, the last version that had the WebKit1 API.
@@ -159,7 +161,6 @@
       <dep package="enchant"/>
       <dep package="icu55"/>
       <dep package="libsoup"/>
-      <dep package="meta-gtk-osx-freetype"/>
     </dependencies>
     <after>
       <dep package="meta-gtk-osx-gtk"/>
@@ -183,7 +184,6 @@
       <dep package="enchant"/>
       <dep package="icu55"/>
       <dep package="libsoup"/>
-      <dep package="meta-gtk-osx-freetype"/>
     </dependencies>
     <after>
       <dep package="meta-gtk-osx-gtk3"/>
@@ -222,7 +222,6 @@
       <dep package="icu"/>
       <dep package="libsoup"/>
       <dep package="libgcrypt"/>
-      <dep package="meta-gtk-osx-freetype"/>
     </dependencies>
     <after>
       <dep package="meta-gtk-osx-gtk3"/>

@@ -254,7 +254,7 @@ Libglade itself is deprecated. This is the last release. -->
     </dependencies>
   </autotools>
 
-  <autotools id="gtkspell3" autogen-sh="configure">
+  <autotools id="gtkspell3" autogen-sh="configure" autogenargs="--enable-vala=no">
     <branch module="gtkspell/gtkspell3-3.0.9.tar.xz" repo="sourceforge"
             version="3.0.9">
       <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/0001-Enable-use-of-XDG_DATA_DIRS-for-locating-iso-code-fi.patch" strip="1"/>
