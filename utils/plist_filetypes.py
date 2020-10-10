@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 
 # Insert the contents of the [Extensions] section from filetype_extensions.conf below
@@ -11,6 +11,7 @@ Arduino=*.ino;*.pde;
 Asciidoc=*.asciidoc;*.adoc;
 ASM=*.asm;*.asm51;*.a51;*.s;*.S;*.sx;
 Batch=*.bat;*.cmd;*.nt;
+BibTeX=*.bib;
 CAML=*.ml;*.mli;
 C=*.c;*.xpm;
 C++=*.cpp;*.cxx;*.c++;*.cc;*.h;*.hpp;*.hxx;*.h++;*.hh;*.C;*.H;
@@ -36,18 +37,21 @@ Genie=*.gs;
 GLSL=*.glsl;*.frag;*.vert;
 Go=*.go;
 Graphviz=*.gv;*.dot;
+Groovy=*.groovy;*.gradle;
 Haskell=*.hs;*.lhs;*.hs-boot;*.lhs-boot;
 Haxe=*.hx;
 HTML=*.htm;*.html;*.shtml;*.hta;*.htd;*.htt;*.cfm;*.tpl;
 Java=*.java;*.jsp;
 Javascript=*.js;
 JSON=*.json;
-LaTeX=*.tex;*.sty;*.idx;*.ltx;*.latex;*.aux;*.bib;
+Kotlin=*.kt;*.kts;
+LaTeX=*.tex;*.sty;*.idx;*.ltx;*.latex;*.aux;
 Lisp=*.lisp;
 Lua=*.lua;
 Make=*.mak;*.mk;GNUmakefile;makefile;Makefile;makefile.*;Makefile.*;
 Markdown=*.mdml;*.markdown;*.md;*.mkd;*.mkdn;*.mdwn;*.mdown;*.mdtxt;*.mdtext;
 Matlab/Octave=*.m;
+Nim=*.nim;
 NSIS=*.nsi;*.nsh;
 Objective-C=*.m;*.mm;*.h;
 Pascal=*.pas;*.pp;*.inc;*.dpr;*.dpk;
@@ -62,9 +66,12 @@ Rust=*.rs;
 Ruby=*.rb;*.rhtml;*.ruby;*.gemspec;Gemfile;rakefile;Rakefile;
 Scala=*.scala;*.scl;
 Sh=*.sh;configure;configure.in;configure.in.in;configure.ac;*.ksh;*.mksh;*.zsh;*.ash;*.bash;.bashrc;bash.bashrc;.bash_*;bash_*;*.m4;PKGBUILD;*profile;
+Smalltalk=*.st;
 SQL=*.sql;
+Swift=*.swift;
 Tcl=*.tcl;*.tk;*.wish;*.exp;
 Txt2tags=*.t2t;
+TypeScript=*.ts;
 Vala=*.vala;*.vapi;
 Verilog=*.v;
 VHDL=*.vhd;*.vhdl;
@@ -76,29 +83,29 @@ Zephir=*.zep;
 
 def print_plist_entry(lang, ext_set):
 	padding = '\t\t'
-	print padding + '<dict>'
+	print(padding + '<dict>')
 	padding += '\t'
 	
-	print padding + '<key>CFBundleTypeName</key>'
-	print padding + '<string>' + lang + ' Source</string>'
+	print(padding + '<key>CFBundleTypeName</key>')
+	print(padding + '<string>' + lang + ' Source</string>')
 
-	print padding + '<key>CFBundleTypeExtensions</key>'
-	print padding + '<array>'
+	print(padding + '<key>CFBundleTypeExtensions</key>')
+	print(padding + '<array>')
 	padding += '\t'
 	for ext in sorted(ext_set):
-		print padding + '<string>' + ext + '</string>'
+		print(padding + '<string>' + ext + '</string>')
 	padding = padding[:-1]
-	print padding + '</array>'
+	print(padding + '</array>')
 
-	print padding + '<key>CFBundleTypeIconFile</key>'
-	print padding + '<string>Geany.icns</string>'
-	print padding + '<key>CFBundleTypeRole</key>'
-	print padding + '<string>Editor</string>'
-	print padding + '<key>LSHandlerRank</key>'
-	print padding + '<string>Alternate</string>'
+	print(padding + '<key>CFBundleTypeIconFile</key>')
+	print(padding + '<string>Geany.icns</string>')
+	print(padding + '<key>CFBundleTypeRole</key>')
+	print(padding + '<string>Editor</string>')
+	print(padding + '<key>LSHandlerRank</key>')
+	print(padding + '<string>Alternate</string>')
 
 	padding = padding[:-1]
-	print padding + '</dict>'
+	print(padding + '</dict>')
 
 
 lines = filetype_extensions.split('\n')
