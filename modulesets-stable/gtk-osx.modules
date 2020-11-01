@@ -144,7 +144,7 @@ configurations of WebKit.
   </cmake>
 
   <autotools id="fontconfig" autogen-sh="configure"
-             autogenargs="--disable-docs">
+             autogenargs="--disable-docs --with-default-fonts=/System/Library/Fonts --with-add-fonts=/Library/Fonts --with-cache-dir=home">
     <branch repo="fontconfig" version="2.13.1"
             module="fontconfig-2.13.1.tar.bz2"/>
     <dependencies>

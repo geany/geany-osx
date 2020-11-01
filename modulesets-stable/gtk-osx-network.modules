@@ -203,18 +203,20 @@
       patches, this is untested.
     ENABLE_CREDENTIAL_STORAGE: Requires libsecret. No module for this yet.
     ENABLE_GEOLOCATION: Requires geoclue. No module for this yet.
-    ENABLE_OPENGL: Untested.
+    ENABLE_OPENGL: Known to not work with Quartz.
     USE_LIBNOTIFY: Requires libnotify. No module for this yet.
     USE_LIBHYPHEN: Requires libhyphen. No module for this yet.
   -->
   <cmake id="webkit2gtk3"
-         cmakeargs='-DPORT=GTK -DENABLE_X11_TARGET=OFF -DENABLE_QUARTZ_TARGET=ON -DENABLE_INTROSPECTION=OFF  -DENABLE_OPENGL=OFF -DENABLE_PLUGIN_PROCESS_GTK2=OFF -DENABLE_VIDEO=OFF -DENABLE_WEB_AUDIO=OFF -DENABLE_GEOLOCATION=OFF -DUSE_LIBNOTIFY=OFF -DUSE_LIBHYPHEN=OFF -DUSE_LIBSECRET=OFF -DENABLE_TOUCH_EVENTS=OFF -DCMAKE_CXX_FLAGS="-stdlib=libc++"'>
-    <branch repo="webkit.org" module="webkitgtk-2.16.6.tar.xz" version="2.16.6">
-      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/Webkit-2.16-build-without-OpenGL.patch" strip="1"/>
-      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/Webkit-2.16-Fix-some-includes.patch" strip="1"/>
-      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/webkit-2.16-No-stringview-lifetime.patch" strip="1"/>
-      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/webkit-2.16-main-thread.patch" strip="1"/>
-
+         cmakeargs='-DPORT=GTK -DENABLE_X11_TARGET=OFF -DENABLE_QUARTZ_TARGET=ON -DENABLE_INTROSPECTION=OFF  -DENABLE_OPENGL=OFF -DENABLE_VIDEO=OFF -DENABLE_WEB_AUDIO=OFF -DENABLE_GEOLOCATION=OFF -DUSE_LIBNOTIFY=OFF -DUSE_LIBHYPHEN=OFF -DUSE_LIBSECRET=OFF -DENABLE_TOUCH_EVENTS=OFF  -DUSE_OPENJPEG=OFF -DUSE_WOFF2=OFF -DUSE_WPE_RENDERER=OFF -DENABLE_GRAPHICS_CONTEXT_GL=OFF -DCMAKE_CXX_FLAGS="-stdlib=libc++" -DCMAKE_MACOSX_RPATH=OFF'>
+    <branch repo="webkit.org" module="webkitgtk-2.28.2.tar.xz" version="2.28.2">
+      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/patch-webkit2gtk-macports.diff" strip="0"/>
+      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/patch-webkit2gtk-272-macports.diff" strip="0"/>
+      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/patch-webkit2gtk-2282-unprotected-egl-changes.diff" strip="0"/>
+      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/patch-webkit2gtk-2282-os-log-availability.diff" strip="0"/>
+      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/patch-bundle-link-webcore.diff" strip="0"/>
+      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/webkit-clang-fixes.patch" strip="0"/>
+      <patch file="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/patches/0001-Prevent-WebKitWebProcess-from-being-in-the-dock-or-p.patch" strip="1"/>
     </branch>
     <dependencies>
       <dep package="libwebp"/>
