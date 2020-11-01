@@ -92,9 +92,9 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	```
 	to set path to jhbuild installed in the previous step.
 
-4.	Add the following lines to `~/.jhbuildrc-custom`:
+4.	Add the following lines to `~/.config/jhbuildrc-custom`:
 	```
-	setup_sdk(target="10.11", sdk_version="native", architectures=["x86_64"])
+	setup_sdk(target="10.11", architectures=["x86_64"])
 	setup_release()
 	```
 	With this settings, the build creates a 64-bit binary that works on
@@ -104,17 +104,20 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 5.	Install GTK and all of its dependencies by running the following
 	command inside the `geany-osx` directory:
 	```
-	jhbuild bootstrap-gtk-osx && jhbuild -m "https://raw.githubusercontent.com/geany/geany-osx/master/modulesets-stable/gtk-osx.modules" build meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
+	jhbuild bootstrap-gtk-osx && jhbuild build python3 meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 	```
-	It is possible to skip the module specification part `-m <url>`
-	in which case the upstream module specification is used instead
-	of our snapshot.
+	The upstream project is sometimes in an unstable state and fails to build;
+	if this happens, you can use our snapshot of modulesets which was used
+	to build the last release of Geany:
+	```
+	jhbuild bootstrap-gtk-osx && jhbuild -m "https://raw.githubusercontent.com/geany/geany-osx/master/modulesets-stable/gtk-osx.modules" build python3 meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
+	```
 
 Geany Build
 -----------
 1.	Run
 	```
-	export LC_ALL=en_US.UTF-8; export LANG=en_US.UTF-8; export PYTHON=python3
+	export LC_ALL=en_US.UTF-8; export LANG=en_US.UTF-8
 	```
 	(docutils fails when you do not set these variables).
 
