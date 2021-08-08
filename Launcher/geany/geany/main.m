@@ -1,6 +1,6 @@
 /*
  can also be compiled using
- clang -fobjc-arc $OBJCFLAGS $LDFLAGS -framework Foundation -framework Cocoa Launcher/geany/geany/main.m -o geany
+ clang -fobjc-arc $OBJCFLAGS $LDFLAGS -framework Foundation -framework Cocoa Launcher/geany/geany/main.m -o Launcher/geany/build/Release/geany
  */
 
 #import <Foundation/Foundation.h>
@@ -16,6 +16,9 @@
 #define LOCALE_KEY @"locale"
 #define IM_MODULE_KEY @"im_module"
 
+//system ARG_MAX is 1024*1024 and when allocated on stack it causes stack overflow
+#define MY_ARG_MAX (16 * 1024)
+
 
 @interface ConfigValue : NSObject
 
@@ -29,7 +32,7 @@
 
 @implementation ConfigValue
 
-+ valueWithDefault:(NSString *)deflt comment:(NSString *)comment {
++ (ConfigValue *) valueWithDefault:(NSString *)deflt comment:(NSString *)comment {
     ConfigValue *val = [[ConfigValue alloc] init];
     val.value = deflt;
     val.desc = comment;
@@ -43,7 +46,7 @@
 NSDictionary<NSString *, ConfigValue *> *config = nil;
 
 
-static void read_config() {
+static void read_config(void) {
     NSString *file = [NSString stringWithContentsOfFile:CONFIG_FILE encoding:NSUTF8StringEncoding error:nil];
     if (file == nil) {
         return;
@@ -77,7 +80,7 @@ static BOOL write_to_file(NSString *content, NSString *path) {
 }
 
 
-static void write_config_if_needed() {
+static void write_config_if_needed(void) {
     /* Rewrite config file if some configuration option isn't present. This way we can let
        users know about new config options possibly introduced in the future. */
     BOOL update_config = NO;
@@ -102,7 +105,7 @@ static void write_config_if_needed() {
 }
 
 
-static BOOL write_gtk_config() {
+static BOOL write_gtk_config(void) {
     BOOL light = YES;
     NSString *theme = config[THEME_KEY].value;
     if ([theme isEqualToString:@"1"]) {
@@ -173,7 +176,7 @@ static int fill_argv_array(const char *arr[], NSArray<NSString *> *array) {
     for (NSString *value in array) {
         arr[i] = [value UTF8String];
         i++;
-        if (i == ARG_MAX - 1) {
+        if (i == MY_ARG_MAX - 1) {
             break;
         }
     }
@@ -182,7 +185,7 @@ static int fill_argv_array(const char *arr[], NSArray<NSString *> *array) {
 }
 
 
-static int run_geany() {
+static int run_geany(void) {
     config = @{
         THEME_KEY: [ConfigValue valueWithDefault:@"0" comment:@"0: automatic selection based on system settings (requires Geany restart when changed, macOS 10.14+); 1: light; 2: dark; make sure there's no ~/.config/gtk-3.0/settings.ini file, otherwise it overrides the settings made here"],
         LOCALE_KEY: [ConfigValue valueWithDefault:@"" comment:@"no value: autodetect; locale string: locale to be used (e.g. en_US.UTF-8)"],
@@ -255,12 +258,10 @@ static int run_geany() {
     
     export_env_array(env);
     
-    if (@available(macOS 10.12, *)) {
-        //to remove "show tab bar", "show all tabs" automatically added to the View menu
-        NSWindow.allowsAutomaticWindowTabbing = NO;
-    }
+    //to remove "show tab bar", "show all tabs" automatically added to the View menu
+    NSWindow.allowsAutomaticWindowTabbing = NO;
 
-    const char *argv[ARG_MAX];
+    const char *argv[MY_ARG_MAX];
     int argc = fill_argv_array(argv, args);
     
     /*
