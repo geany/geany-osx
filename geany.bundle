@@ -73,7 +73,7 @@
 
   <!-- libenchant modules needed by the spellchecker plugin -->
   <binary>
-    ${prefix}/lib/enchant/*.so
+    ${prefix}/lib/enchant-2/*.so
   </binary>
 
   <!-- Geany's plugins -->
