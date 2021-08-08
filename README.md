@@ -94,11 +94,11 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 
 4.	Add the following lines to `~/.config/jhbuildrc-custom`:
 	```
-	setup_sdk(target="10.11", architectures=["x86_64"])
+	setup_sdk(target="10.13", architectures=["x86_64"])
 	setup_release()
 	```
 	With this settings, the build creates a 64-bit binary that works on
-	macOS 10.11 and later. By default, jhbuild compiles without 
+	macOS 10.13 and later. By default, jhbuild compiles without 
 	optimization flags. The `setup_release()` call enables optimizations.
 
 5.	Install GTK and all of its dependencies by running the following
@@ -231,4 +231,4 @@ have to be performed during normal bundle/installer creation:
 
 ---
 
-Jiri Techet, 2020
+Jiri Techet, 2021
