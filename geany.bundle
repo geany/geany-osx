@@ -161,8 +161,8 @@
     ${prefix}/share/themes/Mac
   </data>
 
-  <data dest="${bundle}/Contents/Resources/share/themes/Mojave-light-solid">
-    ${project}/Mojave-light-solid
+  <data dest="${bundle}/Contents/Resources/share/themes/WhiteSur-light-solid">
+    ${project}/WhiteSur-light-solid
   </data>
 
   <data dest="${bundle}/Contents/Resources/etc/${gtkdir}/settings.ini">

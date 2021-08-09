@@ -5,9 +5,9 @@ Papirus icon theme:
 	LGPLv3
 	https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 
-Mojave GTK Theme:
-	GPLv2
-	https://github.com/vinceliuice/Mojave-gtk-theme
+WhiteSur GTK Theme:
+	MIT
+	https://github.com/vinceliuice/WhiteSur-gtk-theme.git
 
 The rest of the geany-osx project (scripts, configuration files, etc.):
 	public domain

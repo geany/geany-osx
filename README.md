@@ -25,7 +25,7 @@ A brief description of the contents of the project directory:
 ### Directories
 *	*Launcher*: A binary launcher which is used to set up environment
 	variables to run Geany.
-*	*Mojave-light-solid*: Mojave GTK 3 Theme
+*	*WhiteSur-light-solid*: WhiteSur GTK 3 Theme
 *	*Papirus, Papirus-Dark*: Papirus GTK 3 icon theme with lots of unneeded
 	icons removed to save space.
 *	*iconbuilder.iconset*: source Geany icons for the bundle.
