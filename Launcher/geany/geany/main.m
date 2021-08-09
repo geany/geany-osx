@@ -226,9 +226,6 @@ static int run_geany(void) {
         
         //TODO: replace with XDG_DATA_DIRS in Geany
         @"GEANY_PLUGINS_SHARE_PATH": [bundle_share stringByAppendingPathComponent: @"geany-plugins"],
-        
-        //patched in https://gitlab.gnome.org/GNOME/gtk-osx/blob/master/patches/enchant-env.patch
-        @"ENCHANT_MODULE_PATH": [bundle_lib stringByAppendingPathComponent: @"enchant"],
     } mutableCopy];
     
     if (config[IM_MODULE_KEY].value.length > 0) {
