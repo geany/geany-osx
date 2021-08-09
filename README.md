@@ -104,7 +104,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 5.	Install GTK and all of its dependencies by running the following
 	command inside the `geany-osx` directory:
 	```
-	jhbuild bootstrap-gtk-osx && jhbuild build python3 meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
+	jhbuild bootstrap-gtk-osx && jhbuild build python3 && jhbuild run pip3 install pygments && jhbuild build meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 	```
 	The upstream project is sometimes in an unstable state and fails to build;
 	if this happens, you can use our snapshot of modulesets which was used
