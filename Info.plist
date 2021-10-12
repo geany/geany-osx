@@ -791,6 +791,20 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>Julia Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>jl</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>Kotlin Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
