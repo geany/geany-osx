@@ -43,7 +43,7 @@
     <branch module="vte/0.64/vte-${version}.tar.xz" 
             version="0.64.2">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-vte_2.91_relpath.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03-vte_2.91_relpath.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="pcre2" />
@@ -66,7 +66,7 @@
     <branch module="gtk-mac-integration/3.0/gtk-mac-integration-${version}.tar.xz"
             checkoutdir="gtk-mac-integration-fixed"
             version="3.0.1">
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-gtk_mac_integration_radio_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-gtk_mac_integration_radio_fix.patch" strip="1" />
     </branch>
   </autotools>  
   
@@ -101,8 +101,8 @@
             checkoutdir="geany-git"
             revision="master" >
       <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-geany_config_shell.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-geany_vte_login_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_config_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03-geany_vte_login_shell.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-deps" />
@@ -118,8 +118,8 @@
             checkoutdir="geany-${version}"
             version="1.38">
       <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/01-geany_config_shell.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/patches/03-geany_vte_login_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_config_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03-geany_vte_login_shell.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-deps" />

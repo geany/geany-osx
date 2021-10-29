@@ -34,7 +34,7 @@ A brief description of the contents of the project directory:
 	dependency specifications. Since the upstram project is in a constant
 	state of flux and fails to build frequently, this allows us to make
 	a snapshot of a working configuration for our build.
-*	*patches*: various patches fixing dependencies to enable bundling.
+*	*geany_patches*: various patches fixing dependencies to enable bundling.
 *	*utils*: various utility scripts.
 
 ### Configuration files
