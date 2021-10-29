@@ -1,0 +1,26 @@
+From 5bbb4c1d93218117e90997df8b770d2d1a493f10 Mon Sep 17 00:00:00 2001
+From: John Ralls <jralls@ceridwen.us>
+Date: Sat, 31 Oct 2020 17:01:17 -0700
+Subject: [PATCH 2/7] WebKit2Gtk3 Force FindICU instead of inserting headers
+ and using the ICU Framework.
+
+---
+ Source/cmake/WebKitFindPackage.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Source/cmake/WebKitFindPackage.cmake b/Source/cmake/WebKitFindPackage.cmake
+index a35d15a..7e9552c 100644
+--- a/Source/cmake/WebKitFindPackage.cmake
++++ b/Source/cmake/WebKitFindPackage.cmake
+@@ -86,7 +86,7 @@ macro(find_package package)
+     endif ()
+ 
+     # Apple builds have a unique location for ICU
+-    if (APPLE AND "${package}" STREQUAL "ICU")
++    if (APPLE AND "${package}" STREQUAL "ICU" AND NOT PORT STREQUAL "GTK")
+         set(_found_package ON)
+ 
+         set(ICU_INCLUDE_DIRS ${CMAKE_BINARY_DIR}/ICU/Headers)
+-- 
+2.2.2
+

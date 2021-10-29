@@ -1,0 +1,11 @@
+--- a/configure	2019-06-26 22:35:06.000000000 -0700
++++ b/configure	2020-09-28 09:14:49.000000000 -0700
+@@ -4638,7 +4638,7 @@
+ int
+ main ()
+ {
+-  exit(0);
++  return(0);
+ }
+ EOF
+ gmp_compile="$CC_FOR_BUILD conftest.c"

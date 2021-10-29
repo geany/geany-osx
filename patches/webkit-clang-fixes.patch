@@ -1,0 +1,33 @@
+--- Source/WTF/wtf/PointerPreparations.h~	2020-02-04 02:24:07.000000000 -0800
++++ Source/WTF/wtf/PointerPreparations.h	2020-10-20 12:36:53.000000000 -0700
+@@ -34,7 +34,7 @@
+ #if COMPILER_HAS_CLANG_BUILTIN(__builtin_get_vtable_pointer)
+ 
+ template<typename T>
+-ALWAYS_INLINE void* getVTablePointer(T* o) { return __builtin_get_vtable_pointer(o); }
++ALWAYS_INLINE const void* getVTablePointer(T* o) { return __builtin_get_vtable_pointer(o); }
+ 
+ #else // not COMPILER_HAS_CLANG_BUILTIN(__builtin_get_vtable_pointer)
+ 
+--- Source/WebCore/bindings/scripts/CodeGeneratorJS.pm~	2020-02-04 02:24:07.000000000 -0800
++++ Source/WebCore/bindings/scripts/CodeGeneratorJS.pm	2020-10-20 14:09:05.000000000 -0700
+@@ -4881,7 +4881,7 @@
+         push(@implContent, <<END) if $vtableNameGnu;
+ 
+ #if ENABLE(BINDING_INTEGRITY)
+-    void* actualVTablePointer = getVTablePointer(impl.ptr());
++    const void* actualVTablePointer = getVTablePointer(impl.ptr());
+ #if PLATFORM(WIN)
+     void* expectedVTablePointer = ${vtableRefWin};
+ #else
+--- Source/WebKit/UIProcess/gtk/WebDataListSuggestionsDropdownGtk.cpp~	2020-02-04 02:24:08.000000000 -0800
++++ Source/WebKit/UIProcess/gtk/WebDataListSuggestionsDropdownGtk.cpp	2020-10-20 14:55:56.000000000 -0700
+@@ -33,7 +33,7 @@
+ #include <WebCore/GtkUtilities.h>
+ #include <WebCore/IntPoint.h>
+ #include <wtf/glib/GRefPtr.h>
+-#include <wtf/glib/GUniquePtr.h>
++#include <WebCore/GUniquePtrGtk.h>
+ 
+ namespace WebKit {
+ 

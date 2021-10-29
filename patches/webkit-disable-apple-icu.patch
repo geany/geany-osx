@@ -1,0 +1,12 @@
+--- Source/cmake/WebKitFindPackage.cmake~	2020-08-12 02:17:57.000000000 -0700
++++ Source/cmake/WebKitFindPackage.cmake	2020-10-20 11:26:45.000000000 -0700
+@@ -86,7 +86,8 @@
+     endif ()
+ 
+     # Apple builds have a unique location for ICU
+-    if (APPLE AND "${package}" STREQUAL "ICU")
++    if (NOT "${PORT}" STREQUAL "GTK" AND APPLE AND "${package}" STREQUAL "ICU")
++      message(FATAL_ERROR "Attempting to use Apple ICU with Port=${PORT}")
+         set(_found_package ON)
+ 
+         set(ICU_INCLUDE_DIRS ${CMAKE_BINARY_DIR}/ICU/Headers)

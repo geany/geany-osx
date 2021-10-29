@@ -1,0 +1,40 @@
+From c53d0d90151eee296aa636d05b7ac2d27283155b Mon Sep 17 00:00:00 2001
+From: John Ralls <jralls@ceridwen.us>
+Date: Mon, 9 Nov 2020 09:39:19 -0800
+Subject: [PATCH 5/7] Extend UNIX_DOMAIN_SOCKETS precence over Mac and Windows
+ IPC to Shared Memory.
+
+---
+ Source/WebKit/Platform/SharedMemory.h                             | 2 +-
+ Source/WebKit/WebProcess/WebCoreSupport/WebPlatformStrategies.cpp | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Source/WebKit/Platform/SharedMemory.h b/Source/WebKit/Platform/SharedMemory.h
+index 7cd44db..cae19ac 100644
+--- a/Source/WebKit/Platform/SharedMemory.h
++++ b/Source/WebKit/Platform/SharedMemory.h
+@@ -73,7 +73,7 @@ public:
+ 
+         bool isNull() const;
+ 
+-#if OS(DARWIN) || OS(WINDOWS)
++#if !USE(UNIX_DOMAIN_SOCKETS) && (OS(DARWIN) || OS(WINDOWS))
+         size_t size() const { return m_size; }
+ #endif
+ 
+diff --git a/Source/WebKit/WebProcess/WebCoreSupport/WebPlatformStrategies.cpp b/Source/WebKit/WebProcess/WebCoreSupport/WebPlatformStrategies.cpp
+index 528fa47..4268457 100644
+--- a/Source/WebKit/WebProcess/WebCoreSupport/WebPlatformStrategies.cpp
++++ b/Source/WebKit/WebProcess/WebCoreSupport/WebPlatformStrategies.cpp
+@@ -409,7 +409,7 @@ RefPtr<WebCore::SharedBuffer> WebPlatformStrategies::readBufferFromPasteboard(si
+     WebProcess::singleton().parentProcessConnection()->sendSync(Messages::WebPasteboardProxy::ReadBufferFromPasteboard(index, pasteboardType, pasteboardName), Messages::WebPasteboardProxy::ReadBufferFromPasteboard::Reply(handle, size), 0);
+     if (handle.isNull())
+         return nullptr;
+-#if OS(DARWIN) || OS(WINDOWS)
++#if !USE(UNIX_DOMAIN_SOCKETS) && (OS(DARWIN) || OS(WINDOWS))
+     // SharedMemory::Handle::size() is rounded up to the nearest page.
+     if (!size || size > handle.size())
+         return nullptr;
+-- 
+2.2.2
+

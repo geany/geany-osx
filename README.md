@@ -29,11 +29,11 @@ A brief description of the contents of the project directory:
 *	*Papirus, Papirus-Dark*: Papirus GTK 3 icon theme with lots of unneeded
 	icons removed to save space.
 *	*iconbuilder.iconset*: source Geany icons for the bundle.
-*	*modulesets-stable*: copy of the modulesets-stable directory from
-	the [gtk-osx](https://gitlab.gnome.org/GNOME/gtk-osx/) project containing
-	dependency specifications. Since the upstram project is in a constant
-	state of flux and fails to build frequently, this allows us to make
-	a snapshot of a working configuration for our build.
+*	*modulesets-stable, patches*: copy of the modulesets-stable and patches 
+    directory from the [gtk-osx](https://gitlab.gnome.org/GNOME/gtk-osx/)
+	project containing dependency specifications. Since the upstram project 
+	is sometimes in an unstable state, this allows us to make a snapshot of
+	a working configuration for our build.
 *	*geany_patches*: various patches fixing dependencies to enable bundling.
 *	*utils*: various utility scripts.
 
