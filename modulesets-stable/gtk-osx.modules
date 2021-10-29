@@ -295,7 +295,7 @@
 
   <!-- gtk3 is in maintenance mode with 3.24 the final release series. -->
   <meson id="gtk+-3.0"
-             mesonargs="-Dquartz-backend=true -Dx11-backend=false -Dmedia=none">
+             mesonargs="-Dquartz_backend=true -Dx11_backend=false">
     <branch module="gtk+/3.24/gtk+-3.24.30.tar.xz" version="3.24.30"
             hash="sha256:ba75bfff320ad1f4cfbee92ba813ec336322cc3c660d406aad014b07087a3ba9">
       <patch file="Quartz-version-detection-for-macOS-12.patch" strip="1"/>
