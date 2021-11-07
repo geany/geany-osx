@@ -69,15 +69,24 @@ Prerequisities
 *	macOS
 *	Xcode and command-line tools
 
-JHBuild Installation
---------------------
+Building
+--------
 To create the bundle, you need to first install JHBuild and GTK as described below.
 
 1.	Create a new account for jhbuild (not necessary but this makes sure
 	jhbuild does not interfere with some other command-line tools installed
 	on your system).
+	
+2.	Depending on the used shell, add the following lines
+	```
+	export PATH=$PATH:"$HOME/.new_local/bin"
+	export LC_ALL=en_US.UTF-8
+	export LANG=en_US.UTF-8
+	```
+	either to your `.zprofile` or `.bash_profile` to make sure these variables
+	are defined and restart your shell.
 
-2.	Get `gtk-osx-setup.sh` by
+3.	Get `gtk-osx-setup.sh` by
 	```
 	curl -L -o gtk-osx-setup.sh https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/gtk-osx-setup.sh
 	```
@@ -86,20 +95,18 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	sh gtk-osx-setup.sh
 	```
 
-3.	Run
-	```
-	export PATH=$PATH:"$HOME/.new_local/bin"
-	```
-	to set path to jhbuild installed in the previous step.
-
 4.	Add the following lines to `~/.config/jhbuildrc-custom`:
 	```
 	setup_sdk(target="10.13", architectures=["x86_64"])
 	setup_release()
 	```
 	With this settings, the build creates a 64-bit binary that works on
-	macOS 10.13 and later. By default, jhbuild compiles without 
-	optimization flags. The `setup_release()` call enables optimizations.
+	macOS 10.13 and later. Instead of `x86_64` you can also specify
+	`arm64` to produce binaries for Apple ARM processors (this only works
+	when building on an ARM processor - it isn't possible to compile
+	ARM binaries on an Intel processor). By default, 
+	jhbuild compiles without optimization flags. The `setup_release()`
+	call enables optimizations.
 
 5.	Install GTK and all of its dependencies by running the following
 	command inside the `geany-osx` directory:
@@ -113,15 +120,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	jhbuild bootstrap-gtk-osx && jhbuild -m "https://raw.githubusercontent.com/geany/geany-osx/master/modulesets-stable/gtk-osx.modules" build python3 meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 	```
 
-Geany Build
------------
-1.	Run
-	```
-	export LC_ALL=en_US.UTF-8; export LANG=en_US.UTF-8
-	```
-	(docutils fails when you do not set these variables).
-
-2.	To build Geany, plugins and all of their dependencies, run one of
+6.	To build Geany, plugins and all of their dependencies, run one of
 	the following commands inside the `geany-osx` directory  depending on
 	whether to use Geany sources from the latest release tarball or current
 	git master:
@@ -138,7 +137,7 @@ Bundling
 --------
 1.  To build the launcher binary, run
 	```
-	xcodebuild -project Launcher/geany/geany.xcodeproj
+	xcodebuild ARCHS=`uname -m` -project Launcher/geany/geany.xcodeproj
 	```
 	inside the `geany-osx` directory.
 
@@ -148,7 +147,7 @@ Bundling
 	```
 	to start jhbuild shell. 
 
-	*The rest of this section assumes you are running from within the jhbuild shell.*
+	*Steps 3 and 4 of this section assume you are running from within the jhbuild shell.*
 
 3.	To bundle all available Geany themes, get them from
 
@@ -162,7 +161,9 @@ Bundling
 	./bundle.sh
 	```
 
-5.	Optionally, if you have a development account at Apple and want to
+5.	Leave jhbuild shell if it was entered in step 2 by typing `exit`.
+
+6.	Optionally, if you have a development account at Apple and want to
 	sign the resulting bundle, get the list of signing identities by
 	```
 	security find-identity -p codesigning
