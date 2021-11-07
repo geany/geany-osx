@@ -100,17 +100,17 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	setup_sdk(target="10.13", architectures=["x86_64"])
 	setup_release()  # enables optimizations
 	```
-	With this settings, the build creates a 64-bit binary that works on
+	With this settings, the build creates a 64-bit Intel binary that works on
 	macOS 10.13 and later. Instead of `x86_64` you can also specify
 	`arm64` to produce binaries for Apple ARM processors. This only works
-	when building on an ARM processor - it isn't possible to compile
-	ARM binaries on an Intel processor. It is, however, possible to compile
+	when building on an ARM processors - it isn't possible to compile
+	ARM binaries on Intel processors. It is, however, possible to compile
 	`x86_64` binaries on an ARM Mac - to do so, it is necessary to run
 	```
 	env /usr/bin/arch -x86_64 /bin/zsh --login
 	```
 	which creates a `x86_64` shell and all the compilation steps below
-	have to be executed in this shell
+	have to be executed in this shell.
 
 5.	Install GTK and all of its dependencies by running the following
 	command inside the `geany-osx` directory:
