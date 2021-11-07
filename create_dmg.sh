@@ -9,6 +9,11 @@ DMGNAME="geany-${VERSION}_osx.dmg"
 APPNAME="${NAME}.app"
 TMPDIR="tmp-out"
 
+ARCH=`uname -m`
+if [ "$ARCH" = "arm64" ]; then
+	DMGNAME="geany-${VERSION}_osx_arm64.dmg"
+fi
+
 mkdir "$TMPDIR"
 cp -R "$APPNAME" "$TMPDIR"
 
