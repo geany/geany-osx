@@ -231,7 +231,7 @@ have to be performed during normal bundle/installer creation:
 *	To make sure nothing is left from the previous build when making a
 	new release, run
 	```
-	rm -rf .new_local Source gtk .cache/jhbuild
+	rm -rf .new_local .local Source gtk .cache/jhbuild
 	```
 
 ---
