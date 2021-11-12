@@ -92,7 +92,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	```
 	and run it:
 	```
-	sh gtk-osx-setup.sh
+	bash gtk-osx-setup.sh
 	```
 
 4.	Add the following lines to `~/.config/jhbuildrc-custom`:
