@@ -28,6 +28,7 @@ A brief description of the contents of the project directory:
 *	*WhiteSur-light-solid*: WhiteSur GTK 3 Theme
 *	*Papirus, Papirus-Dark*: Papirus GTK 3 icon theme with lots of unneeded
 	icons removed to save space.
+*	*macos-icon-design*: design file for macOS Geany icon.
 *	*iconbuilder.iconset*: source Geany icons for the bundle.
 *	*modulesets-stable, patches*: copy of the modulesets-stable and patches 
     directory from the [gtk-osx](https://gitlab.gnome.org/GNOME/gtk-osx/)
