@@ -35,7 +35,7 @@
             version="10.39"/>
   </autotools>
 
-  <meson id="vte291" mesonargs="-Dgnutls=false -Dicu=false -Dvapi=false -D_b_symbolic_functions=false">
+  <meson id="vte291" mesonargs="-Dicu=false -Dvapi=false -D_b_symbolic_functions=false">
     <branch repo="download.gitlab.gnome.org"
             module="vte/-/archive/${version}/vte-${version}.tar.bz2" 
             version="0.66.1">
@@ -44,6 +44,7 @@
     </branch>
     <dependencies>
       <dep package="pcre2" />
+      <dep package="gnutls" />
     </dependencies>
   </meson>
 
