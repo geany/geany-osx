@@ -138,7 +138,9 @@
     <branch repo="github.com"
             module="geany/geany-plugins.git"
             checkoutdir="geany-plugins-git"
-            revision="master" />
+            revision="master">
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_plugins_spellcheck_relocation.patch" strip="1" />
+    </branch>
     <dependencies>
       <dep package="geany-git" />
       <dep package="geany-plugins-deps" />
@@ -151,7 +153,9 @@
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-${version}.tar.bz2"
             checkoutdir="geany-plugins-${version}"
-            version="1.38" />
+            version="1.38">
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_plugins_spellcheck_relocation.patch" strip="1" />
+    </branch>
     <dependencies>
       <dep package="geany-release" />
       <dep package="geany-plugins-deps" />

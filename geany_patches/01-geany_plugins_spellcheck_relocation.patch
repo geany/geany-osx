@@ -1,0 +1,28 @@
+From 7379b7c197f5cdbcf94457b5fc0c3f441acbbd56 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Sat, 13 Nov 2021 13:53:00 +0100
+Subject: [PATCH] Set relocation prefix to the spellcheck plugin
+
+---
+ spellcheck/src/speller.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/spellcheck/src/speller.c b/spellcheck/src/speller.c
+index 897dfa28..a342e5b4 100644
+--- a/spellcheck/src/speller.c
++++ b/spellcheck/src/speller.c
+@@ -599,6 +599,11 @@ static void log_enchant_version(void)
+ 
+ void sc_speller_init(void)
+ {
++	gchar *prefix_dir = g_build_filename(g_getenv("GTK_PATH"), NULL);
++	if (g_file_test(prefix_dir, G_FILE_TEST_IS_DIR))
++		enchant_set_prefix_dir(prefix_dir);
++	g_free(prefix_dir);
++
+ 	log_enchant_version();
+ 	sc_speller_broker = enchant_broker_init();
+ 
+-- 
+2.31.1
+
