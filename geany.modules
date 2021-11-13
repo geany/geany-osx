@@ -128,6 +128,7 @@
     <dependencies>
       <dep package="vala" />
       <dep package="libgit2" />
+      <dep package="hunspell" />
       <dep package="enchant" />
     </dependencies>
   </metamodule>
