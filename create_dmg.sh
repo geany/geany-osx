@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 VERSION="1.38"
 
@@ -9,8 +9,8 @@ DMGNAME="geany-${VERSION}_osx.dmg"
 APPNAME="${NAME}.app"
 TMPDIR="tmp-out"
 
-ARCH=`uname -m`
-if [ "$ARCH" = "arm64" ]; then
+FILE_TYPE=`file Geany.app/Contents/MacOS/geany`
+if [[ "$FILE_TYPE" == *"arm64"* ]]; then
 	DMGNAME="geany-${VERSION}_osx_arm64.dmg"
 fi
 
