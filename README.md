@@ -77,8 +77,16 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 1.	Create a new account for jhbuild (not necessary but this makes sure
 	jhbuild does not interfere with some other command-line tools installed
 	on your system).
-	
-2.	Depending on the used shell, add the following lines
+
+2.	Optionally, when cross-compiling x86_64 binaries on a new ARM-based
+	Apple computer, run
+	```
+	env /usr/bin/arch -x86_64 /bin/zsh --login
+	```
+	to create a `x86_64` shell. All the compilation steps below
+	have to be executed in this shell.
+
+3.	Depending on the used shell, add the following lines
 	```
 	export PATH=$PATH:"$HOME/.new_local/bin"
 	export LC_ALL=en_US.UTF-8
@@ -87,7 +95,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	either to your `.zprofile` or `.bash_profile` to make sure these variables
 	are defined and restart your shell.
 
-3.	Get `gtk-osx-setup.sh` by
+4.	Get `gtk-osx-setup.sh` by
 	```
 	curl -L -o gtk-osx-setup.sh https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/gtk-osx-setup.sh
 	```
@@ -96,7 +104,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	bash gtk-osx-setup.sh
 	```
 
-4.	Add the following lines to `~/.config/jhbuildrc-custom`:
+5.	Add the following lines to `~/.config/jhbuildrc-custom`:
 	```
 	setup_sdk(target="10.13", architectures=["x86_64"])
 	setup_release()  # enables optimizations
@@ -104,16 +112,10 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	With this settings, the build creates a 64-bit Intel binary that works on
 	macOS 10.13 and later. Instead of `x86_64` you can also specify
 	`arm64` to produce binaries for Apple ARM processors. This only works
-	when building on an ARM processors - it isn't possible to compile
-	ARM binaries on Intel processors. It is, however, possible to compile
-	`x86_64` binaries on an ARM Mac - to do so, it is necessary to run
-	```
-	env /usr/bin/arch -x86_64 /bin/zsh --login
-	```
-	which creates a `x86_64` shell and all the compilation steps below
-	have to be executed in this shell.
+	when building on ARM processors - it isn't possible to compile
+	ARM binaries on Intel processors.
 
-5.	Install GTK and all of its dependencies by running the following
+6.	Install GTK and all of its dependencies by running the following
 	command inside the `geany-osx` directory:
 	```
 	jhbuild bootstrap-gtk-osx && jhbuild build python3 && jhbuild run pip3 install pygments && jhbuild build meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
@@ -125,7 +127,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	jhbuild bootstrap-gtk-osx && jhbuild -m "https://raw.githubusercontent.com/geany/geany-osx/master/modulesets-stable/gtk-osx.modules" build python3 meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 	```
 
-6.	To build Geany, plugins and all of their dependencies, run one of
+7.	To build Geany, plugins and all of their dependencies, run one of
 	the following commands inside the `geany-osx` directory  depending on
 	whether to use Geany sources from the latest release tarball or current
 	git master:
