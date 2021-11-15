@@ -233,7 +233,7 @@
     </after>
   </meson>
 
-  <meson id="gdk-pixbuf" mesonargs="-Dman=false">
+  <meson id="gdk-pixbuf" mesonargs="-Drelocatable=true -Dman=false">
     <branch module="gdk-pixbuf/2.42/gdk-pixbuf-2.42.4.tar.xz" version="2.42.4"
             hash="sha256:fe9c5dd88f486194ea2bc09b8814c1ed895bb6c530f37cbbf259757c4e482e4d">
       <patch file="gdk-pixbuf-loader-name.patch" strip="1"/>
@@ -294,8 +294,7 @@
   </meson>
 
   <!-- gtk3 is in maintenance mode with 3.24 the final release series. -->
-  <meson id="gtk+-3.0"
-             mesonargs="-Dquartz_backend=true -Dx11_backend=false">
+  <meson id="gtk+-3.0" mesonargs="-Dx11_backend=false">
     <branch module="gtk+/3.24/gtk+-3.24.30.tar.xz" version="3.24.30"
             hash="sha256:ba75bfff320ad1f4cfbee92ba813ec336322cc3c660d406aad014b07087a3ba9">
       <patch file="Quartz-version-detection-for-macOS-12.patch" strip="1"/>
@@ -367,7 +366,8 @@
             hash="sha256:767ec234ae7aa684695b3a735548224888132e063f92db585759b422570621d4"/>
   </autotools>
 
-  <autotools id="librsvg" autogenargs="--disable-Bsymbolic">
+  <autotools id="librsvg" autogen-sh="autoreconf"
+             autogenargs="--disable-Bsymbolic">
     <branch module="librsvg/2.51/librsvg-2.51.0.tar.xz" version="2.51.0"
             hash="sha256:89d32e38445025e1b1d9af3dd9d3aeb9f6fce527aeecbecf38b369b34c80c038"/>
     <dependencies>

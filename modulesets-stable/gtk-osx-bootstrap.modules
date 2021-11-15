@@ -41,7 +41,7 @@
     <branch version="4.2.0" module="libtiff/tiff-4.2.0.tar.gz"
             repo="libtiff"
             hash="sha256:eb0484e568ead8fa23b513e9b0041df7e327f4ee2d22db5a533929dfc19633cb">
-	<patch file="https://raw.githubusercontent.com/totaam/gtk-osx-build/master/patches/tiff-nohtml.patch" strip="1" />
+	<patch file="tiff-nohtml.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="libjpeg"/>
@@ -54,12 +54,12 @@
        module won't link. In case you're wondering, itstool
        needs libxml2's python module. -->
 
-  <autotools id="libxml2" autogen-sh="configure"
+  <autotools id="libxml2" autogen-sh="autoreconf"
              autogenargs='--libdir="$JHBUILD_LIBDIR" --with-python'>
-    <branch version="2.9.10" module="libxml2-2.9.10.tar.gz"
+    <branch version="2.9.12" module="libxml2-2.9.12.tar.gz"
             repo="xmlsoft.org"
-            hash="sha256:aafee193ffb8fe0c82d4afef6ef91972cbaf5feea100edc2f262750611b4be1f">
-      <patch file="libxml2.9.10-conditional-parentheses.patch" strip="1"/>            
+            hash="sha256:c8d6681e38c56f172892c85ddc0852e1fd4b53b4209e7f4ebf17f7e2eae71d92">
+      <patch file="libxml2-python-config.patch" strip="1"/>
     </branch>
     <after>
       <dep package="python2"/>

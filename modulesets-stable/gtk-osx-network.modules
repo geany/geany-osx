@@ -35,17 +35,33 @@
   </autotools>
 
   <!-- Rudely demands TeX to build documentation -->
-  <autotools id="libnettle" autogen-sh="configure"
-             autogenargs="--disable-documentation">
-    <branch repo="ftp.gnu.org" version="3.7.2"
-            module="nettle/nettle-3.7.2.tar.gz"
-            hash="sha256:8d2a604ef1cde4cd5fb77e422531ea25ad064679ff0adf956e78b3352e0ef162">
-    </branch>
-    <dependencies>
-      <dep package="gmp"/>
-      <dep package="openssl"/>
-    </dependencies>
-  </autotools>
+  <!-- libnettle 3.7 doesn't have arm64 assembler support and the support that's added in master is for arm-64-neutron that's incompatible with Apple Silicon. -->
+  <if condition-set="arm64">
+    <autotools id="libnettle" autogen-sh="configure"
+               autogenargs="--disable-documentation --disable-assembler">
+      <branch repo="ftp.gnu.org" version="3.7.2"
+              module="nettle/nettle-3.7.2.tar.gz"
+              hash="sha256:8d2a604ef1cde4cd5fb77e422531ea25ad064679ff0adf956e78b3352e0ef162">
+      </branch>
+      <dependencies>
+        <dep package="gmp"/>
+        <dep package="openssl"/>
+      </dependencies>
+    </autotools>
+  </if>
+  <if condition-unset="arm64">
+    <autotools id="libnettle" autogen-sh="configure"
+               autogenargs="--disable-documentation">
+      <branch repo="ftp.gnu.org" version="3.7.2"
+              module="nettle/nettle-3.7.2.tar.gz"
+              hash="sha256:8d2a604ef1cde4cd5fb77e422531ea25ad064679ff0adf956e78b3352e0ef162">
+      </branch>
+      <dependencies>
+        <dep package="gmp"/>
+        <dep package="openssl"/>
+      </dependencies>
+    </autotools>
+  </if>
 
   <autotools id="libtasn1" autogen-sh="configure">
     <branch repo="ftp.gnu.org" version="4.17.0"
@@ -69,6 +85,7 @@
             hash="sha256:8a8f40153dd5a3f8e7c03e641f8db400133fb2a6a9ab2aee1b6d0cb0495ec6b6">
     </branch>
     <dependencies>
+      <dep package="libffi"/>
       <dep package="libtasn1"/>
     </dependencies>
   </autotools>
@@ -85,6 +102,7 @@
         <dep package="libtasn1"/>
         <dep package="zlib"/>
         <dep package="p11-kit"/>
+        <dep package="libgcrypt"/>
       </dependencies>
     </autotools>
   </if>
