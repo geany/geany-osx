@@ -21,22 +21,6 @@
 .background { 
 
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   background-color: rgba(69,69,69,0.99); }
 
 .popup.background {
@@ -53,106 +37,26 @@
 .gtkstyle-fallback { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
- /* -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); */
   background-color: rgba(69,69,69,0.99);}
 
 .gtkstyle-fallback:hover { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: #5d5d5d;}
 
 .gtkstyle-fallback:active { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   background-color: #353535;}
 
 .gtkstyle-fallback:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: rgba(69,69,69,0.99);}
 
 .gtkstyle-fallback:selected { 
 
   color: #ffffff; 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   background-color: #15539e;}
   
 /* (((((((((( nautilus desktop icons settings ))))))))))*/
@@ -160,62 +64,16 @@
 .nautilus-desktop.nautilus-canvas-item{
 
   color: white;
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   font-weight: normal;}
 
 .nautilus-desktop.nautilus-canvas-item:active{
 
   color: white;
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); }
+}
 
 .nautilus-desktop.nautilus-canvas-item:selected{
   color: white;
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); }
+}
 
 .view, iconview, 
 .view text, 
@@ -223,22 +81,6 @@ iconview text,
 textview text { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
- -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   background-color: #353535;}
 
 .view:disabled, 
@@ -248,22 +90,6 @@ iconview text:disabled,
 textview text:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: rgba(69,69,69,0.99);}
 
 .view:selected:focus, 
@@ -326,42 +152,12 @@ label selection {
 
   background-color: #15539e;
   color: #ffffff;
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); }
+}
 
 label:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);}
+}
 
 .dim-label, 
 label.separator, 
@@ -398,22 +194,6 @@ popover.background.osd,
 .osd .scale-popup, .osd { 
 
   color: #ececec; 
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border: none; 
   background-color: rgba(69,69,69,0.98); 
   background-clip: padding-box;}
@@ -449,22 +229,6 @@ entry {
   border-radius: 0.34375rem;/*4.66px;*/ 
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   border-color: #393939;
   border-bottom-color: #323232; 
   background-color: #353535; 
@@ -503,22 +267,6 @@ spinbutton:disabled:not(.vertical),
 entry:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #393939;
   border-bottom-color: #323232;
   background-color: #363636; 
@@ -585,22 +333,6 @@ entry:drop(active) {
 .osd entry { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   border-color: #393939;
   border-bottom-color: #323232; 
   background-color: #353535;  
@@ -611,22 +343,6 @@ entry:drop(active) {
 .osd entry:focus { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #15539e;  
   background-color: #353535;  
   background-clip: padding-box; 
@@ -636,22 +352,6 @@ entry:drop(active) {
 .osd entry:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   border-color: #393939;
   border-bottom-color: #323232;  
   background-color: #353535; 
@@ -839,22 +539,6 @@ notebook > header > tabs > arrow,
 button.sidebar-button, 
 button.flat { 
  color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: transparent; 
   background-color: transparent; 
   background-image: none; 
@@ -871,22 +555,6 @@ button{
   border-radius: 0.34375rem;/*4.33px; */
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
 				 
   border-color: #393939;
   border-bottom-color: #323232;
@@ -899,22 +567,6 @@ button:active{
   border-color: #393939;
   border-bottom-color: #323232;
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-image: linear-gradient(to bottom,#494949,#595959);}
   
 notebook > header > tabs > arrow, 
@@ -946,22 +598,6 @@ notebook > header > tabs > arrow:hover,
 button:hover { 
   
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
 				 
   border-color: #484848; 
   border-bottom-color: #353535;
@@ -979,22 +615,6 @@ button:checked{
   color:white;
   background-image: linear-gradient(to top,#595959,#626262);
   /*background-image: linear-gradient(to bottom,#858585,#727272);*/
-  text-shadow:  -0.1px  0px alpha(#ffffff, 0.25),
-				  0.1px  0px alpha(#ffffff, 0.25),
-				  0px  0.1px alpha(#ffffff, 0.25),
-				  0px -0.1px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.1px  0px alpha(#ffffff, 0.2),
-				  0.1px  0px alpha(#ffffff, 0.2),
-				  0px  0.1px alpha(#ffffff, 0.4),
-				  0px -0.1px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   box-shadow: /*inset 0 1px rgba(255, 255, 255, 0.2),*/ 0 1px 2px rgba(0, 0, 0, 0.1); }
   
 /*button:checked:hover { 
@@ -1026,22 +646,6 @@ notebook > header > tabs > arrow:active,
  
 notebook > header > tabs > arrow:checked{ 
 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   color: #ffffff; 
   outline-color: rgba(46, 52, 54, 0.3); 
   border-color: #393939;
@@ -1063,22 +667,6 @@ button.flat:disabled{
 notebook > header > tabs > arrow:disabled, 
 button:disabled{ 
 color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #393939;
   border-bottom-color: #323232;
   background-image: linear-gradient(to top,#494949,#595959);
@@ -1088,22 +676,6 @@ color: #8b8b8b;
 headerbar button{
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #484848; 
   border-bottom-color: #353535; 
   box-shadow: none;
@@ -1113,22 +685,6 @@ headerbar button{
 headerbar button:hover { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #484848; 
   border-bottom-color: #353535;
   /*box-shadow: inset 0 0.6px #707171, 0 1px 2px rgba(0, 0, 0, 0.07);*/
@@ -1140,22 +696,6 @@ headerbar button:checked,
 headerbar button:active{
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #484848; 
   border-bottom-color: #353535;
   box-shadow: none;
@@ -1165,22 +705,6 @@ headerbar button:active{
 
 headerbar button:disabled { 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #484848; 
   border-bottom-color: #353535;
   box-shadow: none;
@@ -1193,22 +717,7 @@ button:disabled label,
 button:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 notebook > header > tabs > arrow:disabled:active, 
 notebook > header > tabs > arrow:disabled:checked, 
@@ -1216,22 +725,6 @@ button:disabled:active,
 button:disabled:checked { 
   
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #393939;
   border-bottom-color: #323232;
   background-image: linear-gradient(to bottom,#494949,#595959);
@@ -1247,22 +740,7 @@ button:disabled:checked label,
 button:disabled:checked { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 notebook > header > tabs > arrow.image-button, 
 button.image-button { 
@@ -1314,22 +792,6 @@ button.osd {
   min-width: 1.7875rem;/*26px;*/ 
   min-height: 2.2rem;/*32px;*/ 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-radius: 0.34375rem;/*4.66px;*/ 
   border-color: #393939;
   border-bottom-color: #323232; 
@@ -1349,22 +811,6 @@ button.osd:hover {
   border-bottom-color: #353535; 
   background-image: linear-gradient(to top,#595959,#626262);
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);  
   background-color: transparent; 
   background-clip: padding-box; 
   box-shadow: none; }
@@ -1375,22 +821,6 @@ button.osd:checked {
   border-color: #484848; 
   border-bottom-color: #353535;
   background-image: linear-gradient(to bottom,#494949,#595959);
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10);  
   background-color: transparent; 
   background-clip: padding-box; 
   box-shadow: none; }
@@ -1398,22 +828,6 @@ button.osd:checked {
 button.osd:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-radius: 0.34375rem;/*4.66px;*/ 
   border-color: #393939;
   border-bottom-color: #323232; 
@@ -1436,22 +850,6 @@ popover.background.magnifier button,
   background-image: linear-gradient(to top,#595959,#626262);
   -gtk-icon-effect: highlight; 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: transparent; 
   background-clip: padding-box; 
   box-shadow: none; }
@@ -1466,22 +864,6 @@ popover.background.magnifier button:hover,
   background-image: linear-gradient(to top,#595959,#626262);
   -gtk-icon-effect: highlight; 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: transparent; 
   background-clip: padding-box; 
   box-shadow: none; }
@@ -1497,22 +879,6 @@ popover.background.magnifier button:checked,
   border-bottom-color: #353535;
   background-image: linear-gradient(to bottom,#494949,#595959);
   color: white; 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   background-color: transparent; 
   background-clip: padding-box; 
   box-shadow: none; }
@@ -1523,22 +889,6 @@ popover.background.magnifier button:disabled,
 .osd button:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   border-radius: 0.34375rem;/*4.66px;*/ 
   border-color: #393939;
   border-bottom-color: #323232; 
@@ -1554,22 +904,6 @@ popover.background.magnifier button.flat,
 .osd button.flat { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: transparent; 
   background-color: transparent; 
   background-image: none; 
@@ -1586,22 +920,6 @@ popover.background.magnifier button.flat:hover,
   background-image: linear-gradient(to top,#595959,#626262);
   -gtk-icon-effect: highlight; 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   background-color: transparent; 
   background-clip: padding-box; 
   box-shadow: none; }
@@ -1612,22 +930,6 @@ popover.background.magnifier button.flat:disabled,
 .osd button.flat:disabled { 
 
  color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: transparent; 
   background-color: transparent; 
   background-image: none; 
@@ -1646,22 +948,6 @@ popover.background.magnifier button.flat:checked,
   border-bottom-color: #353535;
   background-image: linear-gradient(to bottom,#494949,#595959);
   color: white; 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   background-color: transparent; 
   background-clip: padding-box; 
   box-shadow: none; }
@@ -1669,22 +955,6 @@ popover.background.magnifier button.flat:checked,
 button.suggested-action { 
 
   color: white;
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10);  
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #484848; 
   border-bottom-color: #353535; 
@@ -1700,22 +970,6 @@ headerbar button.suggested-action {
 headerbar button.suggested-action:disabled {
 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #484848; 
   border-bottom-color: #353535;
   box-shadow: none;
@@ -1734,22 +988,6 @@ button.suggested-action.flat {
 button.suggested-action:hover { 
 
   color: white; 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #484848; 
   border-bottom-color: #353535;
@@ -1761,22 +999,6 @@ button.suggested-action:active,
 button.suggested-action:checked { 
 
   color: white; 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #484848; 
   border-bottom-color: #353535;
@@ -1790,42 +1012,11 @@ button.suggested-action:checked {
   background-image: none; 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0); 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 button.suggested-action:disabled {
 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #484848; 
   border-bottom-color: #353535; 
   box-shadow: none;
@@ -1835,22 +1026,7 @@ button.suggested-action:disabled label,
 button.suggested-action:disabled { 
 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 button.suggested-action:disabled:active, 
 button.suggested-action:disabled:checked { 
@@ -1866,41 +1042,10 @@ button.suggested-action:disabled:checked label,
 button.suggested-action:disabled:checked { 
 
 color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);}
+}
 
 .osd button.suggested-action { 
 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   color: #ffffff;
   border-color: #484848; 
   border-bottom-color: #353535; 
@@ -1909,22 +1054,6 @@ text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
 
 .osd button.suggested-action:hover { 
 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   color: #ffffff;
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #484848; 
@@ -1936,22 +1065,6 @@ text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
 .osd button.suggested-action:active, 
 .osd button.suggested-action:checked { 
 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   color: #ffffff; 
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #484848; 
@@ -1962,22 +1075,6 @@ text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
 .osd button.suggested-action:disabled { 
 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #484848; 
   border-bottom-color: #353535;
   box-shadow: none;
@@ -1986,22 +1083,6 @@ text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
 button.destructive-action { 
 
   color: white; 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #484848; 
   border-bottom-color: #353535;
@@ -2015,42 +1096,11 @@ button.destructive-action.flat {
   background-image: none; 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0); 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);; }
+}
 
 button.destructive-action:hover { 
 
   color: white; 
-   text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10);
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #484848; 
   border-bottom-color: #353535;
@@ -2061,22 +1111,6 @@ button.destructive-action:active,
 button.destructive-action:checked { 
 
   color: white; 
-   text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10);
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #484848; 
   border-bottom-color: #353535;
@@ -2092,22 +1126,7 @@ button.destructive-action.flat:disabled {
   text-shadow: none; 
   -gtk-icon-shadow: none; 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 button.destructive-action:disabled { 
 
@@ -2121,22 +1140,7 @@ button.destructive-action:disabled label,
 button.destructive-action:disabled { 
 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 button.destructive-action:disabled:active, 
 button.destructive-action:disabled:checked { 
@@ -2151,41 +1155,10 @@ button.destructive-action:disabled:checked label,
 button.destructive-action:disabled:checked { 
 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 .osd button.destructive-action { 
 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   color: #ffffff; 
   border-color: #484848; 
   border-bottom-color: #353535; 
@@ -2196,22 +1169,6 @@ text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
 
 .osd button.destructive-action:hover { 
 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   color: #ffffff;
   border-color: #484848; 
   border-bottom-color: #353535;
@@ -2222,22 +1179,6 @@ text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
 .osd button.destructive-action:active, 
 .osd button.destructive-action:checked { 
 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   color: #ffffff; 
   border-color: #484848; 
   border-bottom-color: #353535;
@@ -2249,22 +1190,6 @@ text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
 .osd button.destructive-action:disabled { 
 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #484848; 
   border-bottom-color: #353535; 
   background-color: transparent; 
@@ -2341,8 +1266,6 @@ button.circular:not(.flat):not(:checked):not(:active):not(:disabled):not(:backdr
   border-color: #484848; 
   border-bottom-color: #353535; 
   background-image: linear-gradient(to top, #edebe9 2px, #f6f6f6); 
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.834353); 
-  -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.834353); 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px 2px rgba(0, 0, 0, 0.07);
   background-image: linear-gradient(to top, #323232 2px, #404040), linear-gradient(to top, #070707 25%, #1b1b1b 50%); 
   border-color: transparent; }
@@ -2352,8 +1275,6 @@ button.circular:hover:not(:checked):not(:active):not(:disabled):not(:backdrop) {
   color: #FFFFFF; 
   border-color: #484848; 
   border-bottom-color: #353535;
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.786353); 
-  -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.786353); 
   box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.07);
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px 2px rgba(0, 0, 0, 0.07);
   background-image: linear-gradient(to top,#494949,#595959); 
@@ -2378,22 +1299,6 @@ stacksidebar row.needs-attention > label:dir(rtl) {
 .inline-toolbar toolbutton > button { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   border-color: #484848; 
   border-bottom-color: #353535;
   background-image: linear-gradient(to top, #323232, #404040);  
@@ -2402,22 +1307,6 @@ stacksidebar row.needs-attention > label:dir(rtl) {
 .inline-toolbar toolbutton > button:hover { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   outline-color: rgba(46, 52, 54, 0.3); 
   border-color: #484848; 
   border-bottom-color: #353535;  
@@ -2428,22 +1317,6 @@ stacksidebar row.needs-attention > label:dir(rtl) {
 .inline-toolbar toolbutton > button:checked { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   border-color: #484848; 
   border-bottom-color: #353535; 
   background-image: image(#1e1e1e); 
@@ -2463,22 +1336,7 @@ stacksidebar row.needs-attention > label:dir(rtl) {
 .inline-toolbar toolbutton > button:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 .inline-toolbar toolbutton > button:disabled:active, 
 .inline-toolbar toolbutton > button:disabled:checked { 
@@ -2494,22 +1352,7 @@ stacksidebar row.needs-attention > label:dir(rtl) {
 .inline-toolbar toolbutton > button:disabled:checked { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 .inline-toolbar toolbutton > button:backdrop:disabled:active label, 
 .inline-toolbar toolbutton > button:backdrop:disabled:checked label { 
@@ -2640,22 +1483,6 @@ modelbutton.flat,
 .menuitem.button.flat { 
 
 color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
 
   min-height: 1.7875rem;/*26px;*/ 
   padding-left:0.55rem;/* 8px;*/ 
@@ -2667,22 +1494,6 @@ modelbutton.flat:hover,
 .menuitem.button.flat:hover { 
 
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-image:linear-gradient(to right,rgba(255,255,255,0.1),rgba(255,255,255,0.13),rgba(255,255,255,0.13),rgba(1255,255,255,0.1));}
  
 
@@ -2735,22 +1546,6 @@ button.color:checked colorswatch:only-child {
 list row button {
 
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.40),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
 				 
   border-radius: 0.34375rem;/*4.66px*/
   background-image: linear-gradient(to top,#595959,#626262);
@@ -2760,22 +1555,6 @@ list row button {
 list row button:active {
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.40),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
    background-image: linear-gradient(to bottom,#494949,#595959);
  /* box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);*/}
   
@@ -2916,22 +1695,6 @@ spinbutton:not(.vertical) button:dir(rtl) {
 spinbutton:not(.vertical) button:hover { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   background-color: rgba(238, 238, 236, 0.05); }
 
 spinbutton:not(.vertical) button:disabled { 
@@ -2960,22 +1723,6 @@ spinbutton:not(.vertical) button:dir(rtl):first-child {
   text-shadow: none; 
   -gtk-icon-shadow: none; 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-style: none none none solid; 
   border-color: #484848; 
   border-bottom-color: #353535; 
@@ -2995,22 +1742,6 @@ spinbutton:not(.vertical) button:dir(rtl):first-child {
   text-shadow: none; 
   -gtk-icon-shadow: none; 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   border-color: #484848; 
   border-bottom-color: #353535; 
   background-color: rgba(238, 238, 238, 0.1); 
@@ -3023,22 +1754,6 @@ spinbutton:not(.vertical) button:dir(rtl):first-child {
   background-image: none; 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0);
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #484848; 
   border-bottom-color: #353535;
   -gtk-icon-shadow: none; box-shadow: none; }
@@ -3054,22 +1769,7 @@ spinbutton:not(.vertical) button:dir(rtl):first-child {
 spinbutton.vertical:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 spinbutton.vertical:drop(active) { 
 
@@ -3163,22 +1863,6 @@ treeview spinbutton:not(.vertical) entry {
 combobox arrow { 
   
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); 
   min-height: 1.1rem;/*16px;*/ 
   min-width: 1.1rem;/*16px;*/ }
@@ -3315,22 +1999,6 @@ headerbar {
  .titlebar:not(headerbar) .title, 
 headerbar .title { 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   padding-left: 0.825rem;/*12px;*/ 
   padding-right:  0.825rem;/*12px;*/ 
   font-weight: normal; }
@@ -3338,22 +2006,6 @@ headerbar .title {
 .titlebar:not(headerbar) .subtitle, 
 headerbar .subtitle { 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   font-size: smaller; 
   padding-left:  0.825rem;/*12px;*/ 
   padding-right:  0.825rem;/*12px;*/}
@@ -3376,22 +2028,6 @@ headerbar .subtitle:backdrop {
 headerbar.selection-mode { 
 
   color: #ffffff;
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   border-color: #030c17; 
   background-image:linear-gradient(to top, #185cb0, #1961b9);}
 
@@ -3401,22 +2037,6 @@ headerbar.selection-mode {
  headerbar.selection-mode button { 
  
   color: #ffffff; 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #0f3b71; 
   border-bottom-color: #092444; 
@@ -3439,22 +2059,6 @@ headerbar.selection-mode button.flat {
 headerbar.selection-mode button:hover { 
 
   color: #ffffff; 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #0f3b71; 
   border-bottom-color: #092444; 
@@ -3470,22 +2074,6 @@ headerbar.selection-mode button:active,
 headerbar.selection-mode button:checked { 
 
   color: #ffffff; 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
 outline-color: rgba(255, 255, 255, 0.3); 
 border-color: #0f3b71; 
 background-image: image(#103e75);}
@@ -3550,22 +2138,6 @@ headerbar.selection-mode button:disabled:checked {
 .selection-mode headerbar button.suggested-action, 
 headerbar.selection-mode button.suggested-action { 
 
-   text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   color: #ffffff; 
 outline-color: rgba(238, 238, 236, 0.3); 
 border-color: #1b1b1b; 
@@ -3579,26 +2151,9 @@ border-color: #030c17; }
 headerbar.selection-mode button.suggested-action:hover { 
 
   color: #ffffff;  
-     text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   outline-color: rgba(238, 238, 236, 0.3); 
   border-color: #1b1b1b; 
   border-bottom-color: #070707; 
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.786353); 
   background-image: linear-gradient(to top, #323232, #373737 1px); 
   border-color: #030c17; }
 
@@ -3608,22 +2163,6 @@ headerbar.selection-mode button.suggested-action:hover {
 headerbar.selection-mode button.suggested-action:active { 
 
   color: #ffffff;  
-     text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10);  
   outline-color: rgba(238, 238, 236, 0.3); 
   border-color: #1b1b1b; 
   background-image: image(#1e1e1e); 
@@ -3651,22 +2190,7 @@ headerbar.selection-mode button.suggested-action:disabled label,
 headerbar.selection-mode button.suggested-action:disabled { 
 
   color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 .selection-mode .titlebar:not(headerbar) .selection-menu,
 .selection-mode.titlebar:not(headerbar) .selection-menu, 
@@ -3719,22 +2243,6 @@ headerbar .stack-switcher > button:checked,
 headerbar button.toggle:checked { 
 
     color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border-color: #363636; 
   border-bottom-color: #282828; 
   /*box-shadow: inset 0 0.6px #808181, 0 1px 2px rgba(0, 0, 0, 0.07);*/
@@ -3786,22 +2294,7 @@ headerbar button.toggle:checked,
   background-color: transparent;
   background-image: linear-gradient(to bottom,#494848,#383834);
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);}
+}
   
   
 .titlebar:not(headerbar) separator.titlebutton, headerbar separator.titlebutton { 
@@ -3931,22 +2424,6 @@ window.devel headerbar.titlebar:not(.selection-mode) {
 window.devel headerbar.titlebar:not(.selection-mode) label { 
 
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
 				  }
 
 /************ Pathbars * */
@@ -4008,22 +2485,7 @@ treeview.view:selected {
 treeview.view:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 treeview.view:disabled:selected { 
 
@@ -4068,22 +2530,7 @@ treeview.view.expander:selected {
 treeview.view.expander:selected:hover { 
 
   color: #ffffff; 
-   text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); }
+}
 
 treeview.view.expander:checked { 
 
@@ -4120,22 +2567,6 @@ treeview.view.trough:selected {
 
 treeview.view header button { 
 color: #8e8e8d; 
- text-shadow:  -0.2px  0px alpha(#8e8e8d, 0.25),
-				  0.2px  0px alpha(#8e8e8d, 0.25),
-				  0px  0.2px alpha(#8e8e8d, 0.25),
-				  0px -0.2px alpha(#8e8e8d, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#8e8e8d, 0.2),
-				  0.2px  0px alpha(#8e8e8d, 0.2),
-				  0px  0.2px alpha(#8e8e8d, 0.4),
-				  0px -0.2px alpha(#8e8e8d, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
 background-color: #353535; 
 font-weight: bold; 
 text-shadow: none; 
@@ -4144,22 +2575,6 @@ box-shadow: none;}
 treeview.view header button:hover { 
 
   color: #bebebd; 
-  text-shadow:  -0.2px  0px alpha(#bebebd, 0.25),
-				  0.2px  0px alpha(#bebebd, 0.25),
-				  0px  0.2px alpha(#bebebd, 0.25),
-				  0px -0.2px alpha(#bebebd, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#bebebd, 0.2),
-				  0.2px  0px alpha(#bebebd, 0.2),
-				  0px  0.2px alpha(#bebebd, 0.4),
-				  0px -0.2px alpha(#bebebd, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   
   box-shadow: none; 
   transition: none; }
@@ -4167,22 +2582,6 @@ treeview.view header button:hover {
 treeview.view header button:active { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   transition: none; }
 
 treeview.view button.dnd:active, 
@@ -4195,22 +2594,6 @@ treeview.view header.button.dnd:hover,
 treeview.view header.button.dnd { 
 
   padding: 0 0.4125rem;/*6px;*/  
-    text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   color: #ffffff;
   background-image: none; 
   background-color: #15539e; 
@@ -4258,22 +2641,6 @@ menubar > menuitem,
 .menubar > menuitem { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   min-height: 1.1rem; /*16px;*/ 
   padding: 0.275rem 0.55rem; }/*4 8*/
   
@@ -4282,43 +2649,12 @@ menubar > menuitem:hover,
 
   box-shadow: inset 0 -3px #15539e; 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 menubar > menuitem:disabled, 
 .menubar > menuitem:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   box-shadow: none; }
 
 menubar .csd.popup decoration, 
@@ -4363,22 +2699,6 @@ menu menuitem,
 .context-menu menuitem {
 
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   min-height: 1.1rem;/*16px;*/ 
   min-width: 2.75rem;/*40px;*/ 
   padding: 0.275rem 0.4125rem;/*4 6 */ 
@@ -4389,22 +2709,6 @@ menu menuitem:hover,
 .context-menu menuitem:hover { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: #15539e; }
 
 menu menuitem:disabled, 
@@ -4412,22 +2716,7 @@ menu menuitem:disabled,
 .context-menu menuitem:disabled { 
 
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 menu menuitem arrow, 
 .menu menuitem arrow, 
@@ -4535,22 +2824,6 @@ popover.background,
 popover{
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border: none;
   padding: 0.1375rem;/*2px*/ 
   border-radius: 0.5205rem;/*6px;*/ 
@@ -4684,22 +2957,6 @@ notebook > header tab {
   padding: 1px 0.825rem;/*12px;*/ 
   outline-offset: -5px; 
   color: #919190;
-  text-shadow:  -0.2px  0px alpha(#919190, 0.25),
-				  0.2px  0px alpha(#919190, 0.25),
-				  0px  0.2px alpha(#919190, 0.25),
-				  0px -0.2px alpha(#919190, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#919190, 0.25),
-				  0.2px  0px alpha(#919190, 0.25),
-				  0px  0.2px alpha(#919190, 0.25),
-				  0px -0.2px alpha(#919190, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   /*#929595; */
   font-weight: normal; 
   border-width: 1px; 
@@ -4707,22 +2964,7 @@ notebook > header tab {
 
 notebook > header tab:hover { 
 color: #c0c0be; 
-text-shadow:  -0.2px  0px alpha(#c0c0be, 0.25),
-				  0.2px  0px alpha(#c0c0be, 0.25),
-				  0px  0.2px alpha(#c0c0be, 0.25),
-				  0px -0.2px alpha(#c0c0be, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#c0c0be, 0.25),
-				  0.2px  0px alpha(#c0c0be, 0.25),
-				  0px  0.2px alpha(#c0c0be, 0.25),
-				  0px -0.2px alpha(#c0c0be, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);}
+}
 
 notebook > header tab:hover.reorderable-page { 
 
@@ -4732,22 +2974,7 @@ notebook > header tab:hover.reorderable-page {
 notebook > header tab:checked { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 notebook > header tab:checked.reorderable-page { 
 
@@ -5074,7 +3301,6 @@ iconview.content-view.check:not(list),
   background-image: linear-gradient(to top, #155099 2px, #15539e);
   box-shadow: none;
   text-shadow: none;
- -gtk-icon-shadow: 0 1px rgba(0,0,0,0.7);
   background-color: transparent; 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px 2px rgba(0, 0, 0, 0.07);
   min-width: 2.75rem; /*40*/
@@ -5090,7 +3316,6 @@ iconview.content-view.check:not(list),
   background-image: linear-gradient(to top, #155099, #1655a2 1px);
   box-shadow: none;
   text-shadow: none;
-  -gtk-icon-shadow: 0 1px rgba(0,0,0,0.7);
   background-color: transparent; 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px 2px rgba(0, 0, 0, 0.07); 
   min-width: 2.75rem; /*40*/
@@ -5107,7 +3332,6 @@ iconview.content-view.check:active:not(list),
   background-image: linear-gradient(to top, #155099 2px, #15539e);
   box-shadow: none;
   text-shadow: none;
- -gtk-icon-shadow: 0 1px rgba(0,0,0,0.7);
   background-color: transparent; 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px 2px rgba(0, 0, 0, 0.07);
   min-width: 2.75rem; /*40*/ 
@@ -5126,7 +3350,6 @@ iconview.content-view.check:checked:not(list),
   border-radius: 8px;
   box-shadow: none;
   text-shadow: none;
-  -gtk-icon-shadow: 0 1px rgba(0,0,0,0.7);
   background-color: transparent; 
   min-width: 2.75rem; /*40*/ 
   min-height: 2.75rem; /*40*/
@@ -5144,7 +3367,6 @@ iconview.content-view.check:checked:hover:not(list),
   border-radius: 8px;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px 2px rgba(0, 0, 0, 0.07);
   text-shadow: none;
-  -gtk-icon-shadow: 0 1px rgba(0,0,0,0.7);
   background-color: transparent; 
   min-width: 2.75rem; /*40*/ 
   min-height: 2.75rem; /*40*/
@@ -5162,7 +3384,6 @@ iconview.content-view.check:checked:active:not(list),
   border-radius: 8px;
   box-shadow: none;
   text-shadow: none;
-  -gtk-icon-shadow: 0 1px rgba(0,0,0,0.7);
   background-color: transparent; 
   min-width: 2.75rem; /*40*/ 
   min-height: 2.75rem; /*40*/ 
@@ -5197,7 +3418,6 @@ radio {
   outline-color: rgba(46, 52, 54, 0.3); 
   border-color: #303030; 
    
-  -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.834353); 
   background-image: linear-gradient(to bottom, #494949 20%, #595959 90%); }
 
 radio:checked,
@@ -5300,7 +3520,6 @@ row:selected radio {
   background-image: linear-gradient(#494949,#595959); 
   background-clip: padding-box; 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1); 
-  text-shadow: 0 1px black; -gtk-icon-shadow: 0 1px black; 
   outline-color: rgba(238, 238, 236, 0.3); }
 
 .osd check:hover, 
@@ -5312,8 +3531,6 @@ row:selected radio {
   background-image: linear-gradient(#454545,#555555); 
   background-clip: padding-box; 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1); 
-  text-shadow: 0 1px black; 
-  -gtk-icon-shadow: 0 1px black; 
   outline-color: rgba(238, 238, 236, 0.3); }
 
 .osd check:active, 
@@ -5446,44 +3663,12 @@ treeview.view radio:selected:disabled {
   padding: 0.06875rem;
   background-color: rgba(27,106,203,0.85);/*#3584e4;*/
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);			 
   border-radius: 3px; }
 
 .nautilus-window .floating-bar button {
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: rgba(255, 255, 255, 0);
   border-color: rgba(255, 255, 255, 0.5); }
 
@@ -5493,22 +3678,6 @@ treeview.view radio:selected:disabled {
   background-color: transparent;
   background-image: none;
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: rgba(255, 255, 255, 0); }
 
 .nautilus-window .floating-bar button.sidebar-button {
@@ -5517,22 +3686,6 @@ treeview.view radio:selected:disabled {
   background-color: transparent;
   background-image: none;
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: rgba(255, 255, 255, 0); }
 
 .nautilus-window .floating-bar button.flat:disabled{
@@ -5554,22 +3707,6 @@ treeview.view radio:selected:disabled {
 .nautilus-window .floating-bar button:hover {
 
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.8); }
 
@@ -5840,8 +3977,6 @@ row:selected scale slider {
   background-image: image(rgba(42,42,42, 0.7)); 
   background-clip: padding-box; 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1); 
-  text-shadow: 0 1px black; 
-  -gtk-icon-shadow: 0 1px black; 
   outline-color: rgba(238, 238, 236, 0.3); 
   border-color: rgba(0, 0, 0, 0.7); 
   background-color: #2d2d2d; }
@@ -5854,8 +3989,6 @@ row:selected scale slider {
   background-image: image(rgba(66, 66, 66, 0.7)); 
   background-clip: padding-box; 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1); 
-  text-shadow: 0 1px black; 
-  -gtk-icon-shadow: 0 1px black; 
   outline-color: rgba(238, 238, 236, 0.3); 
   background-color: #2d2d2d; }
 
@@ -6220,22 +4353,6 @@ levelbar block.empty {
 printdialog paper { 
 
  color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   border: 1px solid #1b1b1b; 
   background: #505050; 
   padding: 0; }
@@ -6326,22 +4443,6 @@ separator {
 list { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   background-color: #353535; 
   border-color: #1b1b1b; }
 
@@ -6573,22 +4674,6 @@ placessidebar > viewport.frame {
 .nautilus-window placessidebar row,
 placessidebar row { 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.40),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.40),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: transparent;
   border-radius: 3px;
   margin-left: 5px;
@@ -6605,22 +4690,6 @@ placessidebar row > revealer {
 placessidebar row:hover { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.40),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.40),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: rgba(255,255,255,0.07);}
 
 placessidebar row:hover:selected,
@@ -6629,44 +4698,13 @@ placessidebar row:selected {
   /*transition: none;*/
   background-image: linear-gradient(to right,#15539e 2.3375rem, #185caf 2.3375rem, #185caf);
   color: rgba(255,255,255,1);
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.40),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);}
   
   
 placessidebar row:disabled { 
 
  color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 placessidebar row image.sidebar-icon:dir(ltr) { 
 
@@ -6723,22 +4761,6 @@ placessidebar row:drop(active):not(:disabled) {
 placessidebar row:drop(active):not(:disabled):selected { 
 
   color: #ffffff; 
-  text-shadow:  -0.2px  0px alpha(#ffffff, 0.25),
-				  0.2px  0px alpha(#ffffff, 0.25),
-				  0px  0.2px alpha(#ffffff, 0.25),
-				  0px -0.2px alpha(#ffffff, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow: -0.2px  0px alpha(#ffffff, 0.2),
-				  0.2px  0px alpha(#ffffff, 0.2),
-				  0px  0.2px alpha(#ffffff, 0.4),
-				  0px -0.2px alpha(#ffffff, 0.4),
-				  0px -1px alpha(#000000, 0.10),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.10),
-				 -1px  0px alpha(#000000, 0.10); 
   background-color: #4e9a06; }
 
 placesview .server-list-button > image { 
@@ -6832,22 +4854,7 @@ infobar.question,
 infobar.warning, 
 infobar.error { 
 color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);}
+}
 
 infobar.info, 
 infobar.question, 
@@ -6866,22 +4873,7 @@ infobar.error label,
 infobar.error { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 infobar.info button, 
 infobar.question button, 
@@ -6890,22 +4882,6 @@ infobar.error button {
 
   border-radius:0.34375rem;/*4.66px*/
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #0f3b71; 
   border-bottom-color: #092444; 
@@ -6919,22 +4895,6 @@ infobar.warning button:hover,
 infobar.error button:hover { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); 
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #0f3b71; 
   border-bottom-color: #092444; 
@@ -6951,22 +4911,6 @@ infobar.error button:active,
 infobar.error button:checked { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   outline-color: rgba(255, 255, 255, 0.3); 
   border-color: #0f3b71; 
   background-image: image(#103e75); 
@@ -7007,22 +4951,7 @@ tooltip {
 
   border-radius: 0.34375rem;
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);}
+}
   
 tooltip.background {
 
@@ -7045,22 +4974,7 @@ tooltip * {
 
   background-color: rgba(0,0,0,0);
   color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 /*((((((((( Color Chooser )))))))))*/
 
@@ -7116,8 +5030,6 @@ colorswatch#add-color-button overlay {
   border-color: #1b1b1b; 
   border-bottom-color: #070707; 
   background-image: linear-gradient(to top, #323232 2px, #404040); 
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.834353); 
-  -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.834353); 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px 2px rgba(0, 0, 0, 0.07); }
 
 
@@ -7127,8 +5039,6 @@ colorswatch#add-color-button overlay:hover {
   outline-color: rgba(238, 238, 236, 0.3); 
   border-color: #1b1b1b; 
   border-bottom-color: #070707; 
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.786353); 
-  -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.786353); 
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px 2px rgba(0, 0, 0, 0.07);
   background-image: linear-gradient(to top, #323232, #373737 1px);}
 
@@ -7257,22 +5167,6 @@ treeview.view:selected,
 row:selected, 
 calendar:selected { 
 color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
   background-color: #15539e; }
   
 row:selected label, 
@@ -7299,22 +5193,7 @@ treeview.view:selected, row:selected,
 calendar:selected { 
 
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 
 row:selected label:disabled, 
 label:disabled:selected, 
@@ -7342,14 +5221,6 @@ calendar:disabled:selected {
 
   				 
 color: rgba(255,255,255,0.74);
-text-shadow:  -0.2px  0px rgba(255,255,255,0.74),
-				  0.2px  0px rgba(255,255,255,0.74),
-				  0px  0.2px rgba(255,255,255,0.74),
-				  0px -0.2px rgba(255,255,255,0.74),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
  /* -gtk-icon-shadow:-0.2px  0px rgba(255,255,255,0.74),
 				  0.2px  0px rgba(255,255,255,0.74),
 				  0px  0.2px rgba(255,255,255,0.74),
@@ -7418,13 +5289,13 @@ stackswitcher button.text-button.circular {
 
 .lowres-icon { 
 
-  -gtk-icon-shadow: 1px 1px rgba(0, 0, 0, 0.3), -1px -1px rgba(0, 0, 0, 0.3), -1px 1px rgba(0, 0, 0, 0.3), 1px -1px rgba(0, 0, 0, 0.3); }
+}
 
 /* Drapshadow for large icons */
 
 .icon-dropshadow { 
 
-  -gtk-icon-shadow: 0 2px 12px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.7); }
+}
 
 /*(((((((((( Emoji )))))))))) */
 
@@ -7474,22 +5345,6 @@ popover button{
   border-color: rgba(0,0,0,0.25);
   
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
 				 
  
   background-image: none;
@@ -7501,22 +5356,6 @@ popover button:disabled{
   border-color: rgba(0,0,0,0.25);
   
    color: #8b8b8b;
-  text-shadow:  -0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#8b8b8b, 0.25),
-				  0.2px  0px alpha(#8b8b8b, 0.25),
-				  0px  0.2px alpha(#8b8b8b, 0.25),
-				  0px -0.2px alpha(#8b8b8b, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
 				 
  
   background-image: none;
@@ -7529,22 +5368,6 @@ popover .linked:not(.vertical) > button{
   border-color: rgba(0,0,0,0.25);
   text-shadow: none;
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
 				 
   background-image: none;
   box-shadow: none;
@@ -7555,22 +5378,6 @@ popover .linked:not(.vertical) > button:hover:focus,
 popover .linked:not(.vertical) > button:hover{
 
    color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
-  -gtk-icon-shadow:-0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.18),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18);
 				 
   background-image: image(rgba(255,255,255,0.1));
   background-color: transparent;}
@@ -7842,14 +5649,7 @@ background-size: cover;}
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
   color: #ececec;
-  text-shadow:  -0.2px  0px alpha(#ececec, 0.25),
-				  0.2px  0px alpha(#ececec, 0.25),
-				  0px  0.2px alpha(#ececec, 0.25),
-				  0px -0.2px alpha(#ececec, 0.25),
-				  0px -1px alpha(#000000, 0.18),
-				  0px  1px alpha(#000000, 0.4),
-				  1px  0px alpha(#000000, 0.18),
-				 -1px  0px alpha(#000000, 0.18); }
+}
 				  
 /* The unified headerbar is a new widget, which unfortunately is undocumented, leaving us themers in the cold...Because the Unified Headerbar requires a high headerbar, the only option to prevent that, is to hide some elements and readjust others.  This is done in 4 steps: */
  				  
