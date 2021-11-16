@@ -25,7 +25,7 @@ A brief description of the contents of the project directory:
 ### Directories
 *	*Launcher*: A binary launcher which is used to set up environment
 	variables to run Geany.
-*	*WhiteSur-light-solid*: WhiteSur GTK 3 Theme
+*	*Prof-Gnome*: Prof-Gnome 3.6 GTK 3 Theme with minor modifications
 *	*Papirus, Papirus-Dark*: Papirus GTK 3 icon theme with lots of unneeded
 	icons removed to save space.
 *	*macos-icon-design*: design file for macOS Geany icon.
