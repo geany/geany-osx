@@ -4010,9 +4010,9 @@ radio:checked:hover{
   color: white;
   -gtk-icon-source: image(-gtk-recolor(url("graphics/bullet-symbolic.svg")));
   -gtk-icon-transform: scale(1.0);
-  -gtk-icon-shadow: 0 1px rgba(0,0,0,0.7);
-  border-color: #1f4c83; 
-  background-image: linear-gradient(to bottom,#2170d2,#659adc);}
+  /*-gtk-icon-shadow: 0 1px rgba(0,0,0,0.7);*/
+  border-color: #3584e4; 
+  background-image: image(#3584e4);}
 
 radio:checked:disabled{
 
@@ -4069,11 +4069,11 @@ check:active{
   min-width:0.9625rem;/*1.1rem 16px;*/
   color: #ffffff;
   outline-color: rgba(46, 52, 54, 0.0);
-  border-color: #1f4c83;
-  background-image: linear-gradient(to bottom,#2170d2,#659adc);
+  border-color: #3584e4;
+  background-image: image(#3584e4);
   box-shadow: none;
   text-shadow: none;
-  -gtk-icon-shadow: 0 1px rgba(0,0,0,0.7); }
+  /*-gtk-icon-shadow: 0 1px rgba(0,0,0,0.7);*/ }
 
 check:disabled, 
 radio:disabled { 
