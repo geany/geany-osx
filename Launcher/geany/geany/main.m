@@ -123,7 +123,7 @@ static BOOL write_gtk_config(void) {
 
     NSString *gtk_config = [NSString stringWithFormat: @"[Settings]\n"
                             @"gtk-menu-images=1\n"
-                            @"gtk-theme-name=WhiteSur-light-solid\n"
+                            @"gtk-theme-name=Prof-Gnome\n"
                             @"gtk-application-prefer-dark-theme=%@\n"
                             @"gtk-icon-theme-name=%@\n",
                             light ? @"0" : @"1",
