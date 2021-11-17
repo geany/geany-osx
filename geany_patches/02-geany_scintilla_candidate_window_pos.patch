@@ -1,0 +1,39 @@
+From 83c792588db15c0a004913dd3b91193c45d5ee68 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Wed, 17 Nov 2021 14:31:52 +0100
+Subject: [PATCH] Always set candidate window pos, even when IME is not used
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Normally, when IME is enabled e.g. for Chinese, one can type some characters
+on normal keyboard and "compose" the Chinese character from them. Once at least
+of such subcharacters is typed, a popup window with "candidates" is shown and
+user can select which of them should be used.
+
+On macOS, this "candidate" window is also shown when no IME is used and
+a letter is long-pressed and there are some accented variants of the letter
+(for a, e.g. á, à, ą, â, ä, etc.). In this case, the input string has length 0
+and we have to set the correct position of the popup window, otherwise it's shown
+at coordinates (0, 0).
+---
+ scintilla/gtk/ScintillaGTK.cxx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scintilla/gtk/ScintillaGTK.cxx b/scintilla/gtk/ScintillaGTK.cxx
+index 659eb763..206e3834 100644
+--- a/scintilla/gtk/ScintillaGTK.cxx
++++ b/scintilla/gtk/ScintillaGTK.cxx
+@@ -2458,8 +2458,8 @@ void ScintillaGTK::PreeditChangedInlineThis() {
+ void ScintillaGTK::PreeditChangedWindowedThis() {
+ 	try {
+ 		PreEditString pes(im_context);
++		SetCandidateWindowPos();
+ 		if (strlen(pes.str) > 0) {
+-			SetCandidateWindowPos();
+ 
+ 			PangoLayout *layout = gtk_widget_create_pango_layout(PWidget(wText), pes.str);
+ 			pango_layout_set_attributes(layout, pes.attrs);
+-- 
+2.31.1
+
