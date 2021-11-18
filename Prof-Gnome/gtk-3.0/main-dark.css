@@ -3790,349 +3790,238 @@ popover.background list separator
 }
 /*((((((((( Notebooks and tabs  ))))))))))
 */
-notebook > header
-{   
-            margin: 0px;
-        margin-top: 0px;
-       padding-top: 0px;
-  background-color: @borders;/*@base_bg_color;*/
-}
-notebook > header.top > tabs
-{ 
-        margin-top: 0px; 
-            border: 1px solid @borders;
-     margin-bottom: 0px;
-      border-style: none none solid none;
-} 
-notebook > header.bottom > tabs > tab:checked,
-notebook > header.bottom > tabs > tab:checked:hover,
-notebook > header.right > tabs > tab:checked,
-notebook > header.right > tabs > tab:checked:hover,
-notebook > header.left > tabs > tab:checked,
-notebook > header.left > tabs > tab:checked:hover,
-notebook > header.top > tabs > tab:checked:hover,
-notebook > header.top > tabs > tab:checked 
-{ 
-  background-image: linear-gradient(
-                    shade(@color_accent_3,0.95), 
-                    shade(@color_accent_3,0.88));
-             color: @selected_text_color; 
-       text-shadow: -0.1px    0px alpha(@selected_text_color, 0.2),
-				     0.1px    0px alpha(@selected_text_color, 0.2),
-				       0px  0.1px alpha(@selected_text_color, 0.2),
-				       0px -0.1px alpha(@selected_text_color, 0.2),
-				       0px   -1px alpha(@selected_text_shadow_color, 0.12),
-				       0px    1px alpha(@selected_text_shadow_color, 0.4),
-				       1px    0px alpha(@selected_text_shadow_color, 0.12),
-				      -1px    0px alpha(@selected_text_shadow_color, 0.12); 
-            border: none;
-      border-color: shade(@color_accent_3,0.88);
-        box-shadow: none;
-}
-notebook > header.top > tabs > tab.reorderable-page:hover,
-notebook > header.top > tabs > tab.reorderable-page
-{
-        margin-top: -1px;
-      border-right: 1px solid shade(@headerbar_color,0.88);
-       margin-left: 0px;
-  background-image: linear-gradient(to top,
-                    shade(@headerbar_color,1.06),
-                    shade(@headerbar_color,1.06));
-  background-color: transparent;
-             color: @text_color;
-       text-shadow: -0.1px    0px alpha(@text_color, 0.20),
-		             0.1px    0px alpha(@text_color, 0.20),
-		               0px  0.1px alpha(@text_color, 0.20),
-		               0px -0.1px alpha(@text_color, 0.20),
-	                   0px   -1px alpha(@text_shadow_color, 0.12),
-		               0px    1px alpha(@text_shadow_color, 0.4),
-	                   1px    0px alpha(@text_shadow_color, 0.12),
-	                  -1px    0px alpha(@text_shadow_color, 0.12);
-        box-shadow: none;
-}
-notebook > header.top > tabs > tab:checked.reorderable-page:hover,
-notebook > header.top > tabs > tab:checked.reorderable-page 
-{
-        margin-top: -1px;
-  background-color:  transparent;
-  background-image: linear-gradient(to top,
-                    shade(@headerbar_color,1.1),
-                    shade(@headerbar_color,1.16));
-             color: @text_color;
-       text-shadow: -0.1px    0px alpha(@text_color, 0.20),
-		             0.1px    0px alpha(@text_color, 0.20),
-		               0px  0.1px alpha(@text_color, 0.20),
-		               0px -0.1px alpha(@text_color, 0.20),
-	                   0px   -1px alpha(@text_shadow_color, 0.12),
-		               0px    1px alpha(@text_shadow_color, 0.4),
-	                   1px    0px alpha(@text_shadow_color, 0.12),
-	                  -1px    0px alpha(@text_shadow_color, 0.12);
-      border-color: alpha(shade(@headerbar_color,0.88),0.9);
-}
-notebook > header.bottom 
-{ 
-  border-top-style: solid;
-}
-notebook > header.bottom > tabs
-{ 
-        margin-top: -2px;
-            border: 1px solid @borders;
-      border-style: solid none none none;
-}
-notebook > header.left
-{ 
-border-right-style: solid;
-}
-notebook > header.left > tabs
-{ 
-            border: 1px solid @borders;
-      border-style: none solid none none;
-      margin-right: -2px;
-}
-notebook > header.right
-{ 
- border-left-style: solid;
-}
-notebook > header.right > tabs
-{  
-             border: 1px solid @borders;
-       border-style: none none none solid;
-        margin-left: -2px;
-}
-notebook > header.top > tabs > arrow
-{ 
-   border-top-style: none;
-}
-notebook > header.bottom > tabs > arrow
-{ 
-border-bottom-style: none;
-}
-notebook > header.top > tabs > arrow, 
-notebook > header.bottom > tabs > arrow
-{ 
-       margin-left: -5px; 
-      margin-right: -5px;
-      padding-left: 4px;
-     padding-right: 4px;
-}
-notebook > header.top > tabs > arrow.down, 
-notebook > header.bottom > tabs > arrow.down 
-{ 
-  -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
-}
-notebook > header.top > tabs > arrow.up, 
-notebook > header.bottom > tabs > arrow.up
-{ 
-  -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
-}
-notebook > header.left > tabs > arrow 
-{ 
- border-left-style: none;
-}
-notebook > header.right > tabs > arrow
-{ 
-  border-right-style: none;
-}
-notebook > header.left > tabs > arrow, notebook > header.right > tabs > arrow
-{ 
-         margin-top: -5px;
-      margin-bottom: -5px; 
-        padding-top:4px; 
-     padding-bottom:4px;
-}
+notebook > header { padding: 1px; border-color: #1b1b1b; border-width: 1px; background-color: #282828;/*e1dedb;*/ }
+
+notebook > header tabs { margin: -1px; }
+
+notebook > header.top { border-bottom-style: solid; }
+
+notebook > header.top > tabs { margin-bottom: -2px; }
+
+notebook > header.top > tabs > tab { padding-top: 3px; padding-bottom: 3px; }
+
+notebook > header.top > tabs > tab:hover { box-shadow: inset 0 -0.20625rem #737373; }
+
+notebook > header.top > tabs > tab:checked { background-color: #444444; box-shadow: inset 0 -0.20625rem #15539e; }
+
+notebook > header.bottom { border-top-style: solid; }
+
+notebook > header.bottom > tabs { margin-top: -0.1375rem;/*-2px;*/ }
+
+notebook > header.bottom > tabs > tab { padding-top: 3px; padding-bottom: 3px; }
+
+notebook > header.bottom > tabs > tab:hover { box-shadow: inset 0 0.20625rem #737373; }
+
+notebook > header.bottom > tabs > tab:checked { background-color: #444444; box-shadow: inset 0 0.20625rem #15539e; }
+
+notebook > header.left { border-right-style: solid; }
+
+notebook > header.left > tabs { margin-right: -0.1375rem;/*-2px;*/ }
+
+notebook > header.left > tabs > tab { padding-top: 3px; padding-bottom: 3px; }
+
+notebook > header.left > tabs > tab:hover { box-shadow: inset -0.20625rem 0 #737373; }
+
+notebook > header.left > tabs > tab:checked { background-color: #444444; box-shadow: inset -0.20625rem 0 #15539e; }
+
+notebook > header.right { border-left-style: solid; }
+
+notebook > header.right > tabs { margin-left: -0.1375rem;/*-2px;*/ }
+
+notebook > header.right > tabs > tab { padding-top: 3px; padding-bottom: 3px; }
+
+notebook > header.right > tabs > tab:hover { box-shadow: inset 0.20625rem 0 #737373; }
+
+notebook > header.right > tabs > tab:checked { background-color: #444444; box-shadow: inset 0.20625rem 0 #15539e; }
+
+notebook > header.top > tabs > arrow { border-top-style: none; }
+
+notebook > header.bottom > tabs > arrow { border-bottom-style: none; }
+
+notebook > header.top > tabs > arrow, notebook > header.bottom > tabs > arrow { 
+
+  margin-left: -0.34375rem;/*-5px;*/ 
+  margin-right: -0.34375rem;/*-5px;*/ 
+  padding-left: 0.275rem;/*4px;*/ 
+  padding-right: 0.275rem;/*4px;*/ }
+
+notebook > header.top > tabs > arrow.down, notebook > header.bottom > tabs > arrow.down { 
+
+  -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+
+notebook > header.top > tabs > arrow.up, notebook > header.bottom > tabs > arrow.up { 
+
+  -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
+
+notebook > header.left > tabs > arrow { border-left-style: none; }
+
+notebook > header.right > tabs > arrow { border-right-style: none; }
+
+notebook > header.left > tabs > arrow, notebook > header.right > tabs > arrow { 
+
+  margin-top: -0.34375rem;/*-5px;*/ 
+  margin-bottom: -0.34375rem;/*-5px;*/ 
+  padding-top:0.275rem;/*4px;*/ 
+  padding-bottom:0.275rem;/*4px;*/ }
+
 notebook > header.left > tabs > arrow.down, 
-notebook > header.right > tabs > arrow.down
-{ 
-  -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
-}
+notebook > header.right > tabs > arrow.down { 
+
+  -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+
 notebook > header.left > tabs > arrow.up, 
-notebook > header.right > tabs > arrow.up
-{ 
-  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
-}
-notebook > header > tabs > arrow
-{ 
-        min-height: 16px; 
-         min-width: 16px; 
-     border-radius: 0;
-}
-notebook > header > tabs > arrow:disabled
-{ 
-      border-color: transparent; 
+notebook > header.right > tabs > arrow.up { 
+
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+
+notebook > header > tabs > arrow { 
+
+  min-height: 1.1rem;/*16px;*/ 
+  min-width: 1.1rem;/*16px;*/ 
+  border-radius: 0; }
+
+notebook > header > tabs > arrow:disabled { 
+
+  border-color: transparent; 
   background-color: transparent; 
   background-image: none; 
-        box-shadow: inset 0 1px rgba(255, 255, 255, 0); 
-       text-shadow: none; 
-  -gtk-icon-shadow: none;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0); 
+  text-shadow: none; -gtk-icon-shadow: none; }
+
+notebook > header tab { 
+
+  min-height: 1.65rem;/*24px; */
+  min-width: 2.0625rem; /*30px;*/ 
+  padding: 1px 0.825rem;/*12px;*/ 
+  outline-offset: -5px; 
+  color: #919190;
+  /*#929595; */
+  font-weight: normal; 
+  border-width: 1px; 
+  border-color: transparent; }
+
+notebook > header tab:hover { 
+color: #c0c0be; 
 }
-notebook > header tab
-{ 
-        min-height: 22px;
-         min-width: 30px; 
-           padding: 1px 12px;
-            margin: 3px;
-             color: @text_color;
-      text-shadow: -0.1px    0px alpha(@text_color, 0.20),
-		            0.1px    0px alpha(@text_color, 0.20),
-		              0px  0.1px alpha(@text_color, 0.20),
-		              0px -0.1px alpha(@text_color, 0.20),
-	                  0px   -1px alpha(@text_shadow_color, 0.12),
-		              0px    1px alpha(@text_shadow_color, 0.4),
-	                  1px    0px alpha(@text_shadow_color, 0.12),
-	                 -1px    0px alpha(@text_shadow_color, 0.12);
-       font-weight: normal; 
-  background-image: none;
-     border-radius: 3px;
+
+notebook > header tab:hover.reorderable-page { 
+
+  border-color: rgba(27, 27, 27, 0.3); 
+  background-color: rgba(53, 53, 53, 0.2); }
+
+notebook > header tab:checked { 
+
+  color: #ececec;
 }
-notebook > header tab.reorderable-page
-{ 
-        min-height: 20px;
-         min-width: 30px; 
-           padding: 1px 12px;
-            margin:-0;
-     border-radius: 0px;
-             color: @text_color;
-       text-shadow: -0.1px    0px alpha(@text_color, 0.20),
-		             0.1px    0px alpha(@text_color, 0.20),
-		               0px  0.1px alpha(@text_color, 0.20),
-		               0px -0.1px alpha(@text_color, 0.20),
-	                   0px   -1px alpha(@text_shadow_color, 0.12),
-		               0px    1px alpha(@text_shadow_color, 0.4),
-	                   1px    0px alpha(@text_shadow_color, 0.12),
-	                  -1px    0px alpha(@text_shadow_color, 0.12);
-       font-weight: normal;
-}
-notebook > header tab:hover
-{ 
-             color: @text_color;
-       text-shadow: -0.1px    0px alpha(@text_color, 0.20),
-		             0.1px    0px alpha(@text_color, 0.20),
-		               0px  0.1px alpha(@text_color, 0.20),
-		               0px -0.1px alpha(@text_color, 0.20),
-	                   0px   -1px alpha(@text_shadow_color, 0.12),
-		               0px    1px alpha(@text_shadow_color, 0.4),
-	                   1px    0px alpha(@text_shadow_color, 0.12),
-	                  -1px    0px alpha(@text_shadow_color, 0.12);
-  background-image:image(alpha(@text_color,0.1));
-}
-notebook > header tab:hover.reorderable-page 
-{ 
-  background-image:linear-gradient(to top,
-                   shade(@headerbar_color,0.94),
-                   shade(@headerbar_color,0.94));
-}
-notebook > header tab:checked
-{ 
-             color: @text_color;
-       text-shadow: -0.1px    0px alpha(@text_color, 0.20),
-		             0.1px    0px alpha(@text_color, 0.20),
-		               0px  0.1px alpha(@text_color, 0.20),
-		               0px -0.1px alpha(@text_color, 0.20),
-	                   0px   -1px alpha(@text_shadow_color, 0.12),
-		               0px    1px alpha(@text_shadow_color, 0.4),
-	                   1px    0px alpha(@text_shadow_color, 0.12),
-	                  -1px    0px alpha(@text_shadow_color, 0.12);
-}
-notebook > header tab:checked.reorderable-page:hover,
-notebook > header tab:checked.reorderable-page
-{ 
-        margin-top: 0px;
-       margin-left: 1px;
-      margin-right: -1px;
-  background-image:linear-gradient(
-                   shade(@headerbar_selected_accent_color,1.05),
-                   shade(@headerbar_selected_accent_color,0.95));
-}
-notebook > header tab button.flat
-{ 
-     border-radius: 2px;
-             color: alpha(@text_color,0.4);
-           padding: 1px; 
-        margin-top: 1px;
-     margin-bottom: 1px;
-         min-width: 20px;
-        min-height: 20px; 
-      border-color: transparent;
-  background-color: rgba(0,0,0,0.0);
-  background-image: none;
-        box-shadow: none;
-}
-notebook > header tab button.flat:hover
-{ 
-      border-color: transparent;
-  background-color: transparent;
-  background-image: none;
-        box-shadow: none;
-             color: alpha(@text_color,0.8);
-}
-notebook > header tab button.flat:last-child
-{ 
-       margin-left:  4px;
-      margin-right: -4px;
-}
-notebook > header tab button.flat:first-child
-{ 
-       margin-left: -4px; 
-      margin-right:  4px;
-}
+
+notebook > header tab:checked.reorderable-page { 
+
+  border-color: rgba(27, 27, 27, 0.5); 
+  background-color: rgba(53, 53, 53, 0.5); }
+
+notebook > header tab:checked.reorderable-page:hover { 
+
+  background-color: rgba(53, 53, 53, 0.7); }
+
+notebook > header tab button.flat { 
+
+  padding: 0; 
+  margin-top: 0.275rem;/*4px;*/ 
+  margin-bottom: 0.275rem;/*4px;*/ 
+  min-width: 1.375rem;/*20px;*/ 
+  min-height: 1.375rem;/*20px;*/ }
+
+notebook > header tab button.flat:hover { 
+
+  color: currentColor; }
+
+notebook > header tab button.flat{ color: alpha(currentColor,0.3); }
+
+notebook > header tab button.flat:last-child { 
+
+  margin-left:  0.275rem;/*4px;*/ 
+  margin-right: -0.275rem;/*-4px;*/ }
+
+notebook > header tab button.flat:first-child { 
+
+  margin-left: -0.275rem;/*-4px;*/ 
+  margin-right:  0.275rem;/*4px;*/ }
+
+notebook > header.top tabs, notebook > header.bottom tabs { 
+
+  padding-left:  0.275rem;/*4px;*/ 
+  padding-right:  0.275rem;/*4px;*/ }
+
+notebook > header.top tabs:not(:only-child), 
+notebook > header.bottom tabs:not(:only-child) { 
+
+  margin-left: 0.20625rem;/*3px;*/ 
+  margin-right: 0.20625rem;/*3px;*/ }
+
 notebook > header.top tabs:not(:only-child):first-child, 
-notebook > header.bottom tabs:not(:only-child):first-child
-{ 
-       margin-left: -1px;
-}
+notebook > header.bottom tabs:not(:only-child):first-child { 
+
+  margin-left: -1px; }
+
 notebook > header.top tabs:not(:only-child):last-child, 
-notebook > header.bottom tabs:not(:only-child):last-child
-{ 
-      margin-right: -1px;
+notebook > header.bottom tabs:not(:only-child):last-child { 
+
+  margin-right: -1px; }
+
+notebook > header.top tabs tab, notebook > header.bottom tabs tab { 
+  margin-left: 0px;
+  margin-right: 0px;
 }
+
 notebook > header.top tabs tab.reorderable-page, 
-notebook > header.bottom tabs tab.reorderable-page
-{ 
-      border-style: none solid;
-}
+notebook > header.bottom tabs tab.reorderable-page { 
+
+  border-style: none solid; }
+
 notebook > header.left tabs, 
-notebook > header.right tabs
-{ 
-       padding-top: 4px;
-    padding-bottom: 4px;
-}
+notebook > header.right tabs { 
+
+  padding-top: 0.275rem;/*4px;*/ 
+  padding-bottom: 0.275rem;/*4px;*/ }
+
+notebook > header.left tabs:not(:only-child), 
+notebook > header.right tabs:not(:only-child) { 
+
+  margin-top: 0.20625rem;/*3px;*/ 
+  margin-bottom: 0.20625rem;/*3px;*/ }
+
 notebook > header.left tabs:not(:only-child):first-child, 
-notebook > header.right tabs:not(:only-child):first-child
-{ 
-        margin-top: -1px;
-}
+notebook > header.right tabs:not(:only-child):first-child { 
+
+  margin-top: -1px; }
+
 notebook > header.left tabs:not(:only-child):last-child, 
-notebook > header.right tabs:not(:only-child):last-child
-{ 
-     margin-bottom: -1px;
+notebook > header.right tabs:not(:only-child):last-child { 
+
+  margin-bottom: -1px; }
+
+notebook > header.left tabs tab, 
+notebook > header.right tabs tab { 
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
+
 notebook > header.left tabs tab.reorderable-page, 
-notebook > header.right tabs tab.reorderable-page
-{ 
-      border-style: solid none;
-}
-notebook > header.top tab 
-{ 
-       padding-top: 0px;
-    padding-bottom: 0px;
-}
-notebook > header.bottom tab {
- 
-       padding-top: 1px;
-}
-notebook > header > tabs > tab button.sidebar-button
-{
-     border-radius: 4px;
-  background-color: red;
-}
-notebook > header > tabs > tab button.sidebar-button:hover 
-{
-      border-color: transparent;
-  background-color: transparent;
-  background-image: none;
-        box-shadow: none;
-             color: #ff4d4d;
-}
+notebook > header.right tabs tab.reorderable-page { 
+
+  border-style: solid none; }
+
+notebook > header.top tab { 
+
+  padding-top: 0px;
+  padding-bottom: 1px; }
+
+notebook > header.bottom tab { padding-top: 1px; }
+
+notebook > stack:not(:only-child) {
+
+  background-color: #454545; 
+  /*transition: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);*/ }
 /*(((((((((( Scrollbars )))))))))
 )*/
 scrollbar 
