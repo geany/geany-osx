@@ -3957,6 +3957,7 @@ check:disabled
 { 
       border-color: alpha(@borders,0.7); 
   background-image: none; 
+             color: @disabled_text_color;
         
    
         box-shadow: inset 0 1px rgba(255, 255, 255, 0); 
