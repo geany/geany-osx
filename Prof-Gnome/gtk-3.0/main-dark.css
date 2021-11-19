@@ -627,6 +627,13 @@ button:checked
         box-shadow: inset 0 1px 1px alpha(@shadows_dark, 0.12),
                     0 1px 2px alpha(@shadows_dark, 0.02);
 }
+button:checked:hover,
+button:checked
+{ 
+      border-color: @borders;
+  background-image: image(#777777);
+        box-shadow: none;
+}
 notebook > header > tabs > arrow:active, 
 notebook > header > tabs > arrow:checked
 { 
@@ -1367,7 +1374,6 @@ stacksidebar row.needs-attention > label:dir(rtl)
                  color: @text_color;
           
          border-color: @borders; 
-           box-shadow: inset 0 1px 1px alpha(@shadows_dark, 0.08);
      background-image: linear-gradient(shade(@button_color,0.96),
                                              @button_color);
      
