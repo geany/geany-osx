@@ -144,6 +144,8 @@
             checkoutdir="geany-plugins-git"
             revision="master">
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_plugins_spellcheck_relocation.patch" strip="1" />
+      <!-- TODO: remove once merged upstream -->
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_plugins_vimode_height.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-git" />
@@ -159,6 +161,8 @@
             checkoutdir="geany-plugins-${version}"
             version="1.38">
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_plugins_spellcheck_relocation.patch" strip="1" />
+      <!-- TODO: remove once merged upstream -->
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_plugins_vimode_height.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-release" />

@@ -1,0 +1,12 @@
+diff --git a/vimode/src/excmd-prompt.c b/vimode/src/excmd-prompt.c
+index 93848ca88037051dfc340707790cd560e2596a76..44e9d434c8bb8c9335ced85f49123cc29ba92172 100644
+--- a/vimode/src/excmd-prompt.c
++++ b/vimode/src/excmd-prompt.c
+@@ -225,6 +225,7 @@ void ex_prompt_init(GtkWidget *parent_window, CmdContext *c)
+ 	prompt = g_object_new(GTK_TYPE_WINDOW,
+ 			"decorated", FALSE,
+ 			"default-width", PROMPT_WIDTH,
++			"default-height", 1,
+ 			"transient-for", parent_window,
+ 			"window-position", GTK_WIN_POS_CENTER_ON_PARENT,
+ 			"type-hint", GDK_WINDOW_TYPE_HINT_DIALOG,
