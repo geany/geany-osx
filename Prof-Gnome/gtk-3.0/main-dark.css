@@ -4171,7 +4171,7 @@ menu menuitem check:hover:checked
   background-color: alpha(@button_color,0.2);
       border-color: alpha(@button_color,0.8);
 }
-..nautilus-window .floating-bar button:checked,
+.nautilus-window .floating-bar button:checked,
 .nautilus-window .floating-bar button:active:hover,
 .nautilus-window .floating-bar button:active
 {
@@ -5533,6 +5533,13 @@ infobar.error
 { 
              color: @selected_text_color;
         
+}
+infobar.info button, 
+infobar.question button, 
+infobar.warning button, 
+infobar.error button
+{ 
+                color: @selected_text_color; 
         border-radius: 4.66px;
          border-color: @color_700; 
   border-bottom-color: @color_900; 
