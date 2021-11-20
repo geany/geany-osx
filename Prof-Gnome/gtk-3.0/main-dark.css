@@ -5619,7 +5619,7 @@ tooltip
 }
 tooltip.background
 {
-  background-color: alpha(@osd_bg_color,0.8);
+  background-color: alpha(@osd_bg_color,0.95);
 }
 tooltip.background label 
 {
