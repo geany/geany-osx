@@ -147,7 +147,7 @@ label.separator
 label selection
 { 
   color: @selected_text_color; 
-  
+  background-color: @color_accent;  
 }
 label:disabled
 { 
