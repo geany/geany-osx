@@ -3347,11 +3347,12 @@ scrollbar slider:hover
   background-color: #7e8182;
       border-color: transparent; 
 }
+/*
 scrollbar slider:hover:active
 { 
   background-color:alpha(shade(@color_accent, 0.9),1);
       border-color:transparent;
-}
+}*/
 scrollbar slider:disabled
 { 
   background-color: transparent;
