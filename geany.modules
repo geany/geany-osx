@@ -146,6 +146,9 @@
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_plugins_spellcheck_relocation.patch" strip="1" />
       <!-- TODO: remove once merged upstream -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_plugins_vimode_height.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03-geany_plugins_vimode_eol_eof_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/04-geany_plugins_vimode_caret_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/05-geany_plugins_vimode_numlock_fix.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-git" />
@@ -163,6 +166,9 @@
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_plugins_spellcheck_relocation.patch" strip="1" />
       <!-- TODO: remove once merged upstream -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_plugins_vimode_height.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03-geany_plugins_vimode_eol_eof_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/04-geany_plugins_vimode_caret_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/05-geany_plugins_vimode_numlock_fix.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-release" />
