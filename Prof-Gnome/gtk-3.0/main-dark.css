@@ -6743,6 +6743,7 @@ background-image:linear-gradient(shade(@headerbar_button_color,0.90),shade(@head
 } 
 statusbar
 {
+  margin: -3px;
   border-radius: 0 0 6px 6px;
 }
 #weather-page,

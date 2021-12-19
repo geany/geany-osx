@@ -6725,6 +6725,7 @@ filechooser placessidebar.sidebar
 } 
 statusbar
 {
+  margin: -3px;
   border-radius: 0 0 6px 6px;
 }
 #weather-page,
