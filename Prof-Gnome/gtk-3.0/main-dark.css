@@ -2779,9 +2779,7 @@ menubar,
 { 
   -GtkWidget-window-dragging: true; 
            padding: 0 4px; 
-  background-image: linear-gradient(to top, 
-                    alpha(shade(@headerbar_color,0.88),1),
-                    alpha(shade(@headerbar_color,0.92),1));
+  background-color: @theme_bg_color;
         box-shadow: inset 0 -1px rgba(0, 0, 0, 0.5);
 }
 menubar > menuitem, 
