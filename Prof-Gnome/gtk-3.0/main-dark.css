@@ -1930,7 +1930,7 @@ combobox:drop(active)
        
   box-shadow: none;
 }
-//*(((((((((( Toolbars )))))))))) 
+/*(((((((((( Toolbars )))))))))) 
 */
 toolbar, .inline-toolbar, 
 searchbar > revealer > box, 
