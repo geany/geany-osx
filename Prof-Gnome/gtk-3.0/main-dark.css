@@ -3044,7 +3044,7 @@ notebook > header.top > tabs { margin-bottom: -2px; }
 
 notebook > header.top > tabs > tab { padding-top: 3px; padding-bottom: 3px; }
 
-notebook > header.top > tabs > tab:checked { background-color: #444444; }
+notebook > header.top > tabs > tab:checked { background-color: #444444; border-color: #111111; border-width: 1px; border-style: none solid; }
 
 notebook > header.bottom { border-top-style: solid; }
 
@@ -3052,7 +3052,7 @@ notebook > header.bottom > tabs { margin-top: -2px; }
 
 notebook > header.bottom > tabs > tab { padding-top: 3px; padding-bottom: 3px; }
 
-notebook > header.bottom > tabs > tab:checked { background-color: #444444; }
+notebook > header.bottom > tabs > tab:checked { background-color: #444444; border-color: #111111; border-width: 1px; border-style: none solid; }
 
 notebook > header.left { border-right-style: solid; }
 
@@ -3060,7 +3060,7 @@ notebook > header.left > tabs { margin-right: -2px; }
 
 notebook > header.left > tabs > tab { padding-top: 3px; padding-bottom: 3px; }
 
-notebook > header.left > tabs > tab:checked { background-color: #444444; }
+notebook > header.left > tabs > tab:checked { background-color: #444444; border-color: #111111; border-width: 1px; border-style: solid none; }
 
 notebook > header.right { border-left-style: solid; }
 
@@ -3068,7 +3068,7 @@ notebook > header.right > tabs { margin-left: -2px; }
 
 notebook > header.right > tabs > tab { padding-top: 3px; padding-bottom: 3px; }
 
-notebook > header.right > tabs > tab:checked { background-color: #444444; }
+notebook > header.right > tabs > tab:checked { background-color: #444444; border-color: #111111; border-width: 1px; border-style: solid none; }
 
 notebook > header.top > tabs > arrow { border-top-style: none; }
 
