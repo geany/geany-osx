@@ -6874,9 +6874,6 @@ actionbar
 filechooser actionbar
 {
   background-color: transparent;
-  background-image: linear-gradient(to top, alpha(shade(@headerbar_color,0.9),0.96), 
-                                            alpha(shade(@headerbar_color,0.98),0.96),
-                                            alpha(shade(@headerbar_color,1.02),0.94));
 }
 terminal-window.background.csd
 {
