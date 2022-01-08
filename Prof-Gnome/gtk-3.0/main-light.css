@@ -3796,7 +3796,7 @@ menu menuitem radio:disabled
         box-shadow: none;
      border-radius: 9999px;
   background-color: alpha(@button_color,0.4);
-      border-color: transparent;
+      border-color: #cccccc;
   
         min-height: 14px;
          min-width: 14px;
@@ -3808,7 +3808,7 @@ menu menuitem radio:active
   background-image: none;
         box-shadow: none;
   background-color: alpha(@button_color,0.4);
-      border-color: transparent;
+      border-color: #cccccc;
   -gtk-icon-source: image(-gtk-recolor(url("global-graphics/bullet-symbolic.svg")));
 } 
 menu menuitem radio:checked:hover
@@ -3817,7 +3817,7 @@ menu menuitem radio:checked:hover
   background-image: none;
         box-shadow: none;
   background-color: alpha(@button_color,0.4);
-      border-color: transparent;
+      border-color: #cccccc;
   
   -gtk-icon-source: image(-gtk-recolor(url("global-graphics/bullet-symbolic.svg")));
 }
@@ -4034,7 +4034,7 @@ menu menuitem check:disabled
         box-shadow: none;
      border-radius: 4px;
   background-color: alpha(@button_color,0.4);
-      border-color: transparent;
+      border-color: #cccccc;
   
         min-height: 14px;
          min-width: 14px;
@@ -4047,7 +4047,7 @@ menu menuitem check:active
         box-shadow: none;
   
   background-color: alpha(@button_color,0.4);
-      border-color: transparent;
+      border-color: #cccccc;
   -gtk-icon-source: image(-gtk-recolor(url("global-graphics/object-select-symbolic.svg")));
 }
  
@@ -4058,7 +4058,7 @@ menu menuitem check:hover:checked
   box-shadow: none;
   
   background-color: alpha(@button_color,0.4);
-      border-color: transparent;
+      border-color: #cccccc;
   -gtk-icon-source: image(-gtk-recolor(url("global-graphics/object-select-symbolic.svg")));
  }
 /*((((((((( nautilus floating bar ))))))))))
