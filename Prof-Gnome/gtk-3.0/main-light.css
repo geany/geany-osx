@@ -3151,9 +3151,6 @@ notebook > header tab:checked.reorderable-page {
   border-color: rgba(205, 199, 194, 0.5); 
   background-color: rgba(246, 245, 244, 0.5); }
 
-notebook > header tab:checked.reorderable-page:hover { 
-
-  background-color: rgba(246, 245, 244, 0.7); }
 
 notebook > header tab button.flat { 
 
