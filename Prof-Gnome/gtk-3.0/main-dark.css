@@ -2780,22 +2780,20 @@ menubar,
   -GtkWidget-window-dragging: true; 
            padding: 0 4px; 
   background-color: @theme_bg_color;
-        box-shadow: inset 0 -1px rgba(0, 0, 0, 0.5);
 }
 menubar > menuitem, 
 .menubar > menuitem
 { 
-     border-radius: 3px;
-     margin-bottom: 3px;
+     border-radius: 0;
              color: @headerbar_text_color;
         
         min-height: 16px; 
-           padding: 2px 12px;
+           padding: 3px 12px;
 }
 menubar > menuitem:hover, 
 .menubar > menuitem:hover
 { 
-  background-image:linear-gradient(shade(@color_accent_3,0.95), shade(@color_accent_3,0.88));
+  background-color: @color_accent;
              color: @selected_text_color; 
        
 }
@@ -2821,16 +2819,6 @@ menu,
            margin: 4px;
           padding: 6px 0; 
   background-color:@menu_bg_color;
-  background-image: linear-gradient(to top,
-                    transparent,
-                    alpha(@shadows_dark,0.03),
-                    alpha(@shadows_dark,0.06),
-                    alpha(@shadows_dark,0.08), 
-                    alpha(@shadows_dark,0.08),
-                    alpha(@shadows_dark,0.08),
-                    alpha(@shadows_dark,0.06),
-                    alpha(@shadows_dark,0.03),
-                    transparent);
 } 
 .csd menu, 
 .csd .menu, 
@@ -2842,26 +2830,16 @@ menu,
            margin: 4px;
           padding: 6px 0; 
   background-color: alpha(@menu_bg_color,0.985);
-  background-image: linear-gradient(to top, 
-                    transparent,
-                    alpha(@shadows_dark,0.03),
-                    alpha(@shadows_dark,0.06),
-                    alpha(@shadows_dark,0.08), 
-                    alpha(@shadows_dark,0.08),
-                    alpha(@shadows_dark,0.08),
-                    alpha(@shadows_dark,0.06),
-                    alpha(@shadows_dark,0.03),
-                    transparent);
 } 
 menubar > menuitem menu,
 .menubar > menuitem menu
 {  
-     border-radius: 0 0 4.66px 4.66px;
+     border-radius: 0;
 }
 menubar > menuitem menu menu,
 .menubar > menuitem menu menu
 {
-     border-radius: 4.66px;
+     border-radius: 0;
 }
 menu menuitem, 
 .menu menuitem, 
@@ -2869,9 +2847,9 @@ menu menuitem,
 {
              color: @text_color;
        
-	 border-radius: 4.66px;
-       margin-left: 5px;
-      margin-right: 5px;
+	 border-radius: 0;
+       margin-left: 0;
+      margin-right: 0;
         min-height: 16px;
          min-width: 40px; 
            padding: 3px 6px;
@@ -2882,8 +2860,7 @@ menu menuitem:hover,
 { 
              color: @selected_text_color; 
         
-  background-color: transparent;
-  background-image: linear-gradient(to bottom right,@color_600,@color_700);
+  background-color: @color_accent;
 }
   
 menu menuitem:disabled, 
@@ -3007,16 +2984,6 @@ popover
            padding: 0;
      border-radius: 5px;
   background-color: @menu_bg_color;
-  background-image: linear-gradient(to top, 
-                    transparent,
-                    alpha(@shadows_dark,0.03),
-                    alpha(@shadows_dark,0.06),
-                    alpha(@shadows_dark,0.08), 
-                    alpha(@shadows_dark,0.08),
-                    alpha(@shadows_dark,0.08),
-                    alpha(@shadows_dark,0.06),
-                    alpha(@shadows_dark,0.03),
-                    transparent);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 .csd .popover_bg,                           
@@ -3030,16 +2997,6 @@ popover
            padding: 0;
      border-radius: 5px;
   background-color: alpha(@menu_bg_color,0.985);
-  background-image: linear-gradient(to top, 
-                    transparent,
-                    alpha(@shadows_dark,0.03),
-                    alpha(@shadows_dark,0.06),
-                    alpha(@shadows_dark,0.08), 
-                    alpha(@shadows_dark,0.08),
-                    alpha(@shadows_dark,0.08),
-                    alpha(@shadows_dark,0.06),
-                    alpha(@shadows_dark,0.03),
-                    transparent);
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 popover.background > list, 
