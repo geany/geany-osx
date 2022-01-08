@@ -2817,7 +2817,7 @@ menu,
      border-color: @borders_dark;
     border-radius: 4.66px;
            margin: 4px;
-          padding: 6px 0; 
+          padding: 4px 0; 
   background-color:@menu_bg_color;
 } 
 .csd menu, 
@@ -2828,7 +2828,7 @@ menu,
      border-color: @borders_dark;
     border-radius: 4.66px;
            margin: 4px;
-          padding: 6px 0; 
+          padding: 4px 0; 
   background-color: alpha(@menu_bg_color,0.985);
 } 
 menubar > menuitem menu,
