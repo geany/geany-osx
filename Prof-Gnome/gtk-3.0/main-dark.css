@@ -3136,6 +3136,10 @@ notebook > header tab {
   border-width: 1px; 
   border-color: transparent; }
 
+notebook > header tab label {
+  color: alpha(@text_color,0.7);
+}
+
 notebook > header tab:hover { 
 color: #c0c0be; 
 }
@@ -3148,6 +3152,10 @@ notebook > header tab:hover.reorderable-page {
 notebook > header tab:checked { 
 
   color: #ececec;
+}
+
+notebook > header tab:checked label {
+  color: @text_color;
 }
 
 notebook > header tab:checked.reorderable-page { 
