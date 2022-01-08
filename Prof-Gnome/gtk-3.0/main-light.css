@@ -6458,7 +6458,7 @@ window.background.csd > notebook
 dialog.background > box.vertical > notebook
 {
      border-color: @borders;
-     border-style: none solid solid solid;
+     border-style: solid;
 }
 window.background.csd > hdyleaflet > box.vertical > stack.main-container
 {
@@ -6756,7 +6756,7 @@ leaflet frame.view list row.activatable:last-child,
 .vertical.dialog-vbox stack notebook,
 .vertical.dialog-vbox stack notebook viewport
 { 
-  border-radius: 0 0 6px 6px;
+  border-radius: 0;
 }
 .nautilus-window .sidebar .frame,
 window.background.csd > box.vertical > box.horizontal > frame > scrolledwindow > viewport.frame list,
