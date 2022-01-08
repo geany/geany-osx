@@ -2798,6 +2798,12 @@ menubar > menuitem:hover,
              color: @selected_text_color; 
        
 }
+menubar > menuitem:hover label, 
+.menubar > menuitem:hover label
+{ 
+             color: @selected_text_color; 
+       
+}
 menubar > menuitem:disabled, 
 .menubar > menuitem:disabled
 { 
