@@ -138,6 +138,7 @@ flowbox flowboxchild:selected
 }
 label
 {
+  color: @text_color;
   caret-color: currentColor;
 }
 label.separator
