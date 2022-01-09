@@ -2785,7 +2785,7 @@ menubar > menuitem,
              color: @headerbar_text_color;
         
         min-height: 16px; 
-           padding: 3px 12px;
+           padding: 3px 8px;
 }
 menubar > menuitem:hover, 
 .menubar > menuitem:hover
