@@ -3122,9 +3122,9 @@ notebook > header > tabs > arrow:disabled {
 
 notebook > header tab { 
 
-  min-height: 1.65rem;/*24px; */
-  min-width: 2.0625rem; /*30px;*/ 
-  padding: 1px 0.825rem;/*12px;*/ 
+  min-height: 1.5rem;
+  min-width:  30px;
+  padding: 1px 8px;
   outline-offset: -5px; 
   color: #505050;/*#929595; */
   font-weight: normal; 
@@ -3163,10 +3163,10 @@ notebook > header tab:checked.reorderable-page {
 notebook > header tab button.flat { 
 
   padding: 0; 
-  margin-top: 0.275rem;/*4px;*/ 
-  margin-bottom: 0.275rem;/*4px;*/ 
-  min-width: 1.375rem;/*20px;*/ 
-  min-height: 1.375rem;/*20px;*/ }
+  margin-top:     4px;
+  margin-bottom:  4px;
+  min-width:     20px;
+  min-height:    20px; }
 
 notebook > header tab button.flat:hover { 
 
@@ -3176,24 +3176,24 @@ notebook > header tab button.flat{ color: alpha(currentColor,0.3); }
 
 notebook > header tab button.flat:last-child { 
 
-  margin-left:  0.275rem;/*4px;*/ 
-  margin-right: -0.275rem;/*-4px;*/ }
+  margin-left:   4px;
+  margin-right: -4px; }
 
 notebook > header tab button.flat:first-child { 
 
-  margin-left: -0.275rem;/*-4px;*/ 
-  margin-right:  0.275rem;/*4px;*/ }
+  margin-left:  -4px;
+  margin-right:  4px; }
 
 notebook > header.top tabs, notebook > header.bottom tabs { 
 
-  padding-left:  0.275rem;/*4px;*/ 
-  padding-right:  0.275rem;/*4px;*/ }
+  padding-left:  4px;
+  padding-right: 4px; }
 
 notebook > header.top tabs:not(:only-child), 
 notebook > header.bottom tabs:not(:only-child) { 
 
-  margin-left: 0.20625rem;/*3px;*/ 
-  margin-right: 0.20625rem;/*3px;*/ }
+  margin-left:  3px; 
+  margin-right: 3px; }
 
 notebook > header.top tabs:not(:only-child):first-child, 
 notebook > header.bottom tabs:not(:only-child):first-child { 
@@ -3218,14 +3218,14 @@ notebook > header.bottom tabs tab.reorderable-page {
 notebook > header.left tabs, 
 notebook > header.right tabs { 
 
-  padding-top: 0.275rem;/*4px;*/ 
-  padding-bottom: 0.275rem;/*4px;*/ }
+  padding-top:    4px;
+  padding-bottom: 4px; }
 
 notebook > header.left tabs:not(:only-child), 
 notebook > header.right tabs:not(:only-child) { 
 
-  margin-top: 0.20625rem;/*3px;*/ 
-  margin-bottom: 0.20625rem;/*3px;*/ }
+  margin-top:    3px; 
+  margin-bottom: 3px; }
 
 notebook > header.left tabs:not(:only-child):first-child, 
 notebook > header.right tabs:not(:only-child):first-child { 
