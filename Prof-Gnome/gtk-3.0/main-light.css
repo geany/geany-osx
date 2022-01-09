@@ -664,37 +664,6 @@ button:disabled
     
          box-shadow: none;
 }
-filechooser actionbar entry, 
-filechooser actionbar button,  
-headerbar entry,
-headerbar button
-{
-             border: 1px solid;
-              color: @headerbar_text_color;
-        
-       border-color: shade(@headerbar_color,0.9); 
-border-bottom-color: shade(@headerbar_color,0.8);
-   
-         box-shadow: inset 0 1px shade(@headerbar_color,1.3),
-                           0 1px 2px rgba(0, 0, 0, 0.07);
-   background-image: linear-gradient(to top, shade(@headerbar_color,1.05), 
-                                             shade(@headerbar_color,1.2));
-}
-filechooser actionbar entry:hover, 
-filechooser actionbar button:hover,
-headerbar button:hover
-{ 
-              color: @headerbar_text_color;
-        
-       border-color: shade(@headerbar_color,0.9); 
-border-bottom-color: shade(@headerbar_color,0.8);
-   
-         box-shadow: inset 0 1px shade(@headerbar_color,1.3),
-                           0 1px 2px rgba(0, 0, 0, 0.07);
-   background-image: linear-gradient(to top, shade(@headerbar_color,1.15),
-                                             shade(@headerbar_color,1.3));
-   -gtk-icon-effect: highlight; 
-}  
 headerbar button:checked
 {
               color: @headerbar_text_color;
@@ -6594,11 +6563,6 @@ window.background.csd > box.vertical > scrolledwindow > iconview.view.content-vi
 }
 filechooser placessidebar.sidebar
 {
-  background-image: linear-gradient(to top, transparent,
-                                            alpha(@text_color,0.1),
-                                            alpha(@text_color,0.2), 
-                                            alpha(@text_color,0.1),
-                                            transparent);
   background-color: @sidebar_bg_color;
      border-radius: 0;
      
