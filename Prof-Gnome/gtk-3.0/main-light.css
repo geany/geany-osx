@@ -733,8 +733,8 @@ button.text-button
 notebook > header > tabs > arrow.text-button.image-button, 
 button.text-button.image-button
 { 
-      padding-left: 8px; 
-     padding-right: 8px;
+      padding-left: 4px; 
+     padding-right: 4px;
 }
 notebook > header > tabs > arrow.text-button.image-button label, 
 button.text-button.image-button label
