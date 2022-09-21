@@ -5,7 +5,7 @@
   <repository type="tarball" name="ftp.gnome.org"
               href="https://ftp.gnome.org/pub/GNOME/sources/"/>
   <repository type="git" name="github.com"
-              href="git://github.com/"/>
+              href="https://github.com/"/>
   <repository type="git" name="gitlab.gnome.org"
               href="https://gitlab.gnome.org/GNOME/"/>
   <repository type="tarball" name="download.gitlab.gnome.org"
@@ -92,9 +92,7 @@
   </metamodule>
 
   <!-- Geany from git master -->
-  <autotools id="geany-git"
-             autogenargs="--enable-mac-integration"
-             supports-non-srcdir-builds="no">
+  <meson id="geany-git" mesonargs="-Dmac-integration=enabled">
     <branch repo="github.com"
             module="geany/geany.git"
             checkoutdir="geany-git"
@@ -107,7 +105,7 @@
     <dependencies>
       <dep package="geany-deps" />
     </dependencies>
-  </autotools>
+  </meson>
 
   <!-- Geany tarball release -->
   <autotools id="geany-release"
