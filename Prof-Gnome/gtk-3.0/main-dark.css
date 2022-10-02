@@ -3623,9 +3623,9 @@ radio:hover
   background-image: linear-gradient(to top,@button_color,shade(@button_color,0.97));
   background-color: transparent;
              color: alpha(@text_color,0.9);
-            margin: 0 6px;
-  min-height:14px;
-  min-width: 14px;
+            margin: 0 6px 2px 6px;
+  min-height:12px;
+  min-width: 12px;
   -gtk-icon-source: none;
 } 
 radio:checked,
@@ -3746,8 +3746,8 @@ popover radio:disabled
   background-color: alpha(@button_color,0.4);
       border-color: transparent;
   
-        min-height:14px;
-        min-width: 14px;
+        min-height:12px;
+        min-width: 12px;
 }
 popover radio:checked,
 popover radio:active
@@ -3786,8 +3786,8 @@ menu menuitem radio:disabled
   background-color: alpha(@button_color,0.4);
       border-color: #333333;
   
-        min-height: 14px;
-         min-width: 14px;
+        min-height: 12px;
+         min-width: 12px;
 }
 menu menuitem radio:checked, 
 menu menuitem radio:active
@@ -3846,9 +3846,9 @@ check:hover
             border: 1px solid;
      border-radius: 4px;
              color: alpha(@text_color,0.9);
-            margin: 0 6px;
-        min-height: 14px;
-         min-width: 14px;
+            margin: 0 6px 2px 6px;
+        min-height: 12px;
+         min-width: 12px;
       border-color: shade(@borders,0.9); 
         
   
@@ -3985,8 +3985,8 @@ popover check:disabled
   background-color: alpha(@button_color,0.4);
       border-color: transparent;
   
-        min-height: 14px;
-         min-width: 14px;
+        min-height: 12px;
+         min-width: 12px;
 }
 popover check:checked,
 popover check:active
@@ -4024,8 +4024,8 @@ menu menuitem check:disabled
   background-color: alpha(@button_color,0.4);
       border-color: #333333;
     
-        min-height: 14px;
-         min-width: 14px;
+        min-height: 12px;
+         min-width: 12px;
 }
 menu menuitem check:checked, 
 menu menuitem check:active
