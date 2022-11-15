@@ -31,9 +31,8 @@
   </autotools>
 
   <autotools id="libjpeg" autogen-sh="configure">
-    <branch module="jpegsrc.v9d.tar.gz" version="9d"
-            repo="jpeg" checkoutdir="jpeg-9d"
-            hash="sha256:6c434a3be59f8f62425b2e3c077e785c9ce30ee5874ea1c270e843f273ba71ee">
+    <branch module="jpegsrc.v9e.tar.gz" version="9e"
+            repo="jpeg" checkoutdir="jpeg-9e">
     </branch>
   </autotools>
 
@@ -62,7 +61,6 @@
       <patch file="libxml2-python-config.patch" strip="1"/>
     </branch>
     <after>
-      <dep package="python2"/>
       <dep package="python3"/>
     </after>
   </autotools>

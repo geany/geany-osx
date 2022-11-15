@@ -16,6 +16,7 @@
   <repository name="webkit.org" type="tarball"
               href="http://www.webkitgtk.org/releases/"/>
   <repository type="tarball" name="github-tarball" href="https://github.com/"/>
+  <repository type="tarball" name="zlib" href="https://www.zlib.net/"/>
 
   <!-- Builds latest stable version of WebKitGTK for GTK 3.x -->
   <metamodule id="meta-gtk-osx-webkit-gtk3">
@@ -30,8 +31,8 @@
   <autotools id="openssl" autogen-sh="Configure" autogenargs="shared "
              autogen-template="%(srcdir)s/%(autogen-sh)s --prefix=%(prefix)s --openssldir=%(prefix)s/etc/ssl %(autogenargs)s"
              makeinstallargs="install_sw" supports-non-srcdir-builds="no">
-    <branch module="openssl-1.1.1k.tar.gz" version="1.1.1k" repo="openssl"
-            hash="sha256:892a0875b9872acd04a9fde79b1f943075d5ea162415de3047c327df33fbaee5"/>
+    <branch module="openssl-1.1.1n.tar.gz" version="1.1.1n" repo="openssl"
+            hash="sha256:40dceb51a4f6a5275bde0e6bf20ef4b91bfc32ed57c0552e2e8e15463372b17a"/>
   </autotools>
 
   <!-- Rudely demands TeX to build documentation -->
@@ -71,12 +72,11 @@
     </branch>
   </autotools>
 
-  <autotools id="zlib" autogen-sh="configure" skip-autogen="never"
-             supports-non-srcdir-builds="no">
-    <branch repo="sourceforge" version="1.2.11"
-            module="libpng/zlib-1.2.11.tar.xz"
-            hash="sha256:4ff941449631ace0d4d203e3483be9dbc9da454084111f97ea0a2114e19bf066"/>
-  </autotools>
+  <cmake id="zlib">
+    <branch repo="zlib" version="1.2.13"
+            module="zlib-1.2.13.tar.xz"
+            hash="sha256:d14c38e313afc35a9a8760dadf26042f51ea0f5d154b0630a31da0540107fb98"/>
+  </cmake>
 
   <autotools id="p11-kit" autogen-sh="configure"
              autogenargs="--without-trust-paths">
@@ -93,9 +93,8 @@
   <if condition-unset="pre-Mavericks">
     <autotools id="gnutls" autogen-sh="autoreconf"
                autogenargs="--disable-gtk-doc-html --with-included-unistring">
-      <branch repo="gnupg.org" version="3.7.1"
-              module="gcrypt/gnutls/v3.7/gnutls-3.7.1.tar.xz"
-              hash="sha256:3777d7963eca5e06eb315686163b7b3f5045e2baac5e54e038ace9835e5cac6f">
+      <branch repo="gnupg.org" version="3.7.7"
+              module="gcrypt/gnutls/v3.7/gnutls-3.7.7.tar.xz">
       </branch>
       <dependencies>
         <dep package="libnettle"/>

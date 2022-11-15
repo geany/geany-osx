@@ -16,8 +16,8 @@
   <repository type="tarball" name="graphviz"
               href="https://gitlab.com/graphviz/graphviz/-/archive/"/>
   <repository type="tarball" name="sqlite" href="http://www.sqlite.org/"/>
-  <repository type="tarball" name="frodo"
-              href="http://frodo.looijaard.name/system/files/software/"/>
+  <repository type="tarball" name="fossies"
+              href="https://fossies.org/linux/misc/"/>
   <repository type="tarball" name="paguire" href="https://releases.pagure.org/"/> 
   <repository type="tarball" name="pcre" href="https://ftp.pcre.org/pub/"/>
 
@@ -39,12 +39,9 @@
             hash="sha256:1de26310db465aca525679d3b5a3c1d8db2e067c4cbc0e5ddd015cd938bac68b"/>
     <dependencies>
       <dep package="graphviz"/>
-    </dependencies>
-    <after>
       <dep package="meta-gtk-osx-bootstrap"/>
       <dep package="meta-gtk-osx-gtk3"/>
-      <dep package="meta-gtk-osx-gtk2"/>
-    </after>
+    </dependencies>
   </autotools>
 
   <autotools id="expat" autogen-sh="configure">
@@ -78,8 +75,8 @@
   </meson>
 
   <meson id="glade" mesonargs="-Dmac_bundle=true -Dman=false" >
-    <branch module="glade/3.38/glade-3.38.2.tar.xz" version="3.38.2"
-            hash="sha256:98fc87647d88505c97dd2f30f2db2d3e9527515b3af11694787d62a8d28fbab7">
+    <branch module="glade/3.40/glade-3.40.0.tar.xz" version="3.40.0"
+            hash="sha256:31c9adaea849972ab9517b564e19ac19977ca97758b109edc3167008f53e3d9c">
     </branch>
     <dependencies>
       <dep package="itstool"/>
@@ -116,11 +113,11 @@
     </dependencies>
   </meson>
 
-  <autotools id="frodo-getopt" autogen-sh="configure"
+  <autotools id="getopt" autogen-sh="configure"
              supports-non-srcdir-builds="no">
-    <branch repo="frodo" version="1.1.6" module="getopt/getopt-1.1.6.tar.gz"
+    <branch repo="fossies" version="1.1.6" module="getopt-1.1.6.tar.gz"
             hash="sha256:d0bf1dc642a993e7388a1cddfb9409bed375c21d5278056ccca3a0acd09dc5fe">
-       <patch file="frodo-getopt-autotools.patch" strip="1"/>
+       <patch file="getopt-autotools.patch" strip="1"/>
     </branch>
   </autotools>
   <autotools id="xmlto" autogen-sh="autoreconf">
@@ -130,7 +127,7 @@
       <patch file="xmlto-allow-net-access.patch" strip="1"/>
     </branch>
     <dependencies>
-      <dep package="frodo-getopt"/>
+      <dep package="getopt"/>
     </dependencies>
   </autotools>
 
@@ -158,9 +155,9 @@
 <!-- SQLite3 is also available from the macOS SDK -->
   <autotools id="sqlite" autogenargs="--disable-tcl --enable-threadsafe"
 	     autogen-sh="configure">
-    <branch module="2021/sqlite-autoconf-3350400.tar.gz" version='3.35.4'
+    <branch module="2022/sqlite-autoconf-3390400.tar.gz" version='3.39.4'
             repo="sqlite"
-            hash="sha256:7771525dff0185bfe9638ccce23faa0e1451757ddbda5a6c853bb80b923a512d"/>
+            hash="sha3:431328e30d12c551da9ba7ef2122b269076058512014afa799caaf62ca567090"/>
   </autotools>
 
 <!-- Goocanvas2 is for gtk+-3. -->

@@ -14,7 +14,6 @@
     </dependencies>
     <after>
       <dep package="meta-gtk-osx-gtk3"/>
-      <dep package="meta-gtk-osx-gtk3.14"/>
       <dep package="meta-gtk-osx-bootstrap"/>
     </after>
   </metamodule>
