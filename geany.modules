@@ -4,8 +4,6 @@
 <moduleset>
   <repository type="tarball" name="ftp.gnome.org"
               href="https://ftp.gnome.org/pub/GNOME/sources/"/>
-  <repository type="git" name="github.com"
-              href="https://github.com/"/>
   <repository type="git" name="gitlab.gnome.org"
               href="https://gitlab.gnome.org/GNOME/"/>
   <repository type="tarball" name="download.gitlab.gnome.org"
@@ -89,7 +87,9 @@
              supports-non-srcdir-builds="no"
              makeargs="install">  <!-- all we need to do is 'make install' -->
     <branch repo="gitlab.gnome.org"
-            module="gtk-mac-bundler"/>
+            module="gtk-mac-bundler">
+        <!-- using git clone - potential patches here wouldn't work -->
+    </branch>
   </autotools>
 
   <metamodule id="geany-deps">
@@ -104,12 +104,13 @@
     </dependencies>
   </metamodule>
 
-  <!-- Geany from git master -->
+  <!-- Geany from git master - use tarball download otherwise patches don't work -->
   <meson id="geany-git" mesonargs="-Dmac-integration=enabled">
-    <branch repo="github.com"
-            module="geany/geany.git"
+    <branch repo="download.github.com"
+            module="geany/geany/archive/refs/heads/master.tar.gz"
+            rename-tarball="geany-git.tar.gz"
             checkoutdir="geany-git"
-            revision="master" >
+            version="master" >
       <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01git-geany_config_shell.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_scintilla_candidate_window_pos.patch" strip="1" />
@@ -151,13 +152,14 @@
     </dependencies>
   </metamodule>
 
-  <!-- Geany-plugins from git master -->
+  <!-- Geany-plugins from git master - use tarball download otherwise patches don't work -->
   <autotools id="geany-plugins-git"
              supports-non-srcdir-builds="no">
-    <branch repo="github.com"
-            module="geany/geany-plugins.git"
+    <branch repo="download.github.com"
+            module="geany/geany-plugins/archive/refs/heads/master.tar.gz"
+            rename-tarball="geany-plugins-git.tar.gz"
             checkoutdir="geany-plugins-git"
-            revision="master">
+            version="master" >
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_plugins_spellcheck_relocation.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/06-geany-plugins_geanylua_link_against_statically_built_liblua.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/07-geany_plugins_geanylua_make_lib_data_directories_relocatable.patch" strip="1" />
