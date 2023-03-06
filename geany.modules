@@ -111,7 +111,7 @@
             checkoutdir="geany-git"
             revision="master" >
       <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_config_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01git-geany_config_shell.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_scintilla_candidate_window_pos.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03-geany_vte_login_shell.patch" strip="1" />
     </branch>
