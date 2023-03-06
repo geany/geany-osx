@@ -66,7 +66,7 @@ index 3864a0ad1..79cf7c4b9 100644
 +                                    <property name="can-focus">False</property>
 +                                    <property name="xalign">0</property>
 +                                    <property name="label" translatable="yes">Shell:</property>
-+                                    <property name="mnemonic-widget">entry-grep</property>
++                                    <property name="mnemonic-widget">entry_grep</property>
 +                                  </object>
 +                                  <packing>
 +                                    <property name="top-attach">3</property>
