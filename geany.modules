@@ -114,6 +114,7 @@
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01git-geany_config_shell.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_scintilla_candidate_window_pos.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03git-geany_vte_login_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/04-geany_workaround_meson_expecting_git_repository.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-deps" />
