@@ -1,0 +1,54 @@
+From b6b9cd9b0e8e0a70200341486f0fb497b7104f0d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Mon, 6 Mar 2023 19:09:16 +0100
+Subject: [PATCH] Link geanylua against statically built liblua library
+
+---
+ build/geanylua.m4    | 16 ----------------
+ geanylua/Makefile.am |  3 +++
+ 2 files changed, 3 insertions(+), 16 deletions(-)
+
+diff --git a/build/geanylua.m4 b/build/geanylua.m4
+index 1f1eaf67..ec2d1a82 100644
+--- a/build/geanylua.m4
++++ b/build/geanylua.m4
+@@ -2,22 +2,6 @@ AC_DEFUN([GP_CHECK_GEANYLUA],
+ [
+     GP_ARG_DISABLE([GeanyLua], [auto])
+ 
+-    AC_ARG_WITH([lua-pkg],
+-        AC_HELP_STRING([--with-lua-pkg=ARG],
+-            [name of Lua pkg-config script [[default=lua5.1]]]),
+-        [LUA_PKG_NAME=${withval%.pc}],
+-        [LUA_PKG_NAME=lua5.1
+-
+-        for L in lua5.1 lua51 lua-5.1 lua; do
+-            PKG_CHECK_EXISTS([$L],
+-                [LUA_PKG_NAME=$L]; break,[])
+-        done])
+-
+-    LUA_VERSION=5.1
+-    LUA_VERSION_BOUNDARY=5.2
+-    GP_CHECK_PLUGIN_DEPS([GeanyLua], [LUA],
+-                         [${LUA_PKG_NAME} >= ${LUA_VERSION}
+-                          ${LUA_PKG_NAME} < ${LUA_VERSION_BOUNDARY}])
+     GP_CHECK_PLUGIN_DEPS([GeanyLua], [GMODULE], [gmodule-2.0])
+     GP_COMMIT_PLUGIN_STATUS([GeanyLua])
+ 
+diff --git a/geanylua/Makefile.am b/geanylua/Makefile.am
+index 6a8b055a..c4c3a9e5 100644
+--- a/geanylua/Makefile.am
++++ b/geanylua/Makefile.am
+@@ -5,6 +5,9 @@ plugin = geanylua
+ 
+ EXTRA_DIST += util
+ 
++LUA_CFLAGS=-I ${PREFIX}/include/
++LUA_LIBS=${PREFIX}/lib/liblua.a
++
+ geanyplugins_LTLIBRARIES = geanylua.la
+ geanyluadir = $(pkglibdir)/geanylua
+ geanylua_LTLIBRARIES = libgeanylua.la
+-- 
+2.37.5
+

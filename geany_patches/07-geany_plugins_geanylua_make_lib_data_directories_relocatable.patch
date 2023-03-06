@@ -1,0 +1,41 @@
+From 58842897c67d57771eaa9ae8dafd2af276cd056c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Mon, 6 Mar 2023 19:14:10 +0100
+Subject: [PATCH] Make lib and data directories of geanylua relocatable
+
+---
+ geanylua/geanylua.c   | 3 +++
+ geanylua/glspi_init.c | 3 +++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/geanylua/geanylua.c b/geanylua/geanylua.c
+index e9a2f1aa..045e83f5 100644
+--- a/geanylua/geanylua.c
++++ b/geanylua/geanylua.c
+@@ -136,6 +136,9 @@ static gchar *get_lib_dir(void)
+ 	g_free(install_dir);
+ 	return result;
+ #else
++	gchar *prefix_dir = g_build_filename(g_getenv("GTK_PATH"), "lib", NULL);
++	if (g_file_test(prefix_dir, G_FILE_TEST_IS_DIR))
++		return prefix_dir;
+ 	return g_strdup(LIBDIR);
+ #endif
+ }
+diff --git a/geanylua/glspi_init.c b/geanylua/glspi_init.c
+index f48b8678..b5e26b75 100644
+--- a/geanylua/glspi_init.c
++++ b/geanylua/glspi_init.c
+@@ -398,6 +398,9 @@ static gchar *get_data_dir(void)
+ 	g_free(install_dir);
+ 	return result;
+ #else
++	gchar *prefix_dir = g_build_filename(g_getenv("GTK_PATH"), "share", NULL);
++	if (g_file_test(prefix_dir, G_FILE_TEST_IS_DIR))
++		return prefix_dir;
+ 	return g_strdup(GEANYPLUGINS_DATADIR);
+ #endif
+ }
+-- 
+2.37.5
+
