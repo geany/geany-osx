@@ -16,6 +16,8 @@
               href="https://download.geany.org/"/>
   <repository type="tarball" name="files.pythonhosted.org"
               href="https://files.pythonhosted.org/"/>
+  <repository type="tarball" name="lua.org"
+              href="https://www.lua.org/ftp/"/>
 
   <include href="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/modulesets-stable/gtk-osx.modules" />
 
@@ -56,6 +58,17 @@
             checkoutdir="libgit2-${version}"
             version="1.3.0"/>
   </cmake>
+
+  <autotools id="lua"
+             makeargs="macosx"
+             skip-autogen="true"
+             supports-non-srcdir-builds="no">
+    <branch repo="lua.org"
+            module="lua-5.1.5.tar.gz"
+            version="5.1.5">
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-lua51_set_correct_install_prefix.patch" strip="1" />
+    </branch>
+  </autotools>
 
   <!-- The mac integration library with a fix for radio menu items -->
   <autotools id="gtk-mac-integration-fixed" 
@@ -133,6 +146,7 @@
       <dep package="libgit2" />
       <dep package="hunspell" />
       <dep package="enchant" />
+      <dep package="lua" />
     </dependencies>
   </metamodule>
 

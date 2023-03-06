@@ -1,0 +1,25 @@
+From 1d2c756ab70d0c29c64b78d2d04beee3723b94e4 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Mon, 6 Mar 2023 13:12:50 +0100
+Subject: [PATCH] Set correct install prefix
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 209a132..534f995 100644
+--- a/Makefile
++++ b/Makefile
+@@ -9,7 +9,7 @@ PLAT= none
+ 
+ # Where to install. The installation starts in the src and doc directories,
+ # so take care if INSTALL_TOP is not an absolute path.
+-INSTALL_TOP= /usr/local
++INSTALL_TOP= $(PREFIX)
+ INSTALL_BIN= $(INSTALL_TOP)/bin
+ INSTALL_INC= $(INSTALL_TOP)/include
+ INSTALL_LIB= $(INSTALL_TOP)/lib
+-- 
+2.37.5
+
