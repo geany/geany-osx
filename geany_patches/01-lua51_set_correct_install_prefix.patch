@@ -1,14 +1,14 @@
-From 0b9619da46bab46a191aec08073452cd71ff6231 Mon Sep 17 00:00:00 2001
+From cbba05defbbb29e59992e70c069416bffbe8142e Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
 Date: Mon, 6 Mar 2023 13:12:50 +0100
 Subject: [PATCH] Set correct install prefix
 
 ---
- Makefile | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ Makefile | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 209a132..84acea5 100644
+index 209a132..7ab56b7 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -9,7 +9,7 @@ PLAT= none
@@ -20,15 +20,23 @@ index 209a132..84acea5 100644
  INSTALL_BIN= $(INSTALL_TOP)/bin
  INSTALL_INC= $(INSTALL_TOP)/include
  INSTALL_LIB= $(INSTALL_TOP)/lib
-@@ -22,7 +22,7 @@ INSTALL_CMOD= $(INSTALL_TOP)/lib/lua/$V
- 
- # How to install. If your install program does not support "-p", then you
- # may have to run ranlib on the installed liblua.a (do "make ranlib").
--INSTALL= install -p
-+INSTALL= install -p -d
+@@ -25,6 +25,7 @@ INSTALL_CMOD= $(INSTALL_TOP)/lib/lua/$V
+ INSTALL= install -p
  INSTALL_EXEC= $(INSTALL) -m 0755
  INSTALL_DATA= $(INSTALL) -m 0644
++INSTALL_DIR= $(INSTALL) -d
  #
+ # If you don't have install you can use cp instead.
+ # INSTALL= cp -p
+@@ -59,7 +60,7 @@ test:	dummy
+ 	src/lua test/hello.lua
+ 
+ install: dummy
+-	cd src && $(MKDIR) $(INSTALL_BIN) $(INSTALL_INC) $(INSTALL_LIB) $(INSTALL_MAN) $(INSTALL_LMOD) $(INSTALL_CMOD)
++	cd src && $(INSTALL_DIR) $(INSTALL_BIN) $(INSTALL_INC) $(INSTALL_LIB) $(INSTALL_MAN) $(INSTALL_LMOD) $(INSTALL_CMOD)
+ 	cd src && $(INSTALL_EXEC) $(TO_BIN) $(INSTALL_BIN)
+ 	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
+ 	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
 -- 
 2.37.5
 
