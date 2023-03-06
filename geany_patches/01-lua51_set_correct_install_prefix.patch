@@ -1,14 +1,14 @@
-From 1d2c756ab70d0c29c64b78d2d04beee3723b94e4 Mon Sep 17 00:00:00 2001
+From 0b9619da46bab46a191aec08073452cd71ff6231 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
 Date: Mon, 6 Mar 2023 13:12:50 +0100
 Subject: [PATCH] Set correct install prefix
 
 ---
- Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 209a132..534f995 100644
+index 209a132..84acea5 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -9,7 +9,7 @@ PLAT= none
@@ -20,6 +20,15 @@ index 209a132..534f995 100644
  INSTALL_BIN= $(INSTALL_TOP)/bin
  INSTALL_INC= $(INSTALL_TOP)/include
  INSTALL_LIB= $(INSTALL_TOP)/lib
+@@ -22,7 +22,7 @@ INSTALL_CMOD= $(INSTALL_TOP)/lib/lua/$V
+ 
+ # How to install. If your install program does not support "-p", then you
+ # may have to run ranlib on the installed liblua.a (do "make ranlib").
+-INSTALL= install -p
++INSTALL= install -p -d
+ INSTALL_EXEC= $(INSTALL) -m 0755
+ INSTALL_DATA= $(INSTALL) -m 0644
+ #
 -- 
 2.37.5
 
