@@ -101,7 +101,7 @@ index 3864a0ad1..79cf7c4b9 100644
 +                                    <property name="can-focus">True</property>
 +                                    <property name="receives-default">False</property>
 +                                    <child>
-+                                      <object class="GtkImage" id="image7">
++                                      <object class="GtkImage" id="image777X">
 +                                        <property name="visible">True</property>
 +                                        <property name="can-focus">False</property>
 +                                        <property name="stock">gtk-open</property>
