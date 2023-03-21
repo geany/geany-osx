@@ -1,8 +1,8 @@
 diff --git a/configure.ac b/configure.ac
-index fa24ca66..79dab797 100644
+index baeee600..da430c22 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -754,7 +754,7 @@ dnl
+@@ -185,7 +185,7 @@ AC_ARG_WITH(python,
  
  AS_IF([test "x$with_python" != "xno"], [
      AM_PATH_PYTHON

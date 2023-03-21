@@ -1,0 +1,13 @@
+diff --git a/lib/gnutls.pc.in b/lib/gnutls.pc.in
+index eeb957cb7..6a66ac464 100644
+--- a/lib/gnutls.pc.in
++++ b/lib/gnutls.pc.in
+@@ -18,7 +18,7 @@ Name: GnuTLS
+ Description: Transport Security Layer implementation for the GNU system
+ URL: https://www.gnutls.org/
+ Version: @VERSION@
+-Libs: -L${libdir} -lgnutls
++Libs: -L${libdir} -lgnutls -lgcrypt
+ Libs.private: @LIBZ_PC@ @LIBINTL@ @LIBSOCKET@ @INET_PTON_LIB@ @LIBPTHREAD@ @LIB_SELECT@ @TSS_LIBS@ @GMP_LIBS@ @LIBUNISTRING@ @LIBATOMIC_LIBS@ @GNUTLS_LIBS_PRIVATE@
+ @GNUTLS_REQUIRES_PRIVATE@
+ Cflags: -I${includedir}

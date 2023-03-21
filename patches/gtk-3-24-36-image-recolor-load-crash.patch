@@ -1,0 +1,35 @@
+From 40bcba64548bb29b6a6209030eeb06bf13ca98f9 Mon Sep 17 00:00:00 2001
+From: John Ralls <jralls@ceridwen.us>
+Date: Fri, 23 Dec 2022 13:27:50 -0800
+Subject: [PATCH] Don't rely on gtk_icon_info_load_symbolic to set a GError.
+
+---
+ gtk/gtkcssimagerecolor.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/gtk/gtkcssimagerecolor.c b/gtk/gtkcssimagerecolor.c
+index 1c38654cfa..db7d08f008 100644
+--- a/gtk/gtkcssimagerecolor.c
++++ b/gtk/gtkcssimagerecolor.c
+@@ -125,12 +125,17 @@ gtk_css_image_recolor_load (GtkCssImageRecolor  *recolor,
+       if (gerror)
+         {
+           char *uri;
++          char *msg;
++          if (local_error && local_error->message)
++               msg = local_error->message;
++          else
++               msg = "gtk_icon_info_load_symbolic did not set the passed-in GError.";
+ 
+           uri = g_file_get_uri (url->file);
+           g_set_error (gerror,
+                        GTK_CSS_PROVIDER_ERROR,
+                        GTK_CSS_PROVIDER_ERROR_FAILED,
+-                       "Error loading image '%s': %s", uri, local_error->message);
++                       "Error loading image '%s': %s", uri, msg);
+           g_error_free (local_error);
+           g_free (uri);
+        }
+-- 
+2.37.1 (Apple Git-137.1)
+
