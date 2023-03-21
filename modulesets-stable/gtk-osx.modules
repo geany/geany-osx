@@ -196,12 +196,10 @@
     they are both built into cairo.
   -->
   <meson id="cairo">
-    <branch module="1.17.6/cairo-1.17.6.tar.bz2"
-            version="1.17.6"
-            hash="sha256:90496d135c9ef7612c98f8ee358390cdec0825534573778a896ea021155599d2"
+    <branch module="1.17.8/cairo-1.17.8.tar.bz2"
+            version="1.17.8"
+            hash="sha256:ead4724423eb969f98b456fe1e3ee1e1741fe1c8dfb1a41ca12afa81a6c1665f"
             repo="cairographics-temp">
-      <patch file="cairo-1.17.6-snapshot-memory-leak.patch"
-             strip="1" />
     </branch>
     <dependencies>
       <dep package="pixman" />
