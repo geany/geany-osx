@@ -1,0 +1,54 @@
+From 31d01326bbe39a8b11d1ab0b0f01fe433288c19c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ji=C5=99=C3=AD=20Techet?= <techet@gmail.com>
+Date: Fri, 24 Mar 2023 22:55:17 +0100
+Subject: Scintilla: replace \0 indicating block copy with \1
+
+This will almost surely include \1 in other applications but at least
+block copy paste will work within Geany.
+
+diff --git a/scintilla/gtk/ScintillaGTK.cxx b/scintilla/gtk/ScintillaGTK.cxx
+index 7a8c4d0b5..717bb3560 100644
+--- a/scintilla/gtk/ScintillaGTK.cxx
++++ b/scintilla/gtk/ScintillaGTK.cxx
+@@ -1520,14 +1520,14 @@ void ScintillaGTK::GetGtkSelectionText(GtkSelectionData *selectionData, Selectio
+ 		return;
+ 	}
+ 
+-	// Check for "\n\0" ending to string indicating that selection is rectangular
++	// Check for "\n\1" ending to string indicating that selection is rectangular
+ 	bool isRectangular;
+ #if PLAT_GTK_WIN32
+ 	isRectangular = ::IsClipboardFormatAvailable(cfColumnSelect) != 0;
+ #else
+-	isRectangular = ((len > 2) && (data[len - 1] == 0 && data[len - 2] == '\n'));
++	isRectangular = ((len > 2) && (data[len - 1] == 1 && data[len - 2] == '\n'));
+ 	if (isRectangular)
+-		len--;	// Forget the extra '\0'
++		len--;	// Forget the extra '\1'
+ #endif
+ 
+ #if PLAT_GTK_WIN32
+@@ -1681,8 +1681,14 @@ void ScintillaGTK::GetSelection(GtkSelectionData *selection_data, guint info, Se
+ 	// All other tested applications behave benignly by ignoring the \0.
+ 	// The #if is here because on Windows cfColumnSelect clip entry is used
+ 	// instead as standard indicator of rectangularness (so no need to kludge)
+-	const char *textData = text->Data();
++
++	// Jiri Techet: Even more evil thing: \0 is dropped by macOS so let's use \1.
++	// This will probably lead to pasting \1 in other applications but at least
++	// makes rectangular copy work in Geany.
++	const char *textData1 = text->Data();
+ 	gint len = static_cast<gint>(text->Length());
++	char *textData = g_strdup(textData1);
++	textData[len] = '\1';
+ #if PLAT_GTK_WIN32 == 0
+ 	if (text->rectangular)
+ 		len++;
+@@ -1695,6 +1701,7 @@ void ScintillaGTK::GetSelection(GtkSelectionData *selection_data, guint info, Se
+ 				       static_cast<GdkAtom>(GDK_SELECTION_TYPE_STRING),
+ 				       8, reinterpret_cast<const guchar *>(textData), len);
+ 	}
++	g_free(textData);
+ }
+ 
+ void ScintillaGTK::StoreOnClipboard(SelectionText *clipText) {
