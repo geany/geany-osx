@@ -124,13 +124,13 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 6.	Install GTK and all of its dependencies by running the following
 	command inside the `geany-osx` directory:
 	```
-	jhbuild bootstrap-gtk-osx && jhbuild build pygments meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
+	jhbuild bootstrap-gtk-osx && jhbuild build meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 	```
 	The upstream project is sometimes in an unstable state and fails to build;
 	if this happens, you can use our snapshot of modulesets which was used
 	to build the last release of Geany:
 	```
-	jhbuild bootstrap-gtk-osx && jhbuild -m "https://raw.githubusercontent.com/geany/geany-osx/master/modulesets-stable/gtk-osx.modules" build pygments meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
+	jhbuild bootstrap-gtk-osx && jhbuild -m "https://raw.githubusercontent.com/geany/geany-osx/master/modulesets-stable/gtk-osx.modules" build meta-gtk-osx-bootstrap meta-gtk-osx-gtk3
 	```
 
 7.	To build Geany, plugins and all of their dependencies, run one of
