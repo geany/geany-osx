@@ -29,9 +29,6 @@
   <repository name="git.gnome.org"
               href="https://gitlab.gnome.org/GNOME"
               type="git" />
-  <repository name="itstool"
-              href="http://files.itstool.org/"
-              type="tarball" />
   <repository name="github-tarball"
               href="https://github.com/"
               type="tarball" />
@@ -70,13 +67,7 @@
       <dep package="libjpeg" />
     </dependencies>
   </autotools>
-  <!--
-    The python package is in gtk-osx-python.modules. If you're
-    building "native" you can safely add python to the skip list, but
-    otherwise the links in the SDKs are messed up and libxml's python
-    module won't link. In case you're wondering, itstool
-    needs libxml2's python module.
-  -->
+  <!---->
   <autotools id="libxml2"
              autogen-sh="autoreconf"
              autogenargs='--libdir="$JHBUILD_LIBDIR" --with-python'>
@@ -105,20 +96,6 @@
     </dependencies>
   </autotools>
   <!---->
-  <autotools id="itstool"
-             autogen-sh="configure">
-    <branch module="itstool/itstool-2.0.6.tar.bz2"
-            version="2.0.6n"
-            hash="sha256:6233cc22726a9a5a83664bf67d1af79549a298c23185d926c3677afa917b92a9"
-            repo="itstool">
-      <patch file="itstool-config-python.patch"
-             strip="1" />
-    </branch>
-    <dependencies>
-      <dep package="libxml2" />
-    </dependencies>
-  </autotools>
-  <!---->
   <meson id="gtk-doc"
          mesonargs="-Dyelp_manual=false -Dtests=false">
     <branch module="gtk-doc/1.33/gtk-doc-1.33.2.tar.xz"
@@ -127,7 +104,6 @@
     <dependencies>
       <dep package="libxml2" />
       <dep package="libxslt" />
-      <dep package="itstool" />
     </dependencies>
     <after>
       <dep package="python3" />
