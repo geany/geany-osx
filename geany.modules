@@ -163,7 +163,7 @@
             checkoutdir="geany-plugins-git"
             version="master" >
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_spellcheck_relocation.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany-plugins_geanylua_link_against_statically_built_liblua.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_geanylua_link_against_statically_built_liblua.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_geanylua_make_lib_data_directories_relocatable.patch" strip="1" />
       <!-- TODO: remove once merged upstream -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_vimode_height.patch" strip="1" />
