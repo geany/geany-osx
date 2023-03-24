@@ -40,7 +40,7 @@
             module="vte/-/archive/${version}/vte-${version}.tar.bz2" 
             version="0.66.1">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03-vte_2.91_relpath.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/vte_2.91_relpath.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="pcre2" />
@@ -64,7 +64,7 @@
     <branch repo="lua.org"
             module="lua-5.1.5.tar.gz"
             version="5.1.5">
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-lua51_set_correct_install_prefix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/lua51_set_correct_install_prefix.patch" strip="1" />
     </branch>
   </autotools>
 
@@ -76,7 +76,7 @@
             module="gtk-mac-integration/3.0/gtk-mac-integration-${version}.tar.xz"
             checkoutdir="gtk-mac-integration-fixed"
             version="3.0.1">
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-gtk_mac_integration_radio_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/gtk_mac_integration_radio_fix.patch" strip="1" />
     </branch>
   </autotools>  
   
@@ -112,11 +112,11 @@
             checkoutdir="geany-git"
             version="master" >
       <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01git-geany_config_shell.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_scintilla_candidate_window_pos.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03git-geany_vte_login_shell.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/04-geany_workaround_meson_expecting_git_repository.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_scintilla_block_copy.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/git-geany_config_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_scintilla_candidate_window_pos.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/git-geany_vte_login_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_workaround_meson_expecting_git_repository.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_scintilla_block_copy.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-deps" />
@@ -132,12 +132,12 @@
             checkoutdir="geany-${version}"
             version="1.38">
       <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_config_shell.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_scintilla_candidate_window_pos.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03-geany_vte_login_shell.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_scintilla_block_copy.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_config_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_scintilla_candidate_window_pos.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_vte_login_shell.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_scintilla_block_copy.patch" strip="1" />
       <!-- TODO: remove for the next release -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_colors.patch" strip="1" />      
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_colors.patch" strip="1" />      
     </branch>
     <dependencies>
       <dep package="geany-deps" />
@@ -162,15 +162,15 @@
             rename-tarball="geany-plugins-git.tar.gz"
             checkoutdir="geany-plugins-git"
             version="master" >
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_plugins_spellcheck_relocation.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/06-geany-plugins_geanylua_link_against_statically_built_liblua.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/07-geany_plugins_geanylua_make_lib_data_directories_relocatable.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_spellcheck_relocation.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany-plugins_geanylua_link_against_statically_built_liblua.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_geanylua_make_lib_data_directories_relocatable.patch" strip="1" />
       <!-- TODO: remove once merged upstream -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_plugins_vimode_height.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03-geany_plugins_vimode_eol_eof_fix.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/04-geany_plugins_vimode_caret_fix.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/05-geany_plugins_vimode_numlock_fix.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/08-geany_plugins_geanylua_remove_x11_dependency.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_vimode_height.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_vimode_eol_eof_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_vimode_caret_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_vimode_numlock_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_geanylua_remove_x11_dependency.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-git" />
@@ -185,12 +185,12 @@
             module="geany-plugins/geany-plugins-${version}.tar.bz2"
             checkoutdir="geany-plugins-${version}"
             version="1.38">
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/01-geany_plugins_spellcheck_relocation.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_spellcheck_relocation.patch" strip="1" />
       <!-- TODO: remove once merged upstream -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/02-geany_plugins_vimode_height.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/03-geany_plugins_vimode_eol_eof_fix.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/04-geany_plugins_vimode_caret_fix.patch" strip="1" />
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/05-geany_plugins_vimode_numlock_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_vimode_height.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_vimode_eol_eof_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_vimode_caret_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_vimode_numlock_fix.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-release" />
