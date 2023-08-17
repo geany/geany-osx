@@ -150,7 +150,7 @@ Bundling
 --------
 1.  To build the launcher binary, run
 	```
-	xcodebuild ARCHS=`uname -m` -project Launcher/geany/geany.xcodeproj
+	xcodebuild ARCHS=`uname -m` -project Launcher/geany/geany.xcodeproj clean build
 	```
 	inside the `geany-osx` directory.
 
