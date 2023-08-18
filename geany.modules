@@ -27,23 +27,15 @@
             version="0.18"/>
   </distutils>
 
-  <!-- Needed by VTE 2.91 -->
-  <autotools id="pcre2"
-             autogenargs="--disable-jit --enable-pcre2-8">
-    <branch repo="download.github.com"
-            module="PhilipHazel/pcre2/releases/download/pcre2-${version}/pcre2-${version}.tar.bz2"
-            version="10.39"/>
-  </autotools>
-
   <meson id="vte291" mesonargs="-Dicu=false -Dvapi=false -D_b_symbolic_functions=false">
     <branch repo="download.gitlab.gnome.org"
             module="vte/-/archive/${version}/vte-${version}.tar.bz2" 
-            version="0.66.1">
+            version="0.72.2">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/vte_2.91_relpath.patch" strip="1" />
     </branch>
     <dependencies>
-      <dep package="pcre2" />
+      <dep package="libpcre2" />
       <dep package="gnutls" />
     </dependencies>
   </meson>
@@ -54,7 +46,7 @@
     <branch repo="download.github.com" 
             module="libgit2/libgit2/archive/refs/tags/v${version}.tar.gz"
             checkoutdir="libgit2-${version}"
-            version="1.3.0"/>
+            version="1.7.1"/>
   </cmake>
 
   <autotools id="lua"
@@ -165,8 +157,6 @@
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_spellcheck_relocation.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_geanylua_link_against_statically_built_liblua.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_geanylua_make_lib_data_directories_relocatable.patch" strip="1" />
-      <!-- TODO: remove once merged upstream -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_geanylua_remove_x11_dependency.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-git" />
