@@ -116,12 +116,6 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	when building on ARM processors - it isn't possible to compile
 	ARM binaries on Intel processors.
 
-5.	To workaround the current problem in gtk-osx of `bash` being killed
-	by macOS 13, run:
-	```
-	rm -f ~/.new_local/bin/bash && ln -s /bin/bash ~/.new_local/bin/
-	```
-
 6.	Install GTK and all of its dependencies by running the following
 	command inside the `geany-osx` directory:
 	```
