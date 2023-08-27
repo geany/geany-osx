@@ -109,6 +109,7 @@
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/git-geany_vte_login_shell.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_workaround_meson_expecting_git_repository.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/git-geany_scintilla_block_copy.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_scintilla_add_window_hints.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-deps" />
@@ -130,6 +131,8 @@
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_scintilla_block_copy.patch" strip="1" />
       <!-- TODO: remove for the next release -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_colors.patch" strip="1" />      
+      <!-- TODO: add for the next release -->
+      <!-- <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_scintilla_add_window_hints.patch" strip="1" /> -->
     </branch>
     <dependencies>
       <dep package="geany-deps" />
