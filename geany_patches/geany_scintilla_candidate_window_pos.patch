@@ -1,6 +1,6 @@
-From 83c792588db15c0a004913dd3b91193c45d5ee68 Mon Sep 17 00:00:00 2001
+From 211ff30f25707d91f3301612d6b8ac3f2fafd579 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
-Date: Wed, 17 Nov 2021 14:31:52 +0100
+Date: Sat, 7 Oct 2023 10:23:44 +0200
 Subject: [PATCH] Always set candidate window pos, even when IME is not used
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
@@ -21,19 +21,19 @@ at coordinates (0, 0).
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/scintilla/gtk/ScintillaGTK.cxx b/scintilla/gtk/ScintillaGTK.cxx
-index 659eb763..206e3834 100644
+index d2780a959..5eff23f6e 100644
 --- a/scintilla/gtk/ScintillaGTK.cxx
 +++ b/scintilla/gtk/ScintillaGTK.cxx
-@@ -2458,8 +2458,8 @@ void ScintillaGTK::PreeditChangedInlineThis() {
+@@ -2579,8 +2579,8 @@ void ScintillaGTK::PreeditChangedInlineThis() {
  void ScintillaGTK::PreeditChangedWindowedThis() {
  	try {
- 		PreEditString pes(im_context);
+ 		PreEditString pes(im_context.get());
 +		SetCandidateWindowPos();
  		if (strlen(pes.str) > 0) {
 -			SetCandidateWindowPos();
  
- 			PangoLayout *layout = gtk_widget_create_pango_layout(PWidget(wText), pes.str);
- 			pango_layout_set_attributes(layout, pes.attrs);
+ 			UniquePangoLayout layout(gtk_widget_create_pango_layout(PWidget(wText), pes.str));
+ 			pango_layout_set_attributes(layout.get(), pes.attrs);
 -- 
-2.31.1
+2.37.5
 
