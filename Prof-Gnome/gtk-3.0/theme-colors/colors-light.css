@@ -1,6 +1,6 @@
 /*((((((((( defining text-colors in all states )))))))))))))*/
 
-@define-color text_color #404040;
+@define-color text_color #303030;
 @define-color text_shadow_color transparent;
 /**/
 @define-color selected_text_color #ffffff;
@@ -9,7 +9,7 @@
 @define-color disabled_text_color #898989;
 @define-color disabled_text_shadow_color transparent;
 /**/
-@define-color sidebar_text_color #404040;
+@define-color sidebar_text_color #303030;
 @define-color sidebar_text_shadow_color transparent;
 /**/
 @define-color sidebar_selected_text_color #ffffff;
@@ -17,15 +17,15 @@
 /**/
 @define-color osd_button_text_color #eeeeec;
 /**/
-@define-color headerbar_text_color #404040;
+@define-color headerbar_text_color #303030;
 @define-color headerbar_text_shadow_color transparent;
-@define-color headerbar_selected_text_color #404040;
+@define-color headerbar_selected_text_color #303030;
 @define-color headerbar_selected_text_shadow_color transparent;
 /**/
-@define-color hb_button_text_color #404040;
+@define-color hb_button_text_color #303030;
 @define-color hb_button_text_shadow_color transparent;
 /**/
-@define-color hb_pathbar_button_text_color #404040;
+@define-color hb_pathbar_button_text_color #303030;
 @define-color hb_pathbar_button_text_color_shadow_color transparent;
 @define-color hb_pathbar_button_selected_text_color #ffffff;
 @define-color hb_pathbar_button_selected_text_color_shadow_color #000000;
@@ -54,8 +54,8 @@
 @define-color menu_bg_color #f2f2f2;
 @define-color sidebar_bg_color #f2f2f2;
 /*text color for entries, views and content in general*/ 
-@define-color theme_text_color #404040;
-@define-color theme_fg_color #404040;
+@define-color theme_text_color #303030;
+@define-color theme_fg_color #303030;
 /*
 widget base background color */
 @define-color base_bg_color #ffffff;
