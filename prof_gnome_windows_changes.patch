@@ -1,0 +1,40 @@
+From 8e61cea64653675bfc837614ab79d1091822aa42 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Sun, 20 Feb 2022 22:24:23 +0100
+Subject: [PATCH] Adjust Prof-Gnome to look more native on Windows
+
+This patch:
+- sets #000000 as the text color
+- decreases statusbar height by 6px
+---
+ Prof-Gnome/gtk-3.0/main-light.css                | 2 +-
+ Prof-Gnome/gtk-3.0/theme-colors/colors-light.css | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Prof-Gnome/gtk-3.0/main-light.css b/Prof-Gnome/gtk-3.0/main-light.css
+index 27ef9721..b01e6b81 100644
+--- a/Prof-Gnome/gtk-3.0/main-light.css
++++ b/Prof-Gnome/gtk-3.0/main-light.css
+@@ -6648,7 +6648,7 @@ filechooser placessidebar.sidebar
+ } 
+ statusbar
+ {
+-  margin: -3px;
++  margin: -6px;
+   border-radius: 0 0 6px 6px;
+ }
+ #weather-page,
+diff --git a/Prof-Gnome/gtk-3.0/theme-colors/colors-light.css b/Prof-Gnome/gtk-3.0/theme-colors/colors-light.css
+index a7f9aa89..7719498e 100644
+--- a/Prof-Gnome/gtk-3.0/theme-colors/colors-light.css
++++ b/Prof-Gnome/gtk-3.0/theme-colors/colors-light.css
+@@ -1,6 +1,6 @@
+ /*((((((((( defining text-colors in all states )))))))))))))*/
+ 
+-@define-color text_color #303030;
++@define-color text_color #000000;
+ @define-color text_shadow_color transparent;
+ /**/
+ @define-color selected_text_color #ffffff;
+-- 
+2.31.1
