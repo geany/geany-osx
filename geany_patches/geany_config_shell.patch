@@ -50,71 +50,71 @@ index 3864a0ad1..79cf7c4b9 100644
 @@ -4798,7 +4798,7 @@
                                <object class="GtkTable" id="table1">
                                  <property name="visible">True</property>
-                                 <property name="can_focus">False</property>
--                                <property name="n_rows">3</property>
-+                                <property name="n_rows">4</property>
-                                 <property name="n_columns">3</property>
-                                 <property name="column_spacing">6</property>
-                                 <property name="row_spacing">3</property>
+                                 <property name="can-focus">False</property>
+-                                <property name="n-rows">3</property>
++                                <property name="n-rows">4</property>
+                                 <property name="n-columns">3</property>
+                                 <property name="column-spacing">6</property>
+                                 <property name="row-spacing">3</property>
 @@ -4960,6 +4960,63 @@
-                                     <property name="y_options"/>
+                                     <property name="y-options"/>
                                    </packing>
                                  </child>
 +                                <child>
 +                                  <object class="GtkLabel" id="label27">
 +                                    <property name="visible">True</property>
-+                                    <property name="can_focus">False</property>
++                                    <property name="can-focus">False</property>
 +                                    <property name="xalign">0</property>
 +                                    <property name="label" translatable="yes">Shell:</property>
-+                                    <property name="mnemonic_widget">entry_grep</property>
++                                    <property name="mnemonic-widget">entry_grep</property>
 +                                  </object>
 +                                  <packing>
-+                                    <property name="top_attach">3</property>
-+                                    <property name="bottom_attach">4</property>
-+                                    <property name="x_options">GTK_FILL</property>
-+                                    <property name="y_options"/>
++                                    <property name="top-attach">3</property>
++                                    <property name="bottom-attach">4</property>
++                                    <property name="x-options">GTK_FILL</property>
++                                    <property name="y-options"/>
 +                                  </packing>
 +                                </child>
 +                                <child>
 +                                  <object class="GtkEntry" id="entry_shell1">
 +                                    <property name="visible">True</property>
-+                                    <property name="can_focus">True</property>
-+                                    <property name="tooltip_text" translatable="yes">Shell used for build commands (useful to get environment set up from the shell's config files)</property>
-+                                    <property name="invisible_char">•</property>
-+                                    <property name="invisible_char_set">True</property>
-+                                    <property name="primary_icon_activatable">False</property>
-+                                    <property name="secondary_icon_activatable">False</property>
-+                                    <property name="primary_icon_sensitive">True</property>
-+                                    <property name="secondary_icon_sensitive">True</property>
++                                    <property name="can-focus">True</property>
++                                    <property name="tooltip-text" translatable="yes">Shell used for build commands (useful to get environment set up from the shell's config files)</property>
++                                    <property name="invisible-char">•</property>
++                                    <property name="invisible-char-set">True</property>
++                                    <property name="primary-icon-activatable">False</property>
++                                    <property name="secondary-icon-activatable">False</property>
++                                    <property name="primary-icon-sensitive">True</property>
++                                    <property name="secondary-icon-sensitive">True</property>
 +                                  </object>
 +                                  <packing>
-+                                    <property name="left_attach">1</property>
-+                                    <property name="right_attach">2</property>
-+                                    <property name="top_attach">3</property>
-+                                    <property name="bottom_attach">4</property>
-+                                    <property name="y_options"/>
++                                    <property name="left-attach">1</property>
++                                    <property name="right-attach">2</property>
++                                    <property name="top-attach">3</property>
++                                    <property name="bottom-attach">4</property>
++                                    <property name="y-options"/>
 +                                  </packing>
 +                                </child>
 +                                <child>
 +                                  <object class="GtkButton" id="button_shell">
 +                                    <property name="visible">True</property>
-+                                    <property name="can_focus">True</property>
-+                                    <property name="receives_default">False</property>
++                                    <property name="can-focus">True</property>
++                                    <property name="receives-default">False</property>
 +                                    <child>
-+                                      <object class="GtkImage" id="image7">
++                                      <object class="GtkImage" id="image777X">
 +                                        <property name="visible">True</property>
-+                                        <property name="can_focus">False</property>
++                                        <property name="can-focus">False</property>
 +                                        <property name="stock">gtk-open</property>
 +                                      </object>
 +                                    </child>
 +                                  </object>
 +                                  <packing>
-+                                    <property name="left_attach">2</property>
-+                                    <property name="right_attach">3</property>
-+                                    <property name="top_attach">3</property>
-+                                    <property name="bottom_attach">4</property>
-+                                    <property name="x_options">GTK_FILL</property>
-+                                    <property name="y_options"/>
++                                    <property name="left-attach">2</property>
++                                    <property name="right-attach">3</property>
++                                    <property name="top-attach">3</property>
++                                    <property name="bottom-attach">4</property>
++                                    <property name="x-options">GTK_FILL</property>
++                                    <property name="y-options"/>
 +                                  </packing>
 +                                </child>
                                </object>
