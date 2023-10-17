@@ -23,14 +23,14 @@
   <distutils id="docutils"
              supports-non-srcdir-builds="no">
     <branch repo="files.pythonhosted.org"
-            module="packages/61/d7/8b2786f10b73e546aa9a85c2791393a6f475a16771b8028c7fb93d6ac8ce/docutils-${version}.tar.gz"
-            version="0.18"/>
+            module="packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-${version}.tar.gz"
+            version="0.20.1"/>
   </distutils>
 
-  <meson id="vte291" mesonargs="-Dicu=false -Dvapi=false -D_b_symbolic_functions=false">
+  <meson id="vte291" mesonargs="-Dicu=false -Dvapi=false -Dgtk4=false -D_b_symbolic_functions=false">
     <branch repo="download.gitlab.gnome.org"
             module="vte/-/archive/${version}/vte-${version}.tar.bz2" 
-            version="0.72.2">
+            version="0.74.0">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/vte_2.91_relpath.patch" strip="1" />
     </branch>
