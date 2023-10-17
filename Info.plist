@@ -246,6 +246,20 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>AutoIt Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>au3</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>Batch Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -538,6 +552,7 @@
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>F</string>
+				<string>F77</string>
 				<string>FOR</string>
 				<string>FPP</string>
 				<string>FTN</string>
@@ -546,20 +561,6 @@
 				<string>for</string>
 				<string>fpp</string>
 				<string>ftn</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>Geany.icns</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSHandlerRank</key>
-			<string>Alternate</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>Ferite Source</string>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>fe</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -612,6 +613,20 @@
 				<string>bas</string>
 				<string>bi</string>
 				<string>vbs</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>GDScript Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>gd</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -842,6 +857,7 @@
 			<string>Lisp Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>el</string>
 				<string>lisp</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
