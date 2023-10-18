@@ -1,14 +1,14 @@
-From eedde6888d84cbc52a86fa02cee43b0f07b569f0 Mon Sep 17 00:00:00 2001
+From e02322a8167be3dffd234b3b43729aca0e9715ba Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
 Date: Mon, 6 Mar 2023 13:12:50 +0100
 Subject: [PATCH] Set correct install prefix
 
 ---
- Makefile | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ Makefile | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 209a132..109a060 100644
+index 209a132..056b161 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -9,7 +9,7 @@ PLAT= none
@@ -20,7 +20,7 @@ index 209a132..109a060 100644
  INSTALL_BIN= $(INSTALL_TOP)/bin
  INSTALL_INC= $(INSTALL_TOP)/include
  INSTALL_LIB= $(INSTALL_TOP)/lib
-@@ -59,7 +59,7 @@ test:	dummy
+@@ -59,11 +59,10 @@ test:	dummy
  	src/lua test/hello.lua
  
  install: dummy
@@ -29,6 +29,10 @@ index 209a132..109a060 100644
  	cd src && $(INSTALL_EXEC) $(TO_BIN) $(INSTALL_BIN)
  	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
  	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
+-	cd doc && $(INSTALL_DATA) $(TO_MAN) $(INSTALL_MAN)
+ 
+ ranlib:
+ 	cd src && cd $(INSTALL_LIB) && $(RANLIB) $(TO_LIB)
 -- 
 2.37.5
 
