@@ -1,0 +1,12 @@
+--- a/src/gl/verify.h	2023-02-09 06:55:15.000000000 -0800
++++ b/src/gl/verify.h	2023-06-30 13:53:05.000000000 -0700
+@@ -213,7 +213,7 @@
+ # define _GL_VERIFY(R, DIAGNOSTIC, ...) _Static_assert (R, DIAGNOSTIC)
+ #else
+ # define _GL_VERIFY(R, DIAGNOSTIC, ...)                                \
+-    extern int (*_GL_GENSYM (_gl_verify_function) (void))	       \
++    int (*_GL_GENSYM (_gl_verify_function) (void))	       \
+       [_GL_VERIFY_TRUE (R, DIAGNOSTIC)]
+ # if 4 < __GNUC__ + (6 <= __GNUC_MINOR__)
+ #  pragma GCC diagnostic ignored "-Wnested-externs"
+

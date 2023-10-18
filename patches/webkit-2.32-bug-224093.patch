@@ -1,0 +1,113 @@
+Subversion Revision: 275837
+diff --git a/Source/JavaScriptCore/Sources.txt b/Source/JavaScriptCore/Sources.txt
+index 28b5b83632b9c29bc49f1961694913e6167dbb4d..b6492dfdcb75ac1b76bc0931ca6a114d1201ece6 100644
+--- a/Source/JavaScriptCore/Sources.txt
++++ b/Source/JavaScriptCore/Sources.txt
+@@ -849,6 +849,7 @@ runtime/IntlSegmenterConstructor.cpp
+ runtime/IntlSegmenterPrototype.cpp
+ runtime/IntlSegments.cpp
+ runtime/IntlSegmentsPrototype.cpp
++runtime/IntlWorkaround.cpp @no-unify // Confine U_HIDE_DRAFT_API's effect to this file.
+ runtime/IteratorOperations.cpp
+ runtime/IteratorPrototype.cpp
+ runtime/JSArray.cpp
+diff --git a/Source/JavaScriptCore/runtime/IntlSegmenter.cpp b/Source/JavaScriptCore/runtime/IntlSegmenter.cpp
+index 2ad74f94bbe8ca17c775892afbc6fef712a62b58..93c9b20328476cbfaa040cbbe3883eebb252f3aa 100644
+--- a/Source/JavaScriptCore/runtime/IntlSegmenter.cpp
++++ b/Source/JavaScriptCore/runtime/IntlSegmenter.cpp
+@@ -125,7 +125,7 @@ JSValue IntlSegmenter::segment(JSGlobalObject* globalObject, JSValue stringValue
+     auto upconvertedCharacters = Box<Vector<UChar>>::create(string.charactersWithoutNullTermination());
+ 
+     UErrorCode status = U_ZERO_ERROR;
+-    auto segmenter = std::unique_ptr<UBreakIterator, UBreakIteratorDeleter>(ubrk_safeClone(m_segmenter.get(), nullptr, nullptr, &status));
++    auto segmenter = std::unique_ptr<UBreakIterator, UBreakIteratorDeleter>(cloneUBreakIterator(m_segmenter.get(), &status));
+     if (U_FAILURE(status)) {
+         throwTypeError(globalObject, scope, "failed to initialize Segments"_s);
+         return { };
+diff --git a/Source/JavaScriptCore/runtime/IntlSegmenter.h b/Source/JavaScriptCore/runtime/IntlSegmenter.h
+index cd0f426c489756aad4971e69c68119a3f70e0f19..a5239575a9f37990c2bb7bcfafde03a780a7354b 100644
+--- a/Source/JavaScriptCore/runtime/IntlSegmenter.h
++++ b/Source/JavaScriptCore/runtime/IntlSegmenter.h
+@@ -75,4 +75,8 @@ private:
+     Granularity m_granularity { Granularity::Grapheme };
+ };
+ 
++// Abstraction to call ubrk_safeClone or ubrk_clone depending on ICU version.
++// This is implemented in IntlWorkaround.cpp in order to confine draft API visibility.
++UBreakIterator* cloneUBreakIterator(const UBreakIterator*, UErrorCode*);
++
+ } // namespace JSC
+diff --git a/Source/JavaScriptCore/runtime/IntlSegments.cpp b/Source/JavaScriptCore/runtime/IntlSegments.cpp
+index b6aba32fb822e85bbe78088c0482948116a8c355..8b81791e413315f237faaa78f8d443485364a846 100644
+--- a/Source/JavaScriptCore/runtime/IntlSegments.cpp
++++ b/Source/JavaScriptCore/runtime/IntlSegments.cpp
+@@ -100,7 +100,7 @@ JSObject* IntlSegments::createSegmentIterator(JSGlobalObject* globalObject)
+     auto scope = DECLARE_THROW_SCOPE(vm);
+ 
+     UErrorCode status = U_ZERO_ERROR;
+-    auto segmenter = std::unique_ptr<UBreakIterator, UBreakIteratorDeleter>(ubrk_safeClone(m_segmenter.get(), nullptr, nullptr, &status));
++    auto segmenter = std::unique_ptr<UBreakIterator, UBreakIteratorDeleter>(cloneUBreakIterator(m_segmenter.get(), &status));
+     if (U_FAILURE(status)) {
+         throwTypeError(globalObject, scope, "failed to initialize SegmentIterator"_s);
+         return nullptr;
+diff --git a/Source/JavaScriptCore/runtime/IntlWorkaround.cpp b/Source/JavaScriptCore/runtime/IntlWorkaround.cpp
+new file mode 100644
+index 0000000000000000000000000000000000000000..8d820857ec2243f5640237d0c638e6e3f9f885dc
+--- /dev/null
++++ b/Source/JavaScriptCore/runtime/IntlWorkaround.cpp
+@@ -0,0 +1,53 @@
++/*
++ * Copyright (C) 2021 Sony Interactive Entertainment Inc.
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer.
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in the
++ *    documentation and/or other materials provided with the distribution.
++ *
++ * THIS SOFTWARE IS PROVIDED BY APPLE INC. AND ITS CONTRIBUTORS ``AS IS''
++ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
++ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
++ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL APPLE INC. OR ITS CONTRIBUTORS
++ * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
++ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
++ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
++ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
++ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
++ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
++ * THE POSSIBILITY OF SUCH DAMAGE.
++ */
++
++#include "config.h"
++
++#include <unicode/uvernum.h>
++
++// ICU 69 introduces draft API ubrk_clone and deprecates ubrk_safeClone.
++#if U_ICU_VERSION_MAJOR_NUM >= 69
++#define HAVE_ICU_UBRK_CLONE 1
++#endif
++
++#if defined(U_HIDE_DRAFT_API)
++#undef U_HIDE_DRAFT_API
++#endif
++#include <unicode/ubrk.h>
++
++namespace JSC {
++
++UBreakIterator* cloneUBreakIterator(const UBreakIterator*, UErrorCode*);
++
++UBreakIterator* cloneUBreakIterator(const UBreakIterator* iterator, UErrorCode* status)
++{
++#if HAVE(ICU_UBRK_CLONE)
++    return ubrk_clone(iterator, status);
++#else
++    return ubrk_safeClone(iterator, nullptr, nullptr, status);
++#endif
++}
++
++} // namespace JSC
+
+

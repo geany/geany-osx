@@ -35,9 +35,9 @@
   <autotools id="xz"
              autogen-sh="configure"
              bootstrap="true">
-    <branch module="xz/xz-5.2.5.tar.bz2"
-            version="5.2.5"
-            hash="sha256:5117f930900b341493827d63aa910ff5e011e0b994197c3b71c08a20228a42df"
+    <branch module="xz/xz-5.4.3.tar.bz2"
+            version="5.4.3"
+            hash="sha256:9243a04598d7a70c1f567a0143a255581ac5c64b140fd55fd5cbc1e00b0e6f90"
             repo="tukaani.org" />
   </autotools>
   <!--
@@ -47,20 +47,32 @@
              autogen-sh="configure"
              autogenargs="--disable-dependency-tracking"
              bootstrap="true">
-    <branch module="make/make-4.3.tar.gz"
-            version="4.3"
-            hash="sha256:e05fdde47c5f7ca45cb697e973894ff4f5d79e13b750ed57d7b66d8defc78e19"
+    <branch module="make/make-4.4.tar.gz"
+            version="4.4"
+            hash="sha256:581f4d4e872da74b3941c874215898a7d35802f03732bdccee1d4a7979105d18"
             repo="ftp.gnu.org" />
   </autotools>
   <!---->
+  <autotools id="libiconv"
+             autogen-sh="configure"
+             autogenargs="--disable-debug --disable-dependency-tracking --enable-extra-encodings">
+
+    <branch module="libiconv/libiconv-1.17.tar.gz"
+            version="1.17"
+            repo="ftp.gnu.org" />
+  </autotools>
+
   <autotools id="gettext"
              autogen-sh="configure"
              autogenargs="--without-emacs --disable-java --disable-native-java --disable-libasprintf --disable-csharp --with-included-glib --with-included-libcroco">
 
-    <branch module="gettext/gettext-0.21.tar.xz"
-            version="0.21"
-            hash="sha256:d20fcbb537e02dcf1383197ba05bd0734ef7bf5db06bdb241eb69b7d16b73192"
+    <branch module="gettext/gettext-0.22.3.tar.xz"
+            version="0.22.3"
+            hash="sha256:b838228b3f8823a6c1eddf07297197c4db13f7e1b173b9ef93f3f945a63080b6"
             repo="ftp.gnu.org" />
+    <dependencies>
+      <dep package="libiconv" />
+    </dependencies>
   </autotools>
   <!--
     cmakes ./configure is picky about invalid flags so we manually set it
@@ -69,8 +81,9 @@
              autogen-sh="bootstrap"
              autogen-template="%(srcdir)s/%(autogen-sh)s --prefix=%(prefix)s"
              bootstrap="true">
-    <branch module="v3.25/cmake-3.25.1.tar.gz"
-            version="3.25.1"
+    <branch module="v3.26/cmake-3.26.4.tar.gz"
+            version="3.26.4"
+            hash="sha256:313b6880c291bd4fe31c0aa51d6e62659282a521e695f30d5cc0d25abbd5c208"
             repo="cmake" />
   </autotools>
   <!--
@@ -80,13 +93,10 @@
   <autotools id="m4"
              autogen-sh="configure"
              bootstrap="true">
-    <branch module="m4/m4-1.4.18.tar.xz"
-            version="1.4.18"
-            hash="sha256:f2c1e86ca0a404ff281631bdc8377638992744b175afb806e25871a24a934e07"
-            repo="ftp.gnu.org">
-      <patch file="vasnprintf.patch"
-             strip="1" />
-    </branch>
+    <branch module="m4/m4-1.4.19.tar.xz"
+            version="1.4.19"
+            hash="sha256:63aede5c6d33b6d9b13511cd0be2cac046f2e70fd0a07aa9573a04a82783af96"
+            repo="ftp.gnu.org" />
   </autotools>
   <!---->
   <autotools id="autoconf"
@@ -105,18 +115,18 @@
   <autotools id="autoconf-archive"
              autogen-sh="configure"
              bootstrap="true">
-    <branch module="autoconf-archive/autoconf-archive-2021.02.19.tar.xz"
-            version="2021-02-19"
-            hash="sha256:e8a6eb9d28ddcba8ffef3fa211653239e9bf239aba6a01a6b7cfc7ceaec69cbd"
+    <branch module="autoconf-archive/autoconf-archive-2023.02.20.tar.xz"
+            version="2023-02-20"
+            hash="sha256:71d4048479ae28f1f5794619c3d72df9c01df49b1c628ef85fde37596dc31a33"
             repo="ftp.gnu.org" />
   </autotools>
   <!---->
   <autotools id="libtool"
              autogen-sh="configure"
              bootstrap="true">
-    <branch module="libtool/libtool-2.4.6.tar.gz"
-            version="2.4.6"
-            hash="sha256:e3bd4d5d3d025a36c21dd6af7ea818a2afcd4dfc1ea5a17b39d7854bcd0c06e3"
+    <branch module="libtool/libtool-2.4.7.tar.gz"
+            version="2.4.7"
+            hash="sha256:04e96c2404ea70c590c546eba4202a4e12722c640016c12b9b2f1ce3d481e9a8"
             repo="ftp.gnu.org">
       <patch file="libtool-apple-sort.patch"
              strip="1" />
@@ -126,9 +136,9 @@
   <autotools id="automake"
              autogen-sh="configure"
              bootstrap="true">
-    <branch module="automake/automake-1.16.3.tar.xz"
-            version="1.16.3"
-            hash="sha256:ff2bf7656c4d1c6fdda3b8bebb21f09153a736bcba169aaf65eab25fa113bf3a"
+    <branch module="automake/automake-1.16.5.tar.xz"
+            version="1.16.5"
+            hash="sha256:f01d58cd6d9d77fbdca9eb4bbd5ead1988228fdb73d6f7a201f5f8d6b118b469"
             repo="ftp.gnu.org" />
     <dependencies>
       <dep package="autoconf" />
@@ -150,9 +160,8 @@
   -->
   <autotools id="bison"
              autogen-sh="configure">
-    <branch module="bison/bison-3.7.6.tar.xz"
-            version="3.7.6"
-            hash="sha256:67d68ce1e22192050525643fc0a7a22297576682bef6a5c51446903f5aeef3cf"
+    <branch module="bison/bison-3.8.2.tar.xz"
+            version="3.8.2"
             repo="ftp.gnu.org" />
     <dependencies>
       <dep package='flex' />
@@ -191,19 +200,11 @@
             version="0.51.0"
             hash="sha256:67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
             repo="intltool" />
-    <!--
-    <dependencies>
-      <dep package="perl-xml-parser"/>
-    </dependencies>
-    -->
   </autotools>
   <!---->
   <metamodule id="meta-bootstrap">
     <dependencies>
       <dep package="xz" />
-      <!--
-        Needed for 64-bit
-      -->
       <dep package="gettext" />
       <dep package="cmake" />
       <dep package="autoconf-archive" />

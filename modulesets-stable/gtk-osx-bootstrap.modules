@@ -36,9 +36,9 @@
   <autotools id="libpng"
              autogen-sh="configure"
              autogenargs="--enable-shared">
-    <branch module="libpng/libpng-1.6.39.tar.xz"
-            version="1.6.39"
-            hash="sha256:1f4696ce70b4ee5f85f1e1623dc1229b210029fa4b7aee573df3e2ba7b036937"
+    <branch module="libpng/libpng-1.6.40.tar.xz"
+            version="1.6.40"
+            hash="sha256:535b479b2467ff231a3ec6d92a525906fb8ef27978be4f66dbe05d3f3a01b3a1"
             repo="sourceforge" />
     <dependencies>
       <dep package="zlib" />
@@ -56,9 +56,9 @@
   <autotools id="libtiff"
              autogen-sh="configure"
              autogenargs="--without-x">
-    <branch module="libtiff/tiff-4.5.0.tar.gz"
-            version="4.5.0"
-            hash="sha256:c7a1d9296649233979fa3eacffef3fa024d73d05d589cb622727b5b08c423464"
+    <branch module="libtiff/tiff-4.5.1.tar.xz"
+            version="4.5.1"
+            hash="sha256:3c080867114c26edab3129644a63b708028a90514b7fe3126e38e11d24f9f88a"
             repo="libtiff">
       <patch file="tiff-nohtml.patch"
              strip="1" />
@@ -68,60 +68,16 @@
     </dependencies>
   </autotools>
   <!---->
-  <autotools id="libxml2"
-             autogen-sh="autoreconf"
-             autogenargs='--libdir="$JHBUILD_LIBDIR" --with-python'>
-             
-    <branch module="libxml2/2.10/libxml2-2.10.3.tar.xz"
-            version="2.10.3"
-            hash="sha256:5d2cc3d78bec3dbe212a9d7fa629ada25a7da928af432c93060ff5c17ee28a9c">
-       <patch file="libxml2-python-config.patch"
-             strip="1" />
-   </branch>
-    <after>
-      <dep package="python3" />
-    </after>
-  </autotools>
-  <!---->
-  <autotools id="libxslt"
-             autogen-sh="configure">
-    <branch module="libxslt/1.1/libxslt-1.1.37.tar.xz"
-            version="1.1.37"
-            hash="sha256:3a4b27dc8027ccd6146725950336f1ec520928f320f144eb5fa7990ae6123ab4">
-       <patch file="libxslt-python-config.patch"
-             strip="1" />
-    </branch>
-    <dependencies>
-      <dep package="libxml2" />
-    </dependencies>
-  </autotools>
-  <!---->
   <meson id="gtk-doc"
          mesonargs="-Dyelp_manual=false -Dtests=false">
     <branch module="gtk-doc/1.33/gtk-doc-1.33.2.tar.xz"
             version="1.33.2"
             hash="sha256:cc1b709a20eb030a278a1f9842a362e00402b7f834ae1df4c1998a723152bf43" />
-    <dependencies>
-      <dep package="libxml2" />
-      <dep package="libxslt" />
-    </dependencies>
     <after>
       <dep package="python3" />
       <dep package="pygments" />
     </after>
   </meson>
-  <!---->
-  <autotools id="icu"
-             autogen-sh="source/configure"
-             autogenargs="--enable-rpath"
-             makeargs='CFLAGS="$CFLAGS -DU_CHARSET_IS_UTF8=1 -DU_USING_ICU_NAMESPACE=0"'>
-
-    <branch module="unicode-org/icu/releases/download/release-68-2/icu4c-68_2-src.tgz"
-            version="68.2"
-            hash="sha256:c79193dee3907a2199b8296a93b52c5cb74332c26f3d167269487680d479d625"
-            checkoutdir="icu"
-            repo="github-tarball" />
-  </autotools>
   <!---->
   <metamodule id="meta-gtk-osx-bootstrap">
     <dependencies>

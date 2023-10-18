@@ -1,0 +1,20 @@
+--- a/random/rndgetentropy.c	2023-04-03 01:22:26.000000000 -0700
++++ b/random/rndgetentropy.c	2023-06-27 12:39:09.000000000 -0700
+@@ -81,6 +81,7 @@
+       do
+         {
+           _gcry_pre_syscall ();
++#if HAVE_SYS_RANDOM
+           if (fips_mode ())
+             {
+               /* DRBG chaining defined in SP 800-90A (rev 1) specify
+@@ -98,6 +99,7 @@
+               ret = getrandom (buffer, nbytes, GRND_RANDOM);
+             }
+           else
++#endif
+             {
+               nbytes = length < sizeof (buffer) ? length : sizeof (buffer);
+               ret = getentropy (buffer, nbytes);
+
+Diff finished.  Tue Jun 27 16:00:41 2023

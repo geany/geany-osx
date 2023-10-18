@@ -19,17 +19,17 @@
               type="tarball" />
   <!---->
   <meson id="mm-common">
-    <branch module="mm-common/1.0/mm-common-1.0.2.tar.xz"
-            version="1.0.2"
-            hash="sha256:a2a99f3fa943cf662f189163ed39a2cfc19a428d906dd4f92b387d3659d1641d" />
+    <branch module="mm-common/1.0/mm-common-1.0.5.tar.xz"
+            version="1.0.5"
+            hash="sha256:705c6d29f4116a29bde4e36cfc1b046c92b6ef8c6dae4eaec85018747e6da5aa" />
   </meson>
   <!--
     Libsigc++ was rewritten to use C++17 variadic templates for version 3, and
     adopting that has created substantial API breaks for the whole "mm" stack.
-    gtkmm2 and gtkmm3 use the older versions, gtkmm4 the new ones.
+    gtkmm3 uses the older versions, gtkmm4 the new ones.
     Note that C++17 is supported only on macOS-10.13 and later.
   -->
-  <meson id="cairomm-1.14">
+  <meson id="cairomm3">
     <branch module="cairomm-1.14.2.tar.xz"
             version="1.14.2"
             hash="sha256:0126b9cc295dc36bc9c0860d5b720cb5469fd78d5620c8f10cc5f0c07b928de3"
@@ -49,22 +49,21 @@
     </dependencies>
   </meson>
   <!---->
-  <autotools id="glibmm-2.4"
-             autogen-sh="autoreconf">
-    <branch module="glibmm/2.60/glibmm-2.60.0.tar.xz"
-            version="2.60.0"
-            hash="sha256:a3a1b1c9805479a16c0018acd84b3bfff23a122aee9e3c5013bb81231aeef2bc" />
+  <meson id="glibmm3">
+    <branch module="glibmm/2.66/glibmm-2.66.6.tar.xz"
+            version="2.66.6"
+            hash="sha256:5358742598181e5351d7bf8da072bf93e6dd5f178d27640d4e462bc8f14e152f" />
     <dependencies>
       <dep package="glib" />
       <dep package="libsigc++2" />
       <dep package="mm-common" />
     </dependencies>
-  </autotools>
+  </meson>
   <!---->
   <meson id="glibmm">
-    <branch module="glibmm/2.68/glibmm-2.68.0.tar.xz"
-            version="2.68.0"
-            hash="sha256:c1f38573191dceed85a05600888cf4cf4695941f339715bd67d51c2416f4f375">
+    <branch module="glibmm/2.76/glibmm-2.76.0.tar.xz"
+            version="2.76.0"
+            hash="sha256:8637d80ceabd94fddd6e48970a082a264558d4ab82684e15ffc87e7ef3462ab2">
     </branch>
     <dependencies>
       <dep package="glib" />
@@ -73,21 +72,21 @@
     </dependencies>
   </meson>
   <!---->
-  <meson id="pangomm-1.4">
+  <meson id="pangomm3">
     <branch module="pangomm/2.42/pangomm-2.42.2.tar.xz"
             version="2.42.2"
             hash="sha256:1b24c92624ae1275ccb57758175d35f7c39ad3342d8c0b4ba60f0d9849d2d08a" />
     <dependencies>
-      <dep package="glibmm-2.4" />
-      <dep package="cairomm-1.14" />
+      <dep package="glibmm3" />
+      <dep package="cairomm3" />
       <dep package="pango" />
     </dependencies>
   </meson>
   <!---->
   <meson id="pangomm">
-    <branch module="pangomm/2.48/pangomm-2.48.0.tar.xz"
-            version="2.48.0"
-            hash="sha256:9e0ed474c33f8c2002ca9e2b61ca0d1f3d8e409e09e99f4d8c19eeafccf55b78" />
+    <branch module="pangomm/2.50/pangomm-2.50.1.tar.xz"
+            version="2.50.1"
+            hash="sha256:ccc9923413e408c2bff637df663248327d72822f11e394b423e1c5652b7d9214" />
     <dependencies>
       <dep package="glibmm" />
       <dep package="cairomm" />
@@ -95,22 +94,22 @@
     </dependencies>
   </meson>
   <!---->
-  <meson id="atkmm-1.6">
-    <branch module="atkmm/2.28/atkmm-2.28.1.tar.xz"
-            version="2.28.1"
-            hash="sha256:116876604770641a450e39c1f50302884848ce9cc48d43c5dc8e8efc31f31bad" />
+  <meson id="atkmm3">
+    <branch module="atkmm/2.28/atkmm-2.28.3.tar.xz"
+            version="2.28.3"
+            hash="sha256:7c2088b486a909be8da2b18304e56c5f90884d1343c8da7367ea5cd3258b9969" />
     <dependencies>
-      <dep package="glibmm-2.4" />
-      <dep package="cairomm-1.14" />
-      <dep package="pangomm-1.4" />
+      <dep package="glibmm3" />
+      <dep package="cairomm3" />
+      <dep package="pangomm3" />
       <dep package="atk" />
     </dependencies>
   </meson>
   <!---->
   <meson id="atkmm">
-    <branch module="atkmm/2.36/atkmm-2.36.0.tar.xz"
-            version="2.36.0"
-            hash="sha256:c93fa9f3876536391b54c307a923b7788e79796ace69a5e9141d67398c019973" />
+    <branch module="atkmm/2.36/atkmm-2.36.2.tar.xz"
+            version="2.36.2"
+            hash="sha256:6f62dd99f746985e573605937577ccfc944368f606a71ca46342d70e1cdae079" />
     <dependencies>
       <dep package="glibmm" />
       <dep package="cairomm" />
@@ -120,52 +119,38 @@
   </meson>
   <!---->
   <meson id="libsigc++2">
-    <branch module="libsigc++/2.10/libsigc++-2.10.6.tar.xz"
-            version="2.10.6"
-            hash="sha256:dda176dc4681bda9d5a2ac1bc55273bdd381662b7a6d49e918267d13e8774e1b" />
+    <branch module="libsigc++/2.12/libsigc++-2.12.0.tar.xz"
+            version="2.12.0"
+            hash="sha256:1c466d2e64b34f9b118976eb21b138c37ed124d0f61497df2a90ce6c3d9fa3b5" />
   </meson>
   <!---->
   <meson id="libsigc++3">
-    <branch module="libsigc++/3.0/libsigc++-3.0.6.tar.xz"
-            version="3.0.6"
-            hash="sha256:b70edcf4611651c54a426e109b17196e1fa17da090592a5000e2d134c03ac5ce" />
+    <branch module="libsigc++/3.4/libsigc++-3.4.0.tar.xz"
+            version="3.4.0"
+            hash="sha256:02e2630ffb5ce93cd52c38423521dfe7063328863a6e96d41d765a6116b8707e" />
   </meson>
   <!---->
-  <autotools id="gtkmm2"
-             autogen-sh="configure">
-    <branch module="gtkmm/2.24/gtkmm-2.24.5.tar.xz"
-            version="2.24.5"
-            hash="sha256:0680a53b7bf90b4e4bf444d1d89e6df41c777e0bacc96e9c09fc4dd2f5fe6b72" />
-    <dependencies>
-      <dep package="glibmm-2.4" />
-      <dep package="cairomm-1.14" />
-      <dep package="pangomm-1.4" />
-      <dep package="atkmm-1.6" />
-      <dep package="gtk+-2.0" />
-    </dependencies>
-  </autotools>
-  <!---->
   <meson id="gtkmm3">
-    <branch module="gtkmm/3.24/gtkmm-3.24.4.tar.xz"
-            version="3.24.4"
-            hash="sha256:9beb71c3e90cfcfb790396b51e3f5e7169966751efd4f3ef9697114be3be6743">
+    <branch module="gtkmm/3.24/gtkmm-3.24.7.tar.xz"
+            version="3.24.7"
+            hash="sha256:1d7a35af9c5ceccacb244ee3c2deb9b245720d8510ac5c7e6f4b6f9947e6789c">
 
       <patch file="gtkmm-3-bad-const-property-background.patch"
              strip="1" />
     </branch>
     <dependencies>
-      <dep package="glibmm-2.4" />
-      <dep package="cairomm-1.14" />
-      <dep package="pangomm-1.4" />
-      <dep package="atkmm-1.6" />
+      <dep package="glibmm3" />
+      <dep package="cairomm3" />
+      <dep package="pangomm3" />
+      <dep package="atkmm3" />
       <dep package="gtk+-3.0" />
     </dependencies>
   </meson>
   <!---->
   <meson id="gtkmm4">
-    <branch module="gtkmm/4.0/gtkmm-4.0.1.tar.xz"
-            version="4.0.1"
-            hash="sha256:8973d9bc7848e02cb2051e05f3ee3a4baffe2feb4af4a5487f0e3132eec03884" />
+    <branch module="gtkmm/4.10/gtkmm-4.10.0.tar.xz"
+            version="4.10.0"
+            hash="sha256:e1b109771557ecc53cba915a80b6ede827ffdbd0049c62fdf8bd7fa79afcc6eb" />
     <dependencies>
       <dep package="glibmm" />
       <dep package="cairomm" />

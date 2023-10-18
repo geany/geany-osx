@@ -32,20 +32,15 @@
   <repository name="sqlite"
               href="http://www.sqlite.org/"
               type="tarball" />
-  <repository name="fossies"
-              href="https://fossies.org/linux/misc/"
-              type="tarball" />
-  <repository name="paguire"
-              href="https://releases.pagure.org/"
-              type="tarball" />
-  <repository name="pcre"
-              href="https://ftp.pcre.org/pub/"
+  <repository name="itstool"
+              href="http://files.itstool.org/"
               type="tarball" />
   <!---->
-  <cmake id="graphviz">
-    <branch module="2.47.0/graphviz-2.47.0.tar.bz2"
-            version="2.47.0"
-            hash="sha256:dade5b374ce483bf28f2e535baef02280ba8ab86fbe6e93252ab0de48396b714"
+  <cmake id="graphviz"
+         cmakeargs="-Dwith_gvedit=NO">
+    <branch module="8.0.5/graphviz-8.0.5.tar.bz2"
+            version="8.0.5"
+            hash="sha256:c1901fe52483fad55fbf893ccd59a3dcaedd53f0d50b5aebbbf3deaba93b674d"
             repo="graphviz">
       <patch file="graphviz-remove-rpath.patch"
              strip="1" />
@@ -58,9 +53,9 @@
   <!---->
   <autotools id="vala"
              autogen-sh="configure">
-    <branch module="vala/0.52/vala-0.52.0.tar.xz"
-            version="0.52.0"
-            hash="sha256:1de26310db465aca525679d3b5a3c1d8db2e067c4cbc0e5ddd015cd938bac68b" />
+    <branch module="vala/0.56/vala-0.56.8.tar.xz"
+            version="0.56.8"
+            hash="sha256:93f81dcfc6a93b77baa271d65e6be981ee3238ad451ef380af118e295d904bde" />
     <dependencies>
       <dep package="graphviz" />
       <dep package="meta-gtk-osx-bootstrap" />
@@ -70,29 +65,40 @@
   <!---->
   <autotools id="expat"
              autogen-sh="configure">
-    <branch module="expat/expat-2.3.0.tar.bz2"
-            version="2.3.0"
-            hash="sha256:f122a20eada303f904d5e0513326c5b821248f2d4d2afbf5c6f1339e511c0586"
+    <branch module="expat/expat-2.5.0.tar.xz"
+            version="2.5.0"
+            hash="sha256:ef2420f0232c087801abf705e89ae65f6257df6b7931d37846a193ef2e8cdcbe"
             repo="sourceforge" />
   </autotools>
   <!---->
   <meson id="amtk">
-    <branch module="amtk/5.3/amtk-5.3.1.tar.xz"
-            version="5.3.1"
-            hash="sha256:d5aa236c5d71dc41aa4674f345560a67a27f21c0efc97c9b3da09cb582b4638b">
-
-      <patch file="amtk-build-on-macOS.patch"
-             strip="1" />
+    <branch module="amtk/5.6/amtk-5.6.1.tar.xz"
+            version="5.6.1"
+            hash="sha256:d50115b85c872aac296934b5ee726a3fa156c6f5ad96d27e0edd0aa5ad173228">
     </branch>
     <dependencies>
       <dep package="gtk+-3.0" />
     </dependencies>
   </meson>
   <!---->
+  <autotools id="itstool"
+             autogen-sh="configure">
+    <branch module="itstool/itstool-2.0.6.tar.bz2"
+            version="2.0.6n"
+            hash="sha256:6233cc22726a9a5a83664bf67d1af79549a298c23185d926c3677afa917b92a9"
+            repo="itstool">
+      <patch file="itstool-config-python.patch"
+             strip="1" />
+    </branch>
+    <dependencies>
+      <dep package="libxml2" />
+    </dependencies>
+  </autotools>
+  <!---->
   <meson id="devhelp-gtk3">
-    <branch module="devhelp/3.38/devhelp-3.38.1.tar.xz"
-            version="3.38.1"
-            hash="sha256:4da8f5951b3a5920df73d057beab3ebe1855a75eae41208a9d89305a6b114a8f">
+    <branch module="devhelp/43/devhelp-43.0.tar.xz"
+            version="43.0"
+            hash="sha256:63ceeefd05392e02044881ef1ecd724293553da5735b7efc082b2d13fe85dd04">
 
       <patch file="devhelp-3-build-on-macOS.patch"
              strip="1" />
@@ -105,6 +111,7 @@
         Without shared-mime-info, HTML documents display as plain text
       -->
       <dep package="shared-mime-info" />
+      <dep package="itstool" />
     </dependencies>
   </meson>
   <!---->
@@ -125,27 +132,20 @@
   -->
   <meson id="gtksourceview3"
          mesonargs="-Dvapi=false">
-    <branch module="gtksourceview/4.8/gtksourceview-4.8.1.tar.xz"
-            version="4.8.1"
-            hash="sha256:d163d71b5fcafbc5b1eec6dd841edbdbcddd3a7511cd5fdcffd86b8bbfe69ac1">
+    <branch module="gtksourceview/4.8/gtksourceview-4.8.4.tar.xz"
+            version="4.8.4"
+            hash="sha256:7ec9d18fb283d1f84a3a3eff3b7a72b09a10c9c006597b3fbabbb5958420a87d">
     </branch>
     <dependencies>
       <dep package="gtk+-3.0" />
     </dependencies>
   </meson>
   <!---->
-  <autotools id="libpcre2"
-             autogen-sh="configure">
-    <branch module="pcre/pcre2-10.36.tar.bz2"
-            version="20.36"
-            hash="sha256:a9ef39278113542968c7c73a31cfcb81aca1faa64690f400b907e8ab6b4a665c"
-            repo="pcre" />
-  </autotools>
-  <!---->
-  <meson id="gtksourceview4">
-    <branch module="gtksourceview/5.0/gtksourceview-5.0.0.tar.xz"
-            version="5.0.0"
-            hash="sha256:64826633c0c8d2c6a6eb4ec653215ef04e31e13a2d4156a09ca5fd9013acd9c3">
+  <meson id="gtksourceview4"
+         mesonargs="-Dintrospection=disabled">
+    <branch module="gtksourceview/5.8/gtksourceview-5.8.0.tar.xz"
+            version="5.8.0"
+            hash="sha256:110dd4c20def21886fbf777298fe0ef8cc2ad6023b8f36c7424411a414818933">
     </branch>
     <dependencies>
       <dep package="gtk-4" />
@@ -153,48 +153,20 @@
     </dependencies>
   </meson>
   <!---->
-  <autotools id="getopt"
-             autogen-sh="configure"
-             supports-non-srcdir-builds="no">
-    <branch module="getopt-1.1.6.tar.gz"
-            version="1.1.6"
-            hash="sha256:d0bf1dc642a993e7388a1cddfb9409bed375c21d5278056ccca3a0acd09dc5fe"
-            repo="fossies">
-      <patch file="getopt-autotools.patch"
-             strip="1" />
-    </branch>
-  </autotools>
-  <!---->
-  <autotools id="xmlto"
-             autogen-sh="autoreconf">
-    <branch module="xmlto/xmlto-0.0.28.tar.bz2"
-            version="0.0.28"
-            hash="sha256:1130df3a7957eb9f6f0d29e4aa1c75732a7dfb6d639be013859b5c7ec5421276"
-            repo="paguire">
-      <patch file="xmlto-allow-net-access.patch"
-             strip="1" />
-    </branch>
-    <dependencies>
-      <dep package="getopt" />
-    </dependencies>
-  </autotools>
-  <!---->
   <meson id="shared-mime-info">
     <branch module="2.2/shared-mime-info-2.2.tar.bz2"
             version="2.2"
             hash="sha256:418c480019d9865f67f922dfb88de00e9f38bf971205d55cdffab50432919e61"
-            repo="shared-mime-info">
-    </branch>
+            repo="shared-mime-info" />
     <dependencies>
       <dep package="glib" />
-      <dep package="xmlto" />
     </dependencies>
   </meson>
   <!---->
   <meson id="gsettings-desktop-schemas">
-    <branch module="gsettings-desktop-schemas/40/gsettings-desktop-schemas-40.0.tar.xz"
-            version="40.0"
-            hash="sha256:f1b83bf023c0261eacd0ed36066b76f4a520bbcb14bb69c402b7959257125685" />
+    <branch module="gsettings-desktop-schemas/44/gsettings-desktop-schemas-44.0.tar.xz"
+            version="44.0"
+            hash="sha256:eb2de45cad905994849e642a623adeb75d41b21b0626d40d2a07b8ea281fec0e" />
     <dependencies>
       <dep package="gobject-introspection" />
     </dependencies>
@@ -203,9 +175,9 @@
   <autotools id="sqlite"
              autogen-sh="configure"
              autogenargs="--disable-tcl --enable-threadsafe">
-    <branch module="2022/sqlite-autoconf-3390400.tar.gz"
-            version='3.39.4'
-            hash="sha256:f31d445b48e67e284cf206717cc170ab63cbe4fd7f79a82793b772285e78fdbb"
+    <branch module="2023/sqlite-autoconf-3420000.tar.gz"
+            version='3.42.0'
+            hash="sha256:7abcfd161c6e2742ca5c6c0895d1f853c940f203304a0b49da4e1eca5d088ca6"
             repo="sqlite" />
   </autotools>
   <!--
@@ -235,20 +207,19 @@
   <!---->
   <autotools id="hunspell"
              autogen-sh="autoreconf">
-    <branch module="hunspell/hunspell/archive/v1.7.0.tar.gz"
-            version="1.7.0"
-            hash="sha256:bb27b86eb910a8285407cf3ca33b62643a02798cf2eef468c0a74f6c3ee6bc8a"
-            checkoutdir="hunspell-1.7.0"
-            rename-tarball="hunspell-1.7.0.tar.gz"
+    <branch module="hunspell/hunspell/archive/v1.7.2.tar.gz"
+            version="1.7.2"
+            hash="sha256:69fa312d3586c988789266eaf7ffc9861d9f6396c31fc930a014d551b59bbd6e"
+            checkoutdir="hunspell-1.7.2"
+            rename-tarball="hunspell-1.7.2.tar.gz"
             repo="github-tarball" />
   </autotools>
   <!---->
   <autotools id="enchant"
              autogen-sh="configure"
              autogenargs="--enable-relocatable">
-    <branch module="AbiWord/enchant/releases/download/v2.2.15/enchant-2.2.15.tar.gz"
-            version="2.2.15"
-            hash="sha256:3b0f2215578115f28e2a6aa549b35128600394304bd79d6f28b0d3b3d6f46c03"
+    <branch module="AbiWord/enchant/releases/download/v2.5.0/enchant-2.5.0.tar.gz"
+            version="2.5.0"
             repo="github-tarball" />
     <dependencies>
       <dep package="glib" />
@@ -280,7 +251,10 @@
     <branch module="gmp/gmp-6.2.1.tar.bz2"
             version="6.2.1"
             hash="sha256:eae9326beb4158c386e39a356818031bd28f3124cf915f8c5b1dc4c7a36b4d7c"
-            repo="ftp.gnu.org" />
+            repo="ftp.gnu.org">
+      <patch file="gmp-6.2.1-avoid-x18-register-apple-silicon.patch"
+             strip="1" />
+    </branch>
   </autotools>
   <!---->
   <autotools id='readline'
@@ -297,6 +271,36 @@
             version="4.1"
             hash="sha256:67117fb76f32c8fb5e37d2d60bce238f1f8e865cc7b569a57cbc3017ca15488a"
             repo="iso-codes" />
+  </autotools>
+  <!---->
+  <autotools id="libxml2"
+             autogen-sh="autoreconf"
+             autogenargs='--libdir="$JHBUILD_LIBDIR" --with-python'>
+             
+    <branch module="libxml2/2.11/libxml2-2.11.4.tar.xz"
+            version="2.11.4"
+            hash="sha256:737e1d7f8ab3f139729ca13a2494fd17bf30ddb4b7a427cf336252cab57f57f7">
+
+      <patch file="libxml2-python-config.patch"
+             strip="1" />
+    </branch>
+    <after>
+      <dep package="python3" />
+    </after>
+  </autotools>
+  <!---->
+  <autotools id="libxslt"
+             autogen-sh="autoreconf">
+    <branch module="libxslt/1.1/libxslt-1.1.38.tar.xz"
+            version="1.1.38"
+            hash="sha256:1f32450425819a09acaff2ab7a5a7f8a2ec7956e505d7beeb45e843d0e1ecab1">
+
+      <patch file="libxslt-python-config.patch"
+             strip="1" />
+    </branch>
+    <dependencies>
+      <dep package="libxml2" />
+    </dependencies>
   </autotools>
   <!---->
 </moduleset>

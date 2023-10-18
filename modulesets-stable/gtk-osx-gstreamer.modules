@@ -24,9 +24,9 @@
   <meson id="liborc"
          mesonargs="-Dgtk_doc=disabled -Dbenchmarks=disabled -Dexamples=disabled -Dtests=disabled">
 
-    <branch module="orc/orc-0.4.33.tar.xz"
-            version="0.4.33"
-            hash="sha256:844e6d7db8086f793f57618d3d4b68d29d99b16034e71430df3c21cfd3c3542a" />
+    <branch module="orc/orc-0.4.34.tar.xz"
+            version="0.4.34"
+            hash="sha256:8f47abb3f097171e44eb807adcdabd860fba2effd37d8d3c4fbd5f341cadd41f" />
   </meson>
   <!---->
   <autotools id="faad2"
@@ -44,7 +44,10 @@
     <branch module="2.16.01/nasm-2.16.01.tar.xz"
             version="2.16.01"
             hash="sha256:c77745f4802375efeee2ec5c0ad6b7f037ea9c87c92b149a9637ff099f162558"
-            repo="nasm" />
+            repo="nasm">
+      <patch file="nasm-2.16.01-warnings.c-needs-srcdir-patch"
+             strip="1" />
+    </branch>
   </autotools>
   <!---->
   <autotools id="ffmpeg"
@@ -62,9 +65,9 @@
   </autotools>
   <!---->
   <meson id="gstreamer">
-    <branch module="gstreamer/gstreamer-1.22.0.tar.xz"
-            version="1.22.0"
-            hash="sha256:78d21b5469ac93edafc6d8ceb63bc82f6cbbee94d2f866cca6b9252157ee0a09">
+    <branch module="gstreamer/gstreamer-1.22.5.tar.xz"
+            version="1.22.5"
+            hash="sha256:4408d7930f381809e85917acc19712f173261ba85bdf20c5567b2a21b1193b61">
     </branch>
     <after>
       <dep package="glib" />
@@ -73,20 +76,19 @@
   <!---->
   <meson id="gst-plugins-base"
          mesonargs="-Dexamples=disabled -Ddoc=disabled">
-    <branch module="gst-plugins-base/gst-plugins-base-1.22.0.tar.xz"
-            version="1.22.0"
-            hash="sha256:f53672294f3985d56355c8b1df8f6b49c8c8721106563e19f53be3507ff2229d" />
+    <branch module="gst-plugins-base/gst-plugins-base-1.22.5.tar.xz"
+            version="1.22.5"
+            hash="sha256:edd4338b45c26a9af28c0d35aab964a024c3884ba6f520d8428df04212c8c93a" />
     <dependencies>
       <dep package="gstreamer" />
       <dep package="liborc" />
     </dependencies>
-    <after></after>
   </meson>
   <!---->
   <meson id="gst-plugins-good">
-    <branch module="gst-plugins-good/gst-plugins-good-1.22.0.tar.xz"
-            version="1.22.0"
-            hash="sha256:582e617271e7f314d1a2211e3e3856ae2e4303c8c0d6114e9c4a5ea5719294b0">
+    <branch module="gst-plugins-good/gst-plugins-good-1.22.5.tar.xz"
+            version="1.22.5"
+            hash="sha256:b67b31313a54c6929b82969d41d3cfdf2f58db573fb5f491e6bba5d84aea0778">
     </branch>
     <dependencies>
       <dep package="gstreamer" />
@@ -94,10 +96,10 @@
     </dependencies>
   </meson>
   <!---->
-  <meson id="gst-plugins-ugly">
-    <branch module="gst-plugins-ugly/gst-plugins-ugly-1.22.0.tar.xz"
-            version="1.22.0"
-            hash="sha256:a644dc981afa2d8d3a913f763ab9523c0620ee4e65a7ec73c7721c29da3c5a0c" />
+  <meson id="gst-plugins-ugly" mesonargs="-Dgpl=enabled">
+    <branch module="gst-plugins-ugly/gst-plugins-ugly-1.22.5.tar.xz"
+            version="1.22.5"
+            hash="sha256:2680473b218158f18467cac3e1c50291b7ff4e0710dd350a59eaacbc29c09a54" />
     <dependencies>
       <dep package="gstreamer" />
       <dep package="gst-plugins-base" />
@@ -105,9 +107,9 @@
   </meson>
   <!---->
   <meson id="gst-plugins-bad">
-    <branch module="gst-plugins-bad/gst-plugins-bad-1.22.0.tar.xz"
-            version="1.22.0"
-            hash="sha256:3c9d9300f5f4fb3e3d36009379d1fb6d9ecd79c1a135df742b8a68417dd663a1" />
+    <branch module="gst-plugins-bad/gst-plugins-bad-1.22.5.tar.xz"
+            version="1.22.5"
+            hash="sha256:e64e75cdafd7ff2fc7fc34e855b06b1e3ed227cc06fa378d17bbcd76780c338c" />
     <dependencies>
       <dep package="gstreamer" />
       <dep package="gst-plugins-base" />
@@ -117,9 +119,10 @@
   </meson>
   <!---->
   <meson id="gst-libav">
-    <branch module="gst-libav/gst-libav-1.22.0.tar.xz"
-            version="1.22.0"
-            hash="sha256:0e48407b4905227a260213dbda84cba3812f0530fc7a75b43829102ef82810f1" />
+    <branch module="gst-libav/gst-libav-1.22.5.tar.xz"
+            version="1.22.5"
+            hash="sha256:8583f0c1f4fcb01eed11fa1e3c21126543a8bd739ed4fc1db31f756a5ab01d9a">
+    </branch>
     <dependencies>
       <dep package="gstreamer" />
       <dep package="gst-plugins-base" />

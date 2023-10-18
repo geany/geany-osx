@@ -2,12 +2,14 @@ diff --git a/configure.ac b/configure.ac
 index baeee600..da430c22 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -185,7 +185,7 @@ AC_ARG_WITH(python,
+@@ -189,7 +189,7 @@ AC_ARG_WITH(python,
  
  AS_IF([test "x$with_python" != "xno"], [
      AM_PATH_PYTHON
 -    PKG_CHECK_MODULES([PYTHON], [python-${PYTHON_VERSION}])
 +    PKG_CHECK_MODULES([PYTHON], [python-${PYTHON_VERSION}-embed])
- ])
- AM_CONDITIONAL([WITH_PYTHON], [test "x$with_python" != "xno"])
+     case "$host" in
+         *-*-cygwin* | *-*-mingw* | *-*-msys* )
+             PYTHON_LDFLAGS="-no-undefined -shrext .pyd"
+
  
