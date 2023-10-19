@@ -121,7 +121,7 @@
     <branch repo="download.geany.org"
             module="geany-${version}.tar.bz2"
             checkoutdir="geany-${version}"
-            version="1.38">
+            version="2.0">
       <!-- This patch corresponds to https://github.com/geany/geany/pull/2363 -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_config_shell.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_scintilla_candidate_window_pos.patch" strip="1" />
@@ -167,7 +167,7 @@
     <branch repo="download.geany.org"
             module="geany-plugins/geany-plugins-${version}.tar.bz2"
             checkoutdir="geany-plugins-${version}"
-            version="1.38">
+            version="2.0">
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_spellcheck_relocation.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_geanylua_link_against_statically_built_liblua.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_plugins_geanylua_make_lib_data_directories_relocatable.patch" strip="1" />
