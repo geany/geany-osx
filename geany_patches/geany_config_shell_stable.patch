@@ -128,7 +128,7 @@ index 4c9f4ebb2..996758d80 100644
  static void build_spawn_cmd(GeanyDocument *doc, const gchar *cmd, const gchar *dir)
  {
  	GError *error = NULL;
--	const gchar *argv[] = { "/bin/sh", "-c", NULL, NULL };
+-	gchar *argv[] = { "/bin/sh", "-c", NULL, NULL };
 +	gchar *argv[] = { tool_prefs.shell_cmd, "-l", "-c", NULL, NULL };
  	gchar *working_dir;
  	gchar *utf8_working_dir;
