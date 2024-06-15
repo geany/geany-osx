@@ -9,7 +9,7 @@
   -GtkWidget-text-handle-width: 20;
   -GtkWidget-text-handle-height: 24;
   -GtkDialog-button-spacing: 4;
-  -GtkDialog-action-area-border: 0;
+  -GtkDialog-action-area-border: 6;
    outline-color: alpha(currentColor,0.3);
    outline-style: dashed;
    outline-offset: -3px;
