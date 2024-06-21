@@ -155,7 +155,7 @@
   </data>
   <!-- enchant config -->
   <data>
-    ${prefix}/share/enchant
+    ${prefix}/share/enchant-2
   </data>
 
   <!-- Copy in the themes data. You may want to trim this to save space
