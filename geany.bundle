@@ -60,6 +60,11 @@
   <binary>
     ${prefix}/lib/${gtkdir}/${pkg:${gtk}:gtk_binary_version}/immodules/*.so
   </binary>
+ 
+   <binary>
+    ${prefix}/lib/gio/modules/*.so
+   </binary>
+
 
 <!-- Starting with 2.24, gdk-pixbuf installs into its own directory. -->
   <binary>
