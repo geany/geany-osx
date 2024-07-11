@@ -38,12 +38,12 @@
 @define-color headerbar_button_color #d0d0d0;
 @define-color osd_button_color #505050;
 /*color-accents*/
-@define-color color_accent #3e81d3;/*#6398bb;*/
-@define-color color_accent_2 #3e81d3;/*#707070;*/
-@define-color color_accent_3 #3e81d3;/*#797d7d;*/
-@define-color icontext_selected_bg #3e81d3;
-@define-color rad_chk_bg #3e81d3;
-@define-color modelbutton_bg #3e81d3;
+@define-color color_accent #0078d7;/*#6398bb;*/
+@define-color color_accent_2 #0078d7;/*#707070;*/
+@define-color color_accent_3 #0078d7;/*#797d7d;*/
+@define-color icontext_selected_bg #0078d7;
+@define-color rad_chk_bg #0078d7;
+@define-color modelbutton_bg #0078d7;
 /**/
 @define-color headerbar_color #d5d6da;/*#c6c6c6;*//*#d0d0d0;*//*#d0d3d8;*//*#d0d0d0;*/
 @define-color headerbar_selected_accent_color shade(@color_accent_2, 0.88);
