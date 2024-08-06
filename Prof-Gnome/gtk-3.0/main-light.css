@@ -3009,7 +3009,7 @@ notebook > header.top > tabs { margin-bottom: -2px; }
 
 notebook > header.top > tabs > tab { padding-top: 3px; padding-bottom: 3px; border-color: transparent; border-width: 1px; border-style: none solid; }
 
-notebook > header.top > tabs > tab:checked { background-color: #f3f3f3; border-color: #c0c0c0; }
+notebook > header.top > tabs > tab:checked { background-color: @theme_bg_color; border-color: #c0c0c0; }
 
 notebook > header.bottom { border-top-style: solid; }
 
@@ -3017,7 +3017,7 @@ notebook > header.bottom > tabs { margin-top: -2px; }
 
 notebook > header.bottom > tabs > tab { padding-top: 3px; padding-bottom: 3px; border-color: transparent; border-width: 1px; border-style: none solid; }
 
-notebook > header.bottom > tabs > tab:checked { background-color: #f3f3f3; border-color: #c0c0c0; }
+notebook > header.bottom > tabs > tab:checked { background-color: @theme_bg_color; border-color: #c0c0c0; }
 
 notebook > header.left { border-right-style: solid; }
 
@@ -3025,7 +3025,7 @@ notebook > header.left > tabs { margin-right: -2px; }
 
 notebook > header.left > tabs > tab { padding-top: 3px; padding-bottom: 3px; border-color: transparent; border-width: 1px; border-style: solid none; }
 
-notebook > header.left > tabs > tab:checked { background-color: #f3f3f3; border-color: #c0c0c0; }
+notebook > header.left > tabs > tab:checked { background-color: @theme_bg_color; border-color: #c0c0c0; }
 
 notebook > header.right { border-left-style: solid; }
 
@@ -3033,7 +3033,7 @@ notebook > header.right > tabs { margin-left: -2px; }
 
 notebook > header.right > tabs > tab { padding-top: 3px; padding-bottom: 3px; border-color: transparent; border-width: 1px; border-style: solid none; }
 
-notebook > header.right > tabs > tab:checked { background-color: #f3f3f3; border-color: #c0c0c0; }
+notebook > header.right > tabs > tab:checked { background-color: @theme_bg_color; border-color: #c0c0c0; }
 
 notebook > header.top > tabs > arrow { border-top-style: none; }
 
@@ -3224,7 +3224,7 @@ notebook > header.top tab {
 
 notebook > header.bottom tab { padding-top: 1px; }
 
-notebook > stack:not(:only-child) { background-color: rgba(246,246,246,0.98);/*#ffffff;*/ }
+notebook > stack:not(:only-child) { background-color: @theme_bg_color;/*#ffffff;*/ }
 /*(((((((((( Scrollbars )))))))))
 )*/
 scrollbar 
