@@ -45,7 +45,7 @@
 @define-color rad_chk_bg #0078d7;
 @define-color modelbutton_bg #0078d7;
 /**/
-@define-color headerbar_color #d5d6da;/*#c6c6c6;*//*#d0d0d0;*//*#d0d3d8;*//*#d0d0d0;*/
+@define-color headerbar_color #f2f2f2;/*#c6c6c6;*//*#d0d0d0;*//*#d0d3d8;*//*#d0d0d0;*/
 @define-color headerbar_selected_accent_color shade(@color_accent_2, 0.88);
 /**/
 @define-color shadows_light #ffffff;
