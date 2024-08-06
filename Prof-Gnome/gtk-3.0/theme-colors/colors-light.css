@@ -15,7 +15,7 @@
 @define-color sidebar_selected_text_color #ffffff;
 @define-color sidebar_selected_text_shadow_color #000000;
 /**/
-@define-color osd_button_text_color #eeeeec;
+@define-color osd_button_text_color #eeeeee;
 /**/
 @define-color headerbar_text_color #303030;
 @define-color headerbar_text_shadow_color transparent;
@@ -58,7 +58,7 @@
 @define-color theme_fg_color #303030;
 /*
 widget base background color */
-@define-color base_bg_color #eeeeee;
+@define-color base_bg_color #f2f2f2;
 @define-color theme_bg_color #f2f2f2;
 @define-color osd_bg_color #353535;
  /*
@@ -72,7 +72,7 @@ base background color of selections @color_600 */
 @define-color theme_selected_fg_color #ffffff;
 /*
 base background color of insensitive widgets */
-@define-color insensitive_bg_color #f8fafa;/*#faf9f8;*/
+@define-color insensitive_bg_color #f2f2f2;/*#faf9f8;*/
 /*
 text foreground color of insensitive widgets */
 @define-color insensitive_fg_color @disabled_text_color;
@@ -90,7 +90,7 @@ widget base background color on backdrop windows */
 @define-color theme_unfocused_bg_color #e6e6e6;
 /*
 text widgets and the like base background color on backdrop windows */
-@define-color theme_unfocused_base_color #fcfcfc;
+@define-color theme_unfocused_base_color #f2f2f2;
 /*
 base background color of selections on backdrop windows */
 @define-color theme_unfocused_selected_bg_color @color_600;
