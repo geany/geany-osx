@@ -632,7 +632,7 @@ button:checked:hover,
 button:checked
 { 
       border-color: @borders;
-  background-image: image(#777777);
+  background-image: image(#666666);
         box-shadow: none;
 }
 notebook > header > tabs > arrow:active, 

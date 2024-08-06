@@ -630,7 +630,7 @@ button:checked:hover,
 button:checked
 { 
       border-color: @borders;
-  background-image: image(#999999);
+  background-image: image(#c2c2c2);
         box-shadow: none;
 }
 notebook > header > tabs > arrow:active, 
