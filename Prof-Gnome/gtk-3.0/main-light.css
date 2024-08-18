@@ -6323,16 +6323,6 @@ window.background.csd evview.view.content-view
 {
                border-radius: 0 0 6px 6px;
 }
-window.background:not(.csd) > menu,
-window.background:not(.csd) > menu > menu
-{
-                   padding: 4px 6px;
-             border-radius: 0;
-}
-window.background:not(.csd) > menu > menuitem
-{
-                   padding: 4px 6px;
-}
 background.csd > grid.horizontal > paned.horizontal > box.vertical > scrolledwindow
 {  
              border-radius: 0 0 0 6px;
