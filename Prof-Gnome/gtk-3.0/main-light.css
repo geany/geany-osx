@@ -5536,19 +5536,19 @@ infobar.error button:disabled
 */
 tooltip
 {
-              color: @selected_text_color;
+              color: #303030;
         
 }
 tooltip.background
 {
-  background-color: alpha(@osd_bg_color,0.95);
+  background-color: alpha(#f2f2f2,0.95);
 }
 tooltip.background label 
 {
-    padding-left: 6px; 
-   padding-right: 6px;
-     padding-top: 1px;
-  padding-bottom: 1px;
+    padding-left: 4px; 
+   padding-right: 4px;
+     padding-top: 0px;
+  padding-bottom: 0px;
 }
 tooltip decoration
 {
@@ -5556,9 +5556,9 @@ tooltip decoration
 }
 tooltip *
 {
-      border-radius: 6px;
-   background-color: rgba(0,0,0,0);
-              color: @selected_text_color;
+      border-radius: 4px;
+/*   background-color: rgba(0,0,0,0);*/
+              color: #303030;
         
 }
 /*((((((((( Color Chooser )))))))))
@@ -5776,7 +5776,7 @@ decoration
 tooltip.csd decoration
 { 
      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
-  border-radius: 6px;
+  border-radius: 4px;
 }
 messagedialog.csd decoration
 {
@@ -6365,7 +6365,7 @@ window.background > box.vertical box.horizontal list.categories
 }  
 tooltip.background.csd
 {
-              border-radius: 6px;
+              border-radius: 4px;
 }  
 .nautilus-window.csd.background
 {
