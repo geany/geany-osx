@@ -27,10 +27,21 @@
             version="0.20.1"/>
   </distutils>
 
-  <meson id="vte291" mesonargs="-Dicu=false -Dvapi=false -Dgtk4=false -D_b_symbolic_functions=false">
+  <autotools id="lz4"
+             makeargs="DESTDIR=$PREFIX"
+             skip-autogen="true"
+             supports-non-srcdir-builds="no">
+    <branch repo="download.github.com"
+            module="lz4/lz4/releases/download/v${version}/lz4-${version}.tar.gz"
+            version="1.10.0">
+    </branch>
+  </autotools>
+
+  <meson id="vte291"
+         mesonargs="-Dicu=false -Dvapi=false -Dgtk4=false -D_b_symbolic_functions=false">
     <branch repo="download.gitlab.gnome.org"
             module="vte/-/archive/${version}/vte-${version}.tar.bz2" 
-            version="0.74.0">
+            version="0.76.5">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/vte_2.91_relpath.patch" strip="1" />
     </branch>
@@ -46,7 +57,7 @@
     <branch repo="download.github.com" 
             module="libgit2/libgit2/archive/refs/tags/v${version}.tar.gz"
             checkoutdir="libgit2-${version}"
-            version="1.7.1"/>
+            version="1.8.4"/>
   </cmake>
 
   <autotools id="lua"
@@ -67,7 +78,7 @@
     <branch repo="ftp.gnome.org"
             module="gtk-mac-integration/3.0/gtk-mac-integration-${version}.tar.xz"
             checkoutdir="gtk-mac-integration-fixed"
-            version="3.0.1">
+            version="3.0.2">
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/gtk_mac_integration_radio_fix.patch" strip="1" />
     </branch>
   </autotools>  
