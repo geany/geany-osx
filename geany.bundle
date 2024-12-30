@@ -81,7 +81,7 @@
     ${prefix}/lib/enchant-2/*.so
   </binary>
 
-  <!-- Geany's plugins -->
+  <!-- Geany plugins -->
   <binary>
     ${prefix}/lib/geany/*.so
   </binary>
@@ -134,7 +134,7 @@
        "${bundle}", which refers to the bundle root directory.
   -->
 
-  <!-- Geany's data files; glade, fildefs, default tags, etc. -->
+  <!-- Geany data files; glade, fildefs, default tags, etc. -->
   <data>
     ${prefix}/share/geany
   </data>
