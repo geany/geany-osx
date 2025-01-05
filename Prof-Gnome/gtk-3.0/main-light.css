@@ -1932,11 +1932,11 @@ toolbar.osd.bottom
 }
 toolbar.horizontal separator
 { 
-            margin: 0 7px 1px 6px;
+            margin: 0 3px 1px 3px;
 }
 toolbar.vertical separator
 { 
-            margin: 6px 1px 7px 0;
+            margin: 3px 1px 3px 0;
 }
 toolbar:not(.inline-toolbar):not(.osd) > *:not(.toggle):not(.popup) > *
 { 
