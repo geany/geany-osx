@@ -16,9 +16,6 @@
               href="https://files.pythonhosted.org/"/>
   <repository type="tarball" name="lua.org"
               href="https://www.lua.org/ftp/"/>
-  <repository name="github"
-              href="https://github.com/"
-              type="git" />
 
   <include href="https://gitlab.gnome.org/GNOME/gtk-osx/raw/master/modulesets-stable/gtk-osx.modules" />
 
@@ -194,11 +191,6 @@
       <dep package="geany-plugins-deps" />
     </dependencies>
   </autotools>
-
-  <meson id="geany-lsp">
-    <branch repo="github"
-            module="techee/geany-lsp"/>
-  </meson>
 
   <!-- Build everything necessary for Geany bundle from git -->
   <metamodule id="geany-bundle-git">
