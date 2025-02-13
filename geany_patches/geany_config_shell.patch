@@ -223,9 +223,9 @@ index 5d1b5fc97..f43f83619 100644
  				"entry_browser",
  				"entry_grep",
 +				"entry_shell1",
+ 				"entry_keybinding_filter",
  				"entry_contextaction",
  				"entry_template_developer",
- 				"entry_template_initial",
 @@ -1787,6 +1793,10 @@ void prefs_show_dialog(void)
  			NULL,
  			GTK_FILE_CHOOSER_ACTION_OPEN,
