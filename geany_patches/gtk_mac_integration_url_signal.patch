@@ -1,0 +1,99 @@
+From 07d4a8e99dba4338145f750b6f7a7a17ca2198ba Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Thu, 13 Feb 2025 21:18:34 +0100
+Subject: [PATCH] Add signal for opening URLs
+
+---
+ src/GtkApplicationDelegate.c   | 16 ++++++++++++----
+ src/gtkosxapplication_quartz.c | 29 ++++++++++++++++++++++++++++-
+ 2 files changed, 40 insertions(+), 5 deletions(-)
+
+diff --git a/src/GtkApplicationDelegate.c b/src/GtkApplicationDelegate.c
+index 0d2aad6..09a8a87 100644
+--- a/src/GtkApplicationDelegate.c
++++ b/src/GtkApplicationDelegate.c
+@@ -35,15 +35,23 @@
+ -(void) application: (NSApplication*)theApplication openURLs: (NSArray<NSURL *> *) urls
+ {
+   gboolean overall_result = TRUE;
+-  guint sig = g_signal_lookup ("NSApplicationOpenFile",
+-                               GTKOSX_TYPE_APPLICATION);
+-  if (sig)
++  guint file_sig = g_signal_lookup ("NSApplicationOpenFile",
++                                    GTKOSX_TYPE_APPLICATION);
++  guint url_sig = g_signal_lookup ("NSApplicationOpenURL",
++                                    GTKOSX_TYPE_APPLICATION);
++  if (file_sig || url_sig)
+   {
+     GtkosxApplication *app = g_object_new (GTKOSX_TYPE_APPLICATION, NULL);
+     for (NSURL* url in urls)
+       {
+         gboolean result = TRUE;
+-        g_signal_emit (app, sig, 0, [[url absoluteString] UTF8String], &result);
++
++        if (file_sig && url.path)
++          g_signal_emit (app, file_sig, 0, [url.path UTF8String], &result);
++
++        if (url_sig)
++          g_signal_emit (app, url_sig, 0, [url.absoluteString UTF8String], &result);
++
+         if (!result)
+           overall_result = FALSE;
+       }
+diff --git a/src/gtkosxapplication_quartz.c b/src/gtkosxapplication_quartz.c
+index fa2977e..284d34a 100644
+--- a/src/gtkosxapplication_quartz.c
++++ b/src/gtkosxapplication_quartz.c
+@@ -582,6 +582,7 @@ enum
+   BlockTermination,
+   WillTerminate,
+   OpenFile,
++  OpenURL,
+   LastSignal
+ };
+ 
+@@ -727,7 +728,8 @@ gtkosx_application_class_init (GtkosxApplicationClass *klass)
+    * @user_data: Data attached at connection
+    *
+    * Emitted when an OpenFile, OpenFiles, or (in macOS 10.13 or later)
+-   * OpenURLs event is received from the operating system. This signal
++   * OpenURLs event is received from the operating system and in the
++   * last case when the URL is a file type. This signal
+    * does not implement drops, but it does implement "open with"
+    * events from Finder. If more than one file or URL is supplied then
+    * the signal is emitted once for each file.
+@@ -742,6 +744,31 @@ gtkosx_application_class_init (GtkosxApplicationClass *klass)
+                   g_cclosure_marshal_BOOLEAN__STRING,
+                   G_TYPE_BOOLEAN, 1, G_TYPE_STRING);
+ 
++  /**
++   * GtkosxApplication::NSApplicationOpenURL:
++   * @app: The application object
++   * @url: A UTF8-encoded, URL-escaped URL to open.
++   * @user_data: Data attached at connection
++   *
++   * Emitted in macOS 10.13 or later when an OpenURLs event is
++   * received from the operating system, including file types, meaning
++   * that both NSApplicationOpenFile and NSApplicationOpenURL are
++   * emitted when file type URLs are received. A separate signal will
++   * be emitted for each URL if more than one is received. If the URLs
++   * array contains a mix of file and the application handles both
++   * signals then it will get a mix of NSApplicationOpenFile and
++   * NSApplicationOpenURL signals.
++   *
++   * Returns: Boolean indicating success at opening the file.
++   */
++  gtkosx_application_signals[OpenURL] =
++    g_signal_new ("NSApplicationOpenURL",
++                  GTKOSX_TYPE_APPLICATION,
++                  G_SIGNAL_NO_RECURSE | G_SIGNAL_ACTION,
++                  0, NULL, NULL,
++                  g_cclosure_marshal_BOOLEAN__STRING,
++                  G_TYPE_BOOLEAN, 1, G_TYPE_STRING);
++
+ }
+ 
+ /**
+-- 
+2.45.2
+

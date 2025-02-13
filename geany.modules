@@ -81,6 +81,8 @@
             checkoutdir="gtk-mac-integration-fixed"
             version="3.0.2">
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/gtk_mac_integration_radio_fix.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/gtk_mac_integration_typo.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/gtk_mac_integration_url_signal.patch" strip="1" />
     </branch>
   </autotools>  
   
