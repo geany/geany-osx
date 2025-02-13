@@ -120,8 +120,6 @@
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_scintilla_candidate_window_pos.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_vte_login_shell.patch" strip="1" />
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_scintilla_block_copy.patch" strip="1" />
-      <!-- Don't forget to add to release!!! -->
-      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/geany_disable_meson_forth_parsers.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="geany-deps" />
