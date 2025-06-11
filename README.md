@@ -157,21 +157,15 @@ Bundling
 
 	*Steps 3 and 4 of this section assume you are running from within the jhbuild shell.*
 
-3.	To bundle all available Geany themes, get them from
-
-	<https://github.com/geany/geany-themes>
-
-	and copy the `colorschemes` directory under `$PREFIX/share/geany`.
-
-4.	Inside the `geany-osx` directory run the following command to create
+3.	Inside the `geany-osx` directory run the following command to create
 	the app bundle:
 	```
 	./bundle.sh
 	```
 
-5.	Leave jhbuild shell if it was entered in step 2 by typing `exit`.
+4.	Leave jhbuild shell if it was entered in step 2 by typing `exit`.
 
-6.	Optionally, if you have a development account at Apple and want to
+5.	Optionally, if you have a development account at Apple and want to
 	sign the resulting bundle, get the list of signing identities by
 	```
 	security find-identity -p codesigning
