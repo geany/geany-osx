@@ -149,23 +149,13 @@ Bundling
 	```
 	inside the `geany-osx` directory.
 
-2.	Run
-	```
-	jhbuild shell
-	```
-	to start jhbuild shell. 
-
-	*Steps 3 and 4 of this section assume you are running from within the jhbuild shell.*
-
-3.	Inside the `geany-osx` directory run the following command to create
+2.	Inside the `geany-osx` directory run the following command to create
 	the app bundle:
 	```
-	./bundle.sh
+	jhbuild run ./bundle.sh
 	```
 
-4.	Leave jhbuild shell if it was entered in step 2 by typing `exit`.
-
-5.	Optionally, if you have a development account at Apple and want to
+3.	Optionally, if you have a development account at Apple and want to
 	sign the resulting bundle, get the list of signing identities by
 	```
 	security find-identity -p codesigning
