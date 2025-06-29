@@ -344,6 +344,21 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>CIL Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>cil</string>
+				<string>il</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>Clojure Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -503,6 +518,20 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>Dart Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>dart</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>Diff Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -523,6 +552,21 @@
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>docbook</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Dockerfile Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>Dockerfile</string>
+				<string>dockerfile</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -742,6 +786,22 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>HCL Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>hcl</string>
+				<string>tf</string>
+				<string>tfvars</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>HTML Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -752,7 +812,9 @@
 				<string>html</string>
 				<string>htt</string>
 				<string>shtml</string>
+				<string>tmpl</string>
 				<string>tpl</string>
+				<string>vue</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -781,7 +843,10 @@
 			<string>Javascript Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>cjs</string>
 				<string>js</string>
+				<string>jsx</string>
+				<string>mjs</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -844,6 +909,20 @@
 				<string>ltx</string>
 				<string>sty</string>
 				<string>tex</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>LESS Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>less</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -948,6 +1027,20 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>Nix Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>nix</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>NSIS Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -985,6 +1078,7 @@
 				<string>dpk</string>
 				<string>dpr</string>
 				<string>inc</string>
+				<string>lpr</string>
 				<string>pas</string>
 				<string>pp</string>
 			</array>
@@ -1048,10 +1142,26 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>Prolog Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>P</string>
+				<string>pro</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>Python Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>py</string>
+				<string>pyi</string>
 				<string>pyw</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
@@ -1109,6 +1219,26 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>Raku Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>p6</string>
+				<string>pl6</string>
+				<string>pm6</string>
+				<string>raku</string>
+				<string>rakumod</string>
+				<string>rakutest</string>
+				<string>t6</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>Rust Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -1145,6 +1275,20 @@
 			<array>
 				<string>scala</string>
 				<string>scl</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>SCSS Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>scss</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -1220,6 +1364,21 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
+			<string>SystemVerilog Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>sv</string>
+				<string>svh</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
 			<string>Tcl Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
@@ -1227,6 +1386,20 @@
 				<string>tcl</string>
 				<string>tk</string>
 				<string>wish</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>TOML Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>toml</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -1254,7 +1427,10 @@
 			<string>TypeScript Source</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>cts</string>
+				<string>mts</string>
 				<string>ts</string>
+				<string>tsx</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -1284,6 +1460,7 @@
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>v</string>
+				<string>vh</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
@@ -1352,6 +1529,20 @@
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>zep</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Geany.icns</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Zig Source</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>zig</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>Geany.icns</string>
