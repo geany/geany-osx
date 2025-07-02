@@ -1,0 +1,30 @@
+From 0bf87214125519671545e92b2fd1845f0a10faa1 Mon Sep 17 00:00:00 2001
+From: John Ralls <jralls@ceridwen.us>
+Date: Thu, 10 Apr 2025 12:05:37 -0400
+Subject: [PATCH] [quartz] Check all the windows not just the first one.
+
+---
+ gdk/quartz/GdkQuartzNSWindow.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/gdk/quartz/GdkQuartzNSWindow.c b/gdk/quartz/GdkQuartzNSWindow.c
+index b00175871f..eaefa76e09 100644
+--- a/gdk/quartz/GdkQuartzNSWindow.c
++++ b/gdk/quartz/GdkQuartzNSWindow.c
+@@ -790,9 +790,10 @@ update_context_from_dragging_info (id <NSDraggingInfo> sender)
+           wh = gdk_window_get_height (win);
+ 
+           if (gx > wx && gy > wy && gx <= wx + ww && gy <= wy + wh)
+-            event->dnd.context->dest_window = g_object_ref (win);
+-            break;
+-        }
++            {
++              event->dnd.context->dest_window = g_object_ref (win);
++              break;
++            }}
+     }
+ 
+   device = gdk_drag_context_get_device (_gdk_quartz_drag_source_context);
+-- 
+2.39.5 (Apple Git-154)
+

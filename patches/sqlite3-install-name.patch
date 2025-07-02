@@ -1,0 +1,13 @@
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -148,7 +148,8 @@
+ $(libsqlite3.SO): sqlite3.o
+ 	$(CC) -o $@  sqlite3.o $(LDFLAGS.shlib) \
+ 		$(LDFLAGS) $(LDFLAGS.libsqlite3) \
+-		$(LDFLAGS.libsqlite3.os-specific) $(LDFLAGS.libsqlite3.soname)
++		$(LDFLAGS.libsqlite3.os-specific) $(LDFLAGS.libsqlite3.soname) \
++		-install_name ${JHBUILD_PREFIX}/lib/$@
+ all: $(libsqlite3.SO)
+ 
+ $(libsqlite3.LIB): sqlite3.o
+

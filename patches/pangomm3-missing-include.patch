@@ -1,0 +1,12 @@
+--- a/untracked/pango/pangomm/attrlist.cc	2020-12-13 06:11:13
++++ b/untracked/pango/pangomm/attrlist.cc	2024-06-01 15:38:43
+@@ -30,6 +30,7 @@
+  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  */
+ 
++#include <pango/pango-markup.h>
+ namespace Pango
+ {
+ 
+
+

@@ -1,0 +1,25 @@
+--- a/gdk-pixbuf-loader/meson_install.py	2024-10-29 16:44:51
++++ b/gdk-pixbuf-loader/meson_install.py	2025-04-03 15:10:45
+@@ -15,6 +16,22 @@
+ 
+ if __name__ == '__main__':
+     args = argparse.parse_args()
++    if sys.platform in ['darwin', 'ios']:
++        modulepath = Path(args.gdk_pixbuf_moduledir).resolve()
++        prefix = modulepath.parent.parent.parent
++        location = modulepath
++        if 'DESTDIR' in os.environ:
++            location = Path(os.environ['DESTDIR']) / modulepath.relative_to('/')
++        oldfilepath = location / 'libpixbufloader_svg.dylib'
++        newfilename = 'libpixbufloader-svg.so'
++        newfilepath = location / newfilename
++        installfilepath = modulepath / 'libpixbufloader-svg.so'
++        librsvgpath = prefix / 'librsvg-2.2.dylib'
++        os.rename(oldfilepath.as_posix(), newfilepath.as_posix())
++        subprocess.run(
++            ['install_name_tool', '-id', installfilepath.as_posix(), newfilepath.as_posix()])
++        subprocess.run(
++            ['install_name_tool', '-change', '@rpath/librsvg-2.2.dylib', librsvgpath.as_posix(), newfilepath.as_posix()])
+ 
+     cache_file: Path = args.gdk_pixbuf_cache_file
+ 

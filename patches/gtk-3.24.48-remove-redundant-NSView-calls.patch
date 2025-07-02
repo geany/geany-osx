@@ -1,0 +1,68 @@
+From 8fa5fccf15cae457fcbddf8f59602b44f06550e4 Mon Sep 17 00:00:00 2001
+From: John Ralls <jralls@ceridwen.us>
+Date: Mon, 17 Mar 2025 13:24:47 -0700
+Subject: [PATCH 1/5] [quartz] Remove redundant NSView calls
+
+macOS calls NSView setFrame: and posts the FraneDidChange notification
+without being told, so these calls resulted in more than one
+notification/execution for a single event.
+
+Fixes https://gitlab.gnome.org/GNOME/gtk/-/issues/7329
+---
+ gdk/quartz/GdkQuartzNSWindow.c | 2 --
+ gdk/quartz/gdkwindow-quartz.c  | 8 --------
+ 2 files changed, 10 deletions(-)
+
+diff --git a/gdk/quartz/GdkQuartzNSWindow.c b/gdk/quartz/GdkQuartzNSWindow.c
+index b00175871f..77185149d8 100644
+--- a/gdk/quartz/GdkQuartzNSWindow.c
++++ b/gdk/quartz/GdkQuartzNSWindow.c
+@@ -251,8 +251,6 @@ synthesize_configure_event(GdkWindow *window)
+   content_rect.origin.x = 0;
+   content_rect.origin.y = 0;
+ 
+-  [[self contentView] setFrame:content_rect];
+-
+   /* Certain resize operations (e.g. going fullscreen), also move the
+    * origin of the window.
+    */
+diff --git a/gdk/quartz/gdkwindow-quartz.c b/gdk/quartz/gdkwindow-quartz.c
+index 5d6d522846..68c1ebd971 100644
+--- a/gdk/quartz/gdkwindow-quartz.c
++++ b/gdk/quartz/gdkwindow-quartz.c
+@@ -993,10 +993,6 @@ _gdk_quartz_display_create_window_impl (GdkDisplay    *display,
+ 	impl->view = [[GdkQuartzView alloc] initWithFrame:content_rect];
+ 	[impl->view setGdkWindow:window];
+ 	[impl->toplevel setContentView:impl->view];
+-        [[NSNotificationCenter defaultCenter] addObserver: impl->toplevel
+-                                      selector: @selector (windowDidResize:)
+-                                      name: @"NSViewFrameDidChangeNotification"
+-                                      object: impl->view];
+       }
+       break;
+ 
+@@ -1390,7 +1386,6 @@ move_resize_window_internal (GdkWindow *window,
+       content_rect = NSMakeRect (gx, gy, window->width, window->height);
+ 
+       frame_rect = [impl->toplevel frameRectForContentRect:content_rect];
+-      [impl->toplevel setFrame:frame_rect display:YES];
+       impl->cairo_surface = gdk_quartz_ref_cairo_surface (window);
+       cairo_surface_destroy (impl->cairo_surface); // Remove the extra reference
+     }
+@@ -1433,13 +1428,10 @@ move_resize_window_internal (GdkWindow *window,
+ 			              by:delta];
+                 }
+ 
+-              [impl->view setFrame:nsrect];
+-
+               gdk_quartz_window_set_needs_display_in_region (window, expose_region);
+             }
+           else
+             {
+-              [impl->view setFrame:nsrect];
+               [impl->view setNeedsDisplay:YES];
+             }
+ 
+-- 
+2.39.5 (Apple Git-154)
+

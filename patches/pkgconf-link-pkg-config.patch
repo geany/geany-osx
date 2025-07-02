@@ -1,0 +1,10 @@
+--- a/meson.build	2024-03-27 11:39:43
++++ b/meson.build	2024-05-15 20:48:07
+@@ -131,6 +131,7 @@
+   c_args: build_static,
+   install : true)
+ 
++install_symlink('pkg-config', install_dir : 'bin', pointing_to : pkgconf_exe.full_path())
+ with_tests = get_option('tests')
+ kyua_exe = find_program('kyua', required : with_tests, disabler : true)
+ atf_sh_exe = find_program('atf-sh', required : with_tests, disabler : true)

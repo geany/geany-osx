@@ -1,0 +1,11 @@
+--- a/configure.ac	2024-04-28 08:25:15
++++ b/configure.ac	2024-06-06 16:34:35
+@@ -995,7 +995,7 @@
+           pkgconfig_python3_found=`$PKG_CONFIG --exists python-$PYTHON3_VERSION 2>/dev/null`
+           if test "$?" = "0" ; then
+                PYTHON3_INCLUDES="$PYTHON3_CFLAGS "`$PKG_CONFIG --cflags python-$PYTHON3_VERSION`
+-               PYTHON3_LIBS="$PYTHON3_LFLAGS "`$PKG_CONFIG --libs python-$PYTHON3_VERSION`
++               PYTHON3_LIBS="$PYTHON3_LFLAGS "`$PKG_CONFIG --libs python-$PYTHON3_VERSION-embed`
+           else
+ 	           use_python3="No (python-$PYTHON3_VERSION.pc not found)"
+           fi

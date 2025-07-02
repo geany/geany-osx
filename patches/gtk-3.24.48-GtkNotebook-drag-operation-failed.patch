@@ -1,0 +1,27 @@
+From cfb2ec3410fc3c640688e9d873ea942f232b317a Mon Sep 17 00:00:00 2001
+From: John Ralls <jralls@ceridwen.us>
+Date: Wed, 16 Apr 2025 11:25:35 -0400
+Subject: [PATCH 5/5] GtkNotebook: Set drag operation to None on drag_failed.
+
+Otherwise it's stuck on whatever the drag was and if that was
+DRAG_OPERATION_DETACHED it stops the current tab being drawn because
+of the test for that at the end of gtk_notebook_draw_tabs.
+---
+ gtk/gtknotebook.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/gtk/gtknotebook.c b/gtk/gtknotebook.c
+index f51570e745..b90f689b6a 100644
+--- a/gtk/gtknotebook.c
++++ b/gtk/gtknotebook.c
+@@ -3765,6 +3765,7 @@ gtk_notebook_drag_failed (GtkWidget      *widget,
+   GtkNotebookPrivate *priv = notebook->priv;
+ 
+   priv->rootwindow_drop = FALSE;
++  priv->operation = DRAG_OPERATION_NONE;
+ 
+   if (result == GTK_DRAG_RESULT_NO_TARGET)
+     {
+-- 
+2.39.5 (Apple Git-154)
+

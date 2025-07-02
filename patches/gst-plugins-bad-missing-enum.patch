@@ -1,0 +1,19 @@
+# https://code.videolan.org/videolan/vlc/-/merge_requests/1966/diffs
+# https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/7157
+--- a/sys/applemedia/vtdec.c	2024-12-29 18:02:51
++++ b/sys/applemedia/vtdec.c	2024-12-29 18:14:48
+@@ -76,6 +76,14 @@
+   VTDEC_FRAME_FLAG_ERROR = (1 << 12),
+ };
+ 
++// Error enum values introduced in macOS 12
++#if defined(MAC_OS_X_VERSION_MAX_ALLOWED) && MAC_OS_X_VERSION_MAX_ALLOWED < 120000
++enum
++{
++  kVTVideoDecoderReferenceMissingErr = -17694
++};
++#endif
++
+ static void gst_vtdec_finalize (GObject * object);
+ 
+ static gboolean gst_vtdec_start (GstVideoDecoder * decoder);

@@ -1,0 +1,25 @@
+From 6906f010aa5ae3fb0cfb3b6bed47e7bd4fa37e1b Mon Sep 17 00:00:00 2001
+From: John Ralls <jralls@ceridwen.us>
+Date: Mon, 17 Mar 2025 15:05:50 -0700
+Subject: [PATCH 2/5] [quartz] Fix leak of GdkWindowImplQuartz's cairo surface.
+
+---
+ gdk/quartz/gdkwindow-quartz.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/gdk/quartz/gdkwindow-quartz.c b/gdk/quartz/gdkwindow-quartz.c
+index 68c1ebd971..6a7527599d 100644
+--- a/gdk/quartz/gdkwindow-quartz.c
++++ b/gdk/quartz/gdkwindow-quartz.c
+@@ -1126,6 +1126,8 @@ gdk_quartz_window_destroy (GdkWindow *window,
+       cairo_surface_finish (impl->cairo_surface);
+       cairo_surface_set_user_data (impl->cairo_surface, &gdk_quartz_cairo_key,
+ 				   NULL, NULL);
++      if (cairo_surface_get_reference_count(impl->cairo_surface))
++        cairo_surface_destroy(impl->cairo_surface);
+       impl->cairo_surface = NULL;
+     }
+ 
+-- 
+2.39.5 (Apple Git-154)
+

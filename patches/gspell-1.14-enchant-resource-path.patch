@@ -1,0 +1,82 @@
+From 94528397ba2cff5006a37b79e7cc4b25bf38265f Mon Sep 17 00:00:00 2001
+From: John Ralls <jralls@ceridwen.us>
+Date: Tue, 14 Jan 2025 15:48:56 -0800
+Subject: [PATCH] macOS: Set the bundle resource path for enchant.
+
+Otherwise it can't find its modules in an app bundle.
+---
+ gspell/gspell-language.c |  6 ++++++
+ gspell/gspell-osx.c      | 20 ++++++++++++++++----
+ gspell/gspell-osx.h      |  2 ++
+ 3 files changed, 24 insertions(+), 4 deletions(-)
+
+diff --git a/gspell/gspell-language.c b/gspell/gspell-language.c
+index 6754290..671e7fb 100644
+--- a/gspell/gspell-language.c
++++ b/gspell/gspell-language.c
+@@ -89,6 +89,12 @@ gspell_language_get_available (void)
+ 	static GList *available_languages = NULL;
+ 	EnchantBroker *broker;
+ 
++#ifdef __APPLE__
++        gchar* resource_path = _gspell_osx_get_resource_path ();
++        if (resource_path)
++          enchant_set_prefix_dir (resource_path);
++#endif
++
+ 	if (initialized)
+ 	{
+ 		return available_languages;
+diff --git a/gspell/gspell-osx.c b/gspell/gspell-osx.c
+index 7c791b0..87ccd21 100644
+--- a/gspell/gspell-osx.c
++++ b/gspell/gspell-osx.c
+@@ -7,12 +7,10 @@
+ #import <Cocoa/Cocoa.h>
+ 
+ gchar *
+-_gspell_osx_get_preferred_spell_language ()
++_gspell_osx_get_preferred_spell_language (void)
+ {
+ 	gchar *ret = NULL;
+-	NSAutoreleasePool *pool;
+-
+-	pool = [[NSAutoreleasePool alloc] init];
++	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+ 
+ #if defined(MAC_OS_X_VERSION_10_5) && MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_5
+ 	NSArray *langs;
+@@ -27,4 +25,18 @@ _gspell_osx_get_preferred_spell_language ()
+ 
+ 	[pool release];
+ 	return ret;
++
++}
++
++gchar *
++_gspell_osx_get_resource_path (void)
++{
++  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
++  gchar *str = NULL;
++  NSString *path = [[NSBundle mainBundle] resourcePath];
++  if (!path)
++    return NULL;
++  str = strdup ([path UTF8String]);
++  [pool release];
++  return str;
+ }
+diff --git a/gspell/gspell-osx.h b/gspell/gspell-osx.h
+index ddb40ea..17fd536 100644
+--- a/gspell/gspell-osx.h
++++ b/gspell/gspell-osx.h
+@@ -11,5 +11,7 @@ G_BEGIN_DECLS
+ 
+ G_GNUC_INTERNAL
+ gchar *	_gspell_osx_get_preferred_spell_language	(void);
++G_GNUC_INTERNAL
++gchar * _gspell_osx_get_resource_path (void);
+ 
+ G_END_DECLS
+-- 
+2.39.5 (Apple Git-154)
+

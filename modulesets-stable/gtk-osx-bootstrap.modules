@@ -2,11 +2,9 @@
 <!DOCTYPE moduleset SYSTEM "moduleset.dtd">
 <?xml-stylesheet type="text/xsl" href="moduleset.xsl"?>
 <moduleset>
-  <!--
-    Please format this file using https://github.com/htacg/tidy-html5
-
-        tidy -config ../tidy.conf -m gtk-osx-bootstrap.modules
-  -->
+  <!-- Please format this file using the following command:
+       tidy -config ../tidy.conf -m gtk-osx-bootstrap.modules; sed -i "" '/^ *$/d' gtk-osx-bootstrap.modules
+       You can get 'tidy' here: https://github.com/htacg/tidy-html5 -->
   <repository name="download.gnome.org"
               default="yes"
               href="https://download.gnome.org/sources/"
@@ -16,9 +14,6 @@
               type="tarball" />
   <repository name="sourceforge"
               href="http://downloads.sourceforge.net/sourceforge/"
-              type="tarball" />
-  <repository name="jpeg"
-              href="http://www.ijg.org/files/"
               type="tarball" />
   <repository name="libtiff"
               href="http://download.osgeo.org/"
@@ -32,33 +27,45 @@
   <repository name="github-tarball"
               href="https://github.com/"
               type="tarball" />
-  <!---->
   <autotools id="libpng"
              autogen-sh="configure"
              autogenargs="--enable-shared">
-    <branch module="libpng/libpng-1.6.40.tar.xz"
-            version="1.6.40"
-            hash="sha256:535b479b2467ff231a3ec6d92a525906fb8ef27978be4f66dbe05d3f3a01b3a1"
+    <branch module="libpng/libpng-1.6.46.tar.xz"
+            version="1.6.46"
+            hash="sha256:f3aa8b7003998ab92a4e9906c18d19853e999f9d3bca9bd1668f54fa81707cb1"
             repo="sourceforge" />
     <dependencies>
       <dep package="zlib" />
     </dependencies>
   </autotools>
-  <!---->
-  <autotools id="libjpeg"
-             autogen-sh="configure">
-    <branch module="jpegsrc.v9e.tar.gz"
-            version="9e"
-            checkoutdir="jpeg-9e"
-            repo="jpeg" />
+  <autotools id="nasm"
+             autogen-sh="autogen.sh"
+             autogen-template="./%(autogen-sh)s &amp;&amp; %(srcdir)s/configure --prefix=%(prefix)s %(autogenargs)s"
+             supports-non-srcdir-builds="no" >
+    <branch module="netwide-assembler/nasm/archive/refs/tags/nasm-2.16.03.tar.gz"
+            checkoutdir="nasm-nasm-2.16.03"
+            version="2.16.03"
+            hash="sha256:e525fa6fdc3df33cec6b499111f44afa78ce50bf260158580dcf014015a21ba9"
+            repo="github-tarball" >
+      <patch file="nasm-dont-install-docs.patch" strip="1" />
+    </branch>
   </autotools>
-  <!---->
-  <autotools id="libtiff"
-             autogen-sh="configure"
-             autogenargs="--without-x">
-    <branch module="libtiff/tiff-4.5.1.tar.xz"
-            version="4.5.1"
-            hash="sha256:3c080867114c26edab3129644a63b708028a90514b7fe3126e38e11d24f9f88a"
+  <cmake id="libjpeg"
+         cmakeargs="-DCMAKE_MACOSX_RPATH=true -DCMAKE_INSTALL_NAME_DIR=&quot;${JHBUILD_PREFIX}/lib&quot; -DCMAKE_INSTALL_LIBDIR:PATH=lib">
+    <branch module="libjpeg-turbo/libjpeg-turbo/releases/download/3.1.0/libjpeg-turbo-3.1.0.tar.gz"
+            version="3.1.0"
+            hash="sha256:9564c72b1dfd1d6fe6274c5f95a8d989b59854575d4bbee44ade7bc17aa9bc93"
+            checkoutdir="libjpeg-turbo-3.1.0"
+            repo="github-tarball" />
+    <dependencies>
+      <dep package="nasm" />
+    </dependencies>
+  </cmake>
+  <cmake id="libtiff"
+         cmakeargs='-Dtiff-tests=off -Dtiff-docs=off -DCMAKE_MACOSX_RPATH=OFF -DCMAKE_INSTALL_NAME_DIR="${JHBUILD_PREFIX}/lib"'>
+    <branch module="libtiff/tiff-4.7.0.tar.xz"
+            version="4.7.0"
+            hash="sha256:273a0a73b1f0bed640afee4a5df0337357ced5b53d3d5d1c405b936501f71017"
             repo="libtiff">
       <patch file="tiff-nohtml.patch"
              strip="1" />
@@ -66,19 +73,17 @@
     <dependencies>
       <dep package="libjpeg" />
     </dependencies>
-  </autotools>
-  <!---->
+  </cmake>
   <meson id="gtk-doc"
          mesonargs="-Dyelp_manual=false -Dtests=false">
-    <branch module="gtk-doc/1.33/gtk-doc-1.33.2.tar.xz"
-            version="1.33.2"
-            hash="sha256:cc1b709a20eb030a278a1f9842a362e00402b7f834ae1df4c1998a723152bf43" />
+    <branch module="gtk-doc/1.34/gtk-doc-1.34.0.tar.xz"
+            version="1.34.0"
+            hash="sha256:b20b72b32a80bc18c7f975c9d4c16460c2276566a0b50f87d6852dff3aa7861c" />
     <after>
       <dep package="python3" />
       <dep package="pygments" />
     </after>
   </meson>
-  <!---->
   <metamodule id="meta-gtk-osx-bootstrap">
     <dependencies>
       <dep package="libpng" />
@@ -87,5 +92,4 @@
       <dep package="gtk-doc" />
     </dependencies>
   </metamodule>
-  <!---->
 </moduleset>

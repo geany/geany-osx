@@ -1,0 +1,14 @@
+--- a/Makefile.in	2024-04-17 09:48:27
++++ n/Makefile.in	2025-04-21 16:15:43
+@@ -394,9 +394,6 @@
+ install: $(PROGS)
+ 	$(MKDIR_P) $(DESTDIR)$(bindir)
+ 	$(INSTALL_PROGRAM) $(PROGS) $(DESTDIR)$(bindir)/
+-	$(MKDIR_P) $(DESTDIR)$(mandir)/man1
+-	$(INSTALL_DATA) $(srcdir)/nasm.1 $(DESTDIR)$(mandir)/man1/nasm.1
+-	$(INSTALL_DATA) $(srcdir)/ndisasm.1 $(DESTDIR)$(mandir)/man1/ndisasm.1
+ 
+ clean:
+ 	for d in . $(SUBDIRS) $(XSUBDIRS); do \
+
+Diff finished.  Mon Apr 21 16:15:55 2025
