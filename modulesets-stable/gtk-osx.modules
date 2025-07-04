@@ -338,12 +338,13 @@
             hash="sha256:74fc163217a3964257d3be39af943e08861263c4231f9ef5b496b6f6d4c7b2b6"
             repo="download.gnome.org"/>
   </autotools>
-  <autotools id="librsvg"
-             autogen-sh="autoreconf"
-             autogenargs="--disable-Bsymbolic">
-    <branch module="librsvg/2.58/librsvg-2.58.2.tar.xz"
-            version="2.58.2"
-            hash="sha256:18e9d70c08cf25f50d610d6d5af571561d67cf4179f962e04266475df6e2e224" />
+  <meson id="librsvg"
+         mesonargs="-Dintrospection=disabled -Ddocs=disabled">
+    <branch module="librsvg/2.60/librsvg-2.60.0.tar.xz"
+            version="2.60.0"
+            hash="sha256:0b6ffccdf6e70afc9876882f5d2ce9ffcf2c713cbaaf1ad90170daa752e1eec3" >
+      <patch file="librsvg-libpixbufloader-install-names.patch" strip="1" />
+    </branch>
     <dependencies>
       <dep package="openssl"/> <!-- Required for rust package cargo-c -->
       <dep package="libxml2" />
@@ -352,7 +353,7 @@
       <dep package="harfbuzz" />
       <dep package="freetype" />
     </dependencies>
-  </autotools>
+  </meson>
   <meson id="adwaita-icon-theme">
     <branch module="adwaita-icon-theme/47/adwaita-icon-theme-47.0.tar.xz"
             version="47.0"
