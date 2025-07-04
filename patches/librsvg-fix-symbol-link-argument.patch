@@ -1,0 +1,44 @@
+From e18cadd81602fc7fc34fcc857cd8b610114260bd Mon Sep 17 00:00:00 2001
+From: "L. E. Segovia" <amy@amyspark.me>
+Date: Thu, 3 Jul 2025 13:47:10 -0300
+Subject: [PATCH] meson: Fix symbol link argument missing in non-Windows builds
+
+I forgot to fix this upstream; on the Meson port for FFmpeg we had tried a
+similar approach, but it ended up being useless because link arguments will
+actually run against the provided objects, unlike compiler arguments. Meson's
+dummy executable will obviously lack the listed symbols.
+
+Fixes #1177
+
+Part-of: <https://gitlab.gnome.org/GNOME/librsvg/-/merge_requests/1113>
+---
+ rsvg/meson.build | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/rsvg/meson.build b/rsvg/meson.build
+index f25912743..3de6fbed6 100644
+--- a/rsvg/meson.build
++++ b/rsvg/meson.build
+@@ -170,6 +170,8 @@ version_script = meson.current_build_dir() / '@0@.def'.format(librsvg_pc)
+ 
+ if host_system in ['darwin', 'ios']
+   vflag = '-Wl,-exported_symbols_list,@0@'.format(version_script)
++elif host_system in ['windows', 'cygwin']
++  vflag = []
+ else
+   vflag = '-Wl,--version-script,@0@'.format(version_script)
+ endif
+@@ -192,7 +194,9 @@ strip_link_args = cc.get_supported_link_arguments(
+   '-Wl,-Bsymbolic-functions',
+ )
+ 
+-link_args = cc.get_supported_link_arguments([vflag]) + strip_link_args
++# The symbol list argument cannot be tested, as the dummy
++# executable Meson uses will lack the necessary functions.
++link_args = strip_link_args + vflag
+ 
+ # Some systems, reportedly OpenBSD and macOS, refuse
+ # to create libraries without any object files. Compiling
+-- 
+2.45.2
+
