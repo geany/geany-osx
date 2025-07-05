@@ -1,0 +1,38 @@
+From 50cf0db506ba22801de990ba9c57a0d0eada8ff6 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Sat, 5 Jul 2025 16:02:33 +0200
+Subject: [PATCH] Set correct install prefix
+
+---
+ Makefile | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 6e21588..54dcf89 100644
+--- a/Makefile
++++ b/Makefile
+@@ -10,7 +10,7 @@ PLAT= guess
+ # so take care if INSTALL_TOP is not an absolute path. See the local target.
+ # You may want to make INSTALL_LMOD and INSTALL_CMOD consistent with
+ # LUA_ROOT, LUA_LDIR, and LUA_CDIR in luaconf.h.
+-INSTALL_TOP= /usr/local
++INSTALL_TOP= $(PREFIX)
+ INSTALL_BIN= $(INSTALL_TOP)/bin
+ INSTALL_INC= $(INSTALL_TOP)/include
+ INSTALL_LIB= $(INSTALL_TOP)/lib
+@@ -55,11 +55,10 @@ $(PLATS) help test clean:
+ 	@cd src && $(MAKE) $@
+ 
+ install: dummy
+-	cd src && $(MKDIR) $(INSTALL_BIN) $(INSTALL_INC) $(INSTALL_LIB) $(INSTALL_MAN) $(INSTALL_LMOD) $(INSTALL_CMOD)
++	cd src && $(MKDIR) $(DESTDIR)/$(INSTALL_BIN) $(DESTDIR)/$(INSTALL_INC) $(DESTDIR)/$(INSTALL_LIB) $(DESTDIR)/$(INSTALL_MAN) $(DESTDIR)/$(INSTALL_LMOD) $(DESTDIR)/$(INSTALL_CMOD)
+ 	cd src && $(INSTALL_EXEC) $(TO_BIN) $(INSTALL_BIN)
+ 	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
+ 	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
+-	cd doc && $(INSTALL_DATA) $(TO_MAN) $(INSTALL_MAN)
+ 
+ uninstall:
+ 	cd src && cd $(INSTALL_BIN) && $(RM) $(TO_BIN)
+-- 
+2.45.2
+

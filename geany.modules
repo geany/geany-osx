@@ -61,14 +61,25 @@
             version="1.8.4"/>
   </cmake>
 
-  <autotools id="lua"
+  <autotools id="lua51"
              makeargs="macosx"
              skip-autogen="true"
              supports-non-srcdir-builds="no">
     <branch repo="lua.org"
-            module="lua-5.1.5.tar.gz"
+            module="lua-${version}.tar.gz"
             version="5.1.5">
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/lua51_set_correct_install_prefix.patch" strip="1" />
+    </branch>
+  </autotools>
+
+  <autotools id="lua54"
+             makeargs="macosx"
+             skip-autogen="true"
+             supports-non-srcdir-builds="no">
+    <branch repo="lua.org"
+            module="lua-${version}.tar.gz"
+            version="5.4.8">
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/lua54_set_correct_install_prefix.patch" strip="1" />
     </branch>
   </autotools>
 
@@ -153,7 +164,7 @@
       <dep package="libgit2" />
       <dep package="hunspell" />
       <dep package="enchant" />
-      <dep package="lua" />
+      <dep package="lua51" />
     </dependencies>
   </metamodule>
 
