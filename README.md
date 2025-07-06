@@ -112,7 +112,13 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	```
 	With this settings, the build creates an ARM64 binary that works on
 	macOS 11 and later. Instead of `arm64` you can also specify
-	`x86_64` to produce binaries for 64-bit Intel processors.
+	`x86_64` to produce binaries for 64-bit Intel processors. Also,
+	when cross-compiling x86_64 binaries, set
+	```
+	default_toolchain = "stable-x86_64-apple-darwin"
+	```
+	inside `.new_local/settings.toml` so rust downloads x86_64 library
+	versions.
 
 6.	Install GTK and all of its dependencies by running the following
 	command inside the `geany-osx` directory:
