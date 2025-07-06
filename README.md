@@ -106,12 +106,12 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 
 5.	Add the following lines to `~/.config/jhbuildrc-custom`:
 	```
-	setup_sdk(target="10.13", architectures=["x86_64"])
+	setup_sdk(target="10.15", architectures=["x86_64"])
 	#setup_sdk(target="11", architectures=["arm64"])
 	setup_release()  # enables optimizations
 	```
 	With this settings, the build creates a 64-bit Intel binary that works on
-	macOS 10.13 and later. Instead of `x86_64` you can also specify
+	macOS 10.15 and later. Instead of `x86_64` you can also specify
 	`arm64` to produce binaries for Apple ARM processors. This only works
 	when building on ARM processors - it isn't possible to compile
 	ARM binaries on Intel processors.
