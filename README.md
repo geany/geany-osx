@@ -78,7 +78,7 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 	jhbuild does not interfere with some other command-line tools installed
 	on your system).
 
-2.	Optionally, when cross-compiling x86_64 binaries on a new ARM-based
+2.	Optionally, when cross-compiling x86_64 binaries on an ARM64
 	Apple computer, run
 	```
 	env /usr/bin/arch -x86_64 /bin/zsh --login
@@ -106,15 +106,13 @@ To create the bundle, you need to first install JHBuild and GTK as described bel
 
 5.	Add the following lines to `~/.config/jhbuildrc-custom`:
 	```
-	setup_sdk(target="10.15", architectures=["x86_64"])
-	#setup_sdk(target="11", architectures=["arm64"])
+	setup_sdk(target="11", architectures=["arm64"])
+	#setup_sdk(target="10.15", architectures=["x86_64"])
 	setup_release()  # enables optimizations
 	```
-	With this settings, the build creates a 64-bit Intel binary that works on
-	macOS 10.15 and later. Instead of `x86_64` you can also specify
-	`arm64` to produce binaries for Apple ARM processors. This only works
-	when building on ARM processors - it isn't possible to compile
-	ARM binaries on Intel processors.
+	With this settings, the build creates an ARM64 binary that works on
+	macOS 11 and later. Instead of `arm64` you can also specify
+	`x86_64` to produce binaries for 64-bit Intel processors.
 
 6.	Install GTK and all of its dependencies by running the following
 	command inside the `geany-osx` directory:
