@@ -339,7 +339,7 @@
             repo="download.gnome.org"/>
   </autotools>
   <meson id="librsvg"
-         mesonargs="-Dintrospection=disabled -Ddocs=disabled">
+         mesonargs="--buildtype=release -Dintrospection=disabled -Ddocs=disabled">
     <branch module="librsvg/2.60/librsvg-2.60.0.tar.xz"
             version="2.60.0"
             hash="sha256:0b6ffccdf6e70afc9876882f5d2ce9ffcf2c713cbaaf1ad90170daa752e1eec3" >
