@@ -37,11 +37,23 @@
     </branch>
   </autotools>
 
+  <!-- Required by VTE -->
+  <!--
+  <cmake id="fast_float"
+         cmakeargs="-DCMAKE_INSTALL_NAME_DIR=${PREFIX}">
+    <branch repo="download.github.com" 
+            module="fastfloat/fast_float/archive/refs/tags/v${version}.tar.gz"
+            checkoutdir="fast_float-${version}"
+            version="8.0.2"/>
+  </cmake>
+  -->
+
+  <!-- Newer VTE versions require C++ features introduced in macOS 13.3, stick with 0.76.6 for now -->
   <meson id="vte291"
          mesonargs="-Dicu=false -Dvapi=false -Dgtk4=false -D_b_symbolic_functions=false">
     <branch repo="download.gitlab.gnome.org"
             module="vte/-/archive/${version}/vte-${version}.tar.bz2" 
-            version="0.76.5">
+            version="0.76.6">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/vte_2.91_relpath.patch" strip="1" />
     </branch>
@@ -49,6 +61,9 @@
       <dep package="libpcre2" />
       <dep package="gnutls" />
       <dep package="lz4" />
+      <!--
+      <dep package="fast_float" />
+      -->
     </dependencies>
   </meson>
 
