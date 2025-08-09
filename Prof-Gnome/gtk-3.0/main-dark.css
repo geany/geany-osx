@@ -4922,58 +4922,6 @@ scrolledwindow viewport.frame
 { 
    border-style: none;
 }
-scrolledwindow overshoot.top
-{ 
-     background-image: -gtk-gradient(radial, center top, 0, center top, 0.5,
-                                     to(#b6aea5), to(rgba(182, 174, 165, 0))), 
-                       -gtk-gradient(radial, center top, 0, center top, 0.6,
-                       from(rgba(46, 52, 54, 0.07)), to(rgba(46, 52, 54, 0))); 
-      background-size: 100% 5%, 100% 100%; 
-    background-repeat: no-repeat; 
-  background-position: center top; 
-     background-color: transparent; 
-               border: none; 
-           box-shadow: none;
-}
-scrolledwindow overshoot.bottom
-{ 
-     background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5,
-                                     to(#b6aea5), to(rgba(182, 174, 165, 0))),
-                       -gtk-gradient(radial, center bottom, 0, center bottom, 0.6,
-                       from(rgba(46, 52, 54, 0.07)), to(rgba(46, 52, 54, 0))); 
-      background-size: 100% 5%, 100% 100%; 
-    background-repeat: no-repeat; 
-  background-position: center bottom; 
-     background-color: transparent; 
-               border: none; 
-           box-shadow: none;
-}
-scrolledwindow overshoot.left
-{ 
-     background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, to(#b6aea5),
-                                     to(rgba(182, 174, 165, 0))),
-                       -gtk-gradient(radial, left center, 0, left center, 0.6,
-                       from(rgba(46, 52, 54, 0.07)), to(rgba(46, 52, 54, 0))); 
-      background-size: 5% 100%, 100% 100%; 
-    background-repeat: no-repeat; 
-  background-position: left center; 
-     background-color: transparent; 
-               border: none; 
-           box-shadow: none;
-}
-scrolledwindow overshoot.right
-{ 
-     background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, to(#b6aea5),
-                                     to(rgba(182, 174, 165, 0))), 
-                       -gtk-gradient(radial, right center, 0, right center, 0.6,
-                       from(rgba(46, 52, 54, 0.07)), to(rgba(46, 52, 54, 0))); 
-      background-size: 5% 100%, 100% 100%; 
-    background-repeat: no-repeat; 
-  background-position: right center; 
-     background-color: transparent; 
-               border: none; 
-           box-shadow: none;
-}
 scrolledwindow junction
 { 
       border-color: transparent; 
