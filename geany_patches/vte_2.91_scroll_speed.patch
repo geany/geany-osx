@@ -1,0 +1,26 @@
+From d9ca1bc29766f87c0e551bfbb25dfa9429ee3d37 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jir=CC=8Ci=CC=81=20Techet?= <techet@gmail.com>
+Date: Sat, 9 Aug 2025 11:18:53 +0200
+Subject: [PATCH] Convert VTE scrolling speed from pixels scrolled to mouse
+ wheel clicks
+
+---
+ src/vte.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/vte.cc b/src/vte.cc
+index 6ccdc26..5af3cde 100644
+--- a/src/vte.cc
++++ b/src/vte.cc
+@@ -10037,7 +10037,7 @@ Terminal::widget_mouse_scroll(vte::platform::ScrollEvent const& event)
+ 	int button;
+ 
+         m_modifiers = event.modifiers();
+-        m_mouse_smooth_scroll_delta += event.dy();
++        m_mouse_smooth_scroll_delta += event.dy() / 10.0;
+ 
+ 	/* If we're running a mouse-aware application, map the scroll event
+ 	 * to a button press on buttons four and five. */
+-- 
+2.50.1
+

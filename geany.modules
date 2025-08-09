@@ -56,6 +56,7 @@
             version="0.76.6">
       <!-- Make paths relative to bundle (fallback to system paths if not found) -->
       <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/vte_2.91_relpath.patch" strip="1" />
+      <patch file="https://github.com/geany/geany-osx/raw/master/geany_patches/vte_2.91_scroll_speed.patch" strip="1" />
     </branch>
     <dependencies>
       <dep package="libpcre2" />
